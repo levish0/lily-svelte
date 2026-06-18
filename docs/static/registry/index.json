@@ -1,0 +1,38 @@
+[
+	{
+		"name": "avatar",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "avatar.json"
+	},
+	{
+		"name": "badge",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "badge.json"
+	},
+	{
+		"name": "button",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "button.json"
+	},
+	{
+		"name": "card",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "card.json"
+	},
+	{
+		"name": "separator",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "separator.json"
+	},
+	{
+		"name": "utils",
+		"type": "registry:lib",
+		"registryDependencies": [],
+		"relativeUrl": "utils.json"
+	}
+]

@@ -1,0 +1,17 @@
+{
+	"$schema": "https://lily.levish.ac/schema/registry-item.json",
+	"name": "avatar",
+	"type": "registry:ui",
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from \"$UTILS$.js\";\n\n\tinterface Props {\n\t\tsrc?: string;\n\t\talt?: string;\n\t\tsize?: \"xs\" | \"sm\" | \"default\" | \"lg\" | \"xl\";\n\t\tclass?: string;\n\t}\n\n\tlet { src, alt = \"\", size = \"default\", class: className }: Props = $props();\n\n\tlet imgError = $state(false);\n\n\tconst sizes = {\n\t\txs: \"size-5\",\n\t\tsm: \"size-7\",\n\t\tdefault: \"size-9\",\n\t\tlg: \"size-12\",\n\t\txl: \"size-16\",\n\t};\n</script>\n\n<div\n\tclass={cn(\n\t\t\"relative shrink-0 overflow-hidden rounded-full bg-(--text)/8\",\n\t\tsizes[size],\n\t\tclassName,\n\t)}\n>\n\t{#if src && !imgError}\n\t\t<img\n\t\t\t{src}\n\t\t\t{alt}\n\t\t\tclass=\"size-full object-cover\"\n\t\t\tonerror={() => (imgError = true)}\n\t\t/>\n\t{:else}\n\t\t<div class=\"flex size-full items-center justify-center text-(--text)/36\">\n\t\t\t<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"size-[55%]\">\n\t\t\t\t<path\n\t\t\t\t\td=\"M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-5.33 0-8 2.67-8 4v1h16v-1c0-1.33-2.67-4-8-4z\"\n\t\t\t\t/>\n\t\t\t</svg>\n\t\t</div>\n\t{/if}\n</div>\n",
+			"type": "registry:file",
+			"target": "avatar/avatar.svelte"
+		},
+		{
+			"content": "import Root from \"./avatar.svelte\";\n\nexport { Root, Root as Avatar };\n",
+			"type": "registry:file",
+			"target": "avatar/index.ts"
+		}
+	]
+}

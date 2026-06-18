@@ -1,3 +1,101 @@
+/* lily design system — imported via `@import "lily/tailwind.css"` */
+
+@custom-variant dark (&:is(.dark *));
+
+/* ----------------------------------------------------------------------------
+ * Design tokens & base styles (from levish.ac)
+ * ------------------------------------------------------------------------- */
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	:root {
+		--bg: #f8f8f8;
+		--bg-elevated: #ffffff;
+		--text: #0d0d0d;
+	}
+
+	:root.dark {
+		--bg: #111111;
+		--bg-elevated: #1c1c1c;
+		--text: #efefef;
+	}
+
+	body {
+		background: var(--bg);
+		color: var(--text);
+		font-family:
+			'Pretendard JP Variable',
+			-apple-system,
+			BlinkMacSystemFont,
+			system-ui,
+			Roboto,
+			'Helvetica Neue',
+			'Segoe UI',
+			'Apple SD Gothic Neo',
+			'Noto Sans KR',
+			'Malgun Gothic',
+			'Apple Color Emoji',
+			'Segoe UI Emoji',
+			'Segoe UI Symbol',
+			sans-serif;
+		word-break: keep-all;
+		overflow-wrap: break-word;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	::selection {
+		background: color-mix(in srgb, var(--text) 12%, transparent);
+		color: var(--text);
+	}
+
+	h1,
+	h2,
+	h3 {
+		text-wrap: balance;
+	}
+
+	p,
+	li,
+	figcaption {
+		text-wrap: pretty;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	a:active,
+	button:active {
+		transform: scale(0.96);
+	}
+}
+
+/* ----------------------------------------------------------------------------
+ * Utilities
+ * ------------------------------------------------------------------------- */
+@layer utilities {
+	.link {
+		background-image: linear-gradient(currentcolor, currentcolor);
+		background-position: 0 100%;
+		background-repeat: no-repeat;
+		background-size: 0% 1px;
+		transition:
+			color 0.15s cubic-bezier(0.2, 0, 0, 1),
+			background-size 0.25s cubic-bezier(0.2, 0, 0, 1),
+			transform 0.15s cubic-bezier(0.2, 0, 0, 1);
+	}
+
+	.link:hover {
+		background-size: 100% 1px;
+	}
+}
+
+/* ----------------------------------------------------------------------------
+ * Shared component helpers (animations, stateful variants)
+ * ------------------------------------------------------------------------- */
 @theme inline {
 	@keyframes accordion-down {
 		from {
@@ -18,7 +116,6 @@
 	}
 }
 
-/* Custom variants */
 @custom-variant data-open {
 	&:where([data-state="open"]),
 	&:where([data-open]:not([data-open="false"])) {
@@ -46,12 +143,6 @@
 		@slot;
 	}
 }
-
-/* @custom-variant data-selected {
-	&:where([data-selected="true"]) {
-		@slot;
-	}
-} */
 
 @custom-variant data-disabled {
 	&:where([data-disabled="true"]),
