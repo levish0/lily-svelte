@@ -14,7 +14,7 @@
 	bind:this={ref}
 	data-slot="textarea"
 	class={cn(
-		'flex field-sizing-content min-h-20 w-full resize-none rounded-2xl border border-(--text)/12 bg-(--bg-elevated) px-3.5 py-2.5 text-sm leading-[1.5] tracking-[-0.39px] outline-none transition-colors duration-150 placeholder:text-(--text)/36 focus-visible:border-(--text)/32 disabled:pointer-events-none disabled:opacity-50',
+		'flex field-sizing-content min-h-20 w-full resize-y rounded-2xl border border-(--text)/12 bg-(--bg-elevated) px-3.5 py-2.5 text-sm leading-[1.5] tracking-[-0.39px] outline-none transition-colors duration-150 placeholder:text-(--text)/36 focus-visible:border-(--text)/32 disabled:pointer-events-none disabled:opacity-50',
 		className
 	)}
 	bind:value
