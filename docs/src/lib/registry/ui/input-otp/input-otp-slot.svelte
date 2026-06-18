@@ -15,7 +15,7 @@
 	bind:ref
 	data-slot="input-otp-slot"
 	class={cn(
-		'relative flex size-12 items-center justify-center rounded-2xl bg-(--text)/5 text-base font-medium tracking-[-0.39px] transition-colors duration-150 outline-none data-[active=true]:z-10 data-[active=true]:bg-(--text)/10',
+		'relative flex size-12 items-center justify-center rounded-2xl bg-(--text)/5 text-base font-medium tracking-[-0.39px] transition-colors duration-150 outline-none data-[active=true]:z-10 data-[active=true]:bg-(--text)/12',
 		className
 	)}
 	{...restProps}

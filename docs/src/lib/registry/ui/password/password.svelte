@@ -75,7 +75,7 @@
 
 	{#if showStrength && score !== null}
 		<div class="flex items-center gap-3 px-1.5">
-			<div class="h-1.5 flex-1 overflow-hidden rounded-full bg-(--text)/10">
+			<div class="h-1.5 flex-1 overflow-hidden rounded-full bg-(--text)/12">
 				<div
 					class={cn(
 						'h-full rounded-full transition-all duration-300 ease-out',

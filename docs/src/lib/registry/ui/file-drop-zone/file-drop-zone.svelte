@@ -129,7 +129,7 @@
 	{:else}
 		<div
 			class={cn(
-				'flex h-48 cursor-pointer flex-col items-center justify-center gap-3 rounded-3xl bg-(--text)/4 p-6 text-center transition-colors duration-150 hover:bg-(--text)/6',
+				'flex h-48 cursor-pointer flex-col items-center justify-center gap-3 rounded-3xl bg-(--text)/5 p-6 text-center transition-colors duration-150 hover:bg-(--text)/8',
 				dragOver && 'bg-(--text)/8'
 			)}
 		>

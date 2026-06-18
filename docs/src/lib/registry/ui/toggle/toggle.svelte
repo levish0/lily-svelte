@@ -9,7 +9,7 @@
 		size = 'default'
 	}: { variant?: ToggleVariant; size?: ToggleSize } = {}): string {
 		const base =
-			'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl text-sm font-medium tracking-[-0.39px] text-(--text)/72 outline-none transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) data-[state=on]:bg-(--text)/10 data-[state=on]:text-(--text) disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0';
+			'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl text-sm font-medium tracking-[-0.39px] text-(--text)/72 outline-none transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) data-[state=on]:bg-(--text)/12 data-[state=on]:text-(--text) disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0';
 		const variants: Record<ToggleVariant, string> = {
 			default: '',
 			outline: 'border border-(--text)/12'

@@ -55,7 +55,7 @@
 >
 	{#each value as tag, i (i)}
 		<span
-			class="inline-flex items-center gap-1 rounded-full bg-(--text)/10 py-1 ps-3 pe-1.5 text-xs tracking-[-0.3px] text-(--text)/72"
+			class="inline-flex items-center gap-1 rounded-full bg-(--text)/12 py-1 ps-3 pe-1.5 text-xs tracking-[-0.3px] text-(--text)/72"
 		>
 			{tag}
 			<button
