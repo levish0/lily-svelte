@@ -224,6 +224,14 @@
 		"relativeUrl": "input-otp-demo.json"
 	},
 	{
+		"name": "kbd-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "kbd-demo.json"
+	},
+	{
 		"name": "label-demo",
 		"type": "registry:example",
 		"registryDependencies": [

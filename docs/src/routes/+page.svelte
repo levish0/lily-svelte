@@ -45,8 +45,10 @@
 		</div>
 	</div>
 
-	<!-- Showcase -->
-	<div class="grid gap-4 pb-24 sm:grid-cols-2 lg:grid-cols-3">
+	<!-- Showcase (masonry — cards flow by their own height) -->
+	<div
+		class="columns-1 gap-4 pb-24 sm:columns-2 lg:columns-3 [&>*]:mb-4 [&>*]:break-inside-avoid"
+	>
 		<Card>
 			<CardHeader>
 				<CardTitle>Buttons</CardTitle>

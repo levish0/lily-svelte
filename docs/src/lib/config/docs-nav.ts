@@ -30,6 +30,7 @@ export const docsNav: NavSection[] = [
 			{ title: 'Dropdown Menu', href: '/docs/components/dropdown-menu' },
 			{ title: 'Input', href: '/docs/components/input' },
 			{ title: 'Input OTP', href: '/docs/components/input-otp' },
+			{ title: 'Kbd', href: '/docs/components/kbd' },
 			{ title: 'Label', href: '/docs/components/label' },
 			{ title: 'Popover', href: '/docs/components/popover' },
 			{ title: 'Progress', href: '/docs/components/progress' },
