@@ -1,18 +1,54 @@
+<script lang="ts" module>
+	import { zxcvbnOptions } from '@zxcvbn-ts/core';
+	import * as zxcvbnCommon from '@zxcvbn-ts/language-common';
+
+	let configured = false;
+	function ensureConfigured() {
+		if (configured) return;
+		zxcvbnOptions.setOptions({
+			dictionary: { ...zxcvbnCommon.dictionary },
+			graphs: zxcvbnCommon.adjacencyGraphs
+		});
+		configured = true;
+	}
+
+	const STRENGTH_LABELS = ['Very weak', 'Weak', 'Fair', 'Good', 'Strong'];
+	// Monochrome ramp "filling toward solid"; red (the one allowed accent) for weak.
+	const STRENGTH_COLORS = [
+		'bg-red-500/70',
+		'bg-red-500/70',
+		'bg-(--text)/40',
+		'bg-(--text)/65',
+		'bg-(--text)'
+	];
+</script>
+
 <script lang="ts">
 	import { cn, type WithElementRef } from '$lib/utils.js';
 	import { Input } from '$lib/registry/ui/input';
+	import { zxcvbn } from '@zxcvbn-ts/core';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	let {
 		ref = $bindable(null),
 		value = $bindable(''),
+		showStrength = false,
 		class: className,
 		...restProps
-	}: WithElementRef<Omit<HTMLInputAttributes, 'type' | 'files'>, HTMLInputElement> = $props();
+	}: WithElementRef<Omit<HTMLInputAttributes, 'type' | 'files'>, HTMLInputElement> & {
+		showStrength?: boolean;
+	} = $props();
 
 	let visible = $state(false);
+
+	const score = $derived.by(() => {
+		if (!showStrength || !value) return null;
+		ensureConfigured();
+		return zxcvbn(String(value)).score; // 0–4
+	});
 </script>
 
+<div class="flex flex-col gap-2">
 <div class="relative">
 	<Input
 		bind:ref
@@ -41,4 +77,21 @@
 			</svg>
 		{/if}
 	</button>
+</div>
+
+{#if showStrength && score !== null}
+	<div class="flex flex-col gap-1.5">
+		<div class="flex gap-1.5">
+			{#each Array.from({ length: 5 }) as _, i (i)}
+				<div
+					class={cn(
+						'h-1 flex-1 rounded-full transition-colors duration-200',
+						i <= score ? STRENGTH_COLORS[score] : 'bg-(--text)/10'
+					)}
+				></div>
+			{/each}
+		</div>
+		<span class="text-xs tracking-[-0.3px] text-(--text)/56">{STRENGTH_LABELS[score]}</span>
+	</div>
+{/if}
 </div>

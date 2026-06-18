@@ -12,7 +12,7 @@
 		};
 
 	const variants: Record<ButtonVariant, string> = {
-		default: 'bg-(--text) text-(--bg) hover:opacity-80 font-medium',
+		default: 'bg-(--text) text-(--bg) hover:bg-(--text)/90 font-medium',
 		ghost: 'bg-(--text)/5 text-(--text)/72 hover:bg-(--text)/8 hover:text-(--text)',
 		destructive: 'bg-red-500/10 text-red-600 hover:bg-red-500/20 font-medium dark:text-red-400'
 	};

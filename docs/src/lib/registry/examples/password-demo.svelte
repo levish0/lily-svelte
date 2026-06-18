@@ -4,4 +4,6 @@
 	let value = $state('');
 </script>
 
-<Password bind:value placeholder="Enter your password" class="max-w-xs" />
+<div class="w-full max-w-xs">
+	<Password bind:value showStrength placeholder="Enter your password" />
+</div>

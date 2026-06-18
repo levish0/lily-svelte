@@ -49,3 +49,15 @@ npx lily init
 
 <Password bind:value placeholder="Enter your password" />
 ```
+
+## Strength meter
+
+Pass `showStrength` to render a strength bar. Scoring uses [`@zxcvbn-ts`](https://github.com/zxcvbn-ts/zxcvbn) (a vetted estimator), not a homemade heuristic.
+
+```svelte
+<Password bind:value showStrength />
+```
+
+```bash
+npm install @zxcvbn-ts/core @zxcvbn-ts/language-common
+```

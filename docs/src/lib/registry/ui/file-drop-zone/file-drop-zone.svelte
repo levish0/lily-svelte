@@ -69,8 +69,12 @@
 		const type = file.type.toLowerCase();
 		const name = file.name.toLowerCase();
 		const ok = patterns.some((p) => {
-			if (type === '' || p.startsWith('.')) return name.endsWith(p);
-			if (p.endsWith('/*')) return type.startsWith(p.slice(0, p.indexOf('/*')) + '/');
+			// Extension pattern (e.g. ".png") — always available, even when the
+			// browser reports an empty MIME type.
+			if (p.startsWith('.')) return name.endsWith(p);
+			// MIME patterns require a reported type.
+			if (type === '') return false;
+			if (p.endsWith('/*')) return type.startsWith(p.slice(0, -1)); // "image/*" -> "image/"
 			return type === p;
 		});
 		return ok ? undefined : 'File type not allowed';
@@ -78,14 +82,17 @@
 
 	async function process(files: File[]) {
 		uploading = true;
-		const valid: File[] = [];
-		files.forEach((file, i) => {
-			const reason = shouldAccept(file, i);
-			if (reason) onFileRejected?.({ file, reason });
-			else valid.push(file);
-		});
-		if (valid.length) await onUpload?.(valid);
-		uploading = false;
+		try {
+			const valid: File[] = [];
+			files.forEach((file, i) => {
+				const reason = shouldAccept(file, i);
+				if (reason) onFileRejected?.({ file, reason });
+				else valid.push(file);
+			});
+			if (valid.length) await onUpload?.(valid);
+		} finally {
+			uploading = false;
+		}
 	}
 
 	async function onchange(e: Event & { currentTarget: HTMLInputElement }) {

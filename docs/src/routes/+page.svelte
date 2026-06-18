@@ -11,6 +11,13 @@
 	import { RadioGroup, RadioGroupItem } from '$lib/registry/ui/radio-group';
 	import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/registry/ui/tabs';
 	import { Select, SelectTrigger, SelectContent, SelectItem } from '$lib/registry/ui/select';
+	import { Slider } from '$lib/registry/ui/slider';
+	import { ToggleGroup, ToggleGroupItem } from '$lib/registry/ui/toggle-group';
+	import { TagsInput } from '$lib/registry/ui/tags-input';
+	import { NumberField } from '$lib/registry/ui/number-field';
+	import { Password } from '$lib/registry/ui/password';
+	import { Alert, AlertTitle, AlertDescription } from '$lib/registry/ui/alert';
+	import * as Command from '$lib/registry/ui/command';
 	import {
 		Card,
 		CardHeader,
@@ -21,6 +28,11 @@
 
 	let progress = $state(20);
 	let fruit = $state('');
+	let volume = $state(60);
+	let align = $state('center');
+	let tags = $state(['svelte', 'tailwind']);
+	let qty = $state(2);
+	let secret = $state('');
 
 	onMount(() => {
 		const t = setInterval(() => (progress = progress >= 100 ? 20 : progress + 20), 1400);
@@ -180,6 +192,94 @@
 				<div class="flex flex-col tracking-[-0.48px]">
 					<span class="text-sm font-medium">levish</span>
 					<span class="text-xs text-(--text)/48">levish.ac</span>
+				</div>
+			</CardContent>
+		</Card>
+
+		<Card>
+			<CardHeader>
+				<CardTitle>Slider</CardTitle>
+				<CardDescription>Drag to set a value.</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<Slider type="single" bind:value={volume} max={100} />
+			</CardContent>
+		</Card>
+
+		<Card>
+			<CardHeader>
+				<CardTitle>Toggle group</CardTitle>
+				<CardDescription>Segmented, springy press.</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<ToggleGroup type="single" bind:value={align}>
+					<ToggleGroupItem value="left">Left</ToggleGroupItem>
+					<ToggleGroupItem value="center">Center</ToggleGroupItem>
+					<ToggleGroupItem value="right">Right</ToggleGroupItem>
+				</ToggleGroup>
+			</CardContent>
+		</Card>
+
+		<Card>
+			<CardHeader>
+				<CardTitle>Tags input</CardTitle>
+				<CardDescription>Chips with keyboard editing.</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<TagsInput bind:value={tags} />
+			</CardContent>
+		</Card>
+
+		<Card>
+			<CardHeader>
+				<CardTitle>Password</CardTitle>
+				<CardDescription>Strength via zxcvbn.</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<Password bind:value={secret} showStrength placeholder="Try a password" />
+			</CardContent>
+		</Card>
+
+		<Card>
+			<CardHeader>
+				<CardTitle>Number field</CardTitle>
+				<CardDescription>Stepper controls.</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<NumberField bind:value={qty} min={0} max={10} />
+			</CardContent>
+		</Card>
+
+		<Card>
+			<CardHeader>
+				<CardTitle>Alert</CardTitle>
+				<CardDescription>Quiet, semantic callouts.</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<Alert>
+					<AlertTitle>Heads up!</AlertTitle>
+					<AlertDescription>Add components with the CLI.</AlertDescription>
+				</Alert>
+			</CardContent>
+		</Card>
+
+		<Card>
+			<CardHeader>
+				<CardTitle>Command</CardTitle>
+				<CardDescription>Fast searchable menu.</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<div class="overflow-hidden rounded-2xl bg-(--text)/4">
+					<Command.Root>
+						<Command.Input placeholder="Search…" />
+						<Command.List>
+							<Command.Empty>No results.</Command.Empty>
+							<Command.Group heading="Suggestions">
+								<Command.Item>Calendar</Command.Item>
+								<Command.Item>Settings</Command.Item>
+							</Command.Group>
+						</Command.List>
+					</Command.Root>
 				</div>
 			</CardContent>
 		</Card>

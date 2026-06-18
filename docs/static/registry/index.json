@@ -6,6 +6,24 @@
 		"relativeUrl": "accordion.json"
 	},
 	{
+		"name": "alert",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "alert.json"
+	},
+	{
+		"name": "alert-dialog",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "alert-dialog.json"
+	},
+	{
+		"name": "aspect-ratio",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "aspect-ratio.json"
+	},
+	{
 		"name": "avatar",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -114,6 +132,24 @@
 		"relativeUrl": "label.json"
 	},
 	{
+		"name": "menubar",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "menubar.json"
+	},
+	{
+		"name": "number-field",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "number-field.json"
+	},
+	{
+		"name": "pagination",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "pagination.json"
+	},
+	{
 		"name": "password",
 		"type": "registry:ui",
 		"registryDependencies": [
@@ -181,6 +217,12 @@
 		"relativeUrl": "skeleton.json"
 	},
 	{
+		"name": "slider",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "slider.json"
+	},
+	{
 		"name": "sonner",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -191,6 +233,12 @@
 		"type": "registry:ui",
 		"registryDependencies": [],
 		"relativeUrl": "switch.json"
+	},
+	{
+		"name": "table",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "table.json"
 	},
 	{
 		"name": "tabs",
@@ -243,6 +291,30 @@
 			"ui"
 		],
 		"relativeUrl": "accordion-demo.json"
+	},
+	{
+		"name": "alert-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "alert-demo.json"
+	},
+	{
+		"name": "alert-dialog-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "alert-dialog-demo.json"
+	},
+	{
+		"name": "aspect-ratio-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "aspect-ratio-demo.json"
 	},
 	{
 		"name": "avatar-demo",
@@ -389,6 +461,30 @@
 		"relativeUrl": "label-demo.json"
 	},
 	{
+		"name": "menubar-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "menubar-demo.json"
+	},
+	{
+		"name": "number-field-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "number-field-demo.json"
+	},
+	{
+		"name": "pagination-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "pagination-demo.json"
+	},
+	{
 		"name": "password-demo",
 		"type": "registry:example",
 		"registryDependencies": [
@@ -469,6 +565,14 @@
 		"relativeUrl": "skeleton-demo.json"
 	},
 	{
+		"name": "slider-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "slider-demo.json"
+	},
+	{
 		"name": "sonner-demo",
 		"type": "registry:example",
 		"registryDependencies": [
@@ -483,6 +587,14 @@
 			"ui"
 		],
 		"relativeUrl": "switch-demo.json"
+	},
+	{
+		"name": "table-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "table-demo.json"
 	},
 	{
 		"name": "tabs-demo",

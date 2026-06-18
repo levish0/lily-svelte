@@ -69,7 +69,7 @@
 				<ScrollArea class="h-72">
 					<Command.Empty>No country found.</Command.Empty>
 					<Command.Group>
-						{#each countries.sort(order) as country (country.id)}
+						{#each [...countries].sort(order) as country (country.id)}
 							<Command.Item value={country.name} onSelect={() => selectCountry(country)}>
 								<Flag {country} />
 								<span class="flex-1 text-sm tracking-[-0.39px]">{country.name}</span>

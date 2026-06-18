@@ -35,7 +35,7 @@
 	}
 </script>
 
-<div class="flex w-full place-items-center">
+<div data-slot="phone-input" class="flex w-full place-items-center">
 	<CountrySelector {order} {countries} bind:selected={country} onselect={focus} {disabled} />
 	<TelInput
 		{name}

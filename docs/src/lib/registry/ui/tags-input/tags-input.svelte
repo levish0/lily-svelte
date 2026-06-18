@@ -16,7 +16,6 @@
 	} = $props();
 
 	let input = $state('');
-	let inputEl = $state<HTMLInputElement>();
 
 	const atMax = $derived(maxTags !== undefined && value.length >= maxTags);
 
@@ -53,7 +52,7 @@
 		className
 	)}
 >
-	{#each value as tag, i (tag)}
+	{#each value as tag, i (i)}
 		<span
 			class="inline-flex items-center gap-1 rounded-full bg-(--text)/10 py-1 ps-3 pe-1.5 text-xs tracking-[-0.3px] text-(--text)/72"
 		>
@@ -74,11 +73,11 @@
 		</span>
 	{/each}
 	<input
-		bind:this={inputEl}
 		bind:value={input}
 		{onkeydown}
 		onblur={addTag}
 		{disabled}
+		aria-label="Add a tag"
 		placeholder={atMax ? '' : placeholder}
 		class="h-7 min-w-24 flex-1 bg-transparent tracking-[-0.39px] outline-none placeholder:text-(--text)/40"
 	/>
