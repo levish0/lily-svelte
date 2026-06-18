@@ -28,7 +28,7 @@ function componentPreviews() {
 				const [, name] = exec;
 				const insertIndex = (exec.index as number) + TARGET.length;
 				const identifier = camelize(name);
-				const prop = ` component={${identifier}}`;
+				const prop = ` component={${identifier}} code={${identifier}Code}`;
 				ms.appendRight(insertIndex, prop);
 				components.add(name);
 			}
@@ -36,8 +36,11 @@ function componentPreviews() {
 			const importIndex = content.search('import ComponentPreview');
 			for (const name of components) {
 				const identifier = camelize(name);
-				const importStatement = `import ${identifier} from "$lib/registry/examples/${name}.svelte";`;
-				ms.appendLeft(importIndex, importStatement);
+				ms.appendLeft(
+					importIndex,
+					`import ${identifier} from "$lib/registry/examples/${name}.svelte";` +
+						`import ${identifier}Code from "$lib/registry/examples/${name}.svelte?raw";`
+				);
 			}
 
 			return { code: ms.toString(), map: ms.generateMap() };
