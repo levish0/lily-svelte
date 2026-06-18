@@ -10,6 +10,27 @@
 	function isActive(href: string) {
 		return $page.url.pathname === href;
 	}
+
+	/** Move the panel to <body> so the header's `backdrop-blur` (which creates a
+	 * containing block) doesn't trap `position: fixed`. */
+	function portal(node: HTMLElement) {
+		document.body.appendChild(node);
+		return {
+			destroy() {
+				node.remove();
+			}
+		};
+	}
+
+	// Lock body scroll while the menu is open.
+	$effect(() => {
+		if (!open) return;
+		const prev = document.body.style.overflow;
+		document.body.style.overflow = 'hidden';
+		return () => {
+			document.body.style.overflow = prev;
+		};
+	});
 </script>
 
 <button
@@ -20,27 +41,11 @@
 	class="inline-flex size-9 items-center justify-center rounded-xl text-(--text)/48 transition-colors duration-150 hover:bg-(--text)/4 hover:text-(--text) md:hidden"
 >
 	{#if open}
-		<svg
-			class="size-5"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="1.7"
-			stroke-linecap="round"
-			aria-hidden="true"
-		>
+		<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
 			<path d="M6 6l12 12M18 6 6 18" />
 		</svg>
 	{:else}
-		<svg
-			class="size-5"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="1.7"
-			stroke-linecap="round"
-			aria-hidden="true"
-		>
+		<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
 			<path d="M3 6h18M3 12h18M3 18h18" />
 		</svg>
 	{/if}
@@ -48,9 +53,10 @@
 
 {#if open}
 	<div
-		class="fixed inset-x-0 top-14 bottom-0 z-40 overflow-y-auto border-t border-(--text)/8 bg-(--bg) px-5 py-6 md:hidden"
+		use:portal
+		class="fixed inset-x-0 top-14 bottom-0 z-40 overflow-y-auto bg-(--bg) px-5 py-6 md:hidden"
 	>
-		<nav class="flex flex-col gap-6">
+		<nav class="mx-auto flex max-w-6xl flex-col gap-6">
 			{#each docsNav as section (section.title)}
 				<div class="flex flex-col gap-1">
 					<p class="px-3 pb-1 text-xs font-medium tracking-[-0.3px] text-(--text)/36">
