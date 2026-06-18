@@ -1,5 +1,5 @@
-export { Button } from "./components/ui/button/index.js";
-export type { ButtonProps, ButtonVariant, ButtonSize } from "./components/ui/button/index.js";
+export { Button } from "./registry/ui/button/index.js";
+export type { ButtonProps, ButtonVariant, ButtonSize } from "./registry/ui/button/index.js";
 
 export {
 	Card,
@@ -8,11 +8,11 @@ export {
 	CardDescription,
 	CardContent,
 	CardFooter,
-} from "./components/ui/card/index.js";
+} from "./registry/ui/card/index.js";
 
-export { Badge } from "./components/ui/badge/index.js";
-export { Avatar } from "./components/ui/avatar/index.js";
-export { Separator } from "./components/ui/separator/index.js";
+export { Badge } from "./registry/ui/badge/index.js";
+export { Avatar } from "./registry/ui/avatar/index.js";
+export { Separator } from "./registry/ui/separator/index.js";
 
 export { cn } from "./utils.js";
 export type { WithElementRef, WithoutChildren } from "./utils.js";

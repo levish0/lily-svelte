@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Separator } from '$lib/components/ui/separator';
+	import { Separator } from '$lib/registry/ui/separator';
 </script>
 
 <div class="flex flex-col gap-10">

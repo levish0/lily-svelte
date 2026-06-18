@@ -10,13 +10,16 @@
 	"type": "module",
 	"scripts": {
 		"build": "pnpm build:docs",
+		"build:cli": "pnpm -r -F \"./packages/**\" build",
 		"build:docs": "pnpm -F docs build",
-		"dev": "pnpm -F docs dev",
+		"dev": "concurrently -n packages,docs --kill-others=false -c \"blue,green\" \"pnpm -r --parallel -F './packages/**' dev\" \"wait-on packages/cli/dist/index.mjs && pnpm -F docs dev\"",
+		"dev:docs": "pnpm -F docs dev",
 		"preview": "pnpm -F docs preview",
-		"check": "pnpm -F docs check",
+		"check": "pnpm -F docs check && pnpm -F \"./packages/**\" check",
 		"lint": "prettier --check . && eslint . --no-config-lookup --config eslint.config.js",
-		"format": "prettier --write .",
-		"preinstall": "npx only-allow pnpm"
+		"fmt": "prettier --write .",
+		"preinstall": "npx only-allow pnpm",
+		"postinstall": "pnpm build:cli"
 	},
 	"engines": {
 		"pnpm": ">=9",
@@ -26,17 +29,19 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
-		"@types/node": "^24",
-		"eslint": "^10.4.1",
+		"@types/node": "^24.13.2",
+		"concurrently": "^9.2.1",
+		"eslint": "^10.5.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.19.0",
 		"globals": "^17.6.0",
-		"prettier": "^3.8.3",
-		"prettier-plugin-svelte": "^4.1.0",
+		"prettier": "^3.8.4",
+		"prettier-plugin-svelte": "^4.1.1",
 		"prettier-plugin-tailwindcss": "^0.8.0",
-		"svelte": "^5.56.1",
+		"svelte": "^5.56.3",
 		"typescript": "^6.0.3",
-		"typescript-eslint": "^8.60.1",
-		"wrangler": "^4.97.0"
+		"typescript-eslint": "^8.61.1",
+		"wait-on": "^9.0.10",
+		"wrangler": "^4.101.0"
 	}
 }

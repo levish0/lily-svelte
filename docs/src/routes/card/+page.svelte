@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '$lib/components/ui/card';
-	import { Button } from '$lib/components/ui/button';
-	import { Badge } from '$lib/components/ui/badge';
-	import { Avatar } from '$lib/components/ui/avatar';
+	import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '$lib/registry/ui/card';
+	import { Button } from '$lib/registry/ui/button';
+	import { Badge } from '$lib/registry/ui/badge';
+	import { Avatar } from '$lib/registry/ui/avatar';
 </script>
 
 <div class="flex flex-col gap-10">

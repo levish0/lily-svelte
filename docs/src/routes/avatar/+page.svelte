@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Avatar } from '$lib/components/ui/avatar';
+	import { Avatar } from '$lib/registry/ui/avatar';
 </script>
 
 <div class="flex flex-col gap-10">

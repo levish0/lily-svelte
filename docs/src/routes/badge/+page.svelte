@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Badge } from '$lib/components/ui/badge';
+	import { Badge } from '$lib/registry/ui/badge';
 </script>
 
 <div class="flex flex-col gap-10">

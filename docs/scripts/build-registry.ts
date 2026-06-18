@@ -1,0 +1,110 @@
+import fs from "node:fs";
+import { exec } from "node:child_process";
+import { promisify } from "node:util";
+import path from "node:path";
+import {
+	componentsJsonSchema,
+	registryItemSchema,
+	registrySchema,
+	type Registry,
+} from "lily/schema";
+import { toJSONSchema } from "zod";
+import { buildRegistry } from "./registry.js";
+
+const execAsync = promisify(exec);
+
+const REGISTRY_PATH = path.resolve("static", "registry");
+
+function writeFileWithDirs(filePath: string, data: string): void {
+	fs.mkdirSync(path.dirname(filePath), { recursive: true });
+	fs.writeFileSync(filePath, data, "utf-8");
+}
+
+function log(message: string) {
+	console.log(`[registry]: ${message}`);
+}
+
+function validateRegistry(registry: Registry["items"]) {
+	const selfReferenced = registry.filter(
+		(item) => item.registryDependencies?.includes(item.name) ?? false
+	);
+	const selfReferenceError = selfReferenced
+		.map((item) => `Registry item '${item.name}' depends on itself`)
+		.join("\n");
+	if (selfReferenceError) {
+		throw new Error(selfReferenceError);
+	}
+}
+
+export async function build(): Promise<void> {
+	log("📦 Starting...");
+
+	log("🔍 Crawling registry (ui, lib, examples)...");
+	const items = await buildRegistry();
+	log(`✨ Found ${items.length} registry items`);
+
+	log("✅ Validating registry...");
+	validateRegistry(items);
+
+	// ----------------------------------------------------------------------------
+	// Assemble registry.json (consumed by the lily CLI, then deleted).
+	// ----------------------------------------------------------------------------
+	const result = registrySchema.parse(
+		{
+			$schema: "./static/schema/registry.json",
+			name: "lily",
+			homepage: "https://lily.levish.ac",
+			aliases: {
+				lib: "$lib/registry/lib",
+				ui: "$lib/registry/ui",
+				components: "./components",
+				hooks: "$lib/registry/hooks",
+				utils: "$lib/utils",
+			},
+			items,
+		} as Registry,
+		// maintains the schema-defined property order
+		{ jitless: true }
+	);
+
+	const registryJsonPath = path.resolve("registry.json");
+	fs.writeFileSync(registryJsonPath, JSON.stringify(result, null, "\t"), "utf8");
+
+	// ----------------------------------------------------------------------------
+	// Hand off to the lily CLI to emit per-item JSON + index.json.
+	// ----------------------------------------------------------------------------
+	log("🛠️  Building per-item registry JSON via lily CLI...");
+	const cwd = process.cwd();
+	const cliPath = path.resolve(cwd, "..", "packages", "cli", "dist", "index.mjs");
+	try {
+		await execAsync(
+			`node "${cliPath}" registry build "${registryJsonPath}" --output "${REGISTRY_PATH}" -c "${cwd}"`,
+			{ cwd }
+		);
+	} finally {
+		if (fs.existsSync(registryJsonPath)) fs.rmSync(registryJsonPath);
+	}
+
+	// ----------------------------------------------------------------------------
+	// Emit JSON schemas (for editor autocomplete / validation).
+	// ----------------------------------------------------------------------------
+	log("📋 Writing schema files...");
+	writeFileWithDirs(
+		path.resolve("static", "schema.json"),
+		JSON.stringify(toJSONSchema(componentsJsonSchema), null, "\t")
+	);
+	writeFileWithDirs(
+		path.resolve("static", "schema", "registry.json"),
+		JSON.stringify(toJSONSchema(registrySchema), null, "\t")
+	);
+	writeFileWithDirs(
+		path.resolve("static", "schema", "registry-item.json"),
+		JSON.stringify(toJSONSchema(registryItemSchema), null, "\t")
+	);
+
+	log("🎉 Done!");
+}
+
+if (process.argv.includes("build-registry")) {
+	build();
+}

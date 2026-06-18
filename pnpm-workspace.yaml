@@ -5,6 +5,7 @@ packages:
 allowBuilds:
   '@tailwindcss/oxide': true
   esbuild: true
+  sharp: true
   workerd: true
 
 catalog:
@@ -14,5 +15,7 @@ catalog:
   svelte: ^5.56.1
   svelte-check: ^4.6.0
   tailwindcss: ^4.3.0
+  tsdown: ^0.18.4
   typescript: ^6.0.3
   vite: ^8.0.16
+  zod: ^4.3.6
