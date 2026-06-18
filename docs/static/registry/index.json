@@ -54,6 +54,12 @@
 		"relativeUrl": "input.json"
 	},
 	{
+		"name": "input-otp",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "input-otp.json"
+	},
+	{
 		"name": "label",
 		"type": "registry:ui",
 		"registryDependencies": [],
