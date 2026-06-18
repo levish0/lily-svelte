@@ -1,13 +1,13 @@
-import path from "node:path";
-import { fetch } from "node-fetch-native";
-import { createProxy } from "node-fetch-native/proxy";
-import { isUrl, resolveURL } from "../utils.js";
-import { CLIError, error } from "../errors.js";
-import { BASE_COLORS, type ResolvedConfig } from "../config/index.js";
-import { getEnvProxy } from "../get-env-proxy.js";
-import { OFFICIAL_REGISTRY_URL } from "../../constants.js";
-import * as schemas from "../../schema/index.js";
-import { parse as parseCss } from "postcss";
+import path from 'node:path';
+import { fetch } from 'node-fetch-native';
+import { createProxy } from 'node-fetch-native/proxy';
+import { isUrl, resolveURL } from '../utils.js';
+import { CLIError, error } from '../errors.js';
+import { BASE_COLORS, type ResolvedConfig } from '../config/index.js';
+import { getEnvProxy } from '../get-env-proxy.js';
+import { OFFICIAL_REGISTRY_URL } from '../../constants.js';
+import * as schemas from '../../schema/index.js';
+import { parse as parseCss } from 'postcss';
 
 export function getRegistryUrl(config: { registry: string }) {
 	// so old URL's will still work
@@ -26,7 +26,7 @@ export function getSiteUrl(config: { registry: string }) {
 
 export async function getRegistryIndex(registryUrl: string) {
 	try {
-		const url = resolveURL(registryUrl, "index.json");
+		const url = resolveURL(registryUrl, 'index.json');
 		const [result] = await fetchRegistry([url]);
 		return schemas.registryIndexSchema.parse(result);
 	} catch (e) {
@@ -38,7 +38,7 @@ export async function getRegistryIndex(registryUrl: string) {
 export function getBaseColors() {
 	return BASE_COLORS.map((color) => ({
 		name: color,
-		label: `${color.charAt(0).toUpperCase()}${color.slice(1)}`,
+		label: `${color.charAt(0).toUpperCase()}${color.slice(1)}`
 	}));
 }
 
@@ -61,12 +61,12 @@ export function parseStyleCss(css: string): Record<string, string> {
 	ast.walkRules((rule) => {
 		// Extract class name from selector (e.g., ".cn-accordion-item" -> "cn-accordion-item")
 		const selector = rule.selector;
-		if (!selector.startsWith(".cn-")) return;
+		if (!selector.startsWith('.cn-')) return;
 
 		const className = selector.slice(1); // Remove leading "."
 
 		// Find @apply rules within this rule
-		rule.walkAtRules("apply", (atRule) => {
+		rule.walkAtRules('apply', (atRule) => {
 			const applyValue = atRule.params.trim();
 			if (applyValue) {
 				// If there are multiple @apply rules, concatenate them
@@ -94,7 +94,7 @@ export async function resolveRegistryItems({
 	registryUrl,
 	registryIndex,
 	items,
-	parentUrl,
+	parentUrl
 }: ResolveRegistryItemsProps): Promise<ResolvedRegistryItem[]> {
 	const resolvedItems: ResolvedRegistryItem[] = [];
 
@@ -110,7 +110,7 @@ export async function resolveRegistryItems({
 		 * 2. a `local:registryDep` of a _remote_  item (relative path from that item to the dep)
 		 */
 		if (!resolvedItem) {
-			const isRelative = item.startsWith("./") || item.startsWith("../");
+			const isRelative = item.startsWith('./') || item.startsWith('../');
 			if (isUrl(item) || (parentUrl && isRelative)) {
 				remoteUrl = new URL(item, parentUrl);
 				const [result] = await fetchRegistry([remoteUrl]);
@@ -138,7 +138,7 @@ export async function resolveRegistryItems({
 				registryUrl,
 				registryIndex,
 				items: resolvedItem.registryDependencies,
-				parentUrl: remoteUrl,
+				parentUrl: remoteUrl
 			});
 			resolvedItems.push(...registryDeps);
 		}
@@ -153,10 +153,10 @@ export async function resolveRegistryItems({
 type FetchTreeProps = { baseUrl: string; items: ResolvedRegistryItem[] };
 export async function fetchRegistryItems({
 	baseUrl,
-	items,
+	items
 }: FetchTreeProps): Promise<schemas.RegistryItem[]> {
-	const itemsWithContent = items.filter((item) => !("relativeUrl" in item));
-	const itemsToFetch = items.filter((item) => "relativeUrl" in item);
+	const itemsWithContent = items.filter((item) => !('relativeUrl' in item));
+	const itemsToFetch = items.filter((item) => 'relativeUrl' in item);
 
 	try {
 		const itemUrls = itemsToFetch.map((item) => resolveURL(baseUrl, item.relativeUrl));
@@ -198,23 +198,23 @@ async function fetchRegistry(urls: Array<URL | string>): Promise<unknown[]> {
 }
 
 export function getItemAliasDir(config: ResolvedConfig, type: schemas.RegistryItemType) {
-	if (type === "registry:ui") return config.resolvedPaths.ui;
-	if (type === "registry:lib") return config.resolvedPaths.lib;
-	if (type === "registry:hook") return config.resolvedPaths.hooks;
-	if (type === "registry:file") return config.resolvedPaths.cwd;
-	if (type === "registry:font") return config.resolvedPaths.cwd;
-	if (type === "registry:base") return config.resolvedPaths.cwd;
+	if (type === 'registry:ui') return config.resolvedPaths.ui;
+	if (type === 'registry:lib') return config.resolvedPaths.lib;
+	if (type === 'registry:hook') return config.resolvedPaths.hooks;
+	if (type === 'registry:file') return config.resolvedPaths.cwd;
+	if (type === 'registry:font') return config.resolvedPaths.cwd;
+	if (type === 'registry:base') return config.resolvedPaths.cwd;
 
-	if (type === "registry:style" || type === "registry:theme") {
+	if (type === 'registry:style' || type === 'registry:theme') {
 		return path.basename(config.resolvedPaths.tailwindCss);
 	}
 
-	if (type === "registry:block" || type === "registry:component") {
+	if (type === 'registry:block' || type === 'registry:component') {
 		return config.resolvedPaths.components;
 	}
 
-	if (type === "registry:page") {
-		if (config.sveltekit) return path.resolve(config.resolvedPaths.cwd, "src", "routes");
+	if (type === 'registry:page') {
+		if (config.sveltekit) return path.resolve(config.resolvedPaths.cwd, 'src', 'routes');
 
 		// we'll fallback to components alias
 		return config.resolvedPaths.components;
@@ -229,18 +229,18 @@ export function resolveItemFilePath(
 	file: schemas.RegistryItemFile
 ): string {
 	// resolves relative to the root (cwd)
-	if (file.target.startsWith("~/")) {
-		return path.resolve(config.resolvedPaths.cwd, file.target.replace("~/", ""));
+	if (file.target.startsWith('~/')) {
+		return path.resolve(config.resolvedPaths.cwd, file.target.replace('~/', ''));
 	}
 
-	if (item.name === "utils") {
+	if (item.name === 'utils') {
 		const utils = config.resolvedPaths.utils;
 		if (utils.match(/.*\.(ts|js)$/)) return utils;
 		else return `${utils}.ts`;
 	}
 
 	let aliasDir;
-	if (file.type === "registry:file") {
+	if (file.type === 'registry:file') {
 		// resolves relative to the item-type's alias
 		aliasDir = getItemAliasDir(config, item.type);
 	} else {

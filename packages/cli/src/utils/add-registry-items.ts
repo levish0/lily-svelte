@@ -1,26 +1,26 @@
-import path from "node:path";
-import { existsSync, promises as fs } from "node:fs";
-import color from "picocolors";
-import merge from "deepmerge";
-import * as p from "@clack/prompts";
-import * as registry from "./registry/index.js";
-import { highlight } from "./colors.js";
-import { cancel, prettifyList } from "./prompt-helpers.js";
-import { shadcnSvelteTailwindCssImport } from "./css.js";
-import { transformCss } from "./transform-css.js";
-import type { ResolvedConfig } from "./config/index.js";
+import path from 'node:path';
+import { existsSync, promises as fs } from 'node:fs';
+import color from 'picocolors';
+import merge from 'deepmerge';
+import * as p from '@clack/prompts';
+import * as registry from './registry/index.js';
+import { highlight } from './colors.js';
+import { cancel, prettifyList } from './prompt-helpers.js';
+import { shadcnSvelteTailwindCssImport } from './css.js';
+import { transformCss } from './transform-css.js';
+import type { ResolvedConfig } from './config/index.js';
 import {
 	transform,
 	transformFont,
 	transformImports,
 	transformIcons,
 	transformMenu,
-	transformStripTypes,
-} from "./transformers/index.js";
-import { getSupportedFontMarkers, type FontMarkerSource } from "./font-markers.js";
-import { setupFonts, type Font } from "./fonts.js";
+	transformStripTypes
+} from './transformers/index.js';
+import { getSupportedFontMarkers, type FontMarkerSource } from './font-markers.js';
+import { setupFonts, type Font } from './fonts.js';
 
-const STYLE_TYPES = ["registry:style", "registry:theme"];
+const STYLE_TYPES = ['registry:style', 'registry:theme'];
 
 type AddRegistryItemsProps = {
 	selectedItems: string[];
@@ -46,22 +46,22 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 	const resolvedItems = await registry.resolveRegistryItems({
 		registryUrl,
 		registryIndex,
-		items: Array.from(selectedItems),
+		items: Array.from(selectedItems)
 	});
 
 	const itemsWithContent = await registry.fetchRegistryItems({
 		baseUrl: registryUrl,
-		items: resolvedItems,
+		items: resolvedItems
 	});
 
-	if (itemsWithContent.length === 0) cancel("Selected items not found.");
+	if (itemsWithContent.length === 0) cancel('Selected items not found.');
 
 	const fontMarkerSources: FontMarkerSource[] = [];
 	for (const item of itemsWithContent) {
 		if (item.cssVars) {
 			fontMarkerSources.push({ cssVars: item.cssVars });
 		}
-		if (item.type === "registry:font" && item.font) {
+		if (item.type === 'registry:font' && item.font) {
 			fontMarkerSources.push({ fonts: [{ font: item.font }] });
 		}
 	}
@@ -89,14 +89,14 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 	if (opts.overwrite === false && existingItems.length > 0) {
 		const prettyList = prettifyList(existingItems);
 		p.log.warn(
-			`The following items ${color.bold(color.yellow("already exist"))}:\n${color.gray(prettyList)}`
+			`The following items ${color.bold(color.yellow('already exist'))}:\n${color.gray(prettyList)}`
 		);
 
 		const overwrite = await p.confirm({
-			message: `Would you like to ${color.bold(color.red("overwrite"))} all existing files?`,
-			active: "Yes, overwrite everything",
-			inactive: "No, let me decide individually",
-			initialValue: false,
+			message: `Would you like to ${color.bold(color.red('overwrite'))} all existing files?`,
+			active: 'Yes, overwrite everything',
+			inactive: 'No, let me decide individually',
+			initialValue: false
 		});
 
 		if (p.isCancel(overwrite)) cancel();
@@ -116,12 +116,10 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 
 			if (!opts.overwrite && existingItems.includes(item.name)) {
 				if (selectedItems.has(item.name)) {
-					p.log.warn(
-						`Item ${highlight(item.name)} already exists at ${color.gray(itemPath)}`
-					);
+					p.log.warn(`Item ${highlight(item.name)} already exists at ${color.gray(itemPath)}`);
 
 					const overwrite = await p.confirm({
-						message: `Would you like to ${color.bold(color.red("overwrite"))} your existing ${highlight(item.name)} ${item.type}?`,
+						message: `Would you like to ${color.bold(color.red('overwrite'))} your existing ${highlight(item.name)} ${item.type}?`
 					});
 					if (p.isCancel(overwrite)) cancel();
 					if (overwrite === false) continue;
@@ -137,17 +135,17 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 			item.devDependencies?.forEach((dep) => skippedDeps.add(dep));
 		}
 
-		if (item.type === "registry:font") {
+		if (item.type === 'registry:font') {
 			fonts.push({
 				name: item.name,
-				...item.font,
+				...item.font
 			});
 		}
 
 		tasks.push({
 			title:
-				item.name === "init"
-					? "Setting up lily base configuration"
+				item.name === 'init'
+					? 'Setting up lily base configuration'
 					: `Adding ${highlight(item.name)}`,
 			// @ts-expect-error this is intentional since we don't want to return a string during `init`
 			async task() {
@@ -158,20 +156,20 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 						content,
 						dependencies: transformDependencies,
 						devDependencies: transformDevDependencies,
-						filePath: transformFilePath,
+						filePath: transformFilePath
 					} = await transform(
 						{
 							content: file.content,
 							filePath: filePath,
 							config: opts.config,
-							supportedFontMarkers: registryFontMarkers,
+							supportedFontMarkers: registryFontMarkers
 						},
 						[
 							transformImports,
 							transformIcons,
 							transformMenu,
 							transformFont,
-							!opts.config.typescript && transformStripTypes,
+							!opts.config.typescript && transformStripTypes
 						]
 					);
 
@@ -183,7 +181,7 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 						await fs.mkdir(dir, { recursive: true });
 					}
 
-					await fs.writeFile(transformFilePath, content, "utf8");
+					await fs.writeFile(transformFilePath, content, 'utf8');
 				}
 
 				if (item.cssVars) {
@@ -193,7 +191,7 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 					css = merge(css, item.css);
 				}
 
-				if (item.name !== "init") {
+				if (item.name !== 'init') {
 					if (STYLE_TYPES.includes(item.type)) {
 						const itemPath = path.relative(cwd, opts.config.resolvedPaths.tailwindCss);
 						return `${highlight(item.name)} installed at ${color.gray(itemPath)}`;
@@ -202,7 +200,7 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 					const itemPath = path.relative(cwd, path.resolve(aliasDir, item.name));
 					return `${highlight(item.name)} installed at ${color.gray(itemPath)}`;
 				}
-			},
+			}
 		});
 	}
 
@@ -211,7 +209,7 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 	const {
 		css: fontsCss,
 		cssVars: fontsCssVars,
-		dependencies: fontsDependencies,
+		dependencies: fontsDependencies
 	} = setupFonts(fonts);
 
 	css = merge(css, fontsCss);
@@ -223,7 +221,7 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 		const cssPath = opts.config.resolvedPaths.tailwindCss;
 		const relative = path.relative(cwd, cssPath);
 
-		const cssSource = await fs.readFile(cssPath, "utf8");
+		const cssSource = await fs.readFile(cssPath, 'utf8');
 
 		const modifiedCss = transformCss(cssSource, { css, cssVars });
 
@@ -232,8 +230,8 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 		if (isModified) {
 			if (!opts.overwrite) {
 				const overwrite = await p.confirm({
-					message: `Updates to your ${highlight(relative)} are required. Existing CSS variables may be ${color.bold(color.red("overwritten"))}. Continue?`,
-					initialValue: true,
+					message: `Updates to your ${highlight(relative)} are required. Existing CSS variables may be ${color.bold(color.red('overwritten'))}. Continue?`,
+					initialValue: true
 				});
 				if (p.isCancel(overwrite)) cancel();
 
@@ -242,14 +240,14 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 
 			await p.tasks([
 				{
-					title: "Updating stylesheet",
+					title: 'Updating stylesheet',
 					enabled: opts.overwrite,
 					async task() {
-						await fs.writeFile(cssPath, modifiedCss, "utf8");
+						await fs.writeFile(cssPath, modifiedCss, 'utf8');
 
-						return `${highlight("Stylesheet")} updated at ${color.dim(relative)}`;
-					},
-				},
+						return `${highlight('Stylesheet')} updated at ${color.dim(relative)}`;
+					}
+				}
 			]);
 		}
 	}
@@ -257,6 +255,6 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 	return {
 		skippedDeps,
 		dependencies,
-		devDependencies,
+		devDependencies
 	};
 }

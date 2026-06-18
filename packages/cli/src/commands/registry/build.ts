@@ -1,35 +1,35 @@
-import path from "node:path";
-import process from "node:process";
-import { existsSync, promises as fs } from "node:fs";
-import color from "picocolors";
-import { z } from "zod";
-import { Command } from "commander";
-import * as schema from "../../utils/registry/schema.js";
-import * as p from "@clack/prompts";
-import { intro, handleError } from "../../utils/prompt-helpers.js";
-import { error } from "../../utils/errors.js";
-import { toArray } from "../../utils/utils.js";
-import { ALIAS_DEFAULTS, ALIASES, SITE_BASE_URL } from "../../constants.js";
-import { getFileDependencies, resolveProjectDeps } from "./deps-resolver.js";
-import { parseDependency } from "../../utils/install-deps.js";
+import path from 'node:path';
+import process from 'node:process';
+import { existsSync, promises as fs } from 'node:fs';
+import color from 'picocolors';
+import { z } from 'zod';
+import { Command } from 'commander';
+import * as schema from '../../utils/registry/schema.js';
+import * as p from '@clack/prompts';
+import { intro, handleError } from '../../utils/prompt-helpers.js';
+import { error } from '../../utils/errors.js';
+import { toArray } from '../../utils/utils.js';
+import { ALIAS_DEFAULTS, ALIASES, SITE_BASE_URL } from '../../constants.js';
+import { getFileDependencies, resolveProjectDeps } from './deps-resolver.js';
+import { parseDependency } from '../../utils/install-deps.js';
 
 // TODO: perhaps a `--mini` flag to remove spacing?
-const SPACER = "\t";
+const SPACER = '\t';
 
 const buildOptionsSchema = z.object({
 	registry: z.string(),
 	cwd: z.string(),
-	output: z.string(),
+	output: z.string()
 });
 
 type BuildOptions = z.infer<typeof buildOptionsSchema>;
 
 export const build = new Command()
-	.command("build")
-	.description("build components for a lily registry")
-	.argument("[registry]", "path to registry.json file", "./registry.json")
-	.option("-c, --cwd <path>", "the working directory", process.cwd())
-	.option("-o, --output <path>", "destination directory for json files", "./static/r")
+	.command('build')
+	.description('build components for a lily registry')
+	.argument('[registry]', 'path to registry.json file', './registry.json')
+	.option('-c, --cwd <path>', 'the working directory', process.cwd())
+	.option('-o, --output <path>', 'destination directory for json files', './static/r')
 	.action(async (registryPath, opts) => {
 		try {
 			intro();
@@ -49,7 +49,7 @@ export const build = new Command()
 
 			await runBuild({ cwd, output, registry });
 
-			p.outro(`${color.green("Success!")} Registry build completed.`);
+			p.outro(`${color.green('Success!')} Registry build completed.`);
 		} catch (e) {
 			handleError(e);
 		}
@@ -59,7 +59,7 @@ async function runBuild(options: BuildOptions) {
 	const spinner = p.spinner();
 
 	spinner.start(`Parsing registry schema`);
-	const registryJson = await fs.readFile(options.registry, "utf8");
+	const registryJson = await fs.readFile(options.registry, 'utf8');
 	const registry = schema.registrySchema.parse(JSON.parse(registryJson));
 	spinner.stop(
 		`Parsed registry schema at ${color.dim(path.relative(options.cwd, options.registry))}`
@@ -78,27 +78,27 @@ async function runBuild(options: BuildOptions) {
 
 	// Write registry index: `registry/index.json`
 	tasks.push({
-		title: "Building registry index",
+		title: 'Building registry index',
 		async task() {
-			const indexPath = path.resolve(options.output, "index.json");
+			const indexPath = path.resolve(options.output, 'index.json');
 			const parsedIndex = schema.registryIndexSchema.parse(registryIndex);
 
-			await fs.writeFile(indexPath, JSON.stringify(parsedIndex, null, SPACER), "utf8");
+			await fs.writeFile(indexPath, JSON.stringify(parsedIndex, null, SPACER), 'utf8');
 
 			const relative = path.relative(options.cwd, indexPath);
 			return `Registry index written to ${color.dim(relative)}`;
-		},
+		}
 	});
 
 	// Write registry items: `registry/[item].json`
 	tasks.push({
-		title: "Building registry items",
+		title: 'Building registry items',
 		async task(message) {
 			const projectDeps = resolveProjectDeps(options.cwd);
 
 			// apply overrides
 			if (registry.overrideDependencies) {
-				type Dependencies = (typeof projectDeps)["dependencies"];
+				type Dependencies = (typeof projectDeps)['dependencies'];
 				const overrideDep = (override: string, deps: Dependencies) => {
 					const { name } = parseDependency(override);
 					const versioned = deps.versions[name];
@@ -120,12 +120,12 @@ async function runBuild(options: BuildOptions) {
 				message(`Building item ${color.cyan(item.name)}`);
 				const singleFile = item.files.length === 1;
 				const nested: schema.RegistryItemFileType[] = [
-					"registry:page",
-					"registry:ui",
-					"registry:file",
+					'registry:page',
+					'registry:ui',
+					'registry:file'
 				];
 				const toResolve = item.files.map(async (file) => {
-					let content = await fs.readFile(file.path, "utf8");
+					let content = await fs.readFile(file.path, 'utf8');
 					content = transformAliases((registry.aliases ??= {}), content);
 
 					const name = path.basename(file.path);
@@ -150,14 +150,14 @@ async function runBuild(options: BuildOptions) {
 						const fileDeps = await getFileDependencies({
 							...projectDeps,
 							filename: file.name,
-							source: file.content,
+							source: file.content
 						});
 
 						// don't add detected deps if they're already predefined
 						if (!item.dependencies)
 							fileDeps.dependencies?.forEach((dep) => {
 								// type def packages should be inserted into dev deps
-								if (dep.startsWith("@types/")) {
+								if (dep.startsWith('@types/')) {
 									devDependencies.add(dep);
 								} else {
 									dependencies.add(dep);
@@ -175,7 +175,7 @@ async function runBuild(options: BuildOptions) {
 						registryDependencies: toArray(registryDependencies),
 						dependencies: toArray(dependencies),
 						devDependencies: toArray(devDependencies),
-						files,
+						files
 					},
 					// maintains the schema defined property order
 					{ jitless: true }
@@ -183,12 +183,12 @@ async function runBuild(options: BuildOptions) {
 
 				const outputPath = path.resolve(options.output, `${item.name}.json`);
 
-				await fs.writeFile(outputPath, JSON.stringify(parsedItem, null, SPACER), "utf8");
+				await fs.writeFile(outputPath, JSON.stringify(parsedItem, null, SPACER), 'utf8');
 			}
 
 			const relative = path.relative(options.cwd, options.output);
 			return `Registry items written to ${color.dim(relative)}`;
-		},
+		}
 	});
 
 	await p.tasks(tasks);
@@ -207,9 +207,9 @@ async function runBuild(options: BuildOptions) {
  * ```
  */
 export function transformLocal(registryDep: string) {
-	if (registryDep.startsWith("local:")) {
+	if (registryDep.startsWith('local:')) {
 		const LOCAL_REGEX = /^local:(.*)/;
-		return registryDep.replace(LOCAL_REGEX, "./$1.json");
+		return registryDep.replace(LOCAL_REGEX, './$1.json');
 	}
 	return registryDep;
 }
@@ -226,7 +226,7 @@ export function transformLocal(registryDep: string) {
  * ```
  */
 export function transformAliases(
-	aliases: NonNullable<schema.Registry["aliases"]>,
+	aliases: NonNullable<schema.Registry['aliases']>,
 	content: string
 ) {
 	for (const alias of ALIASES) {

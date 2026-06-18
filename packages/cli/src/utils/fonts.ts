@@ -1,4 +1,4 @@
-import type { CssSchema, CssVars, RegistryFont } from "./registry/schema.js";
+import type { CssSchema, CssVars, RegistryFont } from './registry/schema.js';
 
 export type Font = RegistryFont & { name: string };
 
@@ -16,7 +16,7 @@ export function setupFonts(fonts: Font[]): {
 	const dependencies: string[] = [];
 
 	for (const font of fonts) {
-		const fontName = font.name.replace(/^font-heading-/, "").replace("font-", "");
+		const fontName = font.name.replace(/^font-heading-/, '').replace('font-', '');
 		const fontSourceDependency = font.dependency ?? `@fontsource-variable/${fontName}`;
 		dependencies.push(fontSourceDependency);
 		css[`@import "${fontSourceDependency}"`] = {};
@@ -28,31 +28,31 @@ export function setupFonts(fonts: Font[]): {
 	for (const font of fonts) {
 		// Heading tokens are for `font-heading` / cn-font-heading on components only;
 		// body copy stays on `font-sans` (or serif/mono when those are the primary variable).
-		if (font.variable === "--font-heading") {
+		if (font.variable === '--font-heading') {
 			continue;
 		}
-		const selector = font.selector ?? "html";
-		const cls = font.variable.replace("--", "");
+		const selector = font.selector ?? 'html';
+		const cls = font.variable.replace('--', '');
 		if (!groups.has(selector)) {
 			groups.set(selector, []);
 		}
 		groups.get(selector)!.push(cls);
 	}
 
-	css["@layer base"] ??= {};
+	css['@layer base'] ??= {};
 
 	for (const [selector, classes] of Array.from(groups.entries())) {
-		const fontClasses = classes.join(" ");
-		css["@layer base"][selector] ??= {};
+		const fontClasses = classes.join(' ');
+		css['@layer base'][selector] ??= {};
 		// Find existing @apply key and merge, or create new.
-		const existingApplyKey = Object.keys(css["@layer base"][selector]).find((key) =>
-			key.startsWith("@apply ")
+		const existingApplyKey = Object.keys(css['@layer base'][selector]).find((key) =>
+			key.startsWith('@apply ')
 		);
 		if (existingApplyKey) {
-			delete css["@layer base"][selector][existingApplyKey];
-			css["@layer base"][selector][`${existingApplyKey} ${fontClasses}`] = {};
+			delete css['@layer base'][selector][existingApplyKey];
+			css['@layer base'][selector][`${existingApplyKey} ${fontClasses}`] = {};
 		} else {
-			css["@layer base"][selector][`@apply ${fontClasses}`] = {};
+			css['@layer base'][selector][`@apply ${fontClasses}`] = {};
 		}
 	}
 

@@ -34,7 +34,7 @@
 		"zod": "^4.0.0"
 	},
 	"devDependencies": {
-		"tsdown": "catalog:",
-		"zod": "catalog:"
+		"tsdown": "^0.18.4",
+		"zod": "^4.3.6"
 	}
 }

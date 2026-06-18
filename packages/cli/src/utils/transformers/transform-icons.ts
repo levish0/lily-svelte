@@ -1,15 +1,15 @@
 // !! BROWSER SAFE !!
 
-import type { Transformer, TransformerResult } from "./index.js";
-import { parse as parseSvelte } from "svelte/compiler";
-import { walk, type Node } from "estree-walker";
-import MagicString from "magic-string";
-import { iconLibraries, type IconLibrary } from "../../icons/libraries.js";
-import type { ImportDeclaration } from "acorn";
-import { error } from "../errors.js";
+import type { Transformer, TransformerResult } from './index.js';
+import { parse as parseSvelte } from 'svelte/compiler';
+import { walk, type Node } from 'estree-walker';
+import MagicString from 'magic-string';
+import { iconLibraries, type IconLibrary } from '../../icons/libraries.js';
+import type { ImportDeclaration } from 'acorn';
+import { error } from '../errors.js';
 
 export const transformIcons: Transformer = async ({ content, filePath, config }) => {
-	if (!filePath.endsWith(".svelte")) return {};
+	if (!filePath.endsWith('.svelte')) return {};
 
 	const src = new MagicString(content);
 
@@ -22,7 +22,7 @@ export const transformIcons: Transformer = async ({ content, filePath, config })
 
 	const enter = (node: Node) => {
 		// @ts-expect-error wrong.
-		if (node.type === "Component" && node.name === "IconPlaceholder") {
+		if (node.type === 'Component' && node.name === 'IconPlaceholder') {
 			// @ts-expect-error wrong
 			const otherAttributes = node.attributes.filter(
 				// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -45,7 +45,7 @@ export const transformIcons: Transformer = async ({ content, filePath, config })
 			const restProps = otherAttributes
 				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 				.map((attr: any) => src.slice(attr.start, attr.end))
-				.join(" ");
+				.join(' ');
 
 			const iconSrc = iconLibrary.usage({ name: iconName }, restProps);
 
@@ -53,11 +53,11 @@ export const transformIcons: Transformer = async ({ content, filePath, config })
 			src.overwrite(node.start, node.end, iconSrc);
 
 			icons.push({ name: iconName });
-		} else if (node.type === "ImportDeclaration") {
+		} else if (node.type === 'ImportDeclaration') {
 			const specifier = node.specifiers[0];
 			if (
-				specifier?.type === "ImportDefaultSpecifier" &&
-				specifier.local.name === "IconPlaceholder"
+				specifier?.type === 'ImportDefaultSpecifier' &&
+				specifier.local.name === 'IconPlaceholder'
 			) {
 				placeholderImportNode = node as ImportDeclaration;
 			}
@@ -74,11 +74,11 @@ export const transformIcons: Transformer = async ({ content, filePath, config })
 		}
 
 		// @ts-expect-error wrong
-		src.overwrite(placeholderImportNode.start, placeholderImportNode.end, imports.join("\n\t"));
+		src.overwrite(placeholderImportNode.start, placeholderImportNode.end, imports.join('\n\t'));
 	}
 
 	return {
 		content: src.toString(),
-		devDependencies: placeholderImportNode !== null ? [...iconLibrary.packages] : [],
+		devDependencies: placeholderImportNode !== null ? [...iconLibrary.packages] : []
 	} satisfies Partial<TransformerResult>;
 };

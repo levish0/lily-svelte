@@ -1,15 +1,15 @@
-import fs from "node:fs";
-import path from "node:path";
-import * as p from "@clack/prompts";
-import * as find from "empathic/find";
-import ignore, { type Ignore } from "ignore";
-import { AGENTS, detect, getUserAgent, type Agent, type AgentName } from "package-manager-detector";
-import { cancel } from "./prompt-helpers.js";
+import fs from 'node:fs';
+import path from 'node:path';
+import * as p from '@clack/prompts';
+import * as find from 'empathic/find';
+import ignore, { type Ignore } from 'ignore';
+import { AGENTS, detect, getUserAgent, type Agent, type AgentName } from 'package-manager-detector';
+import { cancel } from './prompt-helpers.js';
 
-const STYLESHEETS = ["app.css", "main.css", "globals.css", "global.css", "layout.css"];
+const STYLESHEETS = ['app.css', 'main.css', 'globals.css', 'global.css', 'layout.css'];
 
 // commonly ignored
-const IGNORE = ["node_modules", ".git", ".svelte-kit"];
+const IGNORE = ['node_modules', '.git', '.svelte-kit'];
 
 /**
  * Returns the auto-detected filepaths for the global css file and the typescript config.
@@ -31,7 +31,7 @@ export function detectConfigs(cwd: string, config?: { relative: boolean }) {
 
 	return {
 		cssPath,
-		tsconfigPath: resolvedTsconfigPath,
+		tsconfigPath: resolvedTsconfigPath
 	};
 }
 
@@ -45,9 +45,9 @@ function findFiles(dirPath: string) {
 function walkDir(dirPath: string, ignores: { dirPath: string; ig: Ignore }[]): string[] {
 	const paths: string[] = [];
 	const files = fs.readdirSync(dirPath, { withFileTypes: true });
-	const ignorePath = path.join(dirPath, ".gitignore");
+	const ignorePath = path.join(dirPath, '.gitignore');
 	if (fs.existsSync(ignorePath)) {
-		const gitignore = fs.readFileSync(ignorePath, { encoding: "utf8" });
+		const gitignore = fs.readFileSync(ignorePath, { encoding: 'utf8' });
 		const ig = ignore().add(gitignore);
 		ignores.push({ dirPath, ig });
 	}
@@ -78,27 +78,27 @@ function walkDir(dirPath: string, ignores: { dirPath: string; ig: Ignore }[]): s
  * Returns the absolute path to the nearest typescript config file.
  */
 function findTSConfig(cwd: string): string | undefined {
-	for (const type of ["tsconfig.json", "jsconfig.json"] as const) {
+	for (const type of ['tsconfig.json', 'jsconfig.json'] as const) {
 		const path = find.up(type, { cwd });
 		if (path) return path;
 	}
 }
 
-const AGENT_NAMES = AGENTS.filter((agent) => !agent.includes("@")) as AgentName[];
-type Options = Array<{ value: Agent | undefined; label: Agent | "None" }>;
+const AGENT_NAMES = AGENTS.filter((agent) => !agent.includes('@')) as AgentName[];
+type Options = Array<{ value: Agent | undefined; label: Agent | 'None' }>;
 export async function detectPM(cwd: string, prompt: boolean): Promise<Agent | undefined> {
 	const agent = (await detect({ cwd }))?.agent;
 
 	// prompt for package manager
 	if (!agent && prompt) {
 		const options: Options = AGENT_NAMES.map((pm) => ({ value: pm, label: pm }));
-		options.unshift({ label: "None", value: undefined });
+		options.unshift({ label: 'None', value: undefined });
 
 		const userAgent = getUserAgent() ?? undefined; // replaces `null` for `undefined`
 		const pm = await p.select({
 			options,
 			initialValue: userAgent,
-			message: "Which package manager do you want to use?",
+			message: 'Which package manager do you want to use?'
 		});
 		if (p.isCancel(pm)) {
 			cancel();

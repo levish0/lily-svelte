@@ -1,4 +1,4 @@
-import type { CssSchema } from "./registry/schema.js";
+import type { CssSchema } from './registry/schema.js';
 
 export function createGlobalCssFile(): string {
 	return `
@@ -9,5 +9,5 @@ export function createGlobalCssFile(): string {
 }
 
 export const shadcnSvelteTailwindCssImport: CssSchema = {
-	'@import "lily/tailwind.css"': {},
+	'@import "lily/tailwind.css"': {}
 };

@@ -1,19 +1,19 @@
-import path from "node:path";
-import process from "node:process";
-import { existsSync } from "node:fs";
-import color from "picocolors";
-import { z } from "zod";
-import { Command } from "commander";
-import { ConfigError, error } from "../../utils/errors.js";
-import * as cliConfig from "../../utils/config/index.js";
-import { getEnvProxy } from "../../utils/get-env-proxy.js";
-import { cancel, intro, prettifyList, handleError } from "../../utils/prompt-helpers.js";
-import * as p from "@clack/prompts";
-import * as registry from "../../utils/registry/index.js";
-import { addRegistryItems } from "../../utils/add-registry-items.js";
-import { highlight } from "../../utils/colors.js";
-import { installDependencies } from "../../utils/install-deps.js";
-import { checkPreconditions } from "../../utils/preconditions.js";
+import path from 'node:path';
+import process from 'node:process';
+import { existsSync } from 'node:fs';
+import color from 'picocolors';
+import { z } from 'zod';
+import { Command } from 'commander';
+import { ConfigError, error } from '../../utils/errors.js';
+import * as cliConfig from '../../utils/config/index.js';
+import { getEnvProxy } from '../../utils/get-env-proxy.js';
+import { cancel, intro, prettifyList, handleError } from '../../utils/prompt-helpers.js';
+import * as p from '@clack/prompts';
+import * as registry from '../../utils/registry/index.js';
+import { addRegistryItems } from '../../utils/add-registry-items.js';
+import { highlight } from '../../utils/colors.js';
+import { installDependencies } from '../../utils/install-deps.js';
+import { checkPreconditions } from '../../utils/preconditions.js';
 
 const addOptionsSchema = z.object({
 	components: z.string().array().optional(),
@@ -23,22 +23,22 @@ const addOptionsSchema = z.object({
 	cwd: z.string(),
 	deps: z.boolean(),
 	proxy: z.string().optional(),
-	skipPreflight: z.boolean(),
+	skipPreflight: z.boolean()
 });
 
 type AddOptions = z.infer<typeof addOptionsSchema>;
 
 export const add = new Command()
-	.command("add")
-	.description("add components to your project")
-	.argument("[components...]", "the components to add or a url to the component")
-	.option("-c, --cwd <path>", "the working directory", process.cwd())
-	.option("--no-deps", "skips adding & installing package dependencies")
-	.option("--skip-preflight", "ignore preflight checks and continue", false)
-	.option("-a, --all", "install all components to your project", false)
-	.option("-y, --yes", "skip confirmation prompt", false)
-	.option("-o, --overwrite", "overwrite existing files", false)
-	.option("--proxy <proxy>", "fetch components from registry using a proxy", getEnvProxy())
+	.command('add')
+	.description('add components to your project')
+	.argument('[components...]', 'the components to add or a url to the component')
+	.option('-c, --cwd <path>', 'the working directory', process.cwd())
+	.option('--no-deps', 'skips adding & installing package dependencies')
+	.option('--skip-preflight', 'ignore preflight checks and continue', false)
+	.option('-a, --all', 'install all components to your project', false)
+	.option('-y, --yes', 'skip confirmation prompt', false)
+	.option('-o, --overwrite', 'overwrite existing files', false)
+	.option('--proxy <proxy>', 'fetch components from registry using a proxy', getEnvProxy())
 	.action(async (components, opts) => {
 		try {
 			intro();
@@ -53,19 +53,19 @@ export const add = new Command()
 			const config = await cliConfig.getConfig(cwd);
 			if (!config) {
 				throw new ConfigError(
-					`Configuration file is missing. Please run ${color.green("init")} to create a ${highlight("components.json")} file.`
+					`Configuration file is missing. Please run ${color.green('init')} to create a ${highlight('components.json')} file.`
 				);
 			}
 
 			const updatedConfig = checkPreconditions({
 				config,
 				cwd,
-				skipPreflight: options.skipPreflight,
+				skipPreflight: options.skipPreflight
 			});
 
 			await runAdd(cwd, updatedConfig, options);
 
-			p.outro(`${color.green("Success!")} Components added.`);
+			p.outro(`${color.green('Success!')} Components added.`);
 		} catch (e) {
 			handleError(e);
 		}
@@ -79,7 +79,7 @@ async function runAdd(cwd: string, config: cliConfig.ResolvedConfig, options: Ad
 
 	const registryUrl = registry.getRegistryUrl(config);
 	const shadcnIndex = await registry.getRegistryIndex(registryUrl);
-	const uiOnly = shadcnIndex.filter((f) => f.type === "registry:ui");
+	const uiOnly = shadcnIndex.filter((f) => f.type === 'registry:ui');
 
 	let selectedComponents = new Set(
 		options.all ? uiOnly.map(({ name }) => name) : options.components
@@ -88,7 +88,7 @@ async function runAdd(cwd: string, config: cliConfig.ResolvedConfig, options: Ad
 	// if the user hasn't passed any components prompt them to select components
 	if (selectedComponents.size === 0) {
 		const components = await p.multiselect({
-			message: `Which ${highlight("components")} would you like to add?`,
+			message: `Which ${highlight('components')} would you like to add?`,
 			maxItems: 10,
 			options: uiOnly.map((item) => {
 				let deps = [...(item.registryDependencies ?? [])];
@@ -98,9 +98,9 @@ async function runAdd(cwd: string, config: cliConfig.ResolvedConfig, options: Ad
 				return {
 					label: item.name,
 					value: item.name,
-					hint: deps.length ? `also adds: ${deps.join(", ")}` : undefined,
+					hint: deps.length ? `also adds: ${deps.join(', ')}` : undefined
 				};
-			}),
+			})
 		});
 
 		if (p.isCancel(components)) cancel();
@@ -112,8 +112,8 @@ async function runAdd(cwd: string, config: cliConfig.ResolvedConfig, options: Ad
 
 	if (options.yes === false) {
 		const proceed = await p.confirm({
-			message: `Ready to install ${highlight("components")}${options.deps ? ` and ${highlight("dependencies")}?` : "?"}`,
-			initialValue: true,
+			message: `Ready to install ${highlight('components')}${options.deps ? ` and ${highlight('dependencies')}?` : '?'}`,
+			initialValue: true
 		});
 
 		if (p.isCancel(proceed) || proceed === false) cancel();
@@ -123,7 +123,7 @@ async function runAdd(cwd: string, config: cliConfig.ResolvedConfig, options: Ad
 		config,
 		deps: options.deps,
 		overwrite: options.overwrite,
-		selectedItems: Array.from(selectedComponents),
+		selectedItems: Array.from(selectedComponents)
 	});
 
 	if (options.deps) {
@@ -131,12 +131,12 @@ async function runAdd(cwd: string, config: cliConfig.ResolvedConfig, options: Ad
 			cwd,
 			prompt: options.deps,
 			dependencies: Array.from(result.dependencies),
-			devDependencies: Array.from(result.devDependencies),
+			devDependencies: Array.from(result.devDependencies)
 		});
 	} else if (result.skippedDeps.size) {
 		const prettyList = prettifyList([...result.skippedDeps], 7);
 		p.log.warn(
-			`Components have been installed ${color.bold(color.red("without"))} the following ${highlight("dependencies")}:\n${color.gray(prettyList)}`
+			`Components have been installed ${color.bold(color.red('without'))} the following ${highlight('dependencies')}:\n${color.gray(prettyList)}`
 		);
 	}
 }

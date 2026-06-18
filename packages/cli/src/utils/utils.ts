@@ -1,6 +1,6 @@
 // !! BROWSER SAFE !!
 
-import { z } from "zod";
+import { z } from 'zod';
 
 export function isUrl(path: string) {
 	const result = z.url().safeParse(path);
@@ -13,9 +13,9 @@ function normalizeURL(url: URL | string): URL {
 		url = new URL(url);
 	}
 
-	if (!url.pathname.endsWith("/")) {
+	if (!url.pathname.endsWith('/')) {
 		url = new URL(url);
-		url.pathname = url.pathname + "/";
+		url.pathname = url.pathname + '/';
 	}
 	return url;
 }
@@ -35,15 +35,15 @@ export function toArray<T>(set: Set<T>): Array<T> | undefined {
 
 export function pascalToKebab(str: string): string {
 	return str
-		.replace(/([A-Z]+)([A-Z][a-z])/g, "$1-$2")
-		.replace(/([a-z])([A-Z])/g, "$1-$2")
-		.replace(/([a-zA-Z])(\d)/g, "$1-$2")
-		.replace(/(\d)([a-zA-Z])/g, "$1-$2")
+		.replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2')
+		.replace(/([a-z])([A-Z])/g, '$1-$2')
+		.replace(/([a-zA-Z])(\d)/g, '$1-$2')
+		.replace(/(\d)([a-zA-Z])/g, '$1-$2')
 		.toLowerCase();
 }
 
 export function kebabToPascal(str: string): string {
-	return str.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+	return str.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
 /**

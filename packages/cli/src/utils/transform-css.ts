@@ -1,6 +1,6 @@
-import { parse as parseCss } from "postcss";
-import type { CssSchema, CssVars } from "./registry/schema.js";
-import { updateCss, updateCssVars, updateTailwindPlugins } from "./updaters/index.js";
+import { parse as parseCss } from 'postcss';
+import type { CssSchema, CssVars } from './registry/schema.js';
+import { updateCss, updateCssVars, updateTailwindPlugins } from './updaters/index.js';
 
 type TransformCssOptions = {
 	cssVars?: CssVars;
@@ -12,7 +12,7 @@ type TransformCssOptions = {
 };
 
 export function transformCss(source: string, options?: TransformCssOptions): string {
-	const trailingNewline = source.endsWith("\n");
+	const trailingNewline = source.endsWith('\n');
 	const opts = { plugins: [], ...options };
 
 	// if no CSS variables are provided to update and no plugins,
@@ -29,7 +29,7 @@ export function transformCss(source: string, options?: TransformCssOptions): str
 	// update CSS variables/themes
 	if (opts.cssVars) {
 		updateCssVars(ast, opts.cssVars, {
-			overwriteCssVars: opts.overwriteCssVars,
+			overwriteCssVars: opts.overwriteCssVars
 		});
 	}
 
@@ -41,18 +41,18 @@ export function transformCss(source: string, options?: TransformCssOptions): str
 	// We need to manually ensure they have semicolons.
 	if (ast.nodes && ast.nodes.length > 0) {
 		const lastNode = ast.nodes[ast.nodes.length - 1]!;
-		if (lastNode.type === "atrule" && !lastNode.nodes && !output.trimEnd().endsWith(";")) {
-			output = output.trimEnd() + ";";
+		if (lastNode.type === 'atrule' && !lastNode.nodes && !output.trimEnd().endsWith(';')) {
+			output = output.trimEnd() + ';';
 		}
 	}
 
-	output = output.replace(/\/\* ---break--- \*\//g, "");
-	output = output.replace(/(\n\s*\n)+/g, "\n\n");
+	output = output.replace(/\/\* ---break--- \*\//g, '');
+	output = output.replace(/(\n\s*\n)+/g, '\n\n');
 	output = output.trimEnd();
 
 	// adds the EOF new line, if it existed
-	if (trailingNewline && !output.endsWith("\n")) {
-		output += "\n";
+	if (trailingNewline && !output.endsWith('\n')) {
+		output += '\n';
 	}
 
 	return output;

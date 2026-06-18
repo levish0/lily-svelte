@@ -1,15 +1,15 @@
 // !! BROWSER SAFE !!
 
-export const SITE_BASE_URL = "https://lily.levish.ac";
+export const SITE_BASE_URL = 'https://lily.levish.ac';
 export const OFFICIAL_REGISTRY_URL = `${SITE_BASE_URL}/registry`;
 
-export const ALIASES = ["components", "ui", "hooks", "utils", "lib"] as const;
+export const ALIASES = ['components', 'ui', 'hooks', 'utils', 'lib'] as const;
 
 export const ALIAS_DEFAULTS = ALIASES.reduce(
 	(acc, a) => {
 		acc[a] = {
 			placeholder: `$${a.toUpperCase()}$`,
-			defaultPath: a === "utils" ? "$lib/utils" : `$lib/registry/${a}`,
+			defaultPath: a === 'utils' ? '$lib/utils' : `$lib/registry/${a}`
 		};
 		return acc;
 	},

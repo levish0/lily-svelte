@@ -1,10 +1,10 @@
-import semver from "semver";
-import * as p from "@clack/prompts";
-import { detectPM } from "./auto-detect.js";
-import * as project from "./project.js";
-import { exec } from "tinyexec";
-import { resolveCommand } from "package-manager-detector";
-import { error } from "./errors.js";
+import semver from 'semver';
+import * as p from '@clack/prompts';
+import { detectPM } from './auto-detect.js';
+import * as project from './project.js';
+import { exec } from 'tinyexec';
+import { resolveCommand } from 'package-manager-detector';
+import { error } from './errors.js';
 
 type InstallOptions = {
 	dependencies: string[];
@@ -16,13 +16,13 @@ export async function installDependencies({
 	cwd,
 	prompt,
 	dependencies,
-	devDependencies,
+	devDependencies
 }: InstallOptions): Promise<void> {
 	const pm = await detectPM(cwd, prompt);
 	if (!pm) return;
 
 	// Deno requires the `npm:` specifier
-	const pkgSpecifier = pm === "deno" ? "npm:" : "";
+	const pkgSpecifier = pm === 'deno' ? 'npm:' : '';
 	const pkg = project.getPackageInfo(cwd);
 	const projectDeps = { ...pkg.dependencies, ...pkg.devDependencies };
 
@@ -37,10 +37,10 @@ export async function installDependencies({
 	};
 
 	const devDeps = devDependencies.map(validateDep).filter((d) => d !== undefined);
-	const addDevDeps = resolveCommand(pm, "add", ["-D", ...devDeps]);
+	const addDevDeps = resolveCommand(pm, 'add', ['-D', ...devDeps]);
 
 	const deps = dependencies.map(validateDep).filter((d) => d !== undefined);
-	const addDeps = resolveCommand(pm, "add", deps);
+	const addDeps = resolveCommand(pm, 'add', deps);
 
 	if (!addDevDeps || !addDeps) throw error(`Could not detect a package manager in ${cwd}.`);
 
@@ -48,14 +48,14 @@ export async function installDependencies({
 		title: `Installing dependencies with ${pm}...`,
 		limit: Math.ceil(process.stdout.rows / 2),
 		spacing: 0,
-		retainLog: true,
+		retainLog: true
 	});
 
 	const install = (cmd: string, args: string[]) => {
 		const proc = exec(cmd, args, { throwOnError: true, nodeOptions: { cwd } });
 
-		proc.process?.stdout?.on("data", (data) => task.message(data.toString(), { raw: true }));
-		proc.process?.stderr?.on("data", (data) => task.message(data.toString(), { raw: true }));
+		proc.process?.stdout?.on('data', (data) => task.message(data.toString(), { raw: true }));
+		proc.process?.stderr?.on('data', (data) => task.message(data.toString(), { raw: true }));
 
 		return proc;
 	};
@@ -69,25 +69,25 @@ export async function installDependencies({
 			await install(addDevDeps.command, addDevDeps.args);
 		}
 
-		task.success("Successfully installed dependencies");
+		task.success('Successfully installed dependencies');
 	} catch {
-		task.error("Failed to install dependencies");
-		p.cancel("Operation failed.");
+		task.error('Failed to install dependencies');
+		p.cancel('Operation failed.');
 		process.exit(2);
 	}
 }
 
 export function parseDependency(dep: string) {
 	let name: string | undefined = dep;
-	let version: string | undefined = "latest";
+	let version: string | undefined = 'latest';
 
-	if (dep.startsWith("@")) {
-		if (dep.includes("@", 1)) {
+	if (dep.startsWith('@')) {
+		if (dep.includes('@', 1)) {
 			[, name, version] = dep.split(/(.*)(?:@)(.*)/);
 		}
 	} else {
-		if (dep.includes("@", 1)) {
-			[name, version] = dep.split("@");
+		if (dep.includes('@', 1)) {
+			[name, version] = dep.split('@');
 		}
 	}
 

@@ -1,11 +1,11 @@
-import * as p from "@clack/prompts";
-import color from "picocolors";
-import * as semver from "semver";
-import { CLIError, error } from "../../utils/errors.js";
-import { highlight } from "../../utils/colors.js";
-import { SITE_BASE_URL } from "../../constants.js";
-import { getDependencyPackageInfo } from "../../utils/get-package-info.js";
-import * as project from "../../utils/project.js";
+import * as p from '@clack/prompts';
+import color from 'picocolors';
+import * as semver from 'semver';
+import { CLIError, error } from '../../utils/errors.js';
+import { highlight } from '../../utils/colors.js';
+import { SITE_BASE_URL } from '../../constants.js';
+import { getDependencyPackageInfo } from '../../utils/get-package-info.js';
+import * as project from '../../utils/project.js';
 
 /**
  * Runs preflight checks for the `init` command.
@@ -18,14 +18,14 @@ import * as project from "../../utils/project.js";
  * @param cwd - The current working directory.
  */
 export function preflightInit(cwd: string, options: { skipPreflight: boolean }) {
-	const sveltePkg = getDependencyPackageInfo(cwd, "svelte")?.pkg;
-	const tailwindPkg = getDependencyPackageInfo(cwd, "tailwindcss")?.pkg;
+	const sveltePkg = getDependencyPackageInfo(cwd, 'svelte')?.pkg;
+	const tailwindPkg = getDependencyPackageInfo(cwd, 'tailwindcss')?.pkg;
 
 	const pkg = project.getPackageInfo(cwd);
 	const deps = { ...pkg.dependencies, ...pkg.devDependencies };
 
-	const svelte = sveltePkg?.version ?? deps["svelte"];
-	const tailwindcss = tailwindPkg?.version ?? deps["tailwindcss"];
+	const svelte = sveltePkg?.version ?? deps['svelte'];
+	const tailwindcss = tailwindPkg?.version ?? deps['tailwindcss'];
 
 	const result = checkInitDependencies({ svelte, tailwindcss });
 	if (result.ok) return;
@@ -33,7 +33,7 @@ export function preflightInit(cwd: string, options: { skipPreflight: boolean }) 
 	if (!options.skipPreflight) throw result.error;
 
 	p.note(
-		`${color.red(result.error.message)}\nContinuing initialization with ${color.bold("--skip-preflight")}.`
+		`${color.red(result.error.message)}\nContinuing initialization with ${color.bold('--skip-preflight')}.`
 	);
 }
 
@@ -55,14 +55,14 @@ function checkInitDependencies(
 			ok: false,
 			error: error(
 				`This CLI version requires Tailwind CSS v4 and Svelte v5 to initialize a project.\n`
-			),
+			)
 		};
 	}
 
-	const isTailwind3 = semver.satisfies(semver.coerce(dependencies.tailwindcss) || "", "^3.0.0");
-	const isTailwind4 = semver.satisfies(semver.coerce(dependencies.tailwindcss) || "", "^4.0.0");
-	const isSvelte4 = semver.satisfies(semver.coerce(dependencies.svelte) || "", "^4.0.0");
-	const isSvelte5 = semver.satisfies(semver.coerce(dependencies.svelte) || "", "^5.0.0");
+	const isTailwind3 = semver.satisfies(semver.coerce(dependencies.tailwindcss) || '', '^3.0.0');
+	const isTailwind4 = semver.satisfies(semver.coerce(dependencies.tailwindcss) || '', '^4.0.0');
+	const isSvelte4 = semver.satisfies(semver.coerce(dependencies.svelte) || '', '^4.0.0');
+	const isSvelte5 = semver.satisfies(semver.coerce(dependencies.svelte) || '', '^5.0.0');
 
 	// if running Tailwind v3 and Svelte v5, we throw an error with a helpful message because
 	// `init` is only supported for Tailwind v4 and Svelte v5
@@ -72,11 +72,11 @@ function checkInitDependencies(
 			error: error(
 				`Initializing a project with Tailwind v3 is not supported.\n\n` +
 					`This CLI version requires Tailwind v4 and Svelte v5 for the ` +
-					`${highlight("init")} command.\n\n` +
+					`${highlight('init')} command.\n\n` +
 					`Please update Tailwind CSS to v4 and try again.\n\n` +
 					`References:\n` +
 					`Tailwind v4 Guide: ${color.underline(`${SITE_BASE_URL}/docs/migration/tailwind-v4`)}\n\n`
-			),
+			)
 		};
 	}
 
@@ -87,9 +87,9 @@ function checkInitDependencies(
 			ok: false,
 			error: error(
 				`Initializing a project with Tailwind v3 and Svelte v4 is not supported.\n\n` +
-					`This CLI version requires Tailwind v4 and Svelte v5 for the ${highlight("init")} command.\n\n` +
+					`This CLI version requires Tailwind v4 and Svelte v5 for the ${highlight('init')} command.\n\n` +
 					`Please migrate to Tailwind v4 + Svelte v5 and try again.\n\n`
-			),
+			)
 		};
 	}
 
@@ -100,11 +100,11 @@ function checkInitDependencies(
 			ok: false,
 			error: error(
 				`This CLI version requires Tailwind CSS v4 and Svelte v5 to initialize a project.\n`
-			),
+			)
 		};
 	}
 
 	return {
-		ok: true,
+		ok: true
 	};
 }

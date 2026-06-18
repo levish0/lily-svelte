@@ -1,12 +1,12 @@
-import path from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
-import { type TsConfigResult, createPathsMatcher } from "get-tsconfig";
-import * as resolve from "resolve.exports";
-import { getDependencyPackageInfo } from "./get-package-info.js";
-import * as project from "./project.js";
-import type { PackageJson } from "type-fest";
+import path from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { type TsConfigResult, createPathsMatcher } from 'get-tsconfig';
+import * as resolve from 'resolve.exports';
+import { getDependencyPackageInfo } from './get-package-info.js';
+import * as project from './project.js';
+import type { PackageJson } from 'type-fest';
 
-const NOOP = "/noop.js";
+const NOOP = '/noop.js';
 
 type ResolveImportOpts = {
 	importPath: string;
@@ -26,8 +26,8 @@ export function resolveImportAlias(opts: ResolveImportOpts): string | undefined 
 
 	// resolves the path if it's in the project's import map
 	const pkg = project.getPackageInfo(opts.cwd);
-	if (opts.importPath.startsWith("#")) {
-		const pkgPath = path.resolve(opts.cwd, "package.json");
+	if (opts.importPath.startsWith('#')) {
+		const pkgPath = path.resolve(opts.cwd, 'package.json');
 		const resolvedPath = resolveAlias(pkg, pkgPath, opts.importPath);
 		if (resolvedPath) return resolvedPath;
 	}

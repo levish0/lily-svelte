@@ -1,4 +1,4 @@
-import type { ResolvedConfig } from "../config/index.js";
+import type { ResolvedConfig } from '../config/index.js';
 
 export type TransformOptions = {
 	content: string;
@@ -24,7 +24,7 @@ export async function transform(
 		content: opts.content,
 		dependencies: new Set<string>(),
 		devDependencies: new Set<string>(),
-		filePath: opts.filePath,
+		filePath: opts.filePath
 	};
 	for (const transformer of transformers.filter(
 		(transformer) => transformer !== undefined && transformer !== false
@@ -33,7 +33,7 @@ export async function transform(
 			config: opts.config,
 			content: result.content,
 			filePath: result.filePath,
-			supportedFontMarkers: opts.supportedFontMarkers,
+			supportedFontMarkers: opts.supportedFontMarkers
 		});
 		result.content = content ?? result.content;
 		dependencies?.forEach((dep) => result.dependencies.add(dep));
@@ -44,12 +44,12 @@ export async function transform(
 		content: result.content,
 		dependencies: Array.from(result.dependencies),
 		devDependencies: Array.from(result.devDependencies),
-		filePath: result.filePath,
+		filePath: result.filePath
 	};
 }
 
-export { transformStripTypes } from "./transform-strip-types.js";
-export { transformIcons } from "./transform-icons.js";
-export { transformImports } from "./transform-imports.js";
-export { transformMenu } from "./transform-menu.js";
-export { transformFont, rewriteFontMarkers } from "./transform-font.js";
+export { transformStripTypes } from './transform-strip-types.js';
+export { transformIcons } from './transform-icons.js';
+export { transformImports } from './transform-imports.js';
+export { transformMenu } from './transform-menu.js';
+export { transformFont, rewriteFontMarkers } from './transform-font.js';

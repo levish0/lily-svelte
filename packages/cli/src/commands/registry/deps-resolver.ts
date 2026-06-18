@@ -1,11 +1,11 @@
-import * as acorn from "acorn";
-import * as svelte from "svelte/compiler";
-import { walk, type Node } from "estree-walker";
-import { tsPlugin } from "@sveltejs/acorn-typescript";
-import type { PackageJson } from "type-fest";
-import { toArray } from "../../utils/utils.js";
-import * as project from "../../utils/project.js";
-import { getDependencyPackageInfo } from "../../utils/get-package-info.js";
+import * as acorn from 'acorn';
+import * as svelte from 'svelte/compiler';
+import { walk, type Node } from 'estree-walker';
+import { tsPlugin } from '@sveltejs/acorn-typescript';
+import type { PackageJson } from 'type-fest';
+import { toArray } from '../../utils/utils.js';
+import * as project from '../../utils/project.js';
+import { getDependencyPackageInfo } from '../../utils/get-package-info.js';
 
 export type ResolvedDependencies = {
 	/** `<Dep@Version, Peers[]>` */
@@ -42,7 +42,7 @@ export function resolveTypeDeps(projectDeps: ProjectDependencies) {
 		for (const [name, versioned] of Object.entries(dependencies.versions)) {
 			const peers = dependencies.deps[versioned]!;
 			// transforms orgs into the proper types package name (e.g. `@org/pkg-name` => `@types/org__pkg-name`)
-			const typesName = `@types/${name.replace(/^@(.*)\/(.*)/, "$1__$2")}`;
+			const typesName = `@types/${name.replace(/^@(.*)\/(.*)/, '$1__$2')}`;
 			const typesVersion =
 				projectDeps.dependencies.versions[typesName] ??
 				projectDeps.devDependencies.versions[typesName];
@@ -68,8 +68,7 @@ export function resolvePeerVersions(projectDeps: ProjectDependencies): ProjectDe
 			dependencies.deps[name] = peers
 				.map(
 					(peer) =>
-						projectDeps.dependencies.versions[peer] ||
-						projectDeps.devDependencies.versions[peer]
+						projectDeps.dependencies.versions[peer] || projectDeps.devDependencies.versions[peer]
 				)
 				.filter((peer) => peer !== undefined);
 		}
@@ -78,7 +77,7 @@ export function resolvePeerVersions(projectDeps: ProjectDependencies): ProjectDe
 	return projectDeps;
 }
 
-export const IGNORE_DEPS = ["svelte", "@sveltejs/kit", "tailwindcss", "vite"];
+export const IGNORE_DEPS = ['svelte', '@sveltejs/kit', 'tailwindcss', 'vite'];
 
 /**
  * Resolves peer dependencies from a given set of dependencies from a package.json.
@@ -86,11 +85,11 @@ export const IGNORE_DEPS = ["svelte", "@sveltejs/kit", "tailwindcss", "vite"];
  * Optional peer dependencies are ignored.
  */
 function resolvePeerDeps(
-	dependencies: PackageJson["dependencies"],
+	dependencies: PackageJson['dependencies'],
 	cwd: string
 ): ResolvedDependencies {
-	const deps: ResolvedDependencies["deps"] = {};
-	const versions: ResolvedDependencies["versions"] = {};
+	const deps: ResolvedDependencies['deps'] = {};
+	const versions: ResolvedDependencies['versions'] = {};
 
 	for (const [name, version] of Object.entries(dependencies ?? {})) {
 		const versioned = version ? `${name}@${version}` : name;
@@ -104,8 +103,7 @@ function resolvePeerDeps(
 		const { peerDependencies = {}, peerDependenciesMeta = {} } = pkg;
 		for (const [peerName] of Object.entries(peerDependencies)) {
 			// ignores certain peer deps and optional peer deps
-			if (IGNORE_DEPS.includes(peerName) || peerDependenciesMeta[peerName]?.optional)
-				continue;
+			if (IGNORE_DEPS.includes(peerName) || peerDependenciesMeta[peerName]?.optional) continue;
 			peers.push(peerName);
 		}
 	}
@@ -123,18 +121,18 @@ export async function getFileDependencies(opts: GetFileDepOpts) {
 	let ast: unknown;
 	let moduleAst: unknown;
 
-	if (filename.endsWith(".svelte")) {
+	if (filename.endsWith('.svelte')) {
 		const { code } = await svelte.preprocess(source, [], { filename });
 		const result = svelte.parse(code, { filename });
 		ast = result.instance;
 		if (result.module) {
 			moduleAst = result.module;
 		}
-	} else if (filename.endsWith(".ts") || filename.endsWith(".js")) {
+	} else if (filename.endsWith('.ts') || filename.endsWith('.js')) {
 		ast = tsParser.parse(source, {
-			ecmaVersion: "latest",
-			sourceType: "module",
-			sourceFile: filename,
+			ecmaVersion: 'latest',
+			sourceType: 'module',
+			sourceFile: filename
 		});
 	} else {
 		// unknown file (e.g. `.env` or some config file)
@@ -145,7 +143,7 @@ export async function getFileDependencies(opts: GetFileDepOpts) {
 	const devDependencies = new Set<string>();
 
 	const enter = (node: Node) => {
-		if (node.type !== "ImportDeclaration") return;
+		if (node.type !== 'ImportDeclaration') return;
 		const source = node.source.value as string;
 
 		const deps = resolveDepsFromImport(source, opts.dependencies);
@@ -165,7 +163,7 @@ export async function getFileDependencies(opts: GetFileDepOpts) {
 
 	return {
 		dependencies: toArray(dependencies),
-		devDependencies: toArray(devDependencies),
+		devDependencies: toArray(devDependencies)
 	};
 }
 

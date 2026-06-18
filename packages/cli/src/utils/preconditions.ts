@@ -1,11 +1,11 @@
-import * as semver from "semver";
-import color from "picocolors";
-import * as p from "@clack/prompts";
-import { getDependencyPackageInfo } from "./get-package-info.js";
-import * as project from "./project.js";
-import * as cliConfig from "./config/index.js";
-import { CLIError, error } from "./errors.js";
-import { SITE_BASE_URL } from "../constants.js";
+import * as semver from 'semver';
+import color from 'picocolors';
+import * as p from '@clack/prompts';
+import { getDependencyPackageInfo } from './get-package-info.js';
+import * as project from './project.js';
+import * as cliConfig from './config/index.js';
+import { CLIError, error } from './errors.js';
+import { SITE_BASE_URL } from '../constants.js';
 
 // accepts either a `RawConfig` or `ResolvedConfig`
 type PreconditionOptions<Config extends cliConfig.RawConfig> = {
@@ -18,26 +18,24 @@ type PreconditionOptions<Config extends cliConfig.RawConfig> = {
 export function checkPreconditions<Config extends cliConfig.RawConfig>({
 	cwd,
 	config,
-	skipPreflight,
+	skipPreflight
 }: PreconditionOptions<Config>): Config {
-	const sveltePkg = getDependencyPackageInfo(cwd, "svelte")?.pkg;
-	const tailwindPkg = getDependencyPackageInfo(cwd, "tailwindcss")?.pkg;
+	const sveltePkg = getDependencyPackageInfo(cwd, 'svelte')?.pkg;
+	const tailwindPkg = getDependencyPackageInfo(cwd, 'tailwindcss')?.pkg;
 
 	// covers the case where `npm install` hasn't been executed yet
 	const pkg = project.getPackageInfo(cwd);
 	const fallback = { ...pkg.dependencies, ...pkg.devDependencies };
 
-	const svelte = sveltePkg?.version ?? fallback["svelte"];
-	const tailwindcss = tailwindPkg?.version ?? fallback["tailwindcss"];
+	const svelte = sveltePkg?.version ?? fallback['svelte'];
+	const tailwindcss = tailwindPkg?.version ?? fallback['tailwindcss'];
 
 	const result = checkDependencies({ svelte, tailwindcss }, cwd, config);
 	if (result.ok) return result.config;
 
 	if (!skipPreflight) throw result.error;
 
-	p.note(
-		`${color.red(result.error.message)}\nContinuing with ${color.bold("--skip-preflight")}.`
-	);
+	p.note(`${color.red(result.error.message)}\nContinuing with ${color.bold('--skip-preflight')}.`);
 
 	return result.config;
 }
@@ -64,12 +62,12 @@ function checkDependencies<Config extends cliConfig.RawConfig>(
 		return {
 			ok: false,
 			config,
-			error: error(`This CLI requires Tailwind CSS and Svelte to be installed.\n`),
+			error: error(`This CLI requires Tailwind CSS and Svelte to be installed.\n`)
 		};
 	}
 
-	const isTailwind4 = semver.satisfies(semver.coerce(dependencies.tailwindcss) ?? "", "^4.0.0");
-	const isSvelte5 = semver.satisfies(semver.coerce(dependencies.svelte) ?? "", "^5.0.0");
+	const isTailwind4 = semver.satisfies(semver.coerce(dependencies.tailwindcss) ?? '', '^4.0.0');
+	const isSvelte5 = semver.satisfies(semver.coerce(dependencies.svelte) ?? '', '^5.0.0');
 
 	// supported versions (tailwind v4 + svelte v5)
 	if (isTailwind4 && isSvelte5) {
@@ -86,6 +84,6 @@ function checkDependencies<Config extends cliConfig.RawConfig>(
 		error: error(
 			`This CLI version requires Tailwind CSS v4 and Svelte v5.\n\n` +
 				`If you are on an older version, please migrate to Tailwind v4 and Svelte 5: ${SITE_BASE_URL}/docs`
-		),
+		)
 	};
 }

@@ -1,13 +1,13 @@
 // !! BROWSER SAFE !!
 
-import type { Transformer } from "./index.js";
-import { parse as parseSvelte } from "svelte/compiler";
-import MagicString from "magic-string";
-import { twMerge } from "tailwind-merge";
+import type { Transformer } from './index.js';
+import { parse as parseSvelte } from 'svelte/compiler';
+import MagicString from 'magic-string';
+import { twMerge } from 'tailwind-merge';
 
 // Hardcoded translucent classes inlined at install time.
 const TRANSLUCENT_CLASSES =
-	"animate-none! relative bg-popover/70 before:pointer-events-none before:absolute before:inset-0 before:-z-1 before:rounded-[inherit] before:backdrop-blur-2xl before:backdrop-saturate-150 **:data-[slot$=-item]:focus:bg-foreground/10 **:data-[slot$=-item]:data-highlighted:bg-foreground/10 **:data-[slot$=-separator]:bg-foreground/5 **:data-[slot$=-trigger]:focus:bg-foreground/10 **:data-[slot$=-trigger]:aria-expanded:bg-foreground/10! **:data-[variant=destructive]:focus:bg-foreground/10! **:data-[variant=destructive]:text-accent-foreground! **:data-[variant=destructive]:**:text-accent-foreground!";
+	'animate-none! relative bg-popover/70 before:pointer-events-none before:absolute before:inset-0 before:-z-1 before:rounded-[inherit] before:backdrop-blur-2xl before:backdrop-saturate-150 **:data-[slot$=-item]:focus:bg-foreground/10 **:data-[slot$=-item]:data-highlighted:bg-foreground/10 **:data-[slot$=-separator]:bg-foreground/5 **:data-[slot$=-trigger]:focus:bg-foreground/10 **:data-[slot$=-trigger]:aria-expanded:bg-foreground/10! **:data-[variant=destructive]:focus:bg-foreground/10! **:data-[variant=destructive]:text-accent-foreground! **:data-[variant=destructive]:**:text-accent-foreground!';
 
 type SvelteNode = {
 	type: string;
@@ -31,20 +31,20 @@ function transformClassText(
 ): { newText: string } {
 	let newText = text;
 
-	if (menuColor === "inverted" || menuColor === "inverted-translucent") {
-		newText = newText.replace(/cn-menu-target/g, "dark");
+	if (menuColor === 'inverted' || menuColor === 'inverted-translucent') {
+		newText = newText.replace(/cn-menu-target/g, 'dark');
 	} else {
-		newText = newText.replace(/cn-menu-target/g, "");
+		newText = newText.replace(/cn-menu-target/g, '');
 	}
 
 	if (isTranslucent) {
 		const merged = twMerge(newText, TRANSLUCENT_CLASSES);
-		newText = merged.replace(/\s*\bcn-menu-translucent\b\s*/g, " ").trim();
+		newText = merged.replace(/\s*\bcn-menu-translucent\b\s*/g, ' ').trim();
 	} else {
-		newText = newText.replace(/cn-menu-translucent/g, "");
+		newText = newText.replace(/cn-menu-translucent/g, '');
 	}
 
-	newText = newText.replace(/\s{2,}/g, " ").replace(/^\s+|\s+$/g, "");
+	newText = newText.replace(/\s{2,}/g, ' ').replace(/^\s+|\s+$/g, '');
 	return { newText };
 }
 
@@ -64,15 +64,14 @@ function walkNodes(nodes: SvelteNode[] | undefined, visit: (node: SvelteNode) =>
  * Otherwise, removes both cn-menu-target and cn-menu-translucent.
  */
 export const transformMenu: Transformer = async ({ content, filePath, config }) => {
-	const menuColor = config.menuColor ?? "default";
-	const isTranslucent =
-		menuColor === "default-translucent" || menuColor === "inverted-translucent";
+	const menuColor = config.menuColor ?? 'default';
+	const isTranslucent = menuColor === 'default-translucent' || menuColor === 'inverted-translucent';
 
-	if (!content.includes("cn-menu-target") && !content.includes("cn-menu-translucent")) {
+	if (!content.includes('cn-menu-target') && !content.includes('cn-menu-translucent')) {
 		return { content };
 	}
 
-	if (!filePath.endsWith(".svelte")) {
+	if (!filePath.endsWith('.svelte')) {
 		return { content };
 	}
 
@@ -87,7 +86,7 @@ export const transformMenu: Transformer = async ({ content, filePath, config }) 
 
 	walkNodes(ast.fragment?.nodes, (node) => {
 		for (const attr of node.attributes ?? []) {
-			if (attr.name !== "class") continue;
+			if (attr.name !== 'class') continue;
 
 			const value = attr.value;
 			if (!value) continue;
@@ -96,17 +95,12 @@ export const transformMenu: Transformer = async ({ content, filePath, config }) 
 			if (Array.isArray(value)) {
 				const textChunks = value
 					.filter(
-						(
-							chunk
-						): chunk is { type: string; data?: string; start?: number; end?: number } =>
-							typeof chunk === "object" && chunk !== null && "data" in chunk
+						(chunk): chunk is { type: string; data?: string; start?: number; end?: number } =>
+							typeof chunk === 'object' && chunk !== null && 'data' in chunk
 					)
-					.map((c) => c.data ?? "")
-					.join("");
-				if (
-					!textChunks.includes("cn-menu-target") &&
-					!textChunks.includes("cn-menu-translucent")
-				) {
+					.map((c) => c.data ?? '')
+					.join('');
+				if (!textChunks.includes('cn-menu-target') && !textChunks.includes('cn-menu-translucent')) {
 					continue;
 				}
 				const { newText } = transformClassText(textChunks, menuColor, isTranslucent);
@@ -125,10 +119,9 @@ export const transformMenu: Transformer = async ({ content, filePath, config }) 
 			}
 
 			// Dynamic: class={cn(...)}
-			if (typeof value === "object" && value !== null && "expression" in value) {
-				const expr = (value as { expression?: { type: string; arguments?: unknown[] } })
-					.expression;
-				if (!expr || expr.type !== "CallExpression") continue;
+			if (typeof value === 'object' && value !== null && 'expression' in value) {
+				const expr = (value as { expression?: { type: string; arguments?: unknown[] } }).expression;
+				if (!expr || expr.type !== 'CallExpression') continue;
 				const args = expr.arguments as {
 					type: string;
 					value?: string;
@@ -143,19 +136,16 @@ export const transformMenu: Transformer = async ({ content, filePath, config }) 
 				if (exprStart == null || exprEnd == null) continue;
 
 				const fullExpr = content.slice(exprStart, exprEnd);
-				if (
-					!fullExpr.includes("cn-menu-target") &&
-					!fullExpr.includes("cn-menu-translucent")
-				) {
+				if (!fullExpr.includes('cn-menu-target') && !fullExpr.includes('cn-menu-translucent')) {
 					continue;
 				}
 
 				// Collect edits; we'll apply in reverse order to preserve offsets
 				const edits: { start: number; end: number; replacement: string }[] = [];
 				for (const arg of args) {
-					if (arg.type !== "Literal" || typeof arg.value !== "string") continue;
+					if (arg.type !== 'Literal' || typeof arg.value !== 'string') continue;
 					const text = arg.value;
-					if (!text.includes("cn-menu-target") && !text.includes("cn-menu-translucent")) {
+					if (!text.includes('cn-menu-target') && !text.includes('cn-menu-translucent')) {
 						continue;
 					}
 					const { newText } = transformClassText(text, menuColor, isTranslucent);
@@ -166,7 +156,7 @@ export const transformMenu: Transformer = async ({ content, filePath, config }) 
 						edits.push({
 							start: arg.start,
 							end: arg.end,
-							replacement: newText === "" ? '""' : `${quote}${newText}${quote}`,
+							replacement: newText === '' ? '""' : `${quote}${newText}${quote}`
 						});
 					}
 				}
@@ -179,10 +169,10 @@ export const transformMenu: Transformer = async ({ content, filePath, config }) 
 
 	let result = src.toString();
 	// Clean up empty string arguments in cn() calls
-	result = result.replace(/,\s*""\s*,/g, ",");
-	result = result.replace(/\(\s*""\s*,\s*/g, "(");
-	result = result.replace(/,\s*""\s*\)/g, ")");
-	result = result.replace(/cn\s*\(\s*\)/g, "cn()");
+	result = result.replace(/,\s*""\s*,/g, ',');
+	result = result.replace(/\(\s*""\s*,\s*/g, '(');
+	result = result.replace(/,\s*""\s*\)/g, ')');
+	result = result.replace(/cn\s*\(\s*\)/g, 'cn()');
 
 	return { content: result };
 };

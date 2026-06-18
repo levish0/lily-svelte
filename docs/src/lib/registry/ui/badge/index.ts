@@ -1,3 +1,3 @@
-import Root from "./badge.svelte";
+import Root from './badge.svelte';
 
 export { Root, Root as Badge };

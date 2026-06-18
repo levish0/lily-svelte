@@ -1,18 +1,18 @@
-import { promises as fs } from "node:fs";
-import path from "node:path";
-import { walk } from "estree-walker";
-import MagicString from "magic-string";
-import { parse as parseSvelte } from "svelte/compiler";
-import type { Transformer } from "./index.js";
-import { Parser } from "acorn";
-import { tsPlugin } from "@sveltejs/acorn-typescript";
+import { promises as fs } from 'node:fs';
+import path from 'node:path';
+import { walk } from 'estree-walker';
+import MagicString from 'magic-string';
+import { parse as parseSvelte } from 'svelte/compiler';
+import type { Transformer } from './index.js';
+import { Parser } from 'acorn';
+import { tsPlugin } from '@sveltejs/acorn-typescript';
 
 const FONT_MARKERS = [
 	{
-		marker: "cn-font-heading",
-		utility: "font-heading",
-		supportToken: "--font-heading:",
-	},
+		marker: 'cn-font-heading',
+		utility: 'font-heading',
+		supportToken: '--font-heading:'
+	}
 ] as const;
 
 const MARKER_REGEX = /\bcn-font-heading\b/;
@@ -33,7 +33,7 @@ async function getSupportedFontMarkers(
 	let cached = supportCache.get(tailwindCssPath);
 	if (!cached) {
 		cached = fs
-			.readFile(tailwindCssPath, "utf8")
+			.readFile(tailwindCssPath, 'utf8')
 			.then((content) => {
 				const projectMarkers = new Set<string>();
 				for (const m of FONT_MARKERS) {
@@ -64,12 +64,12 @@ export function rewriteFontMarkers(className: string, supportedMarkers: Set<stri
 		}
 
 		next = next.replace(
-			new RegExp(`\\b${m.marker}\\b`, "g"),
-			supportedMarkers.has(m.marker) ? m.utility : ""
+			new RegExp(`\\b${m.marker}\\b`, 'g'),
+			supportedMarkers.has(m.marker) ? m.utility : ''
 		);
 	}
 
-	return next.replace(/\s+/g, " ").trim();
+	return next.replace(/\s+/g, ' ').trim();
 }
 
 function replaceStringInSource(
@@ -85,14 +85,14 @@ function replaceStringInSource(
 	const raw = source.slice(node.start, node.end);
 	let replacement: string;
 
-	if (raw.startsWith("`")) {
-		replacement = newValue === "" ? "``" : `\`${newValue}\``;
+	if (raw.startsWith('`')) {
+		replacement = newValue === '' ? '``' : `\`${newValue}\``;
 	} else if (raw.startsWith("'")) {
 		replacement =
-			newValue === "" ? "''" : `'${newValue.replace(/\\/g, "\\\\").replace(/'/g, "\\'")}'`;
+			newValue === '' ? "''" : `'${newValue.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`;
 	} else {
 		replacement =
-			newValue === "" ? '""' : `"${newValue.replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
+			newValue === '' ? '""' : `"${newValue.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
 	}
 
 	src.overwrite(node.start, node.end, replacement);
@@ -104,7 +104,7 @@ function processStringLiteralNode(
 	src: MagicString,
 	supportedMarkers: Set<string>
 ): void {
-	if (node.type !== "Literal" || typeof node.value !== "string") {
+	if (node.type !== 'Literal' || typeof node.value !== 'string') {
 		return;
 	}
 
@@ -130,11 +130,11 @@ function processNoSubstTemplateLiteral(
 	src: MagicString,
 	supportedMarkers: Set<string>
 ): void {
-	if (node.type !== "TemplateLiteral" || !node.quasis || node.quasis.length !== 1) {
+	if (node.type !== 'TemplateLiteral' || !node.quasis || node.quasis.length !== 1) {
 		return;
 	}
 
-	const text = node.quasis[0]?.value.cooked ?? "";
+	const text = node.quasis[0]?.value.cooked ?? '';
 	if (!MARKER_REGEX.test(text)) {
 		return;
 	}
@@ -155,7 +155,7 @@ function walkStringLiterals(
 		enter(node) {
 			processStringLiteralNode(node, source, src, supportedMarkers);
 			processNoSubstTemplateLiteral(node, source, src, supportedMarkers);
-		},
+		}
 	});
 }
 
@@ -164,10 +164,10 @@ function isCallWithIdentifier(
 	name: string
 ): boolean {
 	return (
-		node.type === "CallExpression" &&
+		node.type === 'CallExpression' &&
 		node.callee !== null &&
 		node.callee !== undefined &&
-		node.callee.type === "Identifier" &&
+		node.callee.type === 'Identifier' &&
 		node.callee.name === name
 	);
 }
@@ -181,12 +181,12 @@ function processCvaCall(
 ): void {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	for (const arg of call.arguments as any[]) {
-		if (arg.type === "Literal" && typeof arg.value === "string") {
+		if (arg.type === 'Literal' && typeof arg.value === 'string') {
 			processStringLiteralNode(arg, source, src, supportedMarkers);
 			continue;
 		}
 		if (
-			arg.type === "TemplateLiteral" &&
+			arg.type === 'TemplateLiteral' &&
 			(arg.expressions?.length ?? 0) === 0 &&
 			(arg.quasis?.length ?? 0) === 1
 		) {
@@ -228,10 +228,10 @@ function walkSvelteTemplate(
 
 function trimClassCallEmptyArgs(result: string): string {
 	let out = result;
-	out = out.replace(/,\s*""\s*,/g, ",");
-	out = out.replace(/\(\s*""\s*,\s*/g, "(");
-	out = out.replace(/,\s*""\s*\)/g, ")");
-	out = out.replace(/\bcn\s*\(\s*\)/g, "cn()");
+	out = out.replace(/,\s*""\s*,/g, ',');
+	out = out.replace(/\(\s*""\s*,\s*/g, '(');
+	out = out.replace(/,\s*""\s*\)/g, ')');
+	out = out.replace(/\bcn\s*\(\s*\)/g, 'cn()');
 	return out;
 }
 
@@ -255,7 +255,7 @@ function transformSvelteStyles(
 
 	walkSvelteTemplate(ast.fragment?.nodes, (node) => {
 		for (const attr of node.attributes ?? []) {
-			if (attr.type !== "Attribute" || attr.name !== "class") {
+			if (attr.type !== 'Attribute' || attr.name !== 'class') {
 				continue;
 			}
 
@@ -267,16 +267,14 @@ function transformSvelteStyles(
 			if (Array.isArray(value)) {
 				const textChunks = value
 					.filter(
-						(
-							chunk
-						): chunk is { type: string; data?: string; start?: number; end?: number } =>
-							typeof chunk === "object" &&
+						(chunk): chunk is { type: string; data?: string; start?: number; end?: number } =>
+							typeof chunk === 'object' &&
 							chunk !== null &&
-							"type" in chunk &&
-							chunk.type === "Text"
+							'type' in chunk &&
+							chunk.type === 'Text'
 					)
-					.map((c) => c.data ?? "")
-					.join("");
+					.map((c) => c.data ?? '')
+					.join('');
 
 				if (!MARKER_REGEX.test(textChunks)) {
 					continue;
@@ -284,12 +282,11 @@ function transformSvelteStyles(
 
 				const newText = rewriteFontMarkers(textChunks, supportedMarkers);
 
-				if (newText === "") {
+				if (newText === '') {
 					const aStart = attr.start ?? 0;
 					const aEnd = attr.end ?? 0;
-					const removeStart =
-						aStart > 0 && content[aStart - 1] === " " ? aStart - 1 : aStart;
-					src.overwrite(removeStart, aEnd, "");
+					const removeStart = aStart > 0 && content[aStart - 1] === ' ' ? aStart - 1 : aStart;
+					src.overwrite(removeStart, aEnd, '');
 					continue;
 				}
 
@@ -298,7 +295,7 @@ function transformSvelteStyles(
 					start?: number;
 					end?: number;
 				}>) {
-					if (chunk.type === "Text" && chunk.start != null && chunk.end != null) {
+					if (chunk.type === 'Text' && chunk.start != null && chunk.end != null) {
 						src.overwrite(chunk.start, chunk.end, newText);
 						break;
 					}
@@ -306,7 +303,7 @@ function transformSvelteStyles(
 				continue;
 			}
 
-			if (typeof value === "object" && value !== null && "expression" in value) {
+			if (typeof value === 'object' && value !== null && 'expression' in value) {
 				const expr = (
 					value as {
 						expression?: {
@@ -320,7 +317,7 @@ function transformSvelteStyles(
 						};
 					}
 				).expression;
-				if (!expr || expr.type !== "CallExpression") {
+				if (!expr || expr.type !== 'CallExpression') {
 					continue;
 				}
 
@@ -341,7 +338,7 @@ function transformSvelteStyles(
 				}
 
 				for (const arg of args) {
-					if (arg.type !== "Literal" || typeof arg.value !== "string") {
+					if (arg.type !== 'Literal' || typeof arg.value !== 'string') {
 						continue;
 					}
 					if (!MARKER_REGEX.test(arg.value)) {
@@ -364,17 +361,17 @@ function transformSvelteStyles(
 		walk(script.content as never, {
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			enter(node: any) {
-				if (node.type !== "CallExpression") {
+				if (node.type !== 'CallExpression') {
 					return;
 				}
-				if (isCallWithIdentifier(node, "cva")) {
+				if (isCallWithIdentifier(node, 'cva')) {
 					processCvaCall(node, content, src, supportedMarkers);
 					this.skip();
-				} else if (isCallWithIdentifier(node, "mergeProps")) {
+				} else if (isCallWithIdentifier(node, 'mergeProps')) {
 					walkStringLiterals(node, content, src, supportedMarkers);
 					this.skip();
 				}
-			},
+			}
 		});
 	}
 
@@ -385,9 +382,9 @@ function transformJsModule(content: string, supportedMarkers: Set<string>): { co
 	let program: object;
 	try {
 		program = acornParser.parse(content, {
-			ecmaVersion: "latest",
-			sourceType: "module",
-			locations: false,
+			ecmaVersion: 'latest',
+			sourceType: 'module',
+			locations: false
 		}) as object;
 	} catch {
 		return { content };
@@ -398,17 +395,17 @@ function transformJsModule(content: string, supportedMarkers: Set<string>): { co
 	walk(program as never, {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		enter(node: any) {
-			if (node.type !== "CallExpression") {
+			if (node.type !== 'CallExpression') {
 				return;
 			}
-			if (isCallWithIdentifier(node, "cva")) {
+			if (isCallWithIdentifier(node, 'cva')) {
 				processCvaCall(node, content, src, supportedMarkers);
 				this.skip();
-			} else if (isCallWithIdentifier(node, "mergeProps")) {
+			} else if (isCallWithIdentifier(node, 'mergeProps')) {
 				walkStringLiterals(node, content, src, supportedMarkers);
 				this.skip();
 			}
-		},
+		}
 	});
 
 	return { content: trimClassCallEmptyArgs(src.toString()) };
@@ -418,9 +415,9 @@ export const transformFont: Transformer = async ({
 	content,
 	filePath,
 	config,
-	supportedFontMarkers = [],
+	supportedFontMarkers = []
 }) => {
-	if (!content.includes("cn-font-heading")) {
+	if (!content.includes('cn-font-heading')) {
 		return { content };
 	}
 
@@ -432,15 +429,15 @@ export const transformFont: Transformer = async ({
 		: undefined;
 	const supported = await getSupportedFontMarkers(tailwindPath, supportedFontMarkers);
 
-	if (filePath.endsWith(".svelte")) {
+	if (filePath.endsWith('.svelte')) {
 		return { content: transformSvelteStyles(content, filePath, supported) };
 	}
 
 	if (
-		filePath.endsWith(".ts") ||
-		filePath.endsWith(".js") ||
-		filePath.endsWith(".mts") ||
-		filePath.endsWith(".mjs")
+		filePath.endsWith('.ts') ||
+		filePath.endsWith('.js') ||
+		filePath.endsWith('.mts') ||
+		filePath.endsWith('.mjs')
 	) {
 		const { content: next } = transformJsModule(content, supported);
 		return { content: next };

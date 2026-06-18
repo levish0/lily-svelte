@@ -1,15 +1,15 @@
-import color from "picocolors";
-import { getTsconfig, type TsConfigResult } from "get-tsconfig";
-import fs from "node:fs";
-import path from "node:path";
-import { z } from "zod";
-import { highlight } from "../colors.js";
-import { SITE_BASE_URL } from "../../constants.js";
-import { ConfigError, error } from "../errors.js";
-import { resolveImportAlias } from "../resolve-imports.js";
-import * as project from "../project.js";
-import * as p from "@clack/prompts";
-import { cancel } from "../prompt-helpers.js";
+import color from 'picocolors';
+import { getTsconfig, type TsConfigResult } from 'get-tsconfig';
+import fs from 'node:fs';
+import path from 'node:path';
+import { z } from 'zod';
+import { highlight } from '../colors.js';
+import { SITE_BASE_URL } from '../../constants.js';
+import { ConfigError, error } from '../errors.js';
+import { resolveImportAlias } from '../resolve-imports.js';
+import * as project from '../project.js';
+import * as p from '@clack/prompts';
+import { cancel } from '../prompt-helpers.js';
 import {
 	DEFAULT_CONFIG,
 	newConfigSchema,
@@ -17,8 +17,8 @@ import {
 	resolvedConfigSchema,
 	stripTrailingSlash,
 	type RawConfig,
-	type ResolvedConfig,
-} from "./schema.js";
+	type ResolvedConfig
+} from './schema.js';
 
 export async function getConfig(cwd: string): Promise<ResolvedConfig | undefined> {
 	const config = loadConfig(cwd);
@@ -36,20 +36,20 @@ export async function resolveConfig(cwd: string, config: RawConfig): Promise<Res
 	const tsconfigFilename = path.basename(tsconfig.path);
 	if (!tsconfig.config.compilerOptions?.paths) {
 		throw error(
-			`Missing ${highlight("paths")} field in your ${highlight(tsconfigFilename)} for path aliases. See: ${color.underline(`${SITE_BASE_URL}/docs/installation/manual#configure-path-aliases`)}`
+			`Missing ${highlight('paths')} field in your ${highlight(tsconfigFilename)} for path aliases. See: ${color.underline(`${SITE_BASE_URL}/docs/installation/manual#configure-path-aliases`)}`
 		);
 	}
 
 	const aliasError = (type: string, alias: string) =>
 		new ConfigError(
-			`Invalid import alias found: (${highlight(`"${type}": "${alias}"`)}) in ${highlight("components.json")}.
-   - Import aliases ${color.underline("must use")} existing path aliases defined in your ${highlight(tsconfigFilename)} (e.g. "${type}": "$lib/${type}").
+			`Invalid import alias found: (${highlight(`"${type}": "${alias}"`)}) in ${highlight('components.json')}.
+   - Import aliases ${color.underline('must use')} existing path aliases defined in your ${highlight(tsconfigFilename)} (e.g. "${type}": "$lib/${type}").
    - See: ${color.underline(`${SITE_BASE_URL}/docs/installation/manual#configure-path-aliases`)}.`
 		);
 
 	const resolvedPaths: Record<string, string> = {
 		cwd,
-		tailwindCss: path.resolve(cwd, config.tailwind.css),
+		tailwindCss: path.resolve(cwd, config.tailwind.css)
 	};
 
 	for (const [alias, aliasPath] of Object.entries(config.aliases)) {
@@ -64,11 +64,11 @@ export async function resolveConfig(cwd: string, config: RawConfig): Promise<Res
 }
 
 export function loadConfig(cwd: string): RawConfig | undefined {
-	const configPath = path.resolve(cwd, "components.json");
+	const configPath = path.resolve(cwd, 'components.json');
 	if (!fs.existsSync(configPath)) return;
 
 	try {
-		const configResult = fs.readFileSync(configPath, { encoding: "utf8" });
+		const configResult = fs.readFileSync(configPath, { encoding: 'utf8' });
 		const config = JSON.parse(configResult);
 		return parseRawConfig(config);
 	} catch (e) {
@@ -89,14 +89,14 @@ export function parseRawConfig(config: unknown) {
 		utils: cleanAlias(parsed.aliases.utils),
 		ui: cleanAlias(parsed.aliases.ui),
 		hooks: cleanAlias(parsed.aliases.hooks),
-		lib: cleanAlias(parsed.aliases.lib),
+		lib: cleanAlias(parsed.aliases.lib)
 	};
 
 	return parsed;
 }
 
 export function cleanAlias(alias: string) {
-	return stripTrailingSlash(alias.replace(/[\u{0080}-\u{FFFF}]/gu, ""));
+	return stripTrailingSlash(alias.replace(/[\u{0080}-\u{FFFF}]/gu, ''));
 }
 
 export function validateImportAlias(opts: Parameters<typeof resolveImportAlias>[0]) {
@@ -117,23 +117,23 @@ type PromptForAliasesOptions = {
 	uiAlias?: string | undefined;
 };
 export async function promptForAliases(options: PromptForAliasesOptions) {
-	const libAlias = await promptAlias("lib", "$lib", options);
-	const componentAlias = await promptAlias("components", `${libAlias}/components`, options);
-	const uiAlias = await promptAlias("ui", `${componentAlias}/ui`, options);
-	const utilsAlias = await promptAlias("utils", `${libAlias}/utils`, options);
-	const hooksAlias = await promptAlias("hooks", `${libAlias}/hooks`, options);
+	const libAlias = await promptAlias('lib', '$lib', options);
+	const componentAlias = await promptAlias('components', `${libAlias}/components`, options);
+	const uiAlias = await promptAlias('ui', `${componentAlias}/ui`, options);
+	const utilsAlias = await promptAlias('utils', `${libAlias}/utils`, options);
+	const hooksAlias = await promptAlias('hooks', `${libAlias}/hooks`, options);
 
 	return {
 		libAlias,
 		componentAlias,
 		uiAlias,
 		utilsAlias,
-		hooksAlias,
+		hooksAlias
 	};
 }
 
 async function promptAlias(
-	alias: keyof RawConfig["aliases"],
+	alias: keyof RawConfig['aliases'],
 	initial: string,
 	options: PromptForAliasesOptions
 ) {
@@ -147,8 +147,8 @@ async function promptAlias(
 				validateImportAlias({
 					cwd: options.cwd,
 					tsconfig: options.tsconfig,
-					importPath: value ?? "",
-				}),
+					importPath: value ?? ''
+				})
 		});
 
 		if (p.isCancel(input)) cancel();
@@ -159,22 +159,22 @@ async function promptAlias(
 }
 
 export function writeConfig(cwd: string, config: RawConfig): void {
-	const targetPath = path.resolve(cwd, "components.json");
+	const targetPath = path.resolve(cwd, 'components.json');
 	const conf = newConfigSchema.parse(config, { jitless: true }); // `jitless` to retain the property order
-	fs.writeFileSync(targetPath, JSON.stringify(conf, null, "\t") + "\n", "utf8");
+	fs.writeFileSync(targetPath, JSON.stringify(conf, null, '\t') + '\n', 'utf8');
 }
 
-type TSConfigName = "tsconfig.json" | "jsconfig.json" | (string & {});
+type TSConfigName = 'tsconfig.json' | 'jsconfig.json' | (string & {});
 export function resolveTSConfig(cwd: string, config: RawConfig) {
 	let tsconfig;
 	let tsconfigType: TSConfigName;
-	if (typeof config.typescript === "object") {
+	if (typeof config.typescript === 'object') {
 		const tsconfigPath = path.resolve(cwd, config.typescript.config);
 		tsconfigType = path.basename(tsconfigPath);
 		tsconfig = getTsconfig(tsconfigPath, tsconfigType);
 	} else {
-		tsconfigType = config.typescript ? "tsconfig.json" : "jsconfig.json";
-		tsconfig = getTsconfig(path.resolve(cwd, "package.json"), tsconfigType);
+		tsconfigType = config.typescript ? 'tsconfig.json' : 'jsconfig.json';
+		tsconfig = getTsconfig(path.resolve(cwd, 'package.json'), tsconfigType);
 	}
 
 	if (!tsconfig) {

@@ -1,26 +1,26 @@
-import { z } from "zod/v4";
+import { z } from 'zod/v4';
 
 const registryItemFileType = [
-	"registry:file",
-	"registry:page",
-	"registry:ui",
-	"registry:component",
-	"registry:lib",
-	"registry:hook",
-	"registry:theme",
-	"registry:style",
+	'registry:file',
+	'registry:page',
+	'registry:ui',
+	'registry:component',
+	'registry:lib',
+	'registry:hook',
+	'registry:theme',
+	'registry:style'
 ] as const;
 
-const registryItemComplexType = ["registry:block"] as const;
+const registryItemComplexType = ['registry:block'] as const;
 
 /** Used for internal purposes only. */
-const registryItemInternalType = ["registry:example", "registry:internal"] as const;
+const registryItemInternalType = ['registry:example', 'registry:internal'] as const;
 
 export type RegistryItemType = z.infer<typeof registryItemTypeSchema>;
 const registryItemTypeSchema = z
 	.enum([...registryItemFileType, ...registryItemComplexType, ...registryItemInternalType])
 	.describe(
-		"The type of the item. Used to determine the type and target path of the item when resolved for a project."
+		'The type of the item. Used to determine the type and target path of the item when resolved for a project.'
 	);
 
 export type RegistryItemFileType = z.infer<typeof registryItemFileTypeSchema>;
@@ -31,66 +31,66 @@ const registryItemFileTypeSchema = z
 export type RegistryItemFile = z.infer<typeof registryItemFileSchema>;
 export const registryItemFileSchema = z
 	.object({
-		content: z.string().describe("The content of the file."),
+		content: z.string().describe('The content of the file.'),
 		type: registryItemFileTypeSchema,
 		target: z
 			.string()
-			.describe("The target path of the file. This is where the file will be installed."),
+			.describe('The target path of the file. This is where the file will be installed.')
 	})
 	.describe(
-		"The main payload of the registry item. This is an array of files that are part of the registry item. Each file is an object with a target, type, and content."
+		'The main payload of the registry item. This is an array of files that are part of the registry item. Each file is an object with a target, type, and content.'
 	);
 
 const registryDependenciesSchema = z
 	.string()
 	.array()
 	.describe(
-		"An array of registry items that this item depends on. Use the name of the item to reference lily components and urls to reference other registries."
+		'An array of registry items that this item depends on. Use the name of the item to reference lily components and urls to reference other registries.'
 	);
 
 const baseIndexItemSchema = z.object({
 	name: z
 		.string()
 		.describe(
-			"The name of the item. Used to identify the item in the registry. It should be unique for your registry."
+			'The name of the item. Used to identify the item in the registry. It should be unique for your registry.'
 		),
 	title: z
 		.string()
 		.optional()
-		.describe("The human-readable title for your registry item. Keep it short and descriptive."),
+		.describe('The human-readable title for your registry item. Keep it short and descriptive.'),
 	type: registryItemTypeSchema,
 	author: z
 		.string()
-		.min(2, "Author name must be at least 2 characters")
+		.min(2, 'Author name must be at least 2 characters')
 		.optional()
-		.describe("The author of the item. Recommended format: username <url>"),
+		.describe('The author of the item. Recommended format: username <url>'),
 	description: z
 		.string()
 		.optional()
-		.describe("The description of the item. Used to provide a brief overview of the item."),
+		.describe('The description of the item. Used to provide a brief overview of the item.'),
 	dependencies: z
 		.string()
 		.array()
 		.optional()
-		.describe("An array of NPM dependencies required by the registry item."),
+		.describe('An array of NPM dependencies required by the registry item.'),
 	devDependencies: z
 		.string()
 		.array()
 		.optional()
-		.describe("An array of NPM dev dependencies required by the registry item."),
+		.describe('An array of NPM dev dependencies required by the registry item.'),
 	registryDependencies: z.optional(registryDependenciesSchema),
 	meta: z
 		.record(z.string(), z.any())
 		.optional()
 		.describe(
-			"Additional metadata for the registry item. This is an object with any key value pairs."
-		),
+			'Additional metadata for the registry item. This is an object with any key value pairs.'
+		)
 });
 
 export type RegistryIndexItem = z.infer<typeof registryIndexItemSchema>;
 /** Schema for registry items defined in the index */
 export const registryIndexItemSchema = baseIndexItemSchema.extend({
-	relativeUrl: z.string(),
+	relativeUrl: z.string()
 });
 
 export type RegistryIndex = z.infer<typeof registryIndexSchema>;
@@ -103,7 +103,7 @@ export const registryBaseColorSchema = z.object({
 	inlineColors: z.object({ light: colorSchema, dark: colorSchema }),
 	cssVars: z.object({ light: colorSchema, dark: colorSchema }),
 	inlineColorsTemplate: z.string(),
-	cssVarsTemplate: z.string(),
+	cssVarsTemplate: z.string()
 });
 
 export type CssVars = z.infer<typeof registryItemCssVarsSchema>;
@@ -112,10 +112,10 @@ const registryItemCssVarsSchema = z
 		theme: z
 			.optional(colorSchema)
 			.describe(
-				"CSS variables for the @theme directive. For Tailwind v4 projects only. Use tailwind for older projects."
+				'CSS variables for the @theme directive. For Tailwind v4 projects only. Use tailwind for older projects.'
 			),
-		light: z.optional(colorSchema).describe("CSS variables for the light theme."),
-		dark: z.optional(colorSchema).describe("CSS variables for the dark theme."),
+		light: z.optional(colorSchema).describe('CSS variables for the light theme.'),
+		dark: z.optional(colorSchema).describe('CSS variables for the dark theme.')
 	})
 	.describe(
 		"The css variables for the registry item. This will be merged with the project's css variables."
@@ -129,10 +129,10 @@ const registryItemCssSchema: z.ZodType<CssSchema, CssSchema> = z
 			.lazy(() =>
 				z.union([
 					z.string().describe("CSS property value (e.g., 'blue', 'var(--color-primary)')"),
-					registryItemCssSchema.describe("CSS property value for nested rule"),
+					registryItemCssSchema.describe('CSS property value for nested rule')
 				])
 			)
-			.describe("CSS properties or nested selectors")
+			.describe('CSS properties or nested selectors')
 	)
 	.describe(
 		"CSS definitions to be added to the project's CSS file. Supports at-rules, selectors, nested rules, utilities, layers, and more."
@@ -146,16 +146,16 @@ export const registryItemSchema = z.object({
 	docs: z
 		.string()
 		.optional()
-		.describe("The documentation for the registry item. This is a markdown string."),
+		.describe('The documentation for the registry item. This is a markdown string.'),
 	categories: z
 		.string()
 		.array()
 		.optional()
-		.describe("The categories of the registry item. This is an array of strings."),
+		.describe('The categories of the registry item. This is an array of strings.'),
 	css: z.optional(registryItemCssSchema),
 	cssVars: z.optional(registryItemCssVarsSchema),
 
-	files: z.array(registryItemFileSchema).default([]),
+	files: z.array(registryItemFileSchema).default([])
 });
 
 export type Registry = z.infer<typeof registrySchema>;
@@ -163,15 +163,15 @@ export type Registry = z.infer<typeof registrySchema>;
 /** Schema for `registry.json` */
 export const registrySchema = z.object({
 	$schema: z.string().optional(),
-	name: z.string().describe("The name of the registry."),
-	homepage: z.string().describe("The homepage of the registry."),
+	name: z.string().describe('The name of the registry.'),
+	homepage: z.string().describe('The homepage of the registry.'),
 	// installs specified versions of dependencies during auto-detection
 	overrideDependencies: z
 		.string()
 		.array()
 		.optional()
 		.describe(
-			"An array of NPM dependencies that should have their versions overridden during registry `build`."
+			'An array of NPM dependencies that should have their versions overridden during registry `build`.'
 		),
 	aliases: z
 		.object({
@@ -179,77 +179,71 @@ export const registrySchema = z.object({
 			ui: z.string().optional(),
 			components: z.string().optional(),
 			utils: z.string().optional(),
-			hooks: z.string().optional(),
+			hooks: z.string().optional()
 		})
 		.optional()
-		.describe(
-			"Defines which internal import paths should be transformed during registry `build`."
-		),
+		.describe('Defines which internal import paths should be transformed during registry `build`.'),
 	items: baseIndexItemSchema
 		.extend({
 			files: registryItemFileSchema
 				.partial()
 				.extend({
-					path: z
-						.string()
-						.describe("The path to the file relative to the registry root."),
-					type: registryItemFileTypeSchema,
+					path: z.string().describe('The path to the file relative to the registry root.'),
+					type: registryItemFileTypeSchema
 				})
 				.array()
 				.describe(
-					"An array of files that instructs the `build` command on how to locate and parse the registry files."
+					'An array of files that instructs the `build` command on how to locate and parse the registry files.'
 				),
 			registryDependencies: registryDependenciesSchema,
 			cssVars: z.optional(registryItemCssVarsSchema),
-			css: z.optional(registryItemCssSchema),
+			css: z.optional(registryItemCssSchema)
 		})
 		.array()
-		.describe("Defines a custom component registry."),
+		.describe('Defines a custom component registry.')
 });
 
 /** Schema for a project's `components.json` config file. */
 export const componentsJsonSchema = z.object({
 	$schema: z.string().optional(),
 	tailwind: z.object({
-		css: z
-			.string()
-			.describe("Path to the CSS file that imports Tailwind CSS into your project."),
+		css: z.string().describe('Path to the CSS file that imports Tailwind CSS into your project.')
 	}),
 	aliases: z
 		.object({
-			components: z.string().describe("Import alias for your components."),
-			utils: z.string().describe("Import alias for your utility functions."),
+			components: z.string().describe('Import alias for your components.'),
+			utils: z.string().describe('Import alias for your utility functions.'),
 			ui: z
 				.string()
 				.optional()
-				.describe("Import alias for your UI components. Defaults to `$lib/components/ui`."),
+				.describe('Import alias for your UI components. Defaults to `$lib/components/ui`.'),
 			hooks: z
 				.string()
 				.optional()
-				.describe("Import alias for your hooks. Defaults to `$lib/hooks`."),
+				.describe('Import alias for your hooks. Defaults to `$lib/hooks`.'),
 			lib: z
 				.string()
 				.optional()
 				.describe(
-					"Import alias for your library, which is typically where you store your components, utils, hooks, etc. Defaults to `$lib`."
-				),
+					'Import alias for your library, which is typically where you store your components, utils, hooks, etc. Defaults to `$lib`.'
+				)
 		})
 		.describe(
-			"The CLI uses these values and the `alias` config from your `svelte.config.js` file to place generated components in the correct location."
+			'The CLI uses these values and the `alias` config from your `svelte.config.js` file to place generated components in the correct location.'
 		),
 	registry: z
 		.string()
 		.optional()
 		.describe(
-			"The registry URL tells the CLI where to fetch the lily components/registry from. You can pin this to your own fork of the registry."
+			'The registry URL tells the CLI where to fetch the lily components/registry from. You can pin this to your own fork of the registry.'
 		),
 	typescript: z
 		.union([
 			z.boolean(),
-			z.object({ config: z.string().describe("Path to the tsconfig/jsconfig file.") }),
+			z.object({ config: z.string().describe('Path to the tsconfig/jsconfig file.') })
 		])
 		.optional()
 		.describe(
-			"Used to determine if Typescript is used for this project. When set to `false`, `.js` files will be installed instead. Defaults to `true`."
-		),
+			'Used to determine if Typescript is used for this project. When set to `false`, `.js` files will be installed instead. Defaults to `true`.'
+		)
 });

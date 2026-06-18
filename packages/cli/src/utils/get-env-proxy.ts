@@ -1,4 +1,4 @@
-import process from "node:process";
+import process from 'node:process';
 
 export function getEnvProxy(): string | undefined {
 	const { env } = process;

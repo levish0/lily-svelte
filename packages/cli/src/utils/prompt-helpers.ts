@@ -1,25 +1,25 @@
-import process from "node:process";
-import color from "picocolors";
-import * as p from "@clack/prompts";
-import { bgHex } from "./colors.js";
-import { getCLIPackageInfo } from "./get-package-info.js";
-import { CLIError, ConfigError } from "./errors.js";
+import process from 'node:process';
+import color from 'picocolors';
+import * as p from '@clack/prompts';
+import { bgHex } from './colors.js';
+import { getCLIPackageInfo } from './get-package-info.js';
+import { CLIError, ConfigError } from './errors.js';
 
 export function intro() {
 	const packageInfo = getCLIPackageInfo();
-	const title = bgHex("#FF5500")(color.black(" lily "));
+	const title = bgHex('#FF5500')(color.black(' lily '));
 	const version = color.gray(` v${packageInfo.version} `);
 	p.intro(title + version);
 
 	// @ts-expect-error types for these globals are not defined
-	if (typeof Bun !== "undefined" || typeof Deno !== "undefined") {
+	if (typeof Bun !== 'undefined' || typeof Deno !== 'undefined') {
 		p.log.warn(
 			`You are currently using an unsupported runtime. Only Node.js v22 or higher is officially supported. Continue at your own risk.`
 		);
 	}
 }
 
-export function cancel(msg = "Operation cancelled."): never {
+export function cancel(msg = 'Operation cancelled.'): never {
 	p.cancel(msg);
 	process.exit(0);
 }
@@ -44,7 +44,7 @@ export function handleError(error: unknown) {
 	// provide a newline gap
 	p.log.message();
 
-	if (typeof error === "string") {
+	if (typeof error === 'string') {
 		p.cancel(error);
 		process.exit(1);
 	}
@@ -60,10 +60,10 @@ export function handleError(error: unknown) {
 		process.exit(1);
 	}
 
-	p.cancel("Something went wrong. Please try again.");
+	p.cancel('Something went wrong. Please try again.');
 	process.exit(1);
 }
 
 function printError(error: Error): string {
-	return `${error.stack ?? error.message}${error.cause ? `\n   [cause]: ${error.cause instanceof Error ? printError(error.cause) : error.cause}` : ""}`;
+	return `${error.stack ?? error.message}${error.cause ? `\n   [cause]: ${error.cause instanceof Error ? printError(error.cause) : error.cause}` : ''}`;
 }

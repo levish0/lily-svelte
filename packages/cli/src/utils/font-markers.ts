@@ -8,11 +8,11 @@ export type FontMarkerSource = {
 };
 
 const FONT_MARKERS_BY_VARIABLE: Record<string, string> = {
-	"--font-heading": "cn-font-heading",
+	'--font-heading': 'cn-font-heading'
 };
 
 function normalizeVariable(variable: string) {
-	return variable.startsWith("--") ? variable : `--${variable}`;
+	return variable.startsWith('--') ? variable : `--${variable}`;
 }
 
 export function getSupportedFontMarkers(sources: FontMarkerSource[]) {
