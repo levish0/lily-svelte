@@ -47,6 +47,7 @@
 		"shiki": "^3.20.0",
 		"svelte": "^5.56.1",
 		"svelte-check": "^4.6.0",
+		"svelte-sonner": "^1.1.0",
 		"tailwind-merge": "^3.6.0",
 		"tailwindcss": "^4.3.0",
 		"tsx": "^4.20.6",

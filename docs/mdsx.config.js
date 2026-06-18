@@ -150,7 +150,11 @@ export function rehypeComponentExample() {
 		const nameRegex = /name="([^"]+)"/;
 		const titleRegex = /title="([^"]+)"/;
 		visit(tree, (node, index, parent) => {
-			if (node?.type === 'raw' && node?.value?.startsWith('<ComponentSource')) {
+			if (
+				node?.type === 'raw' &&
+				(node?.value?.startsWith('<ComponentPreview') ||
+					node?.value?.startsWith('<ComponentSource'))
+			) {
 				const match = node.value.match(nameRegex);
 				const name = match ? match[1] : null;
 				const titleMatch = node.value.match(titleRegex);

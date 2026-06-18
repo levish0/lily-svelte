@@ -6,7 +6,7 @@
 
 <div class="relative">
 	<pre
-		class="no-scrollbar overflow-x-auto rounded-2xl bg-(--text)/4 px-4 py-3.5 pe-12 text-sm text-(--text)/88"><code
+		class="no-scrollbar overflow-x-auto rounded-3xl bg-(--text)/4 px-5 py-3.5 pe-12 text-sm text-(--text)/88"><code
 			>{command}</code
 		></pre>
 	<CopyButton text={command} />

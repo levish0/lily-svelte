@@ -11,19 +11,18 @@
 
 	onMount(() => {
 		if (preNode) {
-			code = preNode.innerText.trim().replaceAll('  ', ' ');
+			code = preNode.innerText.trim();
 		}
 	});
 </script>
 
-<!--
-We cannot have a newline between the pre and children or we will get a newline in the code block
--->
-<pre
-	bind:this={preNode}
-	class={cn(
-		'no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0',
-		className
-	)}
-	{...restProps}>{@render children?.()}</pre>
-<CopyButton text={code} />
+<div class="code-block relative my-5 overflow-hidden rounded-3xl border border-(--text)/8 bg-(--bg-elevated)">
+	<!--
+	We cannot have a newline between the pre and children or we will get a newline in the code block
+	-->
+	<pre
+		bind:this={preNode}
+		class={cn('no-scrollbar min-w-0 overflow-x-auto px-5 py-4 pe-14 text-sm leading-[1.7] outline-none', className)}
+		{...restProps}>{@render children?.()}</pre>
+	<CopyButton text={code} />
+</div>

@@ -1,5 +1,11 @@
 [
 	{
+		"name": "accordion",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "accordion.json"
+	},
+	{
 		"name": "avatar",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -36,6 +42,12 @@
 		"relativeUrl": "dialog.json"
 	},
 	{
+		"name": "dropdown-menu",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "dropdown-menu.json"
+	},
+	{
 		"name": "input",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -48,10 +60,46 @@
 		"relativeUrl": "label.json"
 	},
 	{
+		"name": "popover",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "popover.json"
+	},
+	{
+		"name": "progress",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "progress.json"
+	},
+	{
+		"name": "radio-group",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "radio-group.json"
+	},
+	{
+		"name": "select",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "select.json"
+	},
+	{
 		"name": "separator",
 		"type": "registry:ui",
 		"registryDependencies": [],
 		"relativeUrl": "separator.json"
+	},
+	{
+		"name": "skeleton",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "skeleton.json"
+	},
+	{
+		"name": "sonner",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "sonner.json"
 	},
 	{
 		"name": "switch",
@@ -82,6 +130,14 @@
 		"type": "registry:lib",
 		"registryDependencies": [],
 		"relativeUrl": "utils.json"
+	},
+	{
+		"name": "accordion-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "accordion-demo.json"
 	},
 	{
 		"name": "avatar-demo",
@@ -132,6 +188,14 @@
 		"relativeUrl": "dialog-demo.json"
 	},
 	{
+		"name": "dropdown-menu-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "dropdown-menu-demo.json"
+	},
+	{
 		"name": "input-demo",
 		"type": "registry:example",
 		"registryDependencies": [
@@ -148,12 +212,60 @@
 		"relativeUrl": "label-demo.json"
 	},
 	{
+		"name": "popover-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "popover-demo.json"
+	},
+	{
+		"name": "progress-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "progress-demo.json"
+	},
+	{
+		"name": "radio-group-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "radio-group-demo.json"
+	},
+	{
+		"name": "select-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "select-demo.json"
+	},
+	{
 		"name": "separator-demo",
 		"type": "registry:example",
 		"registryDependencies": [
 			"ui"
 		],
 		"relativeUrl": "separator-demo.json"
+	},
+	{
+		"name": "skeleton-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "skeleton-demo.json"
+	},
+	{
+		"name": "sonner-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "sonner-demo.json"
 	},
 	{
 		"name": "switch-demo",

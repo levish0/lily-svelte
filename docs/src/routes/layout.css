@@ -2,3 +2,20 @@
 @import 'tw-animate-css';
 @import '../lib/styles/lily.css';
 @plugin '@tailwindcss/typography';
+
+/* ----------------------------------------------------------------------------
+ * Shiki code highlighting (mdsx code blocks + ComponentPreview "Code" tab).
+ * rehype-pretty-code emits inline colors on spans for light mode and a
+ * `--shiki-dark` custom property we swap to in dark mode.
+ * ------------------------------------------------------------------------- */
+.code-block :is(pre, code) {
+	background: transparent !important;
+}
+
+.code-block [data-rehype-pretty-code-figure] {
+	margin: 0;
+}
+
+:root.dark .code-block span {
+	color: var(--shiki-dark) !important;
+}

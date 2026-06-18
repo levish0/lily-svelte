@@ -97,7 +97,7 @@ export const Index = {`;
 	for (const item of items) {
 		if (item.type !== 'registry:example') continue;
 		const resolveFiles = (item.files ?? []).map((file) =>
-			file.path.replace('src/', '../').replaceAll(path.sep, '/')
+			file.path.replaceAll(path.sep, '/').replace('src/', '../')
 		);
 		index += `
 	"${item.name}": {

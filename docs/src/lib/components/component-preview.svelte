@@ -1,26 +1,24 @@
 <script lang="ts">
-	import type { Component } from 'svelte';
+	import type { Component, Snippet } from 'svelte';
 	import { cn } from '$lib/utils.js';
 	import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/registry/ui/tabs';
-	import CopyButton from '$lib/components/copy-button.svelte';
 
 	let {
 		name,
 		component,
-		code = '',
 		align = 'center',
-		class: className
+		class: className,
+		children
 	}: {
 		name: string;
 		component?: Component;
-		code?: string;
 		align?: 'center' | 'start' | 'end';
 		class?: string;
+		/** The shiki-highlighted source, inlined by mdsx (rehypeComponentExample). */
+		children?: Snippet;
 	} = $props();
 
 	const Comp = $derived(component);
-	// Show user-facing import paths in the displayed source.
-	const displayCode = $derived(code.replaceAll('$lib/registry/', '$lib/components/').trim());
 </script>
 
 <Tabs value="preview" class="my-6 gap-0">
@@ -46,13 +44,7 @@
 		</div>
 	</TabsContent>
 
-	<TabsContent value="code">
-		<div class="relative">
-			<pre
-				class="no-scrollbar max-h-[32rem] overflow-auto rounded-3xl border border-(--text)/8 bg-(--bg-elevated) p-5 pe-14 text-sm leading-[1.6]"><code
-					>{displayCode}</code
-				></pre>
-			<CopyButton text={displayCode} />
-		</div>
+	<TabsContent value="code" class="[&_pre]:max-h-[34rem]">
+		{@render children?.()}
 	</TabsContent>
 </Tabs>

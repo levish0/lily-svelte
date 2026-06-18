@@ -10,7 +10,8 @@ import { mdsxConfig } from './mdsx.config.js';
 /**
  * Detects the `name` of a previewing component in `.md` files, imports the demo
  * directly from `$lib/registry/examples/<name>.svelte`, and passes it to the
- * `<ComponentPreview>` as a `component` prop.
+ * `<ComponentPreview>` as a `component` prop. The shiki-highlighted source is
+ * looked up by name from `$lib/__registry__/highlighted` inside ComponentPreview.
  */
 function componentPreviews() {
 	const TARGET = '<ComponentPreview';
@@ -28,8 +29,7 @@ function componentPreviews() {
 				const [, name] = exec;
 				const insertIndex = (exec.index as number) + TARGET.length;
 				const identifier = camelize(name);
-				const prop = ` component={${identifier}} code={${identifier}Code}`;
-				ms.appendRight(insertIndex, prop);
+				ms.appendRight(insertIndex, ` component={${identifier}}`);
 				components.add(name);
 			}
 
@@ -38,8 +38,7 @@ function componentPreviews() {
 				const identifier = camelize(name);
 				ms.appendLeft(
 					importIndex,
-					`import ${identifier} from "$lib/registry/examples/${name}.svelte";` +
-						`import ${identifier}Code from "$lib/registry/examples/${name}.svelte?raw";`
+					`import ${identifier} from "$lib/registry/examples/${name}.svelte";`
 				);
 			}
 

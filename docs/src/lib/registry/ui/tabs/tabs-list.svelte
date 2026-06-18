@@ -12,6 +12,6 @@
 <TabsPrimitive.List
 	bind:ref
 	data-slot="tabs-list"
-	class={cn('inline-flex w-fit items-center gap-1 rounded-xl bg-(--text)/4 p-1', className)}
+	class={cn('inline-flex w-fit items-center gap-1 rounded-3xl bg-(--text)/4 p-1', className)}
 	{...restProps}
 />
