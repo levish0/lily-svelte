@@ -5,8 +5,8 @@
 
 /* ----------------------------------------------------------------------------
  * Shiki code highlighting (mdsx code blocks + ComponentPreview "Code" tab).
- * rehype-pretty-code emits inline colors on spans for light mode and a
- * `--shiki-dark` custom property we swap to in dark mode.
+ * rehype-pretty-code (dual theme) emits `--shiki-light` / `--shiki-dark` CSS
+ * vars on each token — we apply the matching one per color mode.
  * ------------------------------------------------------------------------- */
 .code-block :is(pre, code) {
 	background: transparent !important;
@@ -16,6 +16,10 @@
 	margin: 0;
 }
 
-:root.dark .code-block span {
-	color: var(--shiki-dark) !important;
+.code-block :is(pre, code, span) {
+	color: var(--shiki-light);
+}
+
+:root.dark .code-block :is(pre, code, span) {
+	color: var(--shiki-dark);
 }

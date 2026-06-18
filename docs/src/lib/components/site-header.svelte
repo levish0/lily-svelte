@@ -4,11 +4,13 @@
 	import MobileNav from '$lib/components/mobile-nav.svelte';
 
 	const nav = [
+		{ label: 'Home', href: '/' },
 		{ label: 'Docs', href: '/docs' },
-		{ label: 'Components', href: '/docs/components/button' }
+		{ label: 'Components', href: '/docs/components/accordion' }
 	];
 
 	function isActive(href: string) {
+		if (href === '/') return $page.url.pathname === '/';
 		return $page.url.pathname === href || $page.url.pathname.startsWith(href + '/');
 	}
 </script>
