@@ -10,37 +10,37 @@ export type NavSection = {
 
 export const docsNav: NavSection[] = [
 	{
-		title: "Getting Started",
+		title: 'Getting Started',
 		items: [
-			{ title: "Introduction", href: "/docs" },
-			{ title: "Installation", href: "/docs/installation" },
-			{ title: "Dark Mode", href: "/docs/dark-mode" }
+			{ title: 'Introduction', href: '/docs' },
+			{ title: 'Installation', href: '/docs/installation' },
+			{ title: 'Dark Mode', href: '/docs/dark-mode' }
 		]
 	},
 	{
-		title: "Components",
+		title: 'Components',
 		items: [
-			{ title: "Accordion", href: "/docs/components/accordion" },
-			{ title: "Avatar", href: "/docs/components/avatar" },
-			{ title: "Badge", href: "/docs/components/badge" },
-			{ title: "Button", href: "/docs/components/button" },
-			{ title: "Card", href: "/docs/components/card" },
-			{ title: "Checkbox", href: "/docs/components/checkbox" },
-			{ title: "Dialog", href: "/docs/components/dialog" },
-			{ title: "Dropdown Menu", href: "/docs/components/dropdown-menu" },
-			{ title: "Input", href: "/docs/components/input" },
-			{ title: "Label", href: "/docs/components/label" },
-			{ title: "Popover", href: "/docs/components/popover" },
-			{ title: "Progress", href: "/docs/components/progress" },
-			{ title: "Radio Group", href: "/docs/components/radio-group" },
-			{ title: "Select", href: "/docs/components/select" },
-			{ title: "Separator", href: "/docs/components/separator" },
-			{ title: "Skeleton", href: "/docs/components/skeleton" },
-			{ title: "Sonner", href: "/docs/components/sonner" },
-			{ title: "Switch", href: "/docs/components/switch" },
-			{ title: "Tabs", href: "/docs/components/tabs" },
-			{ title: "Textarea", href: "/docs/components/textarea" },
-			{ title: "Tooltip", href: "/docs/components/tooltip" }
+			{ title: 'Accordion', href: '/docs/components/accordion' },
+			{ title: 'Avatar', href: '/docs/components/avatar' },
+			{ title: 'Badge', href: '/docs/components/badge' },
+			{ title: 'Button', href: '/docs/components/button' },
+			{ title: 'Card', href: '/docs/components/card' },
+			{ title: 'Checkbox', href: '/docs/components/checkbox' },
+			{ title: 'Dialog', href: '/docs/components/dialog' },
+			{ title: 'Dropdown Menu', href: '/docs/components/dropdown-menu' },
+			{ title: 'Input', href: '/docs/components/input' },
+			{ title: 'Label', href: '/docs/components/label' },
+			{ title: 'Popover', href: '/docs/components/popover' },
+			{ title: 'Progress', href: '/docs/components/progress' },
+			{ title: 'Radio Group', href: '/docs/components/radio-group' },
+			{ title: 'Select', href: '/docs/components/select' },
+			{ title: 'Separator', href: '/docs/components/separator' },
+			{ title: 'Skeleton', href: '/docs/components/skeleton' },
+			{ title: 'Sonner', href: '/docs/components/sonner' },
+			{ title: 'Switch', href: '/docs/components/switch' },
+			{ title: 'Tabs', href: '/docs/components/tabs' },
+			{ title: 'Textarea', href: '/docs/components/textarea' },
+			{ title: 'Tooltip', href: '/docs/components/tooltip' }
 		]
 	}
 ];

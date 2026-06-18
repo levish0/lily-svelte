@@ -22,7 +22,10 @@
 	-->
 	<pre
 		bind:this={preNode}
-		class={cn('no-scrollbar min-w-0 overflow-x-auto px-5 py-4 pe-14 text-sm leading-[1.7] outline-none', className)}
+		class={cn(
+			'no-scrollbar min-w-0 overflow-x-auto px-5 py-4 pe-14 text-sm leading-[1.7] outline-none',
+			className
+		)}
 		{...restProps}>{@render children?.()}</pre>
 	<CopyButton text={code} />
 </div>

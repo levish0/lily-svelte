@@ -24,11 +24,28 @@
 >
 	{#snippet children({ checked, indeterminate })}
 		{#if indeterminate}
-			<svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+			<svg
+				class="size-3.5"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="3"
+				stroke-linecap="round"
+				aria-hidden="true"
+			>
 				<path d="M5 12h14" />
 			</svg>
 		{:else if checked}
-			<svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+			<svg
+				class="size-3.5"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="3"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+			>
 				<path d="m4.5 12.75 6 6 9-13.5" />
 			</svg>
 		{/if}

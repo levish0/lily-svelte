@@ -26,7 +26,11 @@
 	<input
 		bind:this={ref}
 		data-slot="input"
-		class={cn(base, 'file:mr-3 file:inline-flex file:border-0 file:bg-transparent file:text-sm file:font-medium', className)}
+		class={cn(
+			base,
+			'file:mr-3 file:inline-flex file:border-0 file:bg-transparent file:text-sm file:font-medium',
+			className
+		)}
 		type="file"
 		bind:files
 		bind:value

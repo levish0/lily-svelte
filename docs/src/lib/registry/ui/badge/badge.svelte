@@ -2,12 +2,7 @@
 	import { cn } from '$lib/utils.js';
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
 
-	let {
-		class: className,
-		href,
-		children,
-		...restProps
-	}: HTMLAnchorAttributes = $props();
+	let { class: className, href, children, ...restProps }: HTMLAnchorAttributes = $props();
 </script>
 
 <svelte:element

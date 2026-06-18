@@ -61,7 +61,9 @@
 		{/if}
 	</article>
 
-	<aside class="sticky top-14 hidden h-[calc(100svh-3.5rem)] w-52 shrink-0 overflow-y-auto py-1 xl:block">
+	<aside
+		class="sticky top-14 hidden h-[calc(100svh-3.5rem)] w-52 shrink-0 overflow-y-auto py-1 xl:block"
+	>
 		<DocsToc toc={doc.toc} />
 	</aside>
 </div>

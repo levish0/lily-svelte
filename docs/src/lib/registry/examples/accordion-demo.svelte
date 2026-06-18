@@ -14,7 +14,8 @@
 	</AccordionItem>
 	<AccordionItem value="item-2">
 		<AccordionTrigger>Is it styled?</AccordionTrigger>
-		<AccordionContent>Yes, with the single unified lily style — no theme variants.</AccordionContent>
+		<AccordionContent>Yes, with the single unified lily style — no theme variants.</AccordionContent
+		>
 	</AccordionItem>
 	<AccordionItem value="item-3">
 		<AccordionTrigger>Can I customize it?</AccordionTrigger>

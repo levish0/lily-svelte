@@ -20,11 +20,27 @@
 	class="inline-flex size-9 items-center justify-center rounded-xl text-(--text)/48 transition-colors duration-150 hover:bg-(--text)/4 hover:text-(--text) md:hidden"
 >
 	{#if open}
-		<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+		<svg
+			class="size-5"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="1.7"
+			stroke-linecap="round"
+			aria-hidden="true"
+		>
 			<path d="M6 6l12 12M18 6 6 18" />
 		</svg>
 	{:else}
-		<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+		<svg
+			class="size-5"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="1.7"
+			stroke-linecap="round"
+			aria-hidden="true"
+		>
 			<path d="M3 6h18M3 12h18M3 18h18" />
 		</svg>
 	{/if}

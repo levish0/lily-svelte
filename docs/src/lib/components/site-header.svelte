@@ -15,9 +15,7 @@
 	}
 </script>
 
-<header
-	class="sticky top-0 z-50 w-full border-b border-(--text)/8 bg-(--bg)/80 backdrop-blur-md"
->
+<header class="sticky top-0 z-50 w-full border-b border-(--text)/8 bg-(--bg)/80 backdrop-blur-md">
 	<div class="mx-auto flex h-14 max-w-6xl items-center gap-2 px-5 md:gap-6">
 		<MobileNav />
 		<a href="/" class="text-base font-semibold tracking-[-0.48px]">lily</a>
@@ -27,9 +25,7 @@
 				<a
 					{href}
 					class="rounded-xl px-3 py-1.5 text-sm tracking-[-0.39px] transition-colors duration-150
-						{isActive(href)
-						? 'text-(--text)'
-						: 'text-(--text)/48 hover:text-(--text)'}"
+						{isActive(href) ? 'text-(--text)' : 'text-(--text)/48 hover:text-(--text)'}"
 				>
 					{label}
 				</a>
@@ -57,14 +53,36 @@
 			>
 				{#if mode.current === 'dark'}
 					<!-- heroicons: sun -->
-					<svg class="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<svg
+						class="size-4.5"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="1.7"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						aria-hidden="true"
+					>
 						<circle cx="12" cy="12" r="4" />
-						<path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+						<path
+							d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+						/>
 					</svg>
 				{:else}
 					<!-- heroicons: moon -->
-					<svg class="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<path d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+					<svg
+						class="size-4.5"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="1.7"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						aria-hidden="true"
+					>
+						<path
+							d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+						/>
 					</svg>
 				{/if}
 			</button>

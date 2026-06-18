@@ -94,7 +94,9 @@
 			<CardHeader>
 				<CardTitle>Yours to own</CardTitle>
 				<CardDescription>
-					Installed via <code class="rounded-md bg-(--text)/8 px-1.5 py-0.5 text-xs">npx lily add</code>
+					Installed via <code class="rounded-md bg-(--text)/8 px-1.5 py-0.5 text-xs"
+						>npx lily add</code
+					>
 					— the source lands in your repo.
 				</CardDescription>
 			</CardHeader>
