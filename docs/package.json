@@ -47,7 +47,7 @@
 		"mdsx": "^0.0.7",
 		"package-manager-detector": "^1.6.0",
 		"paneforge": "^1.0.2",
-		"playwright": "^1.60.0",
+		"playwright": "^1.61.0",
 		"prettier-plugin-svelte": "^3.5.1",
 		"rehype-pretty-code": "^0.14.1",
 		"rehype-slug": "^6.0.0",
