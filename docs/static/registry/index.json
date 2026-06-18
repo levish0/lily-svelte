@@ -18,10 +18,24 @@
 		"relativeUrl": "badge.json"
 	},
 	{
+		"name": "breadcrumb",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "breadcrumb.json"
+	},
+	{
 		"name": "button",
 		"type": "registry:ui",
 		"registryDependencies": [],
 		"relativeUrl": "button.json"
+	},
+	{
+		"name": "button-group",
+		"type": "registry:ui",
+		"registryDependencies": [
+			"separator"
+		],
+		"relativeUrl": "button-group.json"
 	},
 	{
 		"name": "card",
@@ -168,12 +182,28 @@
 		"relativeUrl": "badge-demo.json"
 	},
 	{
+		"name": "breadcrumb-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "breadcrumb-demo.json"
+	},
+	{
 		"name": "button-demo",
 		"type": "registry:example",
 		"registryDependencies": [
 			"ui"
 		],
 		"relativeUrl": "button-demo.json"
+	},
+	{
+		"name": "button-group-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "button-group-demo.json"
 	},
 	{
 		"name": "card-demo",

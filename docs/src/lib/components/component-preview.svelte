@@ -30,7 +30,7 @@
 	<TabsContent value="preview">
 		<div
 			class={cn(
-				'flex min-h-80 w-full justify-center rounded-3xl bg-(--text)/4 p-10',
+				'flex min-h-80 w-full justify-center rounded-3xl border border-(--text)/8 bg-(--bg) p-10',
 				align === 'center' && 'items-center',
 				align === 'start' && 'items-start',
 				align === 'end' && 'items-end',
