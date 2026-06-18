@@ -4,27 +4,18 @@
 
 <Resizable.PaneGroup
 	direction="horizontal"
-	class="h-48 w-full max-w-md overflow-hidden rounded-3xl bg-(--text)/5"
+	class="h-52 w-full max-w-md overflow-hidden rounded-3xl bg-(--text)/5"
 >
-	<Resizable.Pane defaultSize={50}>
-		<div class="flex h-full items-center justify-center p-6 text-sm tracking-[-0.39px] text-(--text)/72">
-			One
+	<Resizable.Pane defaultSize={35} minSize={20}>
+		<div class="flex h-full flex-col gap-1 p-5 text-sm tracking-[-0.39px]">
+			<span class="font-medium text-(--text)">Sidebar</span>
+			<span class="text-(--text)/48">Drag the divider →</span>
 		</div>
 	</Resizable.Pane>
-	<Resizable.Handle withHandle />
-	<Resizable.Pane defaultSize={50}>
-		<Resizable.PaneGroup direction="vertical">
-			<Resizable.Pane defaultSize={50}>
-				<div class="flex h-full items-center justify-center p-6 text-sm tracking-[-0.39px] text-(--text)/72">
-					Two
-				</div>
-			</Resizable.Pane>
-			<Resizable.Handle withHandle />
-			<Resizable.Pane defaultSize={50}>
-				<div class="flex h-full items-center justify-center p-6 text-sm tracking-[-0.39px] text-(--text)/72">
-					Three
-				</div>
-			</Resizable.Pane>
-		</Resizable.PaneGroup>
+	<Resizable.Handle />
+	<Resizable.Pane defaultSize={65}>
+		<div class="flex h-full items-center justify-center p-5 text-sm font-medium tracking-[-0.39px] text-(--text)/72">
+			Content
+		</div>
 	</Resizable.Pane>
 </Resizable.PaneGroup>

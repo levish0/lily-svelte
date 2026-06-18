@@ -80,18 +80,16 @@
 </div>
 
 {#if showStrength && score !== null}
-	<div class="flex flex-col gap-1.5">
-		<div class="flex gap-1.5">
-			{#each Array.from({ length: 5 }) as _, i (i)}
-				<div
-					class={cn(
-						'h-1 flex-1 rounded-full transition-colors duration-200',
-						i <= score ? STRENGTH_COLORS[score] : 'bg-(--text)/10'
-					)}
-				></div>
-			{/each}
+	<div class="flex items-center gap-3 px-1.5">
+		<div class="h-1.5 flex-1 overflow-hidden rounded-full bg-(--text)/10">
+			<div
+				class={cn('h-full rounded-full transition-all duration-300 ease-out', STRENGTH_COLORS[score])}
+				style="width: {((score + 1) / 5) * 100}%"
+			></div>
 		</div>
-		<span class="text-xs tracking-[-0.3px] text-(--text)/56">{STRENGTH_LABELS[score]}</span>
+		<span class="w-16 shrink-0 text-right text-xs tracking-[-0.3px] text-(--text)/56">
+			{STRENGTH_LABELS[score]}
+		</span>
 	</div>
 {/if}
 </div>

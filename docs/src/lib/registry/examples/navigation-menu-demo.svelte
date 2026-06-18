@@ -7,7 +7,7 @@
 		<NavigationMenu.Item>
 			<NavigationMenu.Trigger>Getting started</NavigationMenu.Trigger>
 			<NavigationMenu.Content>
-				<ul class="grid w-[280px] gap-1 p-1">
+				<ul class="grid w-[280px] gap-1">
 					<li>
 						<NavigationMenu.Link href="/docs">
 							<span class="font-medium">Introduction</span>
@@ -26,7 +26,7 @@
 		<NavigationMenu.Item>
 			<NavigationMenu.Trigger>Components</NavigationMenu.Trigger>
 			<NavigationMenu.Content>
-				<ul class="grid w-[280px] grid-cols-2 gap-1 p-1">
+				<ul class="grid w-[280px] grid-cols-2 gap-1">
 					<li><NavigationMenu.Link href="/docs/components/button">Button</NavigationMenu.Link></li>
 					<li><NavigationMenu.Link href="/docs/components/card">Card</NavigationMenu.Link></li>
 					<li><NavigationMenu.Link href="/docs/components/dialog">Dialog</NavigationMenu.Link></li>

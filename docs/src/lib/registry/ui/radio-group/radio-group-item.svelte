@@ -20,7 +20,7 @@
 >
 	{#snippet children({ checked })}
 		{#if checked}
-			<div class="size-2.5 rounded-full bg-(--text)"></div>
+			<div class="size-3 rounded-full bg-(--text) duration-150 animate-in zoom-in-50"></div>
 		{/if}
 	{/snippet}
 </RadioGroupPrimitive.Item>

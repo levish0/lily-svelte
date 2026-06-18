@@ -1,17 +1,20 @@
 <script lang="ts">
-	import { Menubar as MenubarPrimitive } from 'bits-ui';
-	import { cn } from '$lib/utils.js';
+	import { cn, type WithElementRef } from '$lib/utils.js';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	let {
 		ref = $bindable(null),
 		class: className,
+		children,
 		...restProps
-	}: MenubarPrimitive.GroupHeadingProps = $props();
+	}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();
 </script>
 
-<MenubarPrimitive.GroupHeading
-	bind:ref
+<div
+	bind:this={ref}
 	data-slot="menubar-label"
 	class={cn('px-3 py-1.5 text-xs font-medium tracking-[-0.3px] text-(--text)/56', className)}
 	{...restProps}
-/>
+>
+	{@render children?.()}
+</div>

@@ -113,6 +113,8 @@
 @theme inline {
 	--animate-accordion-down: accordion-down 0.2s ease-out;
 	--animate-accordion-up: accordion-up 0.2s ease-out;
+	--animate-collapsible-down: collapsible-down 0.2s ease-out;
+	--animate-collapsible-up: collapsible-up 0.2s ease-out;
 	--animate-caret-blink: caret-blink 1s ease-out infinite;
 
 	@keyframes caret-blink {
@@ -139,6 +141,24 @@
 	@keyframes accordion-up {
 		from {
 			height: var(--bits-accordion-content-height, var(--accordion-panel-height, auto));
+		}
+		to {
+			height: 0;
+		}
+	}
+
+	@keyframes collapsible-down {
+		from {
+			height: 0;
+		}
+		to {
+			height: var(--bits-collapsible-content-height);
+		}
+	}
+
+	@keyframes collapsible-up {
+		from {
+			height: var(--bits-collapsible-content-height);
 		}
 		to {
 			height: 0;

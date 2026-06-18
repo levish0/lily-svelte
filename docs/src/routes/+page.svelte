@@ -40,7 +40,7 @@
 	});
 </script>
 
-<section class="mx-auto w-full max-w-6xl px-6">
+<section class="mx-auto w-full max-w-[88rem] px-6 lg:px-8">
 	<!-- Hero -->
 	<div class="flex flex-col items-center gap-6 pt-20 pb-14 text-center sm:pt-28 sm:pb-20">
 		<Badge>Svelte 5 · Tailwind 4</Badge>

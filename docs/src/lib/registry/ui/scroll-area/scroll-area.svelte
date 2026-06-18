@@ -8,16 +8,27 @@
 		viewportRef = $bindable(null),
 		class: className,
 		orientation = 'vertical',
+		fade = true,
 		scrollbarXClasses = '',
 		scrollbarYClasses = '',
 		children,
 		...restProps
 	}: WithoutChild<ScrollAreaPrimitive.RootProps> & {
 		orientation?: 'vertical' | 'horizontal' | 'both' | undefined;
+		fade?: boolean;
 		scrollbarXClasses?: string | undefined;
 		scrollbarYClasses?: string | undefined;
 		viewportRef?: HTMLElement | null;
 	} = $props();
+
+	// Soften the edges so scrolled content fades out instead of cutting abruptly.
+	const maskClass = $derived(
+		!fade
+			? ''
+			: orientation === 'horizontal'
+				? '[mask-image:linear-gradient(to_right,transparent,#000_0.9rem,#000_calc(100%-0.9rem),transparent)]'
+				: '[mask-image:linear-gradient(to_bottom,transparent,#000_0.9rem,#000_calc(100%-0.9rem),transparent)]'
+	);
 </script>
 
 <ScrollAreaPrimitive.Root
@@ -29,7 +40,7 @@
 	<ScrollAreaPrimitive.Viewport
 		bind:ref={viewportRef}
 		data-slot="scroll-area-viewport"
-		class="size-full rounded-[inherit] outline-none"
+		class={cn('size-full rounded-[inherit] outline-none', maskClass)}
 	>
 		{@render children?.()}
 	</ScrollAreaPrimitive.Viewport>
