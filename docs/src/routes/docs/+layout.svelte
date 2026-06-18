@@ -9,9 +9,9 @@
 	}
 </script>
 
-<div class="mx-auto flex w-full max-w-6xl flex-1 gap-10 px-5">
+<div class="mx-auto flex w-full max-w-[88rem] flex-1 gap-8 px-6 lg:px-8">
 	<aside
-		class="sticky top-14 hidden h-[calc(100svh-3.5rem)] w-56 shrink-0 overflow-y-auto py-10 md:block"
+		class="sticky top-14 hidden h-[calc(100svh-3.5rem)] w-60 shrink-0 overflow-y-auto py-10 md:block"
 	>
 		<nav class="flex flex-col gap-6">
 			{#each docsNav as section (section.title)}

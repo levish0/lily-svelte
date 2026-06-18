@@ -19,8 +19,8 @@
 	<meta name="description" content={doc.description} />
 </svelte:head>
 
-<div class="flex gap-10">
-	<article class="mx-auto min-w-0 max-w-2xl flex-1">
+<div class="flex justify-between gap-12">
+	<article class="min-w-0 max-w-3xl flex-1">
 		<div class="flex flex-col gap-2">
 			<h1 class="text-3xl font-semibold tracking-[-0.96px]">{doc.title}</h1>
 			{#if doc.description}
