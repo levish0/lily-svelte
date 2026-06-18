@@ -54,10 +54,24 @@
 		"relativeUrl": "button-group.json"
 	},
 	{
+		"name": "calendar",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "calendar.json"
+	},
+	{
 		"name": "card",
 		"type": "registry:ui",
 		"registryDependencies": [],
 		"relativeUrl": "card.json"
+	},
+	{
+		"name": "carousel",
+		"type": "registry:ui",
+		"registryDependencies": [
+			"button"
+		],
+		"relativeUrl": "carousel.json"
 	},
 	{
 		"name": "checkbox",
@@ -82,6 +96,15 @@
 		"type": "registry:ui",
 		"registryDependencies": [],
 		"relativeUrl": "context-menu.json"
+	},
+	{
+		"name": "date-picker",
+		"type": "registry:ui",
+		"registryDependencies": [
+			"popover",
+			"calendar"
+		],
+		"relativeUrl": "date-picker.json"
 	},
 	{
 		"name": "dialog",
@@ -138,6 +161,12 @@
 		"relativeUrl": "menubar.json"
 	},
 	{
+		"name": "navigation-menu",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "navigation-menu.json"
+	},
+	{
 		"name": "number-field",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -185,6 +214,12 @@
 		"type": "registry:ui",
 		"registryDependencies": [],
 		"relativeUrl": "radio-group.json"
+	},
+	{
+		"name": "resizable",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "resizable.json"
 	},
 	{
 		"name": "scroll-area",
@@ -357,12 +392,28 @@
 		"relativeUrl": "button-group-demo.json"
 	},
 	{
+		"name": "calendar-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "calendar-demo.json"
+	},
+	{
 		"name": "card-demo",
 		"type": "registry:example",
 		"registryDependencies": [
 			"ui"
 		],
 		"relativeUrl": "card-demo.json"
+	},
+	{
+		"name": "carousel-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "carousel-demo.json"
 	},
 	{
 		"name": "checkbox-demo",
@@ -395,6 +446,14 @@
 			"ui"
 		],
 		"relativeUrl": "context-menu-demo.json"
+	},
+	{
+		"name": "date-picker-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "date-picker-demo.json"
 	},
 	{
 		"name": "dialog-demo",
@@ -469,6 +528,14 @@
 		"relativeUrl": "menubar-demo.json"
 	},
 	{
+		"name": "navigation-menu-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "navigation-menu-demo.json"
+	},
+	{
 		"name": "number-field-demo",
 		"type": "registry:example",
 		"registryDependencies": [
@@ -523,6 +590,14 @@
 			"ui"
 		],
 		"relativeUrl": "radio-group-demo.json"
+	},
+	{
+		"name": "resizable-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "resizable-demo.json"
 	},
 	{
 		"name": "scroll-area-demo",

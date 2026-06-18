@@ -25,10 +25,12 @@
 	{#snippet children({ thumbItems })}
 		<span
 			data-slot="slider-track"
+			data-orientation={orientation}
 			class="relative grow overflow-hidden rounded-full bg-(--text)/12 data-[orientation=horizontal]:h-1.5 data-[orientation=vertical]:w-1.5"
 		>
 			<SliderPrimitive.Range
 				data-slot="slider-range"
+				data-orientation={orientation}
 				class="absolute rounded-full bg-(--text) data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full"
 			/>
 		</span>
@@ -36,7 +38,7 @@
 			<SliderPrimitive.Thumb
 				index={thumb.index}
 				data-slot="slider-thumb"
-				class="block size-4.5 shrink-0 rounded-full bg-(--bg-elevated) shadow-md ring-1 ring-(--text)/8 outline-none transition-[box-shadow] focus-visible:ring-2 focus-visible:ring-(--text)/24 disabled:pointer-events-none disabled:opacity-50"
+				class="block size-4.5 shrink-0 rounded-full bg-(--bg-elevated) shadow-md outline-none transition-[box-shadow] focus-visible:ring-2 focus-visible:ring-(--text)/24 disabled:pointer-events-none disabled:opacity-50"
 			/>
 		{/each}
 	{/snippet}

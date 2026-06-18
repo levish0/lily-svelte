@@ -13,13 +13,13 @@
 	}
 
 	const STRENGTH_LABELS = ['Very weak', 'Weak', 'Fair', 'Good', 'Strong'];
-	// Monochrome ramp "filling toward solid"; red (the one allowed accent) for weak.
+	// Weak → strong: red → amber → lime → green.
 	const STRENGTH_COLORS = [
-		'bg-red-500/70',
-		'bg-red-500/70',
-		'bg-(--text)/40',
-		'bg-(--text)/65',
-		'bg-(--text)'
+		'bg-red-500',
+		'bg-red-500',
+		'bg-amber-500',
+		'bg-lime-500',
+		'bg-green-500'
 	];
 </script>
 

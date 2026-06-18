@@ -46,14 +46,14 @@
 <button
 	type="button"
 	onclick={() => (open = true)}
-	class="inline-flex h-9 w-56 items-center gap-2 rounded-2xl bg-(--text)/5 px-3.5 text-sm tracking-[-0.39px] text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/8"
+	class="inline-flex h-9 w-72 items-center gap-2 rounded-2xl bg-(--text)/5 px-3.5 text-sm tracking-[-0.39px] text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/8"
 >
 	<!-- heroicons: magnifying-glass -->
 	<svg class="size-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 		<circle cx="11" cy="11" r="7" />
 		<path d="m21 21-4.3-4.3" />
 	</svg>
-	<span class="flex-1 truncate text-left whitespace-nowrap">Search documentation…</span>
+	<span class="flex-1 text-left whitespace-nowrap">Search documentation…</span>
 	<Kbd class="shrink-0">⌘K</Kbd>
 </button>
 

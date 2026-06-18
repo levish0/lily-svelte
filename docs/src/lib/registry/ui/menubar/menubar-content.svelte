@@ -25,7 +25,7 @@
 		{side}
 		{sideOffset}
 		class={cn(
-			'z-50 min-w-44 origin-(--bits-menubar-content-transform-origin) overflow-y-auto rounded-2xl bg-(--bg-elevated) p-1.5 shadow-lg ring-1 ring-(--text)/6 outline-none data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
+			'z-50 min-w-44 origin-(--bits-menubar-content-transform-origin) overflow-y-auto rounded-2xl bg-(--bg-elevated) p-1.5 shadow-lg outline-none data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
 			className
 		)}
 		{...restProps}
