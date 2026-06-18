@@ -13,7 +13,7 @@
 			<div class="flex flex-col gap-1">
 				<p class="font-medium">levish</p>
 				<p class="text-xs leading-[1.5] text-(--text)/56">
-					Building lily — a Toss-like Svelte component library.
+					Building lily — a Svelte component library.
 				</p>
 			</div>
 		</div>

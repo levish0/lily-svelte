@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import * as ResizablePrimitive from 'paneforge';
 	import { cn, type WithoutChildrenOrChild } from '$lib/utils.js';
 
@@ -23,10 +24,7 @@
 >
 	{#if withHandle}
 		<div class="z-10 flex h-5 w-3 items-center justify-center rounded-sm bg-(--bg-elevated) ring-1 ring-(--text)/10">
-			<svg class="size-3 text-(--text)/40" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-				<circle cx="9" cy="6" r="1.4" /><circle cx="9" cy="12" r="1.4" /><circle cx="9" cy="18" r="1.4" />
-				<circle cx="15" cy="6" r="1.4" /><circle cx="15" cy="12" r="1.4" /><circle cx="15" cy="18" r="1.4" />
-			</svg>
+			<Icon icon="heroicons:ellipsis-vertical-solid" class="size-3 text-(--text)/40" aria-hidden="true" />
 		</div>
 	{/if}
 </ResizablePrimitive.PaneResizer>

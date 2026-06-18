@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { cn } from '$lib/utils.js';
 
 	let {
@@ -66,9 +67,7 @@
 				}}
 				class="inline-flex size-4 items-center justify-center rounded-full text-(--text)/48 transition-colors duration-100 hover:bg-(--text)/12 hover:text-(--text)"
 			>
-				<svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
-					<path d="M6 6l12 12M18 6 6 18" />
-				</svg>
+				<Icon icon="heroicons:x-mark-solid" class="size-3" aria-hidden="true" />
 			</button>
 		</span>
 	{/each}

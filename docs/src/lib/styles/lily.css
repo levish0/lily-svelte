@@ -2,8 +2,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Motion: a gentle, satisfying ("쫀득한") spring. Mild overshoot so transforms
- * (the press scale) feel lively while color/opacity tints don't visibly flicker. */
+/* Motion: a gentle spring easing used as the default transition timing.
+ * Mild overshoot for transforms; negligible on color/opacity tints. */
 @theme {
 	--ease-spring: cubic-bezier(0.34, 1.2, 0.64, 1);
 	--default-transition-timing-function: var(--ease-spring);
@@ -75,7 +75,7 @@
 		text-decoration: none;
 	}
 
-	/* Springy ("쫀득한") press feedback on all interactive elements. */
+	/* Press feedback on interactive elements. */
 	a,
 	button {
 		transition: transform 0.2s var(--ease-spring);

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import './layout.css';
+	import '$lib/icons';
 	import favicon from '$lib/assets/favicon.svg';
 	import { ModeWatcher } from 'mode-watcher';
 	import * as Tooltip from '$lib/registry/ui/tooltip/index.js';

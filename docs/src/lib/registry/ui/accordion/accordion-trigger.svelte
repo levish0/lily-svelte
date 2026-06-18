@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { Accordion as AccordionPrimitive } from 'bits-ui';
 	import { cn, type WithoutChild } from '$lib/utils.js';
 
@@ -24,18 +25,10 @@
 		{...restProps}
 	>
 		{@render children?.()}
-		<!-- heroicons: chevron-down -->
-		<svg
+		<Icon
+			icon="heroicons:chevron-down-solid"
 			class="size-4 shrink-0 text-(--text)/48 transition-transform duration-200 group-aria-expanded/accordion:rotate-180"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="1.8"
-			stroke-linecap="round"
-			stroke-linejoin="round"
 			aria-hidden="true"
-		>
-			<path d="m6 9 6 6 6-6" />
-		</svg>
+		/>
 	</AccordionPrimitive.Trigger>
 </AccordionPrimitive.Header>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { cn } from '$lib/utils.js';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
@@ -49,7 +50,7 @@
 		onclick={() => step_by(-1)}
 		class="inline-flex size-10 shrink-0 items-center justify-center rounded-l-3xl text-(--text)/56 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) disabled:pointer-events-none disabled:opacity-40"
 	>
-		<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14" /></svg>
+		<Icon icon="heroicons:minus-solid" class="size-4" aria-hidden="true" />
 	</button>
 	<input
 		bind:this={ref}
@@ -72,6 +73,6 @@
 		onclick={() => step_by(1)}
 		class="inline-flex size-10 shrink-0 items-center justify-center rounded-r-3xl text-(--text)/56 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) disabled:pointer-events-none disabled:opacity-40"
 	>
-		<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+		<Icon icon="heroicons:plus-solid" class="size-4" aria-hidden="true" />
 	</button>
 </div>

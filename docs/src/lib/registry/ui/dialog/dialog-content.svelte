@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { Dialog as DialogPrimitive } from 'bits-ui';
 	import DialogOverlay from './dialog-overlay.svelte';
 	import DialogPortal from './dialog-portal.svelte';
@@ -36,19 +37,7 @@
 				data-slot="dialog-close"
 				class="absolute end-4 top-4 inline-flex size-8 items-center justify-center rounded-xl text-(--text)/48 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) focus-visible:outline-none"
 			>
-				<!-- heroicons: x-mark -->
-				<svg
-					class="size-4"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="1.7"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					aria-hidden="true"
-				>
-					<path d="M6 6l12 12M18 6 6 18" />
-				</svg>
+				<Icon icon="heroicons:x-mark-solid" class="size-4" aria-hidden="true" />
 				<span class="sr-only">Close</span>
 			</DialogPrimitive.Close>
 		{/if}

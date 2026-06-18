@@ -35,6 +35,7 @@
 </script>
 
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { cn } from '$lib/utils.js';
 
 	let {
@@ -140,10 +141,7 @@
 			)}
 		>
 			<div class="flex size-12 items-center justify-center rounded-full bg-(--text)/8 text-(--text)/56">
-				<!-- heroicons: arrow-up-tray -->
-				<svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-					<path d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 7.5 12 3m0 0L7.5 7.5M12 3v13.5" />
-				</svg>
+				<Icon icon="heroicons:arrow-up-tray-solid" class="size-6" aria-hidden="true" />
 			</div>
 			<div class="flex flex-col gap-0.5">
 				<span class="text-sm font-medium tracking-[-0.39px]">

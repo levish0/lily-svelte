@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import type { WithoutChildren } from 'bits-ui';
 	import { getEmblaContext } from './context.js';
 	import { cn } from '$lib/utils.js';
@@ -33,6 +34,6 @@
 	bind:ref
 	{...restProps}
 >
-	<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
+	<Icon icon="heroicons:chevron-right-solid" class="size-4" aria-hidden="true" />
 	<span class="sr-only">Next slide</span>
 </Button>

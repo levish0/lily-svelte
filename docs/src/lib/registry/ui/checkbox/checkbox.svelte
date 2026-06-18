@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { Checkbox as CheckboxPrimitive } from 'bits-ui';
 	import { cn, type WithoutChildrenOrChild } from '$lib/utils.js';
 
@@ -24,30 +25,9 @@
 >
 	{#snippet children({ checked, indeterminate })}
 		{#if indeterminate}
-			<svg
-				class="size-3.5"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="3"
-				stroke-linecap="round"
-				aria-hidden="true"
-			>
-				<path d="M5 12h14" />
-			</svg>
+			<Icon icon="heroicons:minus-solid" class="size-3.5" aria-hidden="true" />
 		{:else if checked}
-			<svg
-				class="size-3.5"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="3"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"
-			>
-				<path d="m4.5 12.75 6 6 9-13.5" />
-			</svg>
+			<Icon icon="heroicons:check-solid" class="size-3.5" aria-hidden="true" />
 		{/if}
 	{/snippet}
 </CheckboxPrimitive.Root>

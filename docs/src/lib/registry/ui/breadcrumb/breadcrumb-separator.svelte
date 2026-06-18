@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { cn, type WithElementRef } from '$lib/utils.js';
 	import type { HTMLLiAttributes } from 'svelte/elements';
 
@@ -21,9 +22,6 @@
 	{#if children}
 		{@render children?.()}
 	{:else}
-		<!-- heroicons: chevron-right -->
-		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-			<path d="m9 6 6 6-6 6" />
-		</svg>
+		<Icon icon="heroicons:chevron-right-solid" aria-hidden="true" />
 	{/if}
 </li>

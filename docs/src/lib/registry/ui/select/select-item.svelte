@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { Select as SelectPrimitive } from 'bits-ui';
 	import { cn, type WithoutChild } from '$lib/utils.js';
 
@@ -32,19 +33,7 @@
 		</span>
 		{#if selected}
 			<span class="absolute end-2.5 flex size-4 items-center justify-center">
-				<!-- heroicons: check -->
-				<svg
-					class="size-4"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2.2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					aria-hidden="true"
-				>
-					<path d="m4.5 12.75 6 6 9-13.5" />
-				</svg>
+				<Icon icon="heroicons:check-solid" class="size-4" aria-hidden="true" />
 			</span>
 		{/if}
 	{/snippet}

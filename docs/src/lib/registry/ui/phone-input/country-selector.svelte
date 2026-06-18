@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import * as Popover from '$lib/registry/ui/popover/index.js';
 	import { Button } from '$lib/registry/ui/button/index.js';
 	import * as Command from '$lib/registry/ui/command/index.js';
@@ -46,10 +47,7 @@
 				class="shrink-0 gap-1.5 rounded-l-3xl rounded-r-none px-3"
 			>
 				<Flag country={selectedCountry} />
-				<!-- heroicons: chevron-up-down -->
-				<svg class="-me-1 size-4 text-(--text)/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-					<path d="m8 9 4-4 4 4M16 15l-4 4-4-4" />
-				</svg>
+				<Icon icon="heroicons:chevron-up-down-solid" class="-me-1 size-4 text-(--text)/40" aria-hidden="true" />
 			</Button>
 		{/snippet}
 	</Popover.Trigger>
@@ -76,9 +74,7 @@
 								<span class="text-sm text-(--text)/40">+{country.dialCode}</span>
 								<div class="w-4">
 									{#if country.iso2 == selected}
-										<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-											<path d="m4.5 12.75 6 6 9-13.5" />
-										</svg>
+										<Icon icon="heroicons:check-solid" class="size-4" aria-hidden="true" />
 									{/if}
 								</div>
 							</Command.Item>

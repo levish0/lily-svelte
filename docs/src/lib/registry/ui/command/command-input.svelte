@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { Command as CommandPrimitive } from 'bits-ui';
 	import { cn } from '$lib/utils.js';
 
@@ -14,11 +15,7 @@
 	data-slot="command-input-wrapper"
 	class="flex items-center gap-2 border-b border-(--text)/8 px-4"
 >
-	<!-- heroicons: magnifying-glass -->
-	<svg class="size-4.5 shrink-0 text-(--text)/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-		<circle cx="11" cy="11" r="7" />
-		<path d="m21 21-4.3-4.3" />
-	</svg>
+	<Icon icon="heroicons:magnifying-glass-solid" class="size-4.5 shrink-0 text-(--text)/40" aria-hidden="true" />
 	<CommandPrimitive.Input {value} data-slot="command-input" {...restProps}>
 		{#snippet child({ props })}
 			<input

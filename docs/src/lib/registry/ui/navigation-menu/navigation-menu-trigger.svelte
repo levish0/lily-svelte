@@ -7,6 +7,7 @@
 </script>
 
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { NavigationMenu as NavigationMenuPrimitive } from 'bits-ui';
 
 	let {
@@ -24,17 +25,9 @@
 	{...restProps}
 >
 	{@render children?.()}
-	<!-- heroicons: chevron-down -->
-	<svg
+	<Icon
+		icon="heroicons:chevron-down-solid"
 		class="size-3.5 text-(--text)/40 transition-transform duration-200 group-data-[state=open]:rotate-180"
-		viewBox="0 0 24 24"
-		fill="none"
-		stroke="currentColor"
-		stroke-width="2"
-		stroke-linecap="round"
-		stroke-linejoin="round"
 		aria-hidden="true"
-	>
-		<path d="m6 9 6 6 6-6" />
-	</svg>
+	/>
 </NavigationMenuPrimitive.Trigger>

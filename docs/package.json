@@ -18,6 +18,8 @@
 		"gen": "wrangler types"
 	},
 	"devDependencies": {
+		"@iconify-json/heroicons": "^1",
+		"@iconify/svelte": "^5",
 		"@playwright/test": "^1.60.0",
 		"@prettier/sync": "0.6.1",
 		"@shikijs/langs": "^3.20.0",

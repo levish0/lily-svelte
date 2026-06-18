@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { Calendar as CalendarPrimitive } from 'bits-ui';
 	import { cn, type WithoutChildrenOrChild } from '$lib/utils.js';
 
@@ -28,13 +29,13 @@
 			<CalendarPrimitive.PrevButton
 				class="inline-flex size-9 items-center justify-center rounded-2xl text-(--text)/72 outline-none transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)"
 			>
-				<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+				<Icon icon="heroicons:chevron-left-solid" class="size-4" aria-hidden="true" />
 			</CalendarPrimitive.PrevButton>
 			<CalendarPrimitive.Heading class="text-sm font-medium tracking-[-0.42px]" />
 			<CalendarPrimitive.NextButton
 				class="inline-flex size-9 items-center justify-center rounded-2xl text-(--text)/72 outline-none transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)"
 			>
-				<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
+				<Icon icon="heroicons:chevron-right-solid" class="size-4" aria-hidden="true" />
 			</CalendarPrimitive.NextButton>
 		</CalendarPrimitive.Header>
 		<div class="flex flex-col gap-4 sm:flex-row">

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import * as Popover from '$lib/registry/ui/popover/index.js';
 	import { Calendar } from '$lib/registry/ui/calendar/index.js';
 	import { cn } from '$lib/utils.js';
@@ -34,10 +35,7 @@
 					className
 				)}
 			>
-				<svg class="size-4 shrink-0 text-(--text)/48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-					<rect x="3" y="4.5" width="18" height="16" rx="3" />
-					<path d="M3 9h18M8 2.5v4M16 2.5v4" />
-				</svg>
+				<Icon icon="heroicons:calendar-days-solid" class="size-4 shrink-0 text-(--text)/48" aria-hidden="true" />
 				{value ? df.format(value.toDate(getLocalTimeZone())) : placeholder}
 			</button>
 		{/snippet}

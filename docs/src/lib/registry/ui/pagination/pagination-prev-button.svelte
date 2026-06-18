@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { Pagination as PaginationPrimitive } from 'bits-ui';
 	import { cn } from '$lib/utils.js';
 
@@ -23,9 +24,7 @@
 	{#if children}
 		{@render children?.()}
 	{:else}
-		<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-			<path d="m15 18-6-6 6-6" />
-		</svg>
+		<Icon icon="heroicons:chevron-left-solid" class="size-4" aria-hidden="true" />
 		<span class="hidden sm:block">Previous</span>
 	{/if}
 </PaginationPrimitive.PrevButton>
