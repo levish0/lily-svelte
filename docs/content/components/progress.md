@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Progress } from "$lib/components/ui/progress";
+	import { Progress } from '$lib/components/ui/progress';
 </script>
 
 <Progress value={66} />

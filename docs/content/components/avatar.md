@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Avatar } from "$lib/components/ui/avatar";
+	import { Avatar } from '$lib/components/ui/avatar';
 </script>
 
 <Avatar src="/avatars/lily.png" alt="lily" />

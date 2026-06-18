@@ -44,7 +44,7 @@ Wrap your app (or the relevant subtree) in `Tooltip.Provider`, then pair a `Tool
 
 ```svelte
 <script lang="ts">
-	import * as Tooltip from "$lib/components/ui/tooltip";
+	import * as Tooltip from '$lib/components/ui/tooltip';
 </script>
 
 <Tooltip.Provider>
@@ -61,8 +61,8 @@ Use the `child` snippet to render your own element (like a `Button`) as the trig
 
 ```svelte
 <script lang="ts">
-	import * as Tooltip from "$lib/components/ui/tooltip";
-	import { Button } from "$lib/components/ui/button";
+	import * as Tooltip from '$lib/components/ui/tooltip';
+	import { Button } from '$lib/components/ui/button';
 </script>
 
 <Tooltip.Provider>

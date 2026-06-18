@@ -17,8 +17,8 @@ Render `<ModeWatcher />` once near the root of your app, then call `toggleMode` 
 
 ```svelte
 <script lang="ts">
-	import { ModeWatcher, toggleMode } from "mode-watcher";
-	import { Button } from "$lib/components/ui/button";
+	import { ModeWatcher, toggleMode } from 'mode-watcher';
+	import { Button } from '$lib/components/ui/button';
 </script>
 
 <ModeWatcher />

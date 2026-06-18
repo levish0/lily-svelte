@@ -49,8 +49,8 @@ npx lily init
 		DropdownMenuItem,
 		DropdownMenuSeparator,
 		DropdownMenuLabel
-	} from "$lib/components/ui/dropdown-menu";
-	import { Button } from "$lib/components/ui/button";
+	} from '$lib/components/ui/dropdown-menu';
+	import { Button } from '$lib/components/ui/button';
 </script>
 
 <DropdownMenu>

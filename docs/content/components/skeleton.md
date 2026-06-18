@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Skeleton } from "$lib/components/ui/skeleton";
+	import { Skeleton } from '$lib/components/ui/skeleton';
 </script>
 
 <div class="flex items-center gap-4">

@@ -42,8 +42,8 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { RadioGroup, RadioGroupItem } from "$lib/components/ui/radio-group";
-	import { Label } from "$lib/components/ui/label";
+	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group';
+	import { Label } from '$lib/components/ui/label';
 </script>
 
 <RadioGroup value="comfortable">

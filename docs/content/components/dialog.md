@@ -49,8 +49,8 @@ npx lily init
 		DialogHeader,
 		DialogTitle,
 		DialogDescription
-	} from "$lib/components/ui/dialog";
-	import { Button } from "$lib/components/ui/button";
+	} from '$lib/components/ui/dialog';
+	import { Button } from '$lib/components/ui/button';
 </script>
 
 <Dialog>

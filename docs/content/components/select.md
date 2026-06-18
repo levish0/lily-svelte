@@ -42,13 +42,13 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Select, SelectTrigger, SelectContent, SelectItem } from "$lib/components/ui/select";
+	import { Select, SelectTrigger, SelectContent, SelectItem } from '$lib/components/ui/select';
 
-	let value = $state("");
+	let value = $state('');
 </script>
 
 <Select type="single" bind:value>
-	<SelectTrigger>{value || "Select a fruit"}</SelectTrigger>
+	<SelectTrigger>{value || 'Select a fruit'}</SelectTrigger>
 	<SelectContent>
 		<SelectItem value="Apple">Apple</SelectItem>
 		<SelectItem value="Banana">Banana</SelectItem>

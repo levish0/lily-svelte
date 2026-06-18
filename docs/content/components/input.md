@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Input } from "$lib/components/ui/input";
+	import { Input } from '$lib/components/ui/input';
 </script>
 
 <Input type="email" placeholder="you@levish.ac" />
@@ -52,8 +52,8 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Input } from "$lib/components/ui/input";
-	import { Label } from "$lib/components/ui/label";
+	import { Input } from '$lib/components/ui/input';
+	import { Label } from '$lib/components/ui/label';
 </script>
 
 <div class="flex flex-col gap-2">

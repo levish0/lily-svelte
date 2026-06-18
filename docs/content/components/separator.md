@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Separator } from "$lib/components/ui/separator";
+	import { Separator } from '$lib/components/ui/separator';
 </script>
 
 <Separator />

@@ -47,7 +47,7 @@ npx lily init
 		AccordionItem,
 		AccordionTrigger,
 		AccordionContent
-	} from "$lib/components/ui/accordion";
+	} from '$lib/components/ui/accordion';
 </script>
 
 <Accordion type="single">

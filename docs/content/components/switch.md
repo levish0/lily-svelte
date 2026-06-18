@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Switch } from "$lib/components/ui/switch";
+	import { Switch } from '$lib/components/ui/switch';
 
 	let enabled = $state(false);
 </script>

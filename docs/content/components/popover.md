@@ -42,8 +42,8 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Popover, PopoverTrigger, PopoverContent } from "$lib/components/ui/popover";
-	import { Button } from "$lib/components/ui/button";
+	import { Popover, PopoverTrigger, PopoverContent } from '$lib/components/ui/popover';
+	import { Button } from '$lib/components/ui/button';
 </script>
 
 <Popover>

@@ -44,7 +44,7 @@ Add the `Toaster` to your root layout once:
 
 ```svelte
 <script lang="ts">
-	import { Toaster } from "$lib/components/ui/sonner";
+	import { Toaster } from '$lib/components/ui/sonner';
 </script>
 
 <Toaster />
@@ -54,9 +54,9 @@ Then trigger toasts from anywhere:
 
 ```svelte
 <script lang="ts">
-	import { toast } from "svelte-sonner";
-	import { Button } from "$lib/components/ui/button";
+	import { toast } from 'svelte-sonner';
+	import { Button } from '$lib/components/ui/button';
 </script>
 
-<Button onclick={() => toast("Event created")}>Show toast</Button>
+<Button onclick={() => toast('Event created')}>Show toast</Button>
 ```

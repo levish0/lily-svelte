@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Tabs, TabsList, TabsTrigger, TabsContent } from "$lib/components/ui/tabs";
+	import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/components/ui/tabs';
 </script>
 
 <Tabs value="account">
