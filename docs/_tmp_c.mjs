@@ -1,0 +1,16 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch();
+const p = await b.newPage({ viewport: { width: 800, height: 700 }, deviceScaleFactor: 2 });
+await p.emulateMedia({ colorScheme: 'dark' });
+const errs = []; p.on('pageerror', e => errs.push(e.message));
+await p.goto('http://localhost:5173/docs/components/collapsible', { waitUntil: 'networkidle' });
+await p.evaluate(() => document.documentElement.classList.add('dark'));
+await p.waitForTimeout(400);
+const box = await p.locator('[data-slot="collapsible-trigger"]').first().boundingBox();
+const clip = box ? { x: box.x - 300, y: box.y - 10, width: 380, height: 260 } : undefined;
+await p.screenshot({ path: '_v_c_closed.png', clip });
+await p.locator('[data-slot="collapsible-trigger"]').first().click();
+await p.waitForTimeout(500);
+await p.screenshot({ path: '_v_c_open.png', clip });
+console.log('errors:', errs.length ? errs.join(' | ') : 'none');
+await b.close();
