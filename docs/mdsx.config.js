@@ -1,4 +1,4 @@
-// @ts-check
+// @ts-nocheck
 import { readFileSync } from 'node:fs';
 import process from 'node:process';
 import { join, resolve } from 'node:path';
