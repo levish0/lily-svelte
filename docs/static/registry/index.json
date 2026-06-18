@@ -24,6 +24,18 @@
 		"relativeUrl": "card.json"
 	},
 	{
+		"name": "checkbox",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "checkbox.json"
+	},
+	{
+		"name": "dialog",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "dialog.json"
+	},
+	{
 		"name": "input",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -40,6 +52,18 @@
 		"type": "registry:ui",
 		"registryDependencies": [],
 		"relativeUrl": "separator.json"
+	},
+	{
+		"name": "switch",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "switch.json"
+	},
+	{
+		"name": "tabs",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "tabs.json"
 	},
 	{
 		"name": "textarea",
@@ -92,6 +116,22 @@
 		"relativeUrl": "card-demo.json"
 	},
 	{
+		"name": "checkbox-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "checkbox-demo.json"
+	},
+	{
+		"name": "dialog-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "dialog-demo.json"
+	},
+	{
 		"name": "input-demo",
 		"type": "registry:example",
 		"registryDependencies": [
@@ -114,6 +154,22 @@
 			"ui"
 		],
 		"relativeUrl": "separator-demo.json"
+	},
+	{
+		"name": "switch-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "switch-demo.json"
+	},
+	{
+		"name": "tabs-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "tabs-demo.json"
 	},
 	{
 		"name": "textarea-demo",

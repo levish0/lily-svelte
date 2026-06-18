@@ -24,9 +24,13 @@ export const docsNav: NavSection[] = [
 			{ title: "Badge", href: "/docs/components/badge" },
 			{ title: "Button", href: "/docs/components/button" },
 			{ title: "Card", href: "/docs/components/card" },
+			{ title: "Checkbox", href: "/docs/components/checkbox" },
+			{ title: "Dialog", href: "/docs/components/dialog" },
 			{ title: "Input", href: "/docs/components/input" },
 			{ title: "Label", href: "/docs/components/label" },
 			{ title: "Separator", href: "/docs/components/separator" },
+			{ title: "Switch", href: "/docs/components/switch" },
+			{ title: "Tabs", href: "/docs/components/tabs" },
 			{ title: "Textarea", href: "/docs/components/textarea" },
 			{ title: "Tooltip", href: "/docs/components/tooltip" }
 		]
