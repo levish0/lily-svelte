@@ -24,4 +24,10 @@ vite.config.ts.timestamp-*
 # Playwright
 test-results
 
+# Generated content / registry
+/.velite
+/src/__registry__
+/static/registry
+/content/**/*.json
+
 /reference
