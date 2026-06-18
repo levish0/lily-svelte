@@ -60,6 +60,12 @@
 		"relativeUrl": "input-otp.json"
 	},
 	{
+		"name": "kbd",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "kbd.json"
+	},
+	{
 		"name": "label",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -140,127 +146,177 @@
 	{
 		"name": "accordion-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "accordion-demo.json"
 	},
 	{
 		"name": "avatar-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "avatar-demo.json"
 	},
 	{
 		"name": "badge-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "badge-demo.json"
 	},
 	{
 		"name": "button-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "button-demo.json"
 	},
 	{
 		"name": "card-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "card-demo.json"
 	},
 	{
 		"name": "checkbox-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "checkbox-demo.json"
 	},
 	{
 		"name": "dialog-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "dialog-demo.json"
 	},
 	{
 		"name": "dropdown-menu-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "dropdown-menu-demo.json"
 	},
 	{
 		"name": "input-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "input-demo.json"
+	},
+	{
+		"name": "input-otp-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "input-otp-demo.json"
 	},
 	{
 		"name": "label-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "label-demo.json"
 	},
 	{
 		"name": "popover-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "popover-demo.json"
 	},
 	{
 		"name": "progress-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "progress-demo.json"
 	},
 	{
 		"name": "radio-group-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "radio-group-demo.json"
 	},
 	{
 		"name": "select-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "select-demo.json"
 	},
 	{
 		"name": "separator-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "separator-demo.json"
 	},
 	{
 		"name": "skeleton-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "skeleton-demo.json"
 	},
 	{
 		"name": "sonner-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "sonner-demo.json"
 	},
 	{
 		"name": "switch-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "switch-demo.json"
 	},
 	{
 		"name": "tabs-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "tabs-demo.json"
 	},
 	{
 		"name": "textarea-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "textarea-demo.json"
 	},
 	{
 		"name": "tooltip-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "tooltip-demo.json"
 	}
 ]

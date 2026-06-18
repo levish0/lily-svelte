@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import { toggleMode, mode } from 'mode-watcher';
 	import MobileNav from '$lib/components/mobile-nav.svelte';
+	import SiteSearch from '$lib/components/site-search.svelte';
 
 	const nav = [
 		{ label: 'Home', href: '/' },
@@ -16,9 +17,8 @@
 </script>
 
 <header class="sticky top-0 z-50 w-full border-b border-(--text)/8 bg-(--bg)/80 backdrop-blur-md">
-	<div class="mx-auto flex h-14 max-w-6xl items-center gap-2 px-5 md:gap-6">
+	<div class="mx-auto flex h-14 max-w-[88rem] items-center gap-2 px-6 md:gap-6 lg:px-8">
 		<MobileNav />
-		<a href="/" class="text-base font-semibold tracking-[-0.48px]">lily</a>
 
 		<nav class="hidden items-center gap-1 md:flex">
 			{#each nav as { label, href } (href)}
@@ -32,7 +32,10 @@
 			{/each}
 		</nav>
 
-		<div class="ml-auto flex items-center gap-1">
+		<div class="ml-auto flex items-center gap-2">
+			<div class="hidden sm:block">
+				<SiteSearch />
+			</div>
 			<a
 				href="https://github.com/levish0/lily-svelte"
 				target="_blank"
