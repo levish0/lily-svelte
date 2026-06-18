@@ -48,6 +48,18 @@
 		"relativeUrl": "checkbox.json"
 	},
 	{
+		"name": "collapsible",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "collapsible.json"
+	},
+	{
+		"name": "command",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "command.json"
+	},
+	{
 		"name": "dialog",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -98,6 +110,17 @@
 		"relativeUrl": "password.json"
 	},
 	{
+		"name": "phone-input",
+		"type": "registry:ui",
+		"registryDependencies": [
+			"popover",
+			"button",
+			"command",
+			"scroll-area"
+		],
+		"relativeUrl": "phone-input.json"
+	},
+	{
 		"name": "popover",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -114,6 +137,12 @@
 		"type": "registry:ui",
 		"registryDependencies": [],
 		"relativeUrl": "radio-group.json"
+	},
+	{
+		"name": "scroll-area",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "scroll-area.json"
 	},
 	{
 		"name": "select",
@@ -152,10 +181,30 @@
 		"relativeUrl": "tabs.json"
 	},
 	{
+		"name": "tags-input",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "tags-input.json"
+	},
+	{
 		"name": "textarea",
 		"type": "registry:ui",
 		"registryDependencies": [],
 		"relativeUrl": "textarea.json"
+	},
+	{
+		"name": "toggle",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "toggle.json"
+	},
+	{
+		"name": "toggle-group",
+		"type": "registry:ui",
+		"registryDependencies": [
+			"toggle"
+		],
+		"relativeUrl": "toggle-group.json"
 	},
 	{
 		"name": "tooltip",
@@ -234,6 +283,22 @@
 		"relativeUrl": "checkbox-demo.json"
 	},
 	{
+		"name": "collapsible-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "collapsible-demo.json"
+	},
+	{
+		"name": "command-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "command-demo.json"
+	},
+	{
 		"name": "dialog-demo",
 		"type": "registry:example",
 		"registryDependencies": [
@@ -298,6 +363,14 @@
 		"relativeUrl": "password-demo.json"
 	},
 	{
+		"name": "phone-input-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "phone-input-demo.json"
+	},
+	{
 		"name": "popover-demo",
 		"type": "registry:example",
 		"registryDependencies": [
@@ -320,6 +393,14 @@
 			"ui"
 		],
 		"relativeUrl": "radio-group-demo.json"
+	},
+	{
+		"name": "scroll-area-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "scroll-area-demo.json"
 	},
 	{
 		"name": "select-demo",
@@ -370,12 +451,36 @@
 		"relativeUrl": "tabs-demo.json"
 	},
 	{
+		"name": "tags-input-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "tags-input-demo.json"
+	},
+	{
 		"name": "textarea-demo",
 		"type": "registry:example",
 		"registryDependencies": [
 			"ui"
 		],
 		"relativeUrl": "textarea-demo.json"
+	},
+	{
+		"name": "toggle-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "toggle-demo.json"
+	},
+	{
+		"name": "toggle-group-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "toggle-group-demo.json"
 	},
 	{
 		"name": "tooltip-demo",

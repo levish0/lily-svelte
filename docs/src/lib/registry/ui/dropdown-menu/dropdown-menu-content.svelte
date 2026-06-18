@@ -7,11 +7,14 @@
 		sideOffset = 6,
 		align = 'start',
 		class: className,
+		portalProps,
 		...restProps
-	}: DropdownMenuPrimitive.ContentProps = $props();
+	}: DropdownMenuPrimitive.ContentProps & {
+		portalProps?: DropdownMenuPrimitive.PortalProps;
+	} = $props();
 </script>
 
-<DropdownMenuPrimitive.Portal>
+<DropdownMenuPrimitive.Portal {...portalProps}>
 	<DropdownMenuPrimitive.Content
 		bind:ref
 		data-slot="dropdown-menu-content"
