@@ -1,3 +1,4 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
 @import '../lib/styles/lily.css';
 @plugin '@tailwindcss/typography';

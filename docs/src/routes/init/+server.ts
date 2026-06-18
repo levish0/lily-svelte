@@ -12,9 +12,10 @@ export function GET() {
 	return json({
 		name: 'lily',
 		type: 'registry:base',
-		devDependencies: ['lily@latest'],
+		devDependencies: ['lily@latest', 'tw-animate-css'],
 		registryDependencies: ['utils'],
 		css: {
+			'@import "tw-animate-css"': {},
 			'@import "lily/tailwind.css"': {}
 		}
 	});

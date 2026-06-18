@@ -28,6 +28,7 @@
 		{side}
 		class={cn(
 			'z-50 w-fit max-w-xs origin-(--bits-tooltip-content-transform-origin) rounded-xl bg-(--text) px-2.5 py-1.5 text-xs font-medium tracking-[-0.3px] text-(--bg) shadow-lg',
+			'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95',
 			className
 		)}
 		{...restProps}
