@@ -38,7 +38,7 @@
 <div
 	data-slot="number-field"
 	class={cn(
-		'inline-flex items-center rounded-3xl bg-(--text)/5 transition-colors duration-150 hover:bg-(--text)/[0.07] focus-within:bg-(--text)/8',
+		'inline-flex w-fit items-center rounded-3xl bg-(--text)/5 transition-colors duration-150 hover:bg-(--text)/[0.07] focus-within:bg-(--text)/8',
 		disabled && 'pointer-events-none opacity-50',
 		className
 	)}

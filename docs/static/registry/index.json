@@ -68,7 +68,9 @@
 	{
 		"name": "carousel",
 		"type": "registry:ui",
-		"registryDependencies": ["button"],
+		"registryDependencies": [
+			"button"
+		],
 		"relativeUrl": "carousel.json"
 	},
 	{
@@ -98,7 +100,10 @@
 	{
 		"name": "date-picker",
 		"type": "registry:ui",
-		"registryDependencies": ["popover", "calendar"],
+		"registryDependencies": [
+			"popover",
+			"calendar"
+		],
 		"relativeUrl": "date-picker.json"
 	},
 	{
@@ -176,13 +181,20 @@
 	{
 		"name": "password",
 		"type": "registry:ui",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "password.json"
 	},
 	{
 		"name": "phone-input",
 		"type": "registry:ui",
-		"registryDependencies": ["popover", "button", "command", "scroll-area"],
+		"registryDependencies": [
+			"popover",
+			"button",
+			"command",
+			"scroll-area"
+		],
 		"relativeUrl": "phone-input.json"
 	},
 	{
@@ -290,7 +302,9 @@
 	{
 		"name": "toggle-group",
 		"type": "registry:ui",
-		"registryDependencies": ["toggle"],
+		"registryDependencies": [
+			"toggle"
+		],
 		"relativeUrl": "toggle-group.json"
 	},
 	{
@@ -308,301 +322,401 @@
 	{
 		"name": "accordion-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "accordion-demo.json"
 	},
 	{
 		"name": "alert-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "alert-demo.json"
 	},
 	{
 		"name": "alert-dialog-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "alert-dialog-demo.json"
 	},
 	{
 		"name": "aspect-ratio-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "aspect-ratio-demo.json"
 	},
 	{
 		"name": "avatar-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "avatar-demo.json"
 	},
 	{
 		"name": "badge-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "badge-demo.json"
 	},
 	{
 		"name": "breadcrumb-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "breadcrumb-demo.json"
 	},
 	{
 		"name": "button-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "button-demo.json"
 	},
 	{
 		"name": "button-group-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "button-group-demo.json"
 	},
 	{
 		"name": "calendar-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "calendar-demo.json"
 	},
 	{
 		"name": "card-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "card-demo.json"
 	},
 	{
 		"name": "carousel-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "carousel-demo.json"
 	},
 	{
 		"name": "checkbox-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "checkbox-demo.json"
 	},
 	{
 		"name": "collapsible-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "collapsible-demo.json"
 	},
 	{
 		"name": "command-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "command-demo.json"
 	},
 	{
 		"name": "context-menu-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "context-menu-demo.json"
 	},
 	{
 		"name": "date-picker-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "date-picker-demo.json"
 	},
 	{
 		"name": "dialog-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "dialog-demo.json"
 	},
 	{
 		"name": "dropdown-menu-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "dropdown-menu-demo.json"
 	},
 	{
 		"name": "file-drop-zone-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "file-drop-zone-demo.json"
 	},
 	{
 		"name": "hover-card-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "hover-card-demo.json"
 	},
 	{
 		"name": "input-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "input-demo.json"
 	},
 	{
 		"name": "input-otp-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "input-otp-demo.json"
 	},
 	{
 		"name": "kbd-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "kbd-demo.json"
 	},
 	{
 		"name": "label-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "label-demo.json"
 	},
 	{
 		"name": "menubar-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "menubar-demo.json"
 	},
 	{
 		"name": "navigation-menu-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "navigation-menu-demo.json"
 	},
 	{
 		"name": "number-field-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "number-field-demo.json"
 	},
 	{
 		"name": "pagination-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "pagination-demo.json"
 	},
 	{
 		"name": "password-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "password-demo.json"
 	},
 	{
 		"name": "phone-input-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "phone-input-demo.json"
 	},
 	{
 		"name": "popover-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "popover-demo.json"
 	},
 	{
 		"name": "progress-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "progress-demo.json"
 	},
 	{
 		"name": "radio-group-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "radio-group-demo.json"
 	},
 	{
 		"name": "resizable-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "resizable-demo.json"
 	},
 	{
 		"name": "scroll-area-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "scroll-area-demo.json"
 	},
 	{
 		"name": "select-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "select-demo.json"
 	},
 	{
 		"name": "separator-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "separator-demo.json"
 	},
 	{
 		"name": "sheet-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "sheet-demo.json"
 	},
 	{
 		"name": "skeleton-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "skeleton-demo.json"
 	},
 	{
 		"name": "slider-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "slider-demo.json"
 	},
 	{
 		"name": "sonner-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "sonner-demo.json"
 	},
 	{
 		"name": "switch-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "switch-demo.json"
 	},
 	{
 		"name": "table-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "table-demo.json"
 	},
 	{
 		"name": "tabs-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "tabs-demo.json"
 	},
 	{
 		"name": "tags-input-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "tags-input-demo.json"
 	},
 	{
 		"name": "textarea-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "textarea-demo.json"
 	},
 	{
 		"name": "toggle-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "toggle-demo.json"
 	},
 	{
 		"name": "toggle-group-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "toggle-group-demo.json"
 	},
 	{
 		"name": "tooltip-demo",
 		"type": "registry:example",
-		"registryDependencies": ["ui"],
+		"registryDependencies": [
+			"ui"
+		],
 		"relativeUrl": "tooltip-demo.json"
 	}
 ]

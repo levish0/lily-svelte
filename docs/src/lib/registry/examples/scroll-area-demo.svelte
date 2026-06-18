@@ -4,8 +4,8 @@
 	const tags = Array.from({ length: 24 }, (_, i) => `Item ${i + 1}`);
 </script>
 
-<ScrollArea class="h-56 w-full max-w-xs rounded-3xl bg-(--text)/4 p-4">
-	<div class="flex flex-col gap-2.5 text-sm tracking-[-0.39px] text-(--text)/72">
+<ScrollArea class="h-56 w-full max-w-xs rounded-3xl bg-(--bg-elevated)">
+	<div class="flex flex-col gap-2.5 px-4 py-4 text-sm tracking-[-0.39px] text-(--text)/72">
 		{#each tags as tag (tag)}
 			<div>{tag}</div>
 		{/each}

@@ -14,7 +14,7 @@
 	bind:this={ref}
 	data-slot="table-footer"
 	class={cn(
-		'border-t border-(--text)/8 bg-(--text)/3 font-medium [&>tr]:last:border-b-0',
+		'bg-(--text)/3 font-medium [&>tr]:last:border-b-0',
 		className
 	)}
 	{...restProps}

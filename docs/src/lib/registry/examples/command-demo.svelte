@@ -2,7 +2,7 @@
 	import * as Command from '$lib/registry/ui/command';
 </script>
 
-<div class="w-full max-w-sm overflow-hidden rounded-3xl bg-(--bg-elevated) shadow-lg">
+<div class="w-full max-w-sm overflow-hidden rounded-2xl bg-(--bg-elevated) shadow-lg">
 	<Command.Root>
 		<Command.Input placeholder="Type a command or search…" />
 		<Command.List>
