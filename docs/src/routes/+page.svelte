@@ -38,10 +38,10 @@
 	<!-- Hero -->
 	<div class="flex flex-col items-center gap-6 pt-20 pb-14 text-center sm:pt-28 sm:pb-20">
 		<Badge>Svelte 5 · Tailwind 4</Badge>
-		<h1 class="max-w-3xl text-4xl font-semibold tracking-[-1.6px] sm:text-6xl">
+		<h1 class="max-w-5xl text-4xl font-semibold tracking-[-1.6px] sm:text-6xl">
 			The quiet foundation for your interface
 		</h1>
-		<p class="max-w-xl text-base leading-[1.6] tracking-[-0.48px] text-(--text)/56 sm:text-lg">
+		<p class="max-w-2xl text-base leading-[1.6] tracking-[-0.48px] text-(--text)/56 sm:text-lg">
 			A copy-paste component library with one unified, soft, rounded style — drawn from the
 			levish.ac design language. You own the code.
 		</p>

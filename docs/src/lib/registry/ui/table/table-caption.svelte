@@ -13,7 +13,7 @@
 <caption
 	bind:this={ref}
 	data-slot="table-caption"
-	class={cn('py-3.5 text-sm tracking-[-0.39px] text-(--text)/48', className)}
+	class={cn('py-3.5 text-sm tracking-[-0.39px] text-(--text)/56', className)}
 	{...restProps}
 >
 	{@render children?.()}

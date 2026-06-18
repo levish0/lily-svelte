@@ -35,7 +35,7 @@
 		{#if showCloseButton}
 			<DialogPrimitive.Close
 				data-slot="dialog-close"
-				class="absolute end-4 top-4 inline-flex size-8 items-center justify-center rounded-xl text-(--text)/48 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) focus-visible:outline-none"
+				class="absolute end-4 top-4 inline-flex size-8 items-center justify-center rounded-xl text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) focus-visible:outline-none"
 			>
 				<Icon icon="heroicons:x-mark-solid" class="size-4" aria-hidden="true" />
 				<span class="sr-only">Close</span>

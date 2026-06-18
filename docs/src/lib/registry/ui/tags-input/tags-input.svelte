@@ -65,7 +65,7 @@
 					e.stopPropagation();
 					removeTag(i);
 				}}
-				class="inline-flex size-4 items-center justify-center rounded-full text-(--text)/48 transition-colors duration-100 hover:bg-(--text)/12 hover:text-(--text)"
+				class="inline-flex size-4 items-center justify-center rounded-full text-(--text)/40 transition-colors duration-100 hover:bg-(--text)/12 hover:text-(--text)"
 			>
 				<Icon icon="heroicons:x-mark-solid" class="size-3" aria-hidden="true" />
 			</button>

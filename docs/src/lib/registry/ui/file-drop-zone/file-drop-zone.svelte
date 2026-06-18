@@ -143,7 +143,7 @@
 					Drag &amp; drop files here, or click to select
 				</span>
 				{#if maxFiles || maxFileSize}
-					<span class="text-xs tracking-[-0.3px] text-(--text)/48">
+					<span class="text-xs tracking-[-0.3px] text-(--text)/56">
 						{#if maxFiles}Up to {maxFiles} files{/if}
 						{#if maxFiles && maxFileSize}&nbsp;({displaySize(maxFileSize)} each){/if}
 						{#if maxFileSize && !maxFiles}Maximum {displaySize(maxFileSize)}{/if}

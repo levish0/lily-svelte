@@ -27,7 +27,7 @@
 	{@render children?.()}
 	<Icon
 		icon="heroicons:chevron-down-solid"
-		class="size-3.5 text-(--text)/40 transition-transform duration-200 group-data-[state=open]:rotate-180"
+		class="size-3.5 text-(--text)/40 transition-transform duration-200 ease-out group-data-[state=open]:rotate-180"
 		aria-hidden="true"
 	/>
 </NavigationMenuPrimitive.Trigger>

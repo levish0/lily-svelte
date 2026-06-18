@@ -31,13 +31,13 @@
 				data-slot="date-picker"
 				class={cn(
 					'inline-flex h-10 w-60 items-center gap-2.5 rounded-3xl bg-(--text)/5 px-4 text-left text-sm tracking-[-0.39px] outline-none transition-colors duration-150 hover:bg-(--text)/8 disabled:pointer-events-none disabled:opacity-50',
-					!value && 'text-(--text)/48',
+					!value && 'text-(--text)/40',
 					className
 				)}
 			>
 				<Icon
 					icon="heroicons:calendar-days-solid"
-					class="size-4 shrink-0 text-(--text)/48"
+					class="size-4 shrink-0 text-(--text)/40"
 					aria-hidden="true"
 				/>
 				{value ? df.format(value.toDate(getLocalTimeZone())) : placeholder}

@@ -49,7 +49,7 @@
 		bind:el
 		{options}
 		class={cn(
-			'flex h-10 w-full min-w-0 rounded-l-none rounded-r-3xl bg-(--text)/5 px-4 text-sm tracking-[-0.39px] outline-none transition-colors duration-150 placeholder:text-(--text)/48 hover:bg-(--text)/8 focus:bg-(--text)/12 aria-[invalid=true]:text-red-600 disabled:pointer-events-none disabled:opacity-50 dark:aria-[invalid=true]:text-red-400',
+			'flex h-10 w-full min-w-0 rounded-l-none rounded-r-3xl bg-(--text)/5 px-4 text-sm tracking-[-0.39px] outline-none transition-colors duration-150 placeholder:text-(--text)/40 hover:bg-(--text)/8 focus:bg-(--text)/12 aria-[invalid=true]:text-red-600 disabled:pointer-events-none disabled:opacity-50 dark:aria-[invalid=true]:text-red-400',
 			className
 		)}
 		{...rest}

@@ -27,7 +27,7 @@
 		{@render children?.()}
 		<Icon
 			icon="heroicons:chevron-down-solid"
-			class="size-4 shrink-0 text-(--text)/48 transition-transform duration-200 group-aria-expanded/accordion:rotate-180"
+			class="size-4 shrink-0 text-(--text)/40 transition-transform duration-200 ease-out group-aria-expanded/accordion:rotate-180"
 			aria-hidden="true"
 		/>
 	</AccordionPrimitive.Trigger>
