@@ -37,25 +37,11 @@ const components = defineCollection({
 	schema: docSchema
 });
 
-const installation = defineCollection({
-	name: 'installation',
-	pattern: './installation/**/*.md',
-	schema: docSchema
-});
-
-const darkMode = defineCollection({
-	name: 'darkMode',
-	pattern: './dark-mode/**/*.md',
-	schema: docSchema
-});
-
 export default defineConfig({
 	root: './content',
 	collections: {
 		gettingStarted,
-		components,
-		installation,
-		darkMode
+		components
 	},
 	output: { assets: 'static' }
 });

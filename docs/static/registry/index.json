@@ -24,10 +24,28 @@
 		"relativeUrl": "card.json"
 	},
 	{
+		"name": "input",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "input.json"
+	},
+	{
+		"name": "label",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "label.json"
+	},
+	{
 		"name": "separator",
 		"type": "registry:ui",
 		"registryDependencies": [],
 		"relativeUrl": "separator.json"
+	},
+	{
+		"name": "textarea",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "textarea.json"
 	},
 	{
 		"name": "tooltip",
@@ -40,5 +58,77 @@
 		"type": "registry:lib",
 		"registryDependencies": [],
 		"relativeUrl": "utils.json"
+	},
+	{
+		"name": "avatar-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "avatar-demo.json"
+	},
+	{
+		"name": "badge-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "badge-demo.json"
+	},
+	{
+		"name": "button-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "button-demo.json"
+	},
+	{
+		"name": "card-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "card-demo.json"
+	},
+	{
+		"name": "input-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "input-demo.json"
+	},
+	{
+		"name": "label-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "label-demo.json"
+	},
+	{
+		"name": "separator-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "separator-demo.json"
+	},
+	{
+		"name": "textarea-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "textarea-demo.json"
+	},
+	{
+		"name": "tooltip-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "tooltip-demo.json"
 	}
 ]
