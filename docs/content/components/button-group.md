@@ -42,8 +42,8 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { ButtonGroup, ButtonGroupSeparator } from "$lib/components/ui/button-group";
-	import { Button } from "$lib/components/ui/button";
+	import { ButtonGroup, ButtonGroupSeparator } from '$lib/components/ui/button-group';
+	import { Button } from '$lib/components/ui/button';
 </script>
 
 <ButtonGroup>

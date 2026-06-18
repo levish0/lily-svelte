@@ -46,7 +46,7 @@ npm install embla-carousel-svelte
 
 ```svelte
 <script lang="ts">
-	import * as Carousel from "$lib/components/ui/carousel";
+	import * as Carousel from '$lib/components/ui/carousel';
 </script>
 
 <Carousel.Root class="w-full max-w-xs">

@@ -48,9 +48,9 @@ npm install svelte-tel-input country-flag-icons
 
 ```svelte
 <script lang="ts">
-	import { PhoneInput } from "$lib/components/ui/phone-input";
+	import { PhoneInput } from '$lib/components/ui/phone-input';
 
-	let value = $state("");
+	let value = $state('');
 	let valid = $state(true);
 </script>
 

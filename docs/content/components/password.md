@@ -42,9 +42,9 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Password } from "$lib/components/ui/password";
+	import { Password } from '$lib/components/ui/password';
 
-	let value = $state("");
+	let value = $state('');
 </script>
 
 <Password bind:value placeholder="Enter your password" />

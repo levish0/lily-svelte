@@ -47,7 +47,7 @@ npx lily init
 		InputOTPGroup,
 		InputOTPSlot,
 		InputOTPSeparator
-	} from "$lib/components/ui/input-otp";
+	} from '$lib/components/ui/input-otp';
 </script>
 
 <InputOTP maxlength={6}>

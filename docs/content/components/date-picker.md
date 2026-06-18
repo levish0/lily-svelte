@@ -49,8 +49,8 @@ npm install @internationalized/date
 
 ```svelte
 <script lang="ts">
-	import { DatePicker } from "$lib/components/ui/date-picker";
-	import type { DateValue } from "@internationalized/date";
+	import { DatePicker } from '$lib/components/ui/date-picker';
+	import type { DateValue } from '@internationalized/date';
 
 	let value = $state<DateValue | undefined>(undefined);
 </script>

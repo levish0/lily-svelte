@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import * as Table from "$lib/components/ui/table";
+	import * as Table from '$lib/components/ui/table';
 </script>
 
 <Table.Root>

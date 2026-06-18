@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { AspectRatio } from "$lib/components/ui/aspect-ratio";
+	import { AspectRatio } from '$lib/components/ui/aspect-ratio';
 </script>
 
 <AspectRatio ratio={16 / 9}>

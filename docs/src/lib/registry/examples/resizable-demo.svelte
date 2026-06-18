@@ -14,7 +14,9 @@
 	</Resizable.Pane>
 	<Resizable.Handle />
 	<Resizable.Pane defaultSize={65}>
-		<div class="flex h-full items-center justify-center p-5 text-sm font-medium tracking-[-0.39px] text-(--text)/72">
+		<div
+			class="flex h-full items-center justify-center p-5 text-sm font-medium tracking-[-0.39px] text-(--text)/72"
+		>
 			Content
 		</div>
 	</Resizable.Pane>

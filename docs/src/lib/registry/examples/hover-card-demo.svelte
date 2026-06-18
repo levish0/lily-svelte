@@ -4,7 +4,12 @@
 </script>
 
 <HoverCard>
-	<HoverCardTrigger href="https://levish.ac" target="_blank" rel="noreferrer" class="link font-medium tracking-[-0.39px]">
+	<HoverCardTrigger
+		href="https://levish.ac"
+		target="_blank"
+		rel="noreferrer"
+		class="link font-medium tracking-[-0.39px]"
+	>
 		@levish
 	</HoverCardTrigger>
 	<HoverCardContent>

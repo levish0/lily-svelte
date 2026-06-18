@@ -1,7 +1,7 @@
-import Root from "./calendar.svelte";
+import Root from './calendar.svelte';
 
 export {
 	Root,
 	//
-	Root as Calendar,
+	Root as Calendar
 };

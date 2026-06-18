@@ -1,7 +1,7 @@
-import Root from "./kbd.svelte";
+import Root from './kbd.svelte';
 
 export {
 	Root,
 	//
-	Root as Kbd,
+	Root as Kbd
 };

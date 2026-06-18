@@ -56,7 +56,11 @@
 						{#each month.weeks as weekDates (weekDates)}
 							<CalendarPrimitive.GridRow class="mt-0.5 flex w-full">
 								{#each weekDates as date (date)}
-									<CalendarPrimitive.Cell {date} month={month.value} class="relative size-9 p-0 text-center">
+									<CalendarPrimitive.Cell
+										{date}
+										month={month.value}
+										class="relative size-9 p-0 text-center"
+									>
 										<CalendarPrimitive.Day
 											class="inline-flex size-9 items-center justify-center rounded-2xl text-sm tracking-[-0.39px] text-(--text)/80 outline-none transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) data-today:bg-(--text)/8 data-today:font-semibold data-today:text-(--text) data-selected:bg-(--text) data-selected:font-medium data-selected:text-(--bg) data-disabled:pointer-events-none data-disabled:opacity-30 data-unavailable:line-through data-outside-month:opacity-30"
 										/>

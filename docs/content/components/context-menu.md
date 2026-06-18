@@ -48,7 +48,7 @@ npx lily init
 		ContextMenuContent,
 		ContextMenuItem,
 		ContextMenuSeparator
-	} from "$lib/components/ui/context-menu";
+	} from '$lib/components/ui/context-menu';
 </script>
 
 <ContextMenu>

@@ -35,12 +35,21 @@
 					className
 				)}
 			>
-				<Icon icon="heroicons:calendar-days-solid" class="size-4 shrink-0 text-(--text)/48" aria-hidden="true" />
+				<Icon
+					icon="heroicons:calendar-days-solid"
+					class="size-4 shrink-0 text-(--text)/48"
+					aria-hidden="true"
+				/>
 				{value ? df.format(value.toDate(getLocalTimeZone())) : placeholder}
 			</button>
 		{/snippet}
 	</Popover.Trigger>
 	<Popover.Content class="w-auto p-0" align="start">
-		<Calendar type="single" bind:value onValueChange={() => (open = false)} class="bg-transparent" />
+		<Calendar
+			type="single"
+			bind:value
+			onValueChange={() => (open = false)}
+			class="bg-transparent"
+		/>
 	</Popover.Content>
 </Popover.Root>

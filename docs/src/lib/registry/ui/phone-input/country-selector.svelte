@@ -47,7 +47,11 @@
 				class="shrink-0 gap-1.5 rounded-l-3xl rounded-r-none px-3"
 			>
 				<Flag country={selectedCountry} />
-				<Icon icon="heroicons:chevron-up-down-solid" class="-me-1 size-4 text-(--text)/40" aria-hidden="true" />
+				<Icon
+					icon="heroicons:chevron-up-down-solid"
+					class="-me-1 size-4 text-(--text)/40"
+					aria-hidden="true"
+				/>
 			</Button>
 		{/snippet}
 	</Popover.Trigger>

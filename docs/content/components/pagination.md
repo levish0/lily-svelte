@@ -50,7 +50,7 @@ npx lily init
 		PaginationPrevButton,
 		PaginationNextButton,
 		PaginationEllipsis
-	} from "$lib/components/ui/pagination";
+	} from '$lib/components/ui/pagination';
 </script>
 
 <Pagination count={100} perPage={10} page={1}>
@@ -58,7 +58,7 @@ npx lily init
 		<PaginationContent>
 			<PaginationItem><PaginationPrevButton /></PaginationItem>
 			{#each pages as page (page.key)}
-				{#if page.type === "ellipsis"}
+				{#if page.type === 'ellipsis'}
 					<PaginationItem><PaginationEllipsis /></PaginationItem>
 				{:else}
 					<PaginationItem>

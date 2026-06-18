@@ -42,9 +42,9 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { ToggleGroup, ToggleGroupItem } from "$lib/components/ui/toggle-group";
+	import { ToggleGroup, ToggleGroupItem } from '$lib/components/ui/toggle-group';
 
-	let value = $state("center");
+	let value = $state('center');
 </script>
 
 <ToggleGroup type="single" bind:value>

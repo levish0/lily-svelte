@@ -30,7 +30,8 @@
 			'inset-y-0 right-0 h-full w-3/4 max-w-sm rounded-l-3xl data-[state=open]:slide-in-from-right data-[state=closed]:slide-out-to-right',
 		left: 'inset-y-0 left-0 h-full w-3/4 max-w-sm rounded-r-3xl data-[state=open]:slide-in-from-left data-[state=closed]:slide-out-to-left',
 		top: 'inset-x-0 top-0 h-auto max-h-[80vh] rounded-b-3xl data-[state=open]:slide-in-from-top data-[state=closed]:slide-out-to-top',
-		bottom: 'inset-x-0 bottom-0 h-auto max-h-[80vh] rounded-t-3xl data-[state=open]:slide-in-from-bottom data-[state=closed]:slide-out-to-bottom'
+		bottom:
+			'inset-x-0 bottom-0 h-auto max-h-[80vh] rounded-t-3xl data-[state=open]:slide-in-from-bottom data-[state=closed]:slide-out-to-bottom'
 	};
 </script>
 

@@ -49,8 +49,8 @@ npx lily init
 		SheetHeader,
 		SheetTitle,
 		SheetDescription
-	} from "$lib/components/ui/sheet";
-	import { Button } from "$lib/components/ui/button";
+	} from '$lib/components/ui/sheet';
+	import { Button } from '$lib/components/ui/button';
 </script>
 
 <Sheet>

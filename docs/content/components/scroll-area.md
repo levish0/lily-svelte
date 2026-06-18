@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { ScrollArea } from "$lib/components/ui/scroll-area";
+	import { ScrollArea } from '$lib/components/ui/scroll-area';
 </script>
 
 <ScrollArea class="h-56 w-72 rounded-3xl bg-(--text)/4 p-4">

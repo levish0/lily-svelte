@@ -44,9 +44,9 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { TagsInput } from "$lib/components/ui/tags-input";
+	import { TagsInput } from '$lib/components/ui/tags-input';
 
-	let value = $state(["svelte", "tailwind"]);
+	let value = $state(['svelte', 'tailwind']);
 </script>
 
 <TagsInput bind:value placeholder="Add a tag…" />

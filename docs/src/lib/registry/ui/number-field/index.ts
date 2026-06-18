@@ -1,7 +1,7 @@
-import Root from "./number-field.svelte";
+import Root from './number-field.svelte';
 
 export {
 	Root,
 	//
-	Root as NumberField,
+	Root as NumberField
 };

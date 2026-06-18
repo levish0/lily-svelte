@@ -49,7 +49,7 @@ npx lily init
 		BreadcrumbLink,
 		BreadcrumbSeparator,
 		BreadcrumbPage
-	} from "$lib/components/ui/breadcrumb";
+	} from '$lib/components/ui/breadcrumb';
 </script>
 
 <Breadcrumb>

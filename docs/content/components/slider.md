@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Slider } from "$lib/components/ui/slider";
+	import { Slider } from '$lib/components/ui/slider';
 
 	let value = $state(50);
 </script>

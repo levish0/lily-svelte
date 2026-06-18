@@ -21,5 +21,9 @@
 	{...restProps}
 >
 	{@render children?.()}
-	<Icon icon="heroicons:chevron-up-down-solid" class="size-4 shrink-0 text-(--text)/40" aria-hidden="true" />
+	<Icon
+		icon="heroicons:chevron-up-down-solid"
+		class="size-4 shrink-0 text-(--text)/40"
+		aria-hidden="true"
+	/>
 </SelectPrimitive.Trigger>

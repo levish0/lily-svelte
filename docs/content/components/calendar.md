@@ -48,8 +48,8 @@ npm install @internationalized/date
 
 ```svelte
 <script lang="ts">
-	import { Calendar } from "$lib/components/ui/calendar";
-	import { today, getLocalTimeZone } from "@internationalized/date";
+	import { Calendar } from '$lib/components/ui/calendar';
+	import { today, getLocalTimeZone } from '@internationalized/date';
 
 	let value = $state(today(getLocalTimeZone()));
 </script>

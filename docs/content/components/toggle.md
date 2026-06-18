@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Toggle } from "$lib/components/ui/toggle";
+	import { Toggle } from '$lib/components/ui/toggle';
 
 	let pressed = $state(false);
 </script>

@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { NumberField } from "$lib/components/ui/number-field";
+	import { NumberField } from '$lib/components/ui/number-field';
 
 	let value = $state(1);
 </script>

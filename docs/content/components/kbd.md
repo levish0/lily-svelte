@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Kbd } from "$lib/components/ui/kbd";
+	import { Kbd } from '$lib/components/ui/kbd';
 </script>
 
 Press <Kbd>⌘</Kbd> <Kbd>K</Kbd> to search

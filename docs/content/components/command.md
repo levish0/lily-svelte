@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import * as Command from "$lib/components/ui/command";
+	import * as Command from '$lib/components/ui/command';
 </script>
 
 <Command.Root>

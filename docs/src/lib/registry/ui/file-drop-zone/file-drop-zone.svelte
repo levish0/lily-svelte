@@ -122,14 +122,7 @@
 	{ondrop}
 	class={cn('group block', disabled && 'pointer-events-none opacity-50', className)}
 >
-	<input
-		type="file"
-		class="sr-only"
-		multiple={maxFiles !== 1}
-		{accept}
-		{disabled}
-		{onchange}
-	/>
+	<input type="file" class="sr-only" multiple={maxFiles !== 1} {accept} {disabled} {onchange} />
 
 	{#if children}
 		{@render children()}
@@ -140,7 +133,9 @@
 				dragOver && 'bg-(--text)/8'
 			)}
 		>
-			<div class="flex size-12 items-center justify-center rounded-full bg-(--text)/8 text-(--text)/56">
+			<div
+				class="flex size-12 items-center justify-center rounded-full bg-(--text)/8 text-(--text)/56"
+			>
 				<Icon icon="heroicons:arrow-up-tray-solid" class="size-6" aria-hidden="true" />
 			</div>
 			<div class="flex flex-col gap-0.5">

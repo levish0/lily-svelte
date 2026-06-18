@@ -23,8 +23,14 @@
 	{...restProps}
 >
 	{#if withHandle}
-		<div class="z-10 flex h-5 w-3 items-center justify-center rounded-sm bg-(--bg-elevated) ring-1 ring-(--text)/10">
-			<Icon icon="heroicons:ellipsis-vertical-solid" class="size-3 text-(--text)/40" aria-hidden="true" />
+		<div
+			class="z-10 flex h-5 w-3 items-center justify-center rounded-sm bg-(--bg-elevated) ring-1 ring-(--text)/10"
+		>
+			<Icon
+				icon="heroicons:ellipsis-vertical-solid"
+				class="size-3 text-(--text)/40"
+				aria-hidden="true"
+			/>
 		</div>
 	{/if}
 </ResizablePrimitive.PaneResizer>

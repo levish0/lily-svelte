@@ -18,13 +18,7 @@
 	import { Password } from '$lib/registry/ui/password';
 	import { Alert, AlertTitle, AlertDescription } from '$lib/registry/ui/alert';
 	import * as Command from '$lib/registry/ui/command';
-	import {
-		Card,
-		CardHeader,
-		CardTitle,
-		CardDescription,
-		CardContent
-	} from '$lib/registry/ui/card';
+	import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '$lib/registry/ui/card';
 
 	let progress = $state(20);
 	let fruit = $state('');
@@ -58,9 +52,7 @@
 	</div>
 
 	<!-- Showcase (masonry — cards flow by their own height) -->
-	<div
-		class="columns-1 gap-4 pb-24 sm:columns-2 lg:columns-3 [&>*]:mb-4 [&>*]:break-inside-avoid"
-	>
+	<div class="columns-1 gap-4 pb-24 sm:columns-2 lg:columns-3 [&>*]:mb-4 [&>*]:break-inside-avoid">
 		<Card>
 			<CardHeader>
 				<CardTitle>Buttons</CardTitle>

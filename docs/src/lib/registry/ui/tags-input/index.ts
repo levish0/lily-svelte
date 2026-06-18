@@ -1,7 +1,7 @@
-import Root from "./tags-input.svelte";
+import Root from './tags-input.svelte';
 
 export {
 	Root,
 	//
-	Root as TagsInput,
+	Root as TagsInput
 };

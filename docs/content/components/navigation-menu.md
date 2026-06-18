@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import * as NavigationMenu from "$lib/components/ui/navigation-menu";
+	import * as NavigationMenu from '$lib/components/ui/navigation-menu';
 </script>
 
 <NavigationMenu.Root>

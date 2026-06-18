@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import * as AlertDialog from "$lib/components/ui/alert-dialog";
+	import * as AlertDialog from '$lib/components/ui/alert-dialog';
 </script>
 
 <AlertDialog.Root>

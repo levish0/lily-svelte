@@ -55,12 +55,13 @@
 </button>
 
 <Dialog bind:open>
-	<DialogContent
-		showCloseButton={false}
-		class="top-24 max-w-lg translate-y-0 gap-0 p-0"
-	>
+	<DialogContent showCloseButton={false} class="top-24 max-w-lg translate-y-0 gap-0 p-0">
 		<div class="flex items-center gap-2 border-b border-(--text)/8 px-4">
-			<Icon icon="heroicons:magnifying-glass-solid" class="size-4.5 shrink-0 text-(--text)/40" aria-hidden="true" />
+			<Icon
+				icon="heroicons:magnifying-glass-solid"
+				class="size-4.5 shrink-0 text-(--text)/40"
+				aria-hidden="true"
+			/>
 			<input
 				bind:this={inputEl}
 				bind:value={query}

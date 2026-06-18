@@ -1,4 +1,8 @@
-import Root, { displaySize, type FileDropZoneProps, type FileRejectedReason } from "./file-drop-zone.svelte";
+import Root, {
+	displaySize,
+	type FileDropZoneProps,
+	type FileRejectedReason
+} from './file-drop-zone.svelte';
 
 export {
 	Root,
@@ -6,5 +10,5 @@ export {
 	type FileDropZoneProps,
 	type FileRejectedReason,
 	//
-	Root as FileDropZone,
+	Root as FileDropZone
 };

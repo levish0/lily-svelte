@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { FileDropZone } from "$lib/components/ui/file-drop-zone";
+	import { FileDropZone } from '$lib/components/ui/file-drop-zone';
 
 	let files = $state<string[]>([]);
 </script>

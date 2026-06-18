@@ -1,11 +1,11 @@
-import Root from "./menubar.svelte";
-import Menu from "./menubar-menu.svelte";
-import Trigger from "./menubar-trigger.svelte";
-import Content from "./menubar-content.svelte";
-import Item from "./menubar-item.svelte";
-import Separator from "./menubar-separator.svelte";
-import Label from "./menubar-label.svelte";
-import Shortcut from "./menubar-shortcut.svelte";
+import Root from './menubar.svelte';
+import Menu from './menubar-menu.svelte';
+import Trigger from './menubar-trigger.svelte';
+import Content from './menubar-content.svelte';
+import Item from './menubar-item.svelte';
+import Separator from './menubar-separator.svelte';
+import Label from './menubar-label.svelte';
+import Shortcut from './menubar-shortcut.svelte';
 
 export {
 	Root,
@@ -24,5 +24,5 @@ export {
 	Item as MenubarItem,
 	Separator as MenubarSeparator,
 	Label as MenubarLabel,
-	Shortcut as MenubarShortcut,
+	Shortcut as MenubarShortcut
 };

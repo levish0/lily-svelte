@@ -46,7 +46,7 @@ npx lily init
 		Collapsible,
 		CollapsibleTrigger,
 		CollapsibleContent
-	} from "$lib/components/ui/collapsible";
+	} from '$lib/components/ui/collapsible';
 </script>
 
 <Collapsible>

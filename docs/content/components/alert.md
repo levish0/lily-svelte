@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { Alert, AlertTitle, AlertDescription } from "$lib/components/ui/alert";
+	import { Alert, AlertTitle, AlertDescription } from '$lib/components/ui/alert';
 </script>
 
 <Alert>

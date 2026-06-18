@@ -1,4 +1,4 @@
-import type { Country, CountryCode, DetailedValue, TelInputOptions } from "svelte-tel-input/types";
+import type { Country, CountryCode, DetailedValue, TelInputOptions } from 'svelte-tel-input/types';
 
 export type PhoneInputProps = {
 	country?: CountryCode | null;

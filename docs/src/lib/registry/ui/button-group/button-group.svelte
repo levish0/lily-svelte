@@ -18,7 +18,8 @@
 
 	const orientationClasses: Record<ButtonGroupOrientation, string> = {
 		horizontal: '[&>*:not(:last-child)]:rounded-r-none [&>*:not(:first-child)]:rounded-l-none',
-		vertical: 'flex-col [&>*:not(:last-child)]:rounded-b-none [&>*:not(:first-child)]:rounded-t-none'
+		vertical:
+			'flex-col [&>*:not(:last-child)]:rounded-b-none [&>*:not(:first-child)]:rounded-t-none'
 	};
 </script>
 

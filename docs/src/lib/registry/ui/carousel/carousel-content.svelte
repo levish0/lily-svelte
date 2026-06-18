@@ -30,7 +30,11 @@
 >
 	<div
 		bind:this={ref}
-		class={cn('flex', emblaCtx.orientation === 'horizontal' ? '-ms-4' : '-mt-4 flex-col', className)}
+		class={cn(
+			'flex',
+			emblaCtx.orientation === 'horizontal' ? '-ms-4' : '-mt-4 flex-col',
+			className
+		)}
 		data-embla-container=""
 		{...restProps}
 	>

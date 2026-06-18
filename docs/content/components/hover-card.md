@@ -42,7 +42,7 @@ npx lily init
 
 ```svelte
 <script lang="ts">
-	import { HoverCard, HoverCardTrigger, HoverCardContent } from "$lib/components/ui/hover-card";
+	import { HoverCard, HoverCardTrigger, HoverCardContent } from '$lib/components/ui/hover-card';
 </script>
 
 <HoverCard>

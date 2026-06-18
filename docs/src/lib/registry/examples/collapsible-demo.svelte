@@ -18,7 +18,11 @@
 	</div>
 	<div class="rounded-2xl bg-(--text)/5 px-4 py-2.5 text-sm tracking-[-0.39px]">@lily/ui</div>
 	<CollapsibleContent class="flex flex-col gap-2">
-		<div class="rounded-2xl bg-(--text)/5 px-4 py-2.5 text-sm tracking-[-0.39px]">sveltejs/svelte</div>
-		<div class="rounded-2xl bg-(--text)/5 px-4 py-2.5 text-sm tracking-[-0.39px]">huntabyte/bits-ui</div>
+		<div class="rounded-2xl bg-(--text)/5 px-4 py-2.5 text-sm tracking-[-0.39px]">
+			sveltejs/svelte
+		</div>
+		<div class="rounded-2xl bg-(--text)/5 px-4 py-2.5 text-sm tracking-[-0.39px]">
+			huntabyte/bits-ui
+		</div>
 	</CollapsibleContent>
 </Collapsible>
