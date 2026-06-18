@@ -4,12 +4,12 @@
 	"type": "registry:ui",
 	"files": [
 		{
-			"content": "import Root from \"./separator.svelte\";\n\nexport { Root, Root as Separator };\n",
+			"content": "import Root from './separator.svelte';\n\nexport { Root, Root as Separator };\n",
 			"type": "registry:file",
 			"target": "separator/index.ts"
 		},
 		{
-			"content": "<script lang=\"ts\">\n\timport { cn } from \"$UTILS$.js\";\n\n\tinterface Props {\n\t\torientation?: \"horizontal\" | \"vertical\";\n\t\tclass?: string;\n\t}\n\n\tlet { orientation = \"horizontal\", class: className }: Props = $props();\n</script>\n\n<div\n\trole=\"separator\"\n\taria-orientation={orientation}\n\tclass={cn(\n\t\t\"shrink-0 bg-(--text)/8\",\n\t\torientation === \"horizontal\" ? \"h-px w-full\" : \"h-full w-px\",\n\t\tclassName,\n\t)}\n></div>\n",
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$.js';\n\n\tinterface Props {\n\t\torientation?: 'horizontal' | 'vertical';\n\t\tclass?: string;\n\t}\n\n\tlet { orientation = 'horizontal', class: className }: Props = $props();\n</script>\n\n<div\n\trole=\"separator\"\n\taria-orientation={orientation}\n\tclass={cn(\n\t\t'shrink-0 bg-(--text)/8',\n\t\torientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',\n\t\tclassName\n\t)}\n></div>\n",
 			"type": "registry:file",
 			"target": "separator/separator.svelte"
 		}

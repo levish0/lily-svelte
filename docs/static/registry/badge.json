@@ -4,12 +4,12 @@
 	"type": "registry:ui",
 	"files": [
 		{
-			"content": "<script lang=\"ts\">\n\timport { cn } from \"$UTILS$.js\";\n\timport type { HTMLAttributes } from \"svelte/elements\";\n\n\tlet { class: className, children, ...restProps }: HTMLAttributes<HTMLSpanElement> = $props();\n</script>\n\n<span\n\tclass={cn(\n\t\t\"inline-flex w-fit shrink-0 items-center rounded-full bg-(--text)/8 px-3 py-1 text-xs leading-normal tracking-[-0.3px] text-(--text)/60\",\n\t\tclassName,\n\t)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</span>\n",
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$.js';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\tlet { class: className, children, ...restProps }: HTMLAttributes<HTMLSpanElement> = $props();\n</script>\n\n<span\n\tclass={cn(\n\t\t'inline-flex w-fit shrink-0 items-center rounded-full bg-(--text)/8 px-3 py-1 text-xs leading-normal tracking-[-0.3px] text-(--text)/60',\n\t\tclassName\n\t)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</span>\n",
 			"type": "registry:file",
 			"target": "badge/badge.svelte"
 		},
 		{
-			"content": "import Root from \"./badge.svelte\";\n\nexport { Root, Root as Badge };\n",
+			"content": "import Root from './badge.svelte';\n\nexport { Root, Root as Badge };\n",
 			"type": "registry:file",
 			"target": "badge/index.ts"
 		}

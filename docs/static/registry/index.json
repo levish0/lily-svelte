@@ -30,6 +30,12 @@
 		"relativeUrl": "separator.json"
 	},
 	{
+		"name": "tooltip",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "tooltip.json"
+	},
+	{
 		"name": "utils",
 		"type": "registry:lib",
 		"registryDependencies": [],

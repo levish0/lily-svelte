@@ -4,37 +4,37 @@
 	"type": "registry:ui",
 	"files": [
 		{
-			"content": "<script lang=\"ts\">\n\timport { cn } from \"$UTILS$.js\";\n\timport type { HTMLAttributes } from \"svelte/elements\";\n\n\tlet { class: className, children, ...restProps }: HTMLAttributes<HTMLDivElement> = $props();\n</script>\n\n<div class={cn(\"flex flex-col gap-3\", className)} {...restProps}>\n\t{@render children?.()}\n</div>\n",
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$.js';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\tlet { class: className, children, ...restProps }: HTMLAttributes<HTMLDivElement> = $props();\n</script>\n\n<div class={cn('flex flex-col gap-3', className)} {...restProps}>\n\t{@render children?.()}\n</div>\n",
 			"type": "registry:file",
 			"target": "card/card-content.svelte"
 		},
 		{
-			"content": "<script lang=\"ts\">\n\timport { cn } from \"$UTILS$.js\";\n\timport type { HTMLAttributes } from \"svelte/elements\";\n\n\tlet { class: className, children, ...restProps }: HTMLAttributes<HTMLParagraphElement> =\n\t\t$props();\n</script>\n\n<p\n\tclass={cn(\n\t\t\"text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/72\",\n\t\tclassName,\n\t)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</p>\n",
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$.js';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\tlet { class: className, children, ...restProps }: HTMLAttributes<HTMLParagraphElement> = $props();\n</script>\n\n<p\n\tclass={cn('text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/72', className)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</p>\n",
 			"type": "registry:file",
 			"target": "card/card-description.svelte"
 		},
 		{
-			"content": "<script lang=\"ts\">\n\timport { cn } from \"$UTILS$.js\";\n\timport type { HTMLAttributes } from \"svelte/elements\";\n\n\tlet { class: className, children, ...restProps }: HTMLAttributes<HTMLDivElement> = $props();\n</script>\n\n<div class={cn(\"flex items-center gap-2\", className)} {...restProps}>\n\t{@render children?.()}\n</div>\n",
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$.js';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\tlet { class: className, children, ...restProps }: HTMLAttributes<HTMLDivElement> = $props();\n</script>\n\n<div class={cn('flex items-center gap-2', className)} {...restProps}>\n\t{@render children?.()}\n</div>\n",
 			"type": "registry:file",
 			"target": "card/card-footer.svelte"
 		},
 		{
-			"content": "<script lang=\"ts\">\n\timport { cn } from \"$UTILS$.js\";\n\timport type { HTMLAttributes } from \"svelte/elements\";\n\n\tlet { class: className, children, ...restProps }: HTMLAttributes<HTMLDivElement> = $props();\n</script>\n\n<div class={cn(\"flex flex-col gap-1\", className)} {...restProps}>\n\t{@render children?.()}\n</div>\n",
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$.js';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\tlet { class: className, children, ...restProps }: HTMLAttributes<HTMLDivElement> = $props();\n</script>\n\n<div class={cn('flex flex-col gap-1', className)} {...restProps}>\n\t{@render children?.()}\n</div>\n",
 			"type": "registry:file",
 			"target": "card/card-header.svelte"
 		},
 		{
-			"content": "<script lang=\"ts\">\n\timport { cn } from \"$UTILS$.js\";\n\timport type { HTMLAttributes } from \"svelte/elements\";\n\n\tlet { class: className, children, ...restProps }: HTMLAttributes<HTMLHeadingElement> = $props();\n</script>\n\n<h3\n\tclass={cn(\"text-base leading-[1.5] font-medium tracking-[-0.48px] text-(--text)\", className)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</h3>\n",
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$.js';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\tlet { class: className, children, ...restProps }: HTMLAttributes<HTMLHeadingElement> = $props();\n</script>\n\n<h3\n\tclass={cn('text-base leading-[1.5] font-medium tracking-[-0.48px] text-(--text)', className)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</h3>\n",
 			"type": "registry:file",
 			"target": "card/card-title.svelte"
 		},
 		{
-			"content": "<script lang=\"ts\">\n\timport { cn } from \"$UTILS$.js\";\n\timport type { HTMLAttributes } from \"svelte/elements\";\n\n\tlet { class: className, children, ...restProps }: HTMLAttributes<HTMLDivElement> = $props();\n</script>\n\n<div\n\tclass={cn(\"flex flex-col gap-5 rounded-3xl bg-(--bg-elevated) p-5\", className)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</div>\n",
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$.js';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\tlet { class: className, children, ...restProps }: HTMLAttributes<HTMLDivElement> = $props();\n</script>\n\n<div class={cn('flex flex-col gap-5 rounded-3xl bg-(--bg-elevated) p-5', className)} {...restProps}>\n\t{@render children?.()}\n</div>\n",
 			"type": "registry:file",
 			"target": "card/card.svelte"
 		},
 		{
-			"content": "import Root from \"./card.svelte\";\nimport Header from \"./card-header.svelte\";\nimport Title from \"./card-title.svelte\";\nimport Description from \"./card-description.svelte\";\nimport Content from \"./card-content.svelte\";\nimport Footer from \"./card-footer.svelte\";\n\nexport {\n\tRoot,\n\tHeader,\n\tTitle,\n\tDescription,\n\tContent,\n\tFooter,\n\tRoot as Card,\n\tHeader as CardHeader,\n\tTitle as CardTitle,\n\tDescription as CardDescription,\n\tContent as CardContent,\n\tFooter as CardFooter,\n};\n",
+			"content": "import Root from './card.svelte';\nimport Header from './card-header.svelte';\nimport Title from './card-title.svelte';\nimport Description from './card-description.svelte';\nimport Content from './card-content.svelte';\nimport Footer from './card-footer.svelte';\n\nexport {\n\tRoot,\n\tHeader,\n\tTitle,\n\tDescription,\n\tContent,\n\tFooter,\n\tRoot as Card,\n\tHeader as CardHeader,\n\tTitle as CardTitle,\n\tDescription as CardDescription,\n\tContent as CardContent,\n\tFooter as CardFooter\n};\n",
 			"type": "registry:file",
 			"target": "card/index.ts"
 		}
