@@ -19,7 +19,7 @@
 		bind:ref
 		data-slot="accordion-trigger"
 		class={cn(
-			'group/accordion flex flex-1 items-center justify-between gap-4 py-4 text-left text-sm font-medium tracking-[-0.39px] outline-none transition-colors duration-150 hover:text-(--text)/72 disabled:pointer-events-none disabled:opacity-50',
+			'group/accordion flex flex-1 items-center justify-between gap-4 py-4 text-left text-sm font-medium tracking-[-0.39px] outline-none transition-colors duration-150 hover:text-(--text)/72 active:[transform:none] disabled:pointer-events-none disabled:opacity-50',
 			className
 		)}
 		{...restProps}
