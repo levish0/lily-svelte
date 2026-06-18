@@ -264,6 +264,12 @@
 		"relativeUrl": "sonner.json"
 	},
 	{
+		"name": "spinner",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "spinner.json"
+	},
+	{
 		"name": "switch",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -654,6 +660,14 @@
 			"ui"
 		],
 		"relativeUrl": "sonner-demo.json"
+	},
+	{
+		"name": "spinner-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "spinner-demo.json"
 	},
 	{
 		"name": "switch-demo",

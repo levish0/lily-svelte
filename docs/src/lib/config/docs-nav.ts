@@ -62,6 +62,7 @@ export const docsNav: NavSection[] = [
 			{ title: 'Skeleton', href: '/docs/components/skeleton' },
 			{ title: 'Slider', href: '/docs/components/slider' },
 			{ title: 'Sonner', href: '/docs/components/sonner' },
+			{ title: 'Spinner', href: '/docs/components/spinner' },
 			{ title: 'Switch', href: '/docs/components/switch' },
 			{ title: 'Table', href: '/docs/components/table' },
 			{ title: 'Tabs', href: '/docs/components/tabs' },

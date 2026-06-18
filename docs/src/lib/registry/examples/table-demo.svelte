@@ -10,7 +10,6 @@
 
 <div class="w-full max-w-lg">
 	<Table.Root>
-		<Table.Caption>A list of your recent invoices.</Table.Caption>
 		<Table.Header>
 			<Table.Row>
 				<Table.Head>Invoice</Table.Head>

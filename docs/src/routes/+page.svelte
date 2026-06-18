@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { today, getLocalTimeZone } from '@internationalized/date';
+	import { toast } from 'svelte-sonner';
 	import { Button } from '$lib/registry/ui/button';
 	import { Badge } from '$lib/registry/ui/badge';
 	import { Avatar } from '$lib/registry/ui/avatar';
@@ -17,16 +19,58 @@
 	import { NumberField } from '$lib/registry/ui/number-field';
 	import { Password } from '$lib/registry/ui/password';
 	import { Alert, AlertTitle, AlertDescription } from '$lib/registry/ui/alert';
+	import { Spinner } from '$lib/registry/ui/spinner';
+	import { Skeleton } from '$lib/registry/ui/skeleton';
+	import { Kbd } from '$lib/registry/ui/kbd';
+	import { Calendar } from '$lib/registry/ui/calendar';
 	import * as Command from '$lib/registry/ui/command';
+	import * as Table from '$lib/registry/ui/table';
+	import * as Tooltip from '$lib/registry/ui/tooltip';
+	import {
+		Dialog,
+		DialogTrigger,
+		DialogContent,
+		DialogHeader,
+		DialogTitle,
+		DialogDescription,
+		DialogFooter,
+		DialogClose
+	} from '$lib/registry/ui/dialog';
+	import { HoverCard, HoverCardTrigger, HoverCardContent } from '$lib/registry/ui/hover-card';
+	import {
+		Breadcrumb,
+		BreadcrumbList,
+		BreadcrumbItem,
+		BreadcrumbLink,
+		BreadcrumbSeparator,
+		BreadcrumbPage
+	} from '$lib/registry/ui/breadcrumb';
+	import {
+		Pagination,
+		PaginationContent,
+		PaginationItem,
+		PaginationLink,
+		PaginationPrevButton,
+		PaginationNextButton,
+		PaginationEllipsis
+	} from '$lib/registry/ui/pagination';
 	import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '$lib/registry/ui/card';
 
 	let progress = $state(20);
 	let fruit = $state('');
+	let plan = $state('Pro');
 	let volume = $state(60);
 	let align = $state('center');
 	let tags = $state(['svelte', 'tailwind']);
 	let qty = $state(2);
 	let secret = $state('');
+	let calValue = $state(today(getLocalTimeZone()));
+
+	const invoices = [
+		{ invoice: 'INV001', status: 'Paid', amount: '$250.00' },
+		{ invoice: 'INV002', status: 'Pending', amount: '$150.00' },
+		{ invoice: 'INV003', status: 'Unpaid', amount: '$350.00' }
+	];
 
 	onMount(() => {
 		const t = setInterval(() => (progress = progress >= 100 ? 20 : progress + 20), 1400);
@@ -55,6 +99,25 @@
 	<div
 		class="columns-1 gap-4 pb-24 sm:columns-2 lg:columns-3 xl:columns-4 [&>*]:mb-4 [&>*]:break-inside-avoid"
 	>
+		<!-- Composition: sign in -->
+		<Card>
+			<CardHeader>
+				<CardTitle>Sign in</CardTitle>
+				<CardDescription>Filled, borderless fields.</CardDescription>
+			</CardHeader>
+			<CardContent class="flex flex-col gap-3">
+				<div class="flex flex-col gap-2">
+					<Label for="home-email">Email</Label>
+					<Input id="home-email" type="email" placeholder="you@levish.ac" />
+				</div>
+				<div class="flex flex-col gap-2">
+					<Label for="home-pw">Password</Label>
+					<Password id="home-pw" bind:value={secret} placeholder="••••••••" />
+				</div>
+				<Button class="mt-1 w-full">Continue</Button>
+			</CardContent>
+		</Card>
+
 		<Card>
 			<CardHeader>
 				<CardTitle>Buttons</CardTitle>
@@ -64,6 +127,37 @@
 				<Button size="sm">Default</Button>
 				<Button size="sm" variant="ghost">Ghost</Button>
 				<Button size="sm" variant="destructive">Delete</Button>
+			</CardContent>
+		</Card>
+
+		<!-- Composition: settings panel -->
+		<Card>
+			<CardHeader>
+				<CardTitle>Settings</CardTitle>
+				<CardDescription>Switches, select, slider.</CardDescription>
+			</CardHeader>
+			<CardContent class="flex flex-col gap-4">
+				<div class="flex items-center justify-between gap-3">
+					<Label for="home-sw">Notifications</Label>
+					<Switch id="home-sw" checked />
+				</div>
+				<div class="flex items-center justify-between gap-3">
+					<Label for="home-plan">Plan</Label>
+					<Select type="single" bind:value={plan}>
+						<SelectTrigger class="w-32">
+							<span>{plan}</span>
+						</SelectTrigger>
+						<SelectContent>
+							<SelectItem value="Free">Free</SelectItem>
+							<SelectItem value="Pro">Pro</SelectItem>
+							<SelectItem value="Team">Team</SelectItem>
+						</SelectContent>
+					</Select>
+				</div>
+				<div class="flex flex-col gap-2">
+					<Label>Volume</Label>
+					<Slider type="single" bind:value={volume} max={100} />
+				</div>
 			</CardContent>
 		</Card>
 
@@ -81,29 +175,11 @@
 
 		<Card>
 			<CardHeader>
-				<CardTitle>Toggles</CardTitle>
-				<CardDescription>Switch, checkbox, radio.</CardDescription>
+				<CardTitle>Calendar</CardTitle>
+				<CardDescription>Soft date selection.</CardDescription>
 			</CardHeader>
-			<CardContent class="flex flex-col gap-3">
-				<div class="flex items-center gap-3">
-					<Switch id="home-sw" checked />
-					<Label for="home-sw">Notifications</Label>
-				</div>
-				<div class="flex items-center gap-3">
-					<Checkbox id="home-cb" checked />
-					<Label for="home-cb">Accept terms</Label>
-				</div>
-			</CardContent>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Form fields</CardTitle>
-				<CardDescription>Filled, borderless inputs.</CardDescription>
-			</CardHeader>
-			<CardContent class="flex flex-col gap-2">
-				<Label for="home-email">Email</Label>
-				<Input id="home-email" type="email" placeholder="you@levish.ac" />
+			<CardContent>
+				<Calendar type="single" bind:value={calValue} />
 			</CardContent>
 		</Card>
 
@@ -128,41 +204,32 @@
 			</CardContent>
 		</Card>
 
+		<!-- Composition: loading states -->
 		<Card>
 			<CardHeader>
-				<CardTitle>Select</CardTitle>
-				<CardDescription>Soft floating menu.</CardDescription>
+				<CardTitle>Loading</CardTitle>
+				<CardDescription>Spinner & progress.</CardDescription>
 			</CardHeader>
-			<CardContent>
-				<Select type="single" bind:value={fruit}>
-					<SelectTrigger class="w-full">
-						<span class={fruit ? '' : 'text-(--text)/36'}>{fruit || 'Pick a fruit'}</span>
-					</SelectTrigger>
-					<SelectContent>
-						<SelectItem value="Apple">Apple</SelectItem>
-						<SelectItem value="Banana">Banana</SelectItem>
-						<SelectItem value="Grapes">Grapes</SelectItem>
-					</SelectContent>
-				</Select>
-			</CardContent>
-		</Card>
-
-		<Card>
-			<CardHeader>
-				<CardTitle>Progress</CardTitle>
-				<CardDescription>Smooth, monochrome.</CardDescription>
-			</CardHeader>
-			<CardContent>
+			<CardContent class="flex flex-col gap-4">
+				<div class="flex items-center gap-4">
+					<Spinner class="size-5" />
+					<Spinner class="size-6 border-[3px]" />
+					<span class="text-sm text-(--text)/56">Working…</span>
+				</div>
 				<Progress value={progress} />
 			</CardContent>
 		</Card>
 
 		<Card>
 			<CardHeader>
-				<CardTitle>Choices</CardTitle>
-				<CardDescription>Radio group.</CardDescription>
+				<CardTitle>Toggles</CardTitle>
+				<CardDescription>Switch, checkbox, radio.</CardDescription>
 			</CardHeader>
-			<CardContent>
+			<CardContent class="flex flex-col gap-3">
+				<div class="flex items-center gap-3">
+					<Checkbox id="home-cb" checked />
+					<Label for="home-cb">Accept terms</Label>
+				</div>
 				<RadioGroup value="comfortable">
 					<div class="flex items-center gap-3">
 						<RadioGroupItem value="comfortable" id="home-r1" />
@@ -176,27 +243,68 @@
 			</CardContent>
 		</Card>
 
+		<!-- Composition: dialog trigger -->
 		<Card>
 			<CardHeader>
-				<CardTitle>Profile</CardTitle>
-				<CardDescription>Avatars with fallback.</CardDescription>
+				<CardTitle>Dialog</CardTitle>
+				<CardDescription>Soft modal surface.</CardDescription>
 			</CardHeader>
-			<CardContent class="flex items-center gap-3">
-				<Avatar src="/favicon.svg" alt="levish" />
-				<div class="flex flex-col tracking-[-0.48px]">
-					<span class="text-sm font-medium">levish</span>
-					<span class="text-xs text-(--text)/48">levish.ac</span>
-				</div>
+			<CardContent>
+				<Dialog>
+					<DialogTrigger>
+						{#snippet child({ props })}
+							<Button variant="ghost" {...props}>Delete project</Button>
+						{/snippet}
+					</DialogTrigger>
+					<DialogContent>
+						<DialogHeader>
+							<DialogTitle>Delete project</DialogTitle>
+							<DialogDescription>
+								This action cannot be undone. This will permanently delete your project.
+							</DialogDescription>
+						</DialogHeader>
+						<DialogFooter>
+							<DialogClose>
+								{#snippet child({ props })}
+									<Button variant="ghost" {...props}>Cancel</Button>
+								{/snippet}
+							</DialogClose>
+							<Button variant="destructive">Delete</Button>
+						</DialogFooter>
+					</DialogContent>
+				</Dialog>
 			</CardContent>
 		</Card>
 
+		<!-- Composition: profile / hover card -->
 		<Card>
 			<CardHeader>
-				<CardTitle>Slider</CardTitle>
-				<CardDescription>Drag to set a value.</CardDescription>
+				<CardTitle>Profile</CardTitle>
+				<CardDescription>Avatar & hover card.</CardDescription>
 			</CardHeader>
-			<CardContent>
-				<Slider type="single" bind:value={volume} max={100} />
+			<CardContent class="flex items-center gap-3">
+				<Avatar src="/favicon.svg" alt="levish" />
+				<HoverCard>
+					<HoverCardTrigger
+						href="https://levish.ac"
+						target="_blank"
+						rel="noreferrer"
+						class="link text-sm font-medium tracking-[-0.39px]"
+					>
+						@levish
+					</HoverCardTrigger>
+					<HoverCardContent>
+						<div class="flex gap-3">
+							<Avatar src="/favicon.svg" alt="levish" />
+							<div class="flex flex-col gap-1">
+								<p class="font-medium">levish</p>
+								<p class="text-xs leading-[1.5] text-(--text)/56">
+									Building lily — a Svelte component library.
+								</p>
+							</div>
+						</div>
+					</HoverCardContent>
+				</HoverCard>
 			</CardContent>
 		</Card>
 
@@ -224,13 +332,31 @@
 			</CardContent>
 		</Card>
 
+		<!-- Table -->
 		<Card>
 			<CardHeader>
-				<CardTitle>Password</CardTitle>
-				<CardDescription>Strength via zxcvbn.</CardDescription>
+				<CardTitle>Table</CardTitle>
+				<CardDescription>Lineless, soft rows.</CardDescription>
 			</CardHeader>
 			<CardContent>
-				<Password bind:value={secret} showStrength placeholder="Try a password" />
+				<Table.Root>
+					<Table.Header>
+						<Table.Row>
+							<Table.Head>Invoice</Table.Head>
+							<Table.Head>Status</Table.Head>
+							<Table.Head class="text-right">Amount</Table.Head>
+						</Table.Row>
+					</Table.Header>
+					<Table.Body>
+						{#each invoices as row (row.invoice)}
+							<Table.Row>
+								<Table.Cell class="font-medium">{row.invoice}</Table.Cell>
+								<Table.Cell>{row.status}</Table.Cell>
+								<Table.Cell class="text-right">{row.amount}</Table.Cell>
+							</Table.Row>
+						{/each}
+					</Table.Body>
+				</Table.Root>
 			</CardContent>
 		</Card>
 
@@ -257,13 +383,103 @@
 			</CardContent>
 		</Card>
 
+		<!-- Composition: navigation -->
+		<Card>
+			<CardHeader>
+				<CardTitle>Navigation</CardTitle>
+				<CardDescription>Breadcrumb & pagination.</CardDescription>
+			</CardHeader>
+			<CardContent class="flex flex-col gap-4">
+				<Breadcrumb>
+					<BreadcrumbList>
+						<BreadcrumbItem>
+							<BreadcrumbLink href="/">Home</BreadcrumbLink>
+						</BreadcrumbItem>
+						<BreadcrumbSeparator />
+						<BreadcrumbItem>
+							<BreadcrumbPage>Docs</BreadcrumbPage>
+						</BreadcrumbItem>
+					</BreadcrumbList>
+				</Breadcrumb>
+				<Pagination count={50} perPage={10} page={1}>
+					{#snippet children({ pages, currentPage })}
+						<PaginationContent>
+							<PaginationItem>
+								<PaginationPrevButton />
+							</PaginationItem>
+							{#each pages as page (page.key)}
+								{#if page.type === 'ellipsis'}
+									<PaginationItem>
+										<PaginationEllipsis />
+									</PaginationItem>
+								{:else}
+									<PaginationItem>
+										<PaginationLink {page} isActive={currentPage === page.value} />
+									</PaginationItem>
+								{/if}
+							{/each}
+							<PaginationItem>
+								<PaginationNextButton />
+							</PaginationItem>
+						</PaginationContent>
+					{/snippet}
+				</Pagination>
+			</CardContent>
+		</Card>
+
+		<!-- Composition: toast + shortcut -->
+		<Card>
+			<CardHeader>
+				<CardTitle>Notifications</CardTitle>
+				<CardDescription>Toasts & shortcuts.</CardDescription>
+			</CardHeader>
+			<CardContent class="flex flex-col gap-3">
+				<Tooltip.Root>
+					<Tooltip.Trigger>
+						{#snippet child({ props })}
+							<Button
+								variant="ghost"
+								{...props}
+								onclick={() =>
+									toast('Event created', { description: 'Sunday, December 03 at 9:00 AM' })}
+							>
+								Show toast
+							</Button>
+						{/snippet}
+					</Tooltip.Trigger>
+					<Tooltip.Content>Fires a sonner toast</Tooltip.Content>
+				</Tooltip.Root>
+				<div class="flex items-center gap-2 text-sm tracking-[-0.39px] text-(--text)/56">
+					Press
+					<Kbd>⌘</Kbd>
+					<Kbd>K</Kbd>
+					to search
+				</div>
+			</CardContent>
+		</Card>
+
+		<!-- Skeleton -->
+		<Card>
+			<CardHeader>
+				<CardTitle>Skeleton</CardTitle>
+				<CardDescription>Calm loading placeholder.</CardDescription>
+			</CardHeader>
+			<CardContent class="flex items-center gap-4">
+				<Skeleton class="size-12 rounded-full" />
+				<div class="flex flex-col gap-2">
+					<Skeleton class="h-4 w-32" />
+					<Skeleton class="h-4 w-20" />
+				</div>
+			</CardContent>
+		</Card>
+
 		<Card>
 			<CardHeader>
 				<CardTitle>Command</CardTitle>
 				<CardDescription>Fast searchable menu.</CardDescription>
 			</CardHeader>
 			<CardContent>
-				<div class="overflow-hidden rounded-2xl bg-(--text)/4">
+				<div class="overflow-hidden rounded-2xl bg-(--text)/5">
 					<Command.Root>
 						<Command.Input placeholder="Search…" />
 						<Command.List>
