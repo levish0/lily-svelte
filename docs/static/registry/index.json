@@ -60,6 +60,12 @@
 		"relativeUrl": "command.json"
 	},
 	{
+		"name": "context-menu",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "context-menu.json"
+	},
+	{
 		"name": "dialog",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -76,6 +82,12 @@
 		"type": "registry:ui",
 		"registryDependencies": [],
 		"relativeUrl": "file-drop-zone.json"
+	},
+	{
+		"name": "hover-card",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "hover-card.json"
 	},
 	{
 		"name": "input",
@@ -155,6 +167,12 @@
 		"type": "registry:ui",
 		"registryDependencies": [],
 		"relativeUrl": "separator.json"
+	},
+	{
+		"name": "sheet",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "sheet.json"
 	},
 	{
 		"name": "skeleton",
@@ -299,6 +317,14 @@
 		"relativeUrl": "command-demo.json"
 	},
 	{
+		"name": "context-menu-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "context-menu-demo.json"
+	},
+	{
 		"name": "dialog-demo",
 		"type": "registry:example",
 		"registryDependencies": [
@@ -321,6 +347,14 @@
 			"ui"
 		],
 		"relativeUrl": "file-drop-zone-demo.json"
+	},
+	{
+		"name": "hover-card-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "hover-card-demo.json"
 	},
 	{
 		"name": "input-demo",
@@ -417,6 +451,14 @@
 			"ui"
 		],
 		"relativeUrl": "separator-demo.json"
+	},
+	{
+		"name": "sheet-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "sheet-demo.json"
 	},
 	{
 		"name": "skeleton-demo",

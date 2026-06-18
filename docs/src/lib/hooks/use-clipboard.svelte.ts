@@ -60,25 +60,8 @@ export class UseClipboard {
 
 export async function copyText(text: string): Promise<'success' | 'failure'> {
 	try {
-		if (navigator.clipboard && window.isSecureContext) {
-			await navigator.clipboard.writeText(text);
-			return 'success';
-		}
-
-		// Fallback for wider browser compatibility.
-		const textArea = document.createElement('textarea');
-		textArea.value = text;
-		textArea.style.position = 'fixed';
-		textArea.style.top = '0';
-		textArea.style.left = '0';
-		document.body.appendChild(textArea);
-		textArea.select();
-
-		const successful = document.execCommand('copy');
-
-		document.body.removeChild(textArea);
-
-		return successful ? 'success' : 'failure';
+		await navigator.clipboard.writeText(text);
+		return 'success';
 	} catch {
 		return 'failure';
 	}

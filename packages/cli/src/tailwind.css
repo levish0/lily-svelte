@@ -2,6 +2,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Motion: one satisfying ("쫀득한") spring easing for the whole system. */
+@theme {
+	--ease-spring: cubic-bezier(0.34, 1.4, 0.5, 1);
+	--default-transition-timing-function: var(--ease-spring);
+	--default-transition-duration: 150ms;
+}
+
 /* ----------------------------------------------------------------------------
  * Design tokens & base styles (from levish.ac)
  * ------------------------------------------------------------------------- */
@@ -65,6 +72,12 @@
 	a {
 		color: inherit;
 		text-decoration: none;
+	}
+
+	/* Springy ("쫀득한") press feedback on all interactive elements. */
+	a,
+	button {
+		transition: transform 0.2s var(--ease-spring);
 	}
 
 	a:active,

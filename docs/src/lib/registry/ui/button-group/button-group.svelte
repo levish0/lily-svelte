@@ -17,8 +17,8 @@
 	} = $props();
 
 	const orientationClasses: Record<ButtonGroupOrientation, string> = {
-		horizontal: '[&>[data-slot]]:rounded-r-none [&>[data-slot]~[data-slot]]:rounded-l-none',
-		vertical: 'flex-col [&>[data-slot]]:rounded-b-none [&>[data-slot]~[data-slot]]:rounded-t-none'
+		horizontal: '[&>*:not(:last-child)]:rounded-r-none [&>*:not(:first-child)]:rounded-l-none',
+		vertical: 'flex-col [&>*:not(:last-child)]:rounded-b-none [&>*:not(:first-child)]:rounded-t-none'
 	};
 </script>
 
