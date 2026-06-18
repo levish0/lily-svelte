@@ -15,7 +15,7 @@
 	data-slot="breadcrumb-separator"
 	role="presentation"
 	aria-hidden="true"
-	class={cn('text-(--text)/28 [&>svg]:size-3.5', className)}
+	class={cn('text-(--text)/40 [&>svg]:size-3.5', className)}
 	{...restProps}
 >
 	{#if children}

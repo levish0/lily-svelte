@@ -13,7 +13,7 @@
 <ol
 	bind:this={ref}
 	data-slot="breadcrumb-list"
-	class={cn('flex flex-wrap items-center gap-1.5 wrap-break-word text-(--text)/48', className)}
+	class={cn('flex flex-wrap items-center gap-1.5 wrap-break-word text-(--text)/56', className)}
 	{...restProps}
 >
 	{@render children?.()}

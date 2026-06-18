@@ -17,7 +17,7 @@
 	{value}
 	data-slot="select-item"
 	class={cn(
-		'relative flex w-full cursor-default items-center rounded-xl py-2 pe-8 ps-3 text-sm tracking-[-0.39px] outline-none select-none data-highlighted:bg-(--text)/6 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+		'relative flex w-full cursor-default items-center rounded-xl py-2 pe-8 ps-3 text-sm tracking-[-0.39px] outline-none select-none data-highlighted:bg-(--text)/8 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
 		className
 	)}
 	{...restProps}

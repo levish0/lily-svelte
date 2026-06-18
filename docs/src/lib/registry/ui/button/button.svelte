@@ -13,15 +13,15 @@
 
 	const variants: Record<ButtonVariant, string> = {
 		default: 'bg-(--text) text-(--bg) hover:opacity-80 font-medium',
-		ghost: 'bg-(--text)/4 text-(--text)/72 hover:bg-(--text)/8 hover:text-(--text)',
+		ghost: 'bg-(--text)/5 text-(--text)/72 hover:bg-(--text)/8 hover:text-(--text)',
 		destructive: 'bg-red-500/10 text-red-600 hover:bg-red-500/20 font-medium dark:text-red-400'
 	};
 
 	const sizes: Record<ButtonSize, string> = {
-		default: 'rounded-3xl px-4 py-2 text-sm',
-		sm: 'rounded-3xl px-3 py-1.5 text-sm',
-		lg: 'rounded-3xl px-5 py-2.5 text-base',
-		icon: 'rounded-3xl size-9 shrink-0'
+		default: 'h-10 rounded-3xl px-4 text-sm',
+		sm: 'h-9 rounded-3xl px-3.5 text-sm',
+		lg: 'h-11 rounded-3xl px-5 text-base',
+		icon: 'size-10 rounded-3xl shrink-0'
 	};
 </script>
 
@@ -49,7 +49,7 @@
 			sizes[size],
 			className
 		)}
-		{href}
+		href={disabled ? undefined : href}
 		aria-disabled={disabled}
 		role={disabled ? 'link' : undefined}
 		tabindex={disabled ? -1 : undefined}

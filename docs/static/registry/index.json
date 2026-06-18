@@ -32,9 +32,7 @@
 	{
 		"name": "button-group",
 		"type": "registry:ui",
-		"registryDependencies": [
-			"separator"
-		],
+		"registryDependencies": [],
 		"relativeUrl": "button-group.json"
 	},
 	{
@@ -62,6 +60,12 @@
 		"relativeUrl": "dropdown-menu.json"
 	},
 	{
+		"name": "file-drop-zone",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "file-drop-zone.json"
+	},
+	{
 		"name": "input",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -84,6 +88,14 @@
 		"type": "registry:ui",
 		"registryDependencies": [],
 		"relativeUrl": "label.json"
+	},
+	{
+		"name": "password",
+		"type": "registry:ui",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "password.json"
 	},
 	{
 		"name": "popover",
@@ -238,6 +250,14 @@
 		"relativeUrl": "dropdown-menu-demo.json"
 	},
 	{
+		"name": "file-drop-zone-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "file-drop-zone-demo.json"
+	},
+	{
 		"name": "input-demo",
 		"type": "registry:example",
 		"registryDependencies": [
@@ -268,6 +288,14 @@
 			"ui"
 		],
 		"relativeUrl": "label-demo.json"
+	},
+	{
+		"name": "password-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "password-demo.json"
 	},
 	{
 		"name": "popover-demo",

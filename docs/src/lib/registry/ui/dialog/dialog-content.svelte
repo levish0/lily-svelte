@@ -25,7 +25,7 @@
 		bind:ref
 		data-slot="dialog-content"
 		class={cn(
-			'fixed left-1/2 top-1/2 z-50 flex w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-3xl bg-(--bg-elevated) p-6 shadow-xl outline-none data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
+			'fixed left-1/2 top-1/2 z-50 flex w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-3xl bg-(--bg-elevated) p-6 shadow-lg outline-none data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
 			className
 		)}
 		{...restProps}
@@ -34,7 +34,7 @@
 		{#if showCloseButton}
 			<DialogPrimitive.Close
 				data-slot="dialog-close"
-				class="absolute end-4 top-4 inline-flex size-8 items-center justify-center rounded-xl text-(--text)/48 transition-colors duration-150 hover:bg-(--text)/6 hover:text-(--text) focus-visible:outline-none"
+				class="absolute end-4 top-4 inline-flex size-8 items-center justify-center rounded-xl text-(--text)/48 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) focus-visible:outline-none"
 			>
 				<!-- heroicons: x-mark -->
 				<svg

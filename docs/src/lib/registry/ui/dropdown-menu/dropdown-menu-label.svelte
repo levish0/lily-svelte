@@ -13,7 +13,7 @@
 <div
 	bind:this={ref}
 	data-slot="dropdown-menu-label"
-	class={cn('px-3 py-1.5 text-xs font-medium tracking-[-0.3px] text-(--text)/48', className)}
+	class={cn('px-3 py-1.5 text-xs font-medium tracking-[-0.3px] text-(--text)/56', className)}
 	{...restProps}
 >
 	{@render children?.()}
