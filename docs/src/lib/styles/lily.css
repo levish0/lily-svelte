@@ -1,4 +1,4 @@
-/* lily design system — imported via `@import "lily/tailwind.css"` */
+/* lily design system — written into your stylesheet by the lily CLI; yours to edit. */
 
 @custom-variant dark (&:is(.dark *));
 

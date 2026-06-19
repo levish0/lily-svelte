@@ -1,7 +1,7 @@
 <script lang="ts">
-	import CodeCommand from '$lib/components/code-command.svelte';
+	import PmCommand from '$lib/components/pm-command.svelte';
 
 	let { name }: { name: string } = $props();
 </script>
 
-<CodeCommand command={`npx lily-svelte@latest add ${name}`} />
+<PmCommand type="execute" command={`lily-svelte@latest add ${name}`} />

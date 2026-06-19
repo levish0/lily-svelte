@@ -6,7 +6,7 @@ import * as p from '@clack/prompts';
 import * as registry from './registry/index.js';
 import { highlight } from './colors.js';
 import { cancel, prettifyList } from './prompt-helpers.js';
-import { shadcnSvelteTailwindCssImport } from './css.js';
+import { ensureDesignSystem } from './css.js';
 import { transformCss } from './transform-css.js';
 import type { ResolvedConfig } from './config/index.js';
 import {
@@ -217,13 +217,13 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 	fontsDependencies.forEach((dep) => devDependencies.add(dep));
 
 	if (Object.keys(cssVars).length || Object.keys(css).length) {
-		css = merge(css, shadcnSvelteTailwindCssImport);
 		const cssPath = opts.config.resolvedPaths.tailwindCss;
 		const relative = path.relative(cwd, cssPath);
 
 		const cssSource = await fs.readFile(cssPath, 'utf8');
 
-		const modifiedCss = transformCss(cssSource, { css, cssVars });
+		// Inline the full lily design system into the user's stylesheet so they own it.
+		const modifiedCss = ensureDesignSystem(transformCss(cssSource, { css, cssVars }));
 
 		const isModified = cssSource !== modifiedCss;
 

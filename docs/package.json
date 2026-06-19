@@ -42,7 +42,7 @@
 		"country-flag-icons": "^1.5.13",
 		"embla-carousel-svelte": "^8.6.0",
 		"estree-walker": "^3.0.3",
-		"lily": "workspace:*",
+		"lily-svelte": "workspace:*",
 		"magic-string": "^0.30.21",
 		"mdsx": "^0.0.7",
 		"package-manager-detector": "^1.6.0",

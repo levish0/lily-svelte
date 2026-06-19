@@ -62,7 +62,7 @@
 										class="relative size-9 p-0 text-center [&:has([data-selected])]:bg-(--text)/8 [&:has([data-selection-end])]:rounded-r-2xl [&:has([data-selection-start])]:rounded-l-2xl"
 									>
 										<RangeCalendarPrimitive.Day
-											class="inline-flex size-9 items-center justify-center rounded-2xl text-sm tracking-[-0.39px] text-(--text)/72 outline-none transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) data-today:font-semibold data-today:text-(--text) data-selection-end:bg-(--text) data-selection-end:font-medium data-selection-end:text-(--bg) data-selection-start:bg-(--text) data-selection-start:font-medium data-selection-start:text-(--bg) data-disabled:pointer-events-none data-disabled:opacity-30 data-unavailable:line-through data-outside-month:opacity-30"
+											class="inline-flex size-9 items-center justify-center rounded-2xl text-sm tracking-[-0.39px] text-(--text)/72 outline-none transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) data-today:font-semibold not-data-selected:data-today:bg-(--text)/8 not-data-selected:data-today:text-(--text) data-selection-end:bg-(--text) data-selection-end:font-medium data-selection-end:text-(--bg) data-selection-start:bg-(--text) data-selection-start:font-medium data-selection-start:text-(--bg) data-disabled:pointer-events-none data-disabled:opacity-30 data-unavailable:line-through data-outside-month:opacity-30"
 										/>
 									</RangeCalendarPrimitive.Cell>
 								{/each}
