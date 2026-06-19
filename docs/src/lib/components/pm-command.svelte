@@ -3,11 +3,7 @@
 	import Icon from '@iconify/svelte';
 	import type { Command } from 'package-manager-detector';
 	import type { HighlighterCore } from 'shiki/core';
-	import {
-		PACKAGE_MANAGERS,
-		getCommandText,
-		type PackageManager
-	} from '$lib/package-manager.js';
+	import { PACKAGE_MANAGERS, getCommandText, type PackageManager } from '$lib/package-manager.js';
 	import { getHighlighter } from '$lib/highlighter.js';
 	import { Tabs, TabsList, TabsTrigger } from '$lib/registry/ui/tabs';
 	import CopyButton from '$lib/components/copy-button.svelte';
@@ -53,7 +49,7 @@
 				{/each}
 			</TabsList>
 		</Tabs>
-		<CopyButton text={text} class="static ms-auto" />
+		<CopyButton {text} class="static ms-auto" />
 	</div>
 	<div
 		class="code-block no-scrollbar overflow-x-auto px-5 py-3.5 text-sm [&_pre]:m-0 [&_pre]:bg-transparent"
