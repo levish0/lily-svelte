@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import '../lib/styles/lily.css';
+@plugin '@tailwindcss/typography';
+
+/* ----------------------------------------------------------------------------
+ * Shiki code highlighting (mdsx code blocks + ComponentPreview "Code" tab).
+ * rehype-pretty-code (dual theme) emits `--shiki-light` / `--shiki-dark` CSS
+ * vars on each token — we apply the matching one per color mode.
+ * ------------------------------------------------------------------------- */
+.code-block :is(pre, code) {
+	background: transparent !important;
+}
+
+.code-block [data-rehype-pretty-code-figure] {
+	margin: 0;
+}
+
+.code-block :is(pre, code, span) {
+	color: var(--shiki-light);
+}
+
+:root.dark .code-block :is(pre, code, span) {
+	color: var(--shiki-dark);
+}

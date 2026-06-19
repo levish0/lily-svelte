@@ -1,0 +1,55 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    # only run on the canonical repo, never on forks
+    if: github.repository == 'levish0/lily-svelte'
+    name: Build & Publish Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to create the version PR / release
+      pull-requests: write # to open the "Version Packages" PR
+      id-token: write # for npm provenance (OIDC)
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          cache: pnpm
+
+      # Trusted Publishing (OIDC) needs npm >= 11.5.0
+      - name: Update npm
+        run: npm install -g npm@latest
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # changesets/action:
+      #  - if there are pending changesets -> opens/updates a "Version Packages" PR
+      #  - once that PR is merged (no pending changesets, versions bumped) -> runs `publish`
+      - name: Create Release Pull Request or Publish
+        uses: changesets/action@v1
+        with:
+          commit: 'chore(release): version packages'
+          title: 'chore(release): version packages'
+          publish: pnpm ci:release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # No NPM token: auth is via OIDC Trusted Publishing.
+          # Configure it on npmjs.com → lily-svelte → Settings → Trusted Publishing.
+          NPM_CONFIG_PROVENANCE: true

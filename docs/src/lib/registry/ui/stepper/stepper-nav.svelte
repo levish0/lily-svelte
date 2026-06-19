@@ -1,0 +1,30 @@
+<script lang="ts">
+	import { cn } from '$lib/utils.js';
+	import { useStepperNav } from './stepper.svelte.js';
+	import type { StepperNavProps } from './types';
+	import { box } from 'svelte-toolbelt';
+
+	let {
+		orientation = 'horizontal',
+		class: className,
+		children,
+		...rest
+	}: StepperNavProps = $props();
+
+	const stepperNavState = useStepperNav({
+		orientation: box.with(() => orientation)
+	});
+</script>
+
+<div
+	data-slot="stepper-nav"
+	class={cn(
+		'group/stepper-nav flex',
+		orientation === 'horizontal' ? 'flex-row' : 'flex-col gap-2',
+		className
+	)}
+	{...stepperNavState.props}
+	{...rest}
+>
+	{@render children?.()}
+</div>

@@ -1,0 +1,53 @@
+{
+	"name": "@lily/monorepo",
+	"version": "0.0.1",
+	"description": "A calm, rounded Svelte 5 component library",
+	"author": {
+		"name": "levish",
+		"url": "https://levish-ac.pages.dev"
+	},
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "pnpm build:docs",
+		"build:cli": "pnpm -r -F \"./packages/**\" build",
+		"build:docs": "pnpm -F docs build",
+		"dev": "concurrently -n packages,docs --kill-others=false -c \"blue,green\" \"pnpm -r --parallel -F './packages/**' dev\" \"wait-on packages/cli/dist/index.mjs && pnpm -F docs dev\"",
+		"dev:docs": "pnpm -F docs dev",
+		"preview": "pnpm -F docs preview",
+		"check": "pnpm -F docs check && pnpm -F \"./packages/**\" check",
+		"lint": "prettier --check . && eslint . --no-config-lookup --config eslint.config.js",
+		"fmt": "prettier --write .",
+		"changeset": "changeset",
+		"ci:build": "pnpm build:cli",
+		"ci:publish": "changeset publish",
+		"ci:release": "pnpm ci:build && pnpm ci:publish",
+		"preinstall": "npx only-allow pnpm",
+		"postinstall": "pnpm build:cli"
+	},
+	"engines": {
+		"pnpm": ">=9",
+		"node": ">=20"
+	},
+	"packageManager": "pnpm@11.5.0",
+	"license": "MIT",
+	"devDependencies": {
+		"@changesets/cli": "^2.31.0",
+		"@eslint/js": "^10.0.1",
+		"@svitejs/changesets-changelog-github-compact": "^1.2.0",
+		"@types/node": "^25.9.3",
+		"concurrently": "^9.2.1",
+		"eslint": "^10.5.0",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-svelte": "^3.19.0",
+		"globals": "^17.6.0",
+		"prettier": "^3.8.4",
+		"prettier-plugin-svelte": "^4.1.1",
+		"prettier-plugin-tailwindcss": "^0.8.0",
+		"svelte": "^5.56.3",
+		"typescript": "^6.0.3",
+		"typescript-eslint": "^8.61.1",
+		"wait-on": "^9.0.10",
+		"wrangler": "^4.101.0"
+	}
+}

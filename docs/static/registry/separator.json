@@ -1,0 +1,17 @@
+{
+	"$schema": "https://lily-svelte.pages.dev/schema/registry-item.json",
+	"name": "separator",
+	"type": "registry:ui",
+	"files": [
+		{
+			"content": "import Root from './separator.svelte';\n\nexport { Root, Root as Separator };\n",
+			"type": "registry:file",
+			"target": "separator/index.ts"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn, type WithElementRef } from '$UTILS$.js';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\ttype Props = WithElementRef<HTMLAttributes<HTMLDivElement>> & {\n\t\torientation?: 'horizontal' | 'vertical';\n\t\tdecorative?: boolean;\n\t};\n\n\tlet {\n\t\tref = $bindable(null),\n\t\torientation = 'horizontal',\n\t\tdecorative = true,\n\t\tclass: className,\n\t\t...restProps\n\t}: Props = $props();\n</script>\n\n<div\n\tbind:this={ref}\n\tdata-slot=\"separator\"\n\tdata-orientation={orientation}\n\trole={decorative ? 'none' : 'separator'}\n\taria-orientation={decorative ? undefined : orientation}\n\tclass={cn(\n\t\t'shrink-0 bg-(--text)/8',\n\t\torientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',\n\t\tclassName\n\t)}\n\t{...restProps}\n></div>\n",
+			"type": "registry:file",
+			"target": "separator/separator.svelte"
+		}
+	]
+}

@@ -1,0 +1,42 @@
+{
+	"$schema": "https://lily-svelte.pages.dev/schema/registry-item.json",
+	"name": "card",
+	"type": "registry:ui",
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn, type WithElementRef } from '$UTILS$.js';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\tlet {\n\t\tref = $bindable(null),\n\t\tclass: className,\n\t\tchildren,\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();\n</script>\n\n<div\n\tbind:this={ref}\n\tdata-slot=\"card-content\"\n\tclass={cn('flex flex-col gap-3', className)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</div>\n",
+			"type": "registry:file",
+			"target": "card/card-content.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn, type WithElementRef } from '$UTILS$.js';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\tlet {\n\t\tref = $bindable(null),\n\t\tclass: className,\n\t\tchildren,\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement> = $props();\n</script>\n\n<p\n\tbind:this={ref}\n\tdata-slot=\"card-description\"\n\tclass={cn('text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/72', className)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</p>\n",
+			"type": "registry:file",
+			"target": "card/card-description.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn, type WithElementRef } from '$UTILS$.js';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\tlet {\n\t\tref = $bindable(null),\n\t\tclass: className,\n\t\tchildren,\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();\n</script>\n\n<div\n\tbind:this={ref}\n\tdata-slot=\"card-footer\"\n\tclass={cn('flex items-center gap-2', className)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</div>\n",
+			"type": "registry:file",
+			"target": "card/card-footer.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn, type WithElementRef } from '$UTILS$.js';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\tlet {\n\t\tref = $bindable(null),\n\t\tclass: className,\n\t\tchildren,\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();\n</script>\n\n<div\n\tbind:this={ref}\n\tdata-slot=\"card-header\"\n\tclass={cn('flex flex-col gap-1', className)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</div>\n",
+			"type": "registry:file",
+			"target": "card/card-header.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn, type WithElementRef } from '$UTILS$.js';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\tlet {\n\t\tref = $bindable(null),\n\t\tclass: className,\n\t\tchildren,\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> = $props();\n</script>\n\n<h3\n\tbind:this={ref}\n\tdata-slot=\"card-title\"\n\tclass={cn('text-base leading-[1.5] font-medium tracking-[-0.48px] text-(--text)', className)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</h3>\n",
+			"type": "registry:file",
+			"target": "card/card-title.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn, type WithElementRef } from '$UTILS$.js';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\tlet {\n\t\tref = $bindable(null),\n\t\tclass: className,\n\t\tchildren,\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();\n</script>\n\n<div\n\tbind:this={ref}\n\tdata-slot=\"card\"\n\tclass={cn('flex flex-col gap-5 rounded-3xl bg-(--bg-elevated) p-5', className)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</div>\n",
+			"type": "registry:file",
+			"target": "card/card.svelte"
+		},
+		{
+			"content": "import Root from './card.svelte';\nimport Header from './card-header.svelte';\nimport Title from './card-title.svelte';\nimport Description from './card-description.svelte';\nimport Content from './card-content.svelte';\nimport Footer from './card-footer.svelte';\n\nexport {\n\tRoot,\n\tHeader,\n\tTitle,\n\tDescription,\n\tContent,\n\tFooter,\n\tRoot as Card,\n\tHeader as CardHeader,\n\tTitle as CardTitle,\n\tDescription as CardDescription,\n\tContent as CardContent,\n\tFooter as CardFooter\n};\n",
+			"type": "registry:file",
+			"target": "card/index.ts"
+		}
+	]
+}

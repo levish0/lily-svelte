@@ -1,0 +1,17 @@
+{
+	"$schema": "https://lily-svelte.pages.dev/schema/registry-item.json",
+	"name": "badge",
+	"type": "registry:ui",
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn, type WithElementRef } from '$UTILS$.js';\n\timport type { HTMLAnchorAttributes } from 'svelte/elements';\n\n\tlet {\n\t\tref = $bindable(null),\n\t\tclass: className,\n\t\thref,\n\t\tchildren,\n\t\t...restProps\n\t}: WithElementRef<HTMLAnchorAttributes> = $props();\n</script>\n\n<svelte:element\n\tthis={href ? 'a' : 'span'}\n\tbind:this={ref}\n\tdata-slot=\"badge\"\n\t{href}\n\tclass={cn(\n\t\t'inline-flex w-fit shrink-0 items-center gap-1 rounded-full bg-(--text)/8 px-3 py-1 text-xs leading-normal tracking-[-0.3px] text-(--text)/56',\n\t\thref && 'transition-colors duration-150 hover:bg-(--text)/12 hover:text-(--text)/72',\n\t\tclassName\n\t)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</svelte:element>\n",
+			"type": "registry:file",
+			"target": "badge/badge.svelte"
+		},
+		{
+			"content": "import Root from './badge.svelte';\n\nexport { Root, Root as Badge };\n",
+			"type": "registry:file",
+			"target": "badge/index.ts"
+		}
+	]
+}
