@@ -26,7 +26,7 @@
 				<a
 					{href}
 					class="rounded-xl px-3 py-1.5 text-sm tracking-[-0.39px] transition-colors duration-150
-						{isActive(href) ? 'text-(--text)' : 'text-(--text)/48 hover:text-(--text)'}"
+						{isActive(href) ? 'text-(--text)' : 'text-(--text)/56 hover:text-(--text)'}"
 				>
 					{label}
 				</a>
@@ -42,7 +42,7 @@
 				target="_blank"
 				rel="noreferrer"
 				aria-label="GitHub"
-				class="inline-flex size-9 items-center justify-center rounded-xl text-(--text)/48 transition-colors duration-150 hover:bg-(--text)/4 hover:text-(--text)"
+				class="inline-flex size-9 items-center justify-center rounded-xl text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/5 hover:text-(--text)"
 			>
 				<svg class="size-4.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
 					<path
@@ -53,7 +53,7 @@
 			<button
 				onclick={toggleMode}
 				aria-label="Toggle theme"
-				class="inline-flex size-9 items-center justify-center rounded-xl text-(--text)/48 transition-colors duration-150 hover:bg-(--text)/4 hover:text-(--text)"
+				class="inline-flex size-9 items-center justify-center rounded-xl text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/5 hover:text-(--text)"
 			>
 				{#if mode.current === 'dark'}
 					<Icon icon="heroicons:sun-solid" class="size-4.5" aria-hidden="true" />

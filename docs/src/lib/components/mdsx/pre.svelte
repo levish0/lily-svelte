@@ -16,7 +16,7 @@
 	});
 </script>
 
-<div class="code-block relative my-5 overflow-hidden rounded-3xl bg-(--text)/4">
+<div class="code-block relative my-5 overflow-hidden rounded-3xl bg-(--text)/5">
 	<!--
 	We cannot have a newline between the pre and children or we will get a newline in the code block
 	-->

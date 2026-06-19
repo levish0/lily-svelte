@@ -15,7 +15,7 @@
 			aria-label="Copy code"
 			onclick={() => clipboard.copy(text)}
 			class={cn(
-				'absolute end-3 top-3 z-10 inline-flex size-7 items-center justify-center rounded-lg bg-(--text)/6 text-(--text)/60 transition-colors duration-150 hover:bg-(--text)/10 hover:text-(--text) focus-visible:outline-none',
+				'absolute end-3 top-3 z-10 inline-flex size-7 items-center justify-center rounded-lg bg-(--text)/8 text-(--text)/56 transition-colors duration-150 hover:bg-(--text)/12 hover:text-(--text) focus-visible:outline-none',
 				className
 			)}
 		>

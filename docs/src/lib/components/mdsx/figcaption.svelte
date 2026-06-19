@@ -8,7 +8,7 @@
 <!-- svelte-ignore a11y_figcaption_parent -->
 <figcaption
 	class={cn(
-		'flex items-center gap-2 text-(--text)/60 [&_svg]:size-4 [&_svg]:opacity-70',
+		'flex items-center gap-2 text-(--text)/56 [&_svg]:size-4 [&_svg]:opacity-70',
 		className
 	)}
 	{...restProps}

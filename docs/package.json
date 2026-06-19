@@ -20,6 +20,7 @@
 	"devDependencies": {
 		"@iconify-json/heroicons": "^1",
 		"@iconify/svelte": "^5",
+		"@internationalized/date": "^3.10.0",
 		"@playwright/test": "^1.60.0",
 		"@prettier/sync": "0.6.1",
 		"@shikijs/langs": "^3.20.0",
@@ -32,7 +33,6 @@
 		"@tailwindcss/vite": "^4.3.0",
 		"@types/hast": "^3.0.4",
 		"@types/mdast": "^4.0.4",
-		"@internationalized/date": "^3.10.0",
 		"@vitest/browser-playwright": "^4.1.8",
 		"@zxcvbn-ts/core": "^3.0.4",
 		"@zxcvbn-ts/language-common": "^3.0.4",
@@ -70,6 +70,8 @@
 		"zod": "^4.3.6"
 	},
 	"dependencies": {
-		"mode-watcher": "^1.1.0"
+		"@tanstack/table-core": "^8.21.3",
+		"mode-watcher": "^1.1.0",
+		"vaul-svelte": "1.0.0-next.7"
 	}
 }

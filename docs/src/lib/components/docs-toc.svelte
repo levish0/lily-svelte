@@ -40,7 +40,7 @@
 </script>
 
 {#if flat.length}
-	<p class="pb-2 text-xs font-medium tracking-[-0.3px] text-(--text)/36">On this page</p>
+	<p class="pb-2 text-xs font-medium tracking-[-0.3px] text-(--text)/40">On this page</p>
 	<ul class="flex flex-col gap-2 text-sm tracking-[-0.39px]">
 		{#each flat as item (item.url)}
 			<li style="padding-inline-start: {item.depth * 0.75}rem">
@@ -50,7 +50,7 @@
 						'transition-colors duration-150 hover:text-(--text)',
 						activeId === item.url.replace(/^#/, '')
 							? 'font-medium text-(--text)'
-							: 'text-(--text)/48'
+							: 'text-(--text)/56'
 					)}
 				>
 					{item.title}

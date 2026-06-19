@@ -17,7 +17,7 @@
 <div
 	data-slot="callout"
 	class={cn(
-		'my-6 flex gap-3 rounded-2xl bg-(--text)/4 px-4 py-3.5 text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/72',
+		'my-6 flex gap-3 rounded-2xl bg-(--text)/5 px-4 py-3.5 text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/72',
 		className
 	)}
 >

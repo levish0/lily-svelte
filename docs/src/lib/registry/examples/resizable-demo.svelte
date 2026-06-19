@@ -9,7 +9,7 @@
 	<Resizable.Pane defaultSize={35} minSize={20}>
 		<div class="flex h-full flex-col gap-1 p-5 text-sm tracking-[-0.39px]">
 			<span class="font-medium text-(--text)">Sidebar</span>
-			<span class="text-(--text)/48">Drag the divider →</span>
+			<span class="text-(--text)/56">Drag the divider →</span>
 		</div>
 	</Resizable.Pane>
 	<Resizable.Handle />

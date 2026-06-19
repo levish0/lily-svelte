@@ -11,7 +11,7 @@
 					<li>
 						<NavigationMenu.Link href="/docs">
 							<span class="font-medium">Introduction</span>
-							<span class="text-xs leading-[1.5] text-(--text)/48"
+							<span class="text-xs leading-[1.5] text-(--text)/56"
 								>Install lily and learn the structure.</span
 							>
 						</NavigationMenu.Link>
@@ -19,7 +19,7 @@
 					<li>
 						<NavigationMenu.Link href="/docs/installation">
 							<span class="font-medium">Installation</span>
-							<span class="text-xs leading-[1.5] text-(--text)/48"
+							<span class="text-xs leading-[1.5] text-(--text)/56"
 								>Add lily to your SvelteKit app.</span
 							>
 						</NavigationMenu.Link>

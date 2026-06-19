@@ -98,6 +98,12 @@
 		"relativeUrl": "context-menu.json"
 	},
 	{
+		"name": "data-table",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "data-table.json"
+	},
+	{
 		"name": "date-picker",
 		"type": "registry:ui",
 		"registryDependencies": [
@@ -111,6 +117,12 @@
 		"type": "registry:ui",
 		"registryDependencies": [],
 		"relativeUrl": "dialog.json"
+	},
+	{
+		"name": "drawer",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "drawer.json"
 	},
 	{
 		"name": "dropdown-menu",
@@ -454,6 +466,14 @@
 		"relativeUrl": "context-menu-demo.json"
 	},
 	{
+		"name": "data-table-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "data-table-demo.json"
+	},
+	{
 		"name": "date-picker-demo",
 		"type": "registry:example",
 		"registryDependencies": [
@@ -468,6 +488,14 @@
 			"ui"
 		],
 		"relativeUrl": "dialog-demo.json"
+	},
+	{
+		"name": "drawer-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"ui"
+		],
+		"relativeUrl": "drawer-demo.json"
 	},
 	{
 		"name": "dropdown-menu-demo",

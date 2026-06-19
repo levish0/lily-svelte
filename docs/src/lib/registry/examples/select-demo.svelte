@@ -6,7 +6,7 @@
 
 <Select type="single" bind:value>
 	<SelectTrigger>
-		<span class={value ? '' : 'text-(--text)/36'}>{value || 'Select a fruit'}</span>
+		<span class={value ? '' : 'text-(--text)/40'}>{value || 'Select a fruit'}</span>
 	</SelectTrigger>
 	<SelectContent>
 		<SelectItem value="Apple">Apple</SelectItem>

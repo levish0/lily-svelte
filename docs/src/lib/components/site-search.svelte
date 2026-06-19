@@ -66,7 +66,7 @@
 				bind:this={inputEl}
 				bind:value={query}
 				placeholder="Search documentation..."
-				class="h-12 flex-1 bg-transparent text-sm tracking-[-0.39px] outline-none placeholder:text-(--text)/36"
+				class="h-12 flex-1 bg-transparent text-sm tracking-[-0.39px] outline-none placeholder:text-(--text)/40"
 			/>
 		</div>
 		<div class="max-h-80 overflow-y-auto p-2">
@@ -77,10 +77,10 @@
 					<button
 						type="button"
 						onclick={() => select(item.href)}
-						class="flex w-full items-center justify-between gap-2 rounded-xl px-3 py-2 text-left text-sm tracking-[-0.39px] transition-colors duration-100 hover:bg-(--text)/6"
+						class="flex w-full items-center justify-between gap-2 rounded-xl px-3 py-2 text-left text-sm tracking-[-0.39px] transition-colors duration-100 hover:bg-(--text)/8"
 					>
 						<span>{item.title}</span>
-						<span class="text-xs text-(--text)/36">{item.section}</span>
+						<span class="text-xs text-(--text)/40">{item.section}</span>
 					</button>
 				{/each}
 			{/if}

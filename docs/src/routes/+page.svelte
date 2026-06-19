@@ -383,13 +383,12 @@
 			</CardContent>
 		</Card>
 
-		<!-- Composition: navigation -->
 		<Card>
 			<CardHeader>
-				<CardTitle>Navigation</CardTitle>
-				<CardDescription>Breadcrumb & pagination.</CardDescription>
+				<CardTitle>Breadcrumb</CardTitle>
+				<CardDescription>Compact path trail.</CardDescription>
 			</CardHeader>
-			<CardContent class="flex flex-col gap-4">
+			<CardContent>
 				<Breadcrumb>
 					<BreadcrumbList>
 						<BreadcrumbItem>
@@ -397,11 +396,24 @@
 						</BreadcrumbItem>
 						<BreadcrumbSeparator />
 						<BreadcrumbItem>
-							<BreadcrumbPage>Docs</BreadcrumbPage>
+							<BreadcrumbLink href="/docs">Docs</BreadcrumbLink>
+						</BreadcrumbItem>
+						<BreadcrumbSeparator />
+						<BreadcrumbItem>
+							<BreadcrumbPage>Card</BreadcrumbPage>
 						</BreadcrumbItem>
 					</BreadcrumbList>
 				</Breadcrumb>
-				<Pagination count={50} perPage={10} page={1}>
+			</CardContent>
+		</Card>
+
+		<Card>
+			<CardHeader>
+				<CardTitle>Pagination</CardTitle>
+				<CardDescription>Page through results.</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<Pagination count={30} perPage={10} page={1}>
 					{#snippet children({ pages, currentPage })}
 						<PaginationContent>
 							<PaginationItem>

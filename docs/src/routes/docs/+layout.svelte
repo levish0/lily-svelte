@@ -16,7 +16,7 @@
 		<nav class="flex flex-col gap-6">
 			{#each docsNav as section (section.title)}
 				<div class="flex flex-col gap-1">
-					<p class="px-3 pb-1 text-xs font-medium tracking-[-0.3px] text-(--text)/36">
+					<p class="px-3 pb-1 text-xs font-medium tracking-[-0.3px] text-(--text)/40">
 						{section.title}
 					</p>
 					{#each section.items as item (item.href)}
@@ -25,7 +25,7 @@
 							class="rounded-xl px-3 py-1.5 text-sm tracking-[-0.39px] transition-colors duration-150
 								{isActive(item.href)
 								? 'bg-(--text)/8 font-medium text-(--text)'
-								: 'text-(--text)/48 hover:bg-(--text)/4 hover:text-(--text)'}"
+								: 'text-(--text)/56 hover:bg-(--text)/5 hover:text-(--text)'}"
 						>
 							{item.title}
 						</a>
