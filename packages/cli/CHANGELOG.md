@@ -1,5 +1,11 @@
 # lily-svelte
 
+## 0.0.4
+
+### Patch Changes
+
+- [`09212c2`](https://github.com/levish0/lily-svelte/commit/09212c2e3b6ffb7c2e70f667bdddfa6b8178a1da) Thanks [@levish0](https://github.com/levish0)! - Add the `pm-command` component to the registry — a package-manager-aware command block with npm/pnpm/yarn/bun tabs and copy-to-clipboard, installable via `lily-svelte add pm-command`.
+
 ## 0.0.3
 
 ### Patch Changes
