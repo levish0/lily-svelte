@@ -7,7 +7,7 @@ import {
 	registryItemSchema,
 	registrySchema,
 	type Registry
-} from 'lily/schema';
+} from 'lily-svelte/schema';
 import { toJSONSchema } from 'zod';
 import { buildRegistry } from './registry.js';
 

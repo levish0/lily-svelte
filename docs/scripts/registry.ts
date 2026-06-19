@@ -4,7 +4,7 @@ import * as acorn from 'acorn';
 import { tsPlugin } from '@sveltejs/acorn-typescript';
 import { walk, type Node } from 'estree-walker';
 import * as svelte from 'svelte/compiler';
-import { registryItemSchema, type Registry } from 'lily/schema';
+import { registryItemSchema, type Registry } from 'lily-svelte/schema';
 
 const REGISTRY_DEPENDENCY = '$lib/';
 const UTILS_PATH = '$lib/utils.js';
