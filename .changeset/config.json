@@ -1,9 +1,6 @@
 {
 	"$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
-	"changelog": [
-		"@changesets/changelog-github",
-		{ "repo": "levish0/lily-svelte" }
-	],
+	"changelog": ["@changesets/changelog-github", { "repo": "levish0/lily-svelte" }],
 	"commit": false,
 	"fixed": [],
 	"linked": [],
