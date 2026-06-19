@@ -1,6 +1,6 @@
 {
 	"name": "@lily/monorepo",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "A calm, rounded Svelte 5 component library",
 	"author": {
 		"name": "levish",

@@ -57,6 +57,7 @@ export const docsNav: NavSection[] = [
 			{ title: 'Pagination', href: '/docs/components/pagination' },
 			{ title: 'Password', href: '/docs/components/password' },
 			{ title: 'Phone Input', href: '/docs/components/phone-input' },
+			{ title: 'PM Command', href: '/docs/components/pm-command' },
 			{ title: 'Popover', href: '/docs/components/popover' },
 			{ title: 'Progress', href: '/docs/components/progress' },
 			{ title: 'Radio Group', href: '/docs/components/radio-group' },

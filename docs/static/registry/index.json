@@ -228,6 +228,15 @@
 		"relativeUrl": "phone-input.json"
 	},
 	{
+		"name": "pm-command",
+		"type": "registry:ui",
+		"registryDependencies": [
+			"tabs",
+			"tooltip"
+		],
+		"relativeUrl": "pm-command.json"
+	},
+	{
 		"name": "popover",
 		"type": "registry:ui",
 		"registryDependencies": [],
