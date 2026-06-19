@@ -15,7 +15,7 @@
 	"type": "module",
 	"main": "dist/index.mjs",
 	"types": "dist/index.d.mts",
-	"private": false,
+	"private": true,
 	"files": [
 		"dist/**"
 	],

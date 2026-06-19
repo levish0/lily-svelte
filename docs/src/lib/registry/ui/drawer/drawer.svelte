@@ -8,4 +8,4 @@
 	}: DrawerPrimitive.RootProps = $props();
 </script>
 
-<DrawerPrimitive.Root bind:open bind:activeSnapPoint data-slot="drawer" {...restProps} />
+<DrawerPrimitive.Root bind:open bind:activeSnapPoint {...restProps} />

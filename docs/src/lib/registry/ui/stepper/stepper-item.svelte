@@ -7,6 +7,8 @@
 
 	let { id = uid, class: className, children, ...rest }: StepperItemProps = $props();
 
+	// `id` is stable (defaults to a generated id) and is only read once on mount.
+	// svelte-ignore state_referenced_locally
 	const stepperItemState = useStepperItem({ id });
 </script>
 
