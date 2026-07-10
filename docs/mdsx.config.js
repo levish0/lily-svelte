@@ -193,9 +193,27 @@ export function rehypeComponentExample() {
 							})
 						]
 					});
-					if (!index) return;
+					if (index === null || index === undefined || !parent) return;
+
+					// When the component is written without blank lines around its children,
+					// the whole `<ComponentPreview>...</ComponentPreview>` block is a single
+					// raw node — split it so the code lands INSIDE the component (its Code tab),
+					// not after it.
+					const closeTag = node.value.match(/<\/Component(Preview|Source)>\s*$/)?.[0];
+					if (closeTag) {
+						const closeIndex = node.value.lastIndexOf(closeTag);
+						parent.children.splice(
+							index,
+							1,
+							u('raw', node.value.slice(0, closeIndex)),
+							// @ts-expect-error - this is fine
+							sourceCodeNode,
+							u('raw', node.value.slice(closeIndex))
+						);
+						return index + 3;
+					}
 					// @ts-expect-error - this is fine
-					parent?.children.splice(index + 1, 0, sourceCodeNode);
+					parent.children.splice(index + 1, 0, sourceCodeNode);
 				} catch (e) {
 					console.error(e);
 				}

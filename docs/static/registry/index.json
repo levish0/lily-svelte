@@ -291,6 +291,19 @@
 		"relativeUrl": "sheet.json"
 	},
 	{
+		"name": "sidebar",
+		"type": "registry:ui",
+		"registryDependencies": [
+			"is-mobile",
+			"input",
+			"tooltip",
+			"skeleton",
+			"separator",
+			"sheet"
+		],
+		"relativeUrl": "sidebar.json"
+	},
+	{
 		"name": "skeleton",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -383,6 +396,12 @@
 		"type": "registry:lib",
 		"registryDependencies": [],
 		"relativeUrl": "utils.json"
+	},
+	{
+		"name": "is-mobile",
+		"type": "registry:hook",
+		"registryDependencies": [],
+		"relativeUrl": "is-mobile.json"
 	},
 	{
 		"name": "accordion-demo",
@@ -673,6 +692,14 @@
 		"relativeUrl": "phone-input-demo.json"
 	},
 	{
+		"name": "pm-command-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"pm-command"
+		],
+		"relativeUrl": "pm-command-demo.json"
+	},
+	{
 		"name": "popover-demo",
 		"type": "registry:example",
 		"registryDependencies": [
@@ -743,6 +770,14 @@
 			"ui"
 		],
 		"relativeUrl": "sheet-demo.json"
+	},
+	{
+		"name": "sidebar-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"sidebar"
+		],
+		"relativeUrl": "sidebar-demo.json"
 	},
 	{
 		"name": "skeleton-demo",

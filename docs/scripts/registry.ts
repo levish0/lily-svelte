@@ -20,10 +20,18 @@ export async function buildRegistry(): Promise<RegistryItems> {
 	const paths = {
 		ui: path.resolve(registryRootPath, 'ui'),
 		lib: path.resolve(registryRootPath, 'lib'),
+		hooks: path.resolve(registryRootPath, 'hooks'),
+		blocks: path.resolve(registryRootPath, 'blocks'),
 		examples: path.resolve(registryRootPath, 'examples')
 	};
 
 	const crawls: Array<Promise<RegistryItems>> = [crawlUI(paths.ui), crawlLib(paths.lib)];
+	if (fs.existsSync(paths.hooks)) {
+		crawls.push(crawlHooks(paths.hooks));
+	}
+	if (fs.existsSync(paths.blocks)) {
+		crawls.push(crawlBlocks(paths.blocks));
+	}
 	if (fs.existsSync(paths.examples)) {
 		crawls.push(crawlExamples(paths.examples));
 	}
@@ -99,6 +107,90 @@ async function crawlLib(rootPath: string): Promise<RegistryItems> {
 	);
 }
 
+/**
+ * Blocks are full-page examples. A block is either a directory
+ * (`+page.svelte` + `components/*`) or a standalone `.svelte` file.
+ */
+async function crawlBlocks(rootPath: string): Promise<RegistryItems> {
+	const dir = fs.readdirSync(rootPath, { withFileTypes: true });
+	const items = await Promise.all(
+		dir.map(async (dirent) => {
+			const filepath = path.join(rootPath, dirent.name);
+			if (dirent.isDirectory()) {
+				return buildBlockRegistry(filepath, dirent.name);
+			}
+			if (!dirent.name.endsWith('.svelte')) return null;
+
+			const [name] = dirent.name.split('.svelte');
+			const source = fs.readFileSync(filepath, { encoding: 'utf8' });
+			const relativePath = path.relative(process.cwd(), filepath);
+			const { registryDependencies } = await getFileDependencies(filepath, source);
+			return {
+				name: name!,
+				type: 'registry:block' as const,
+				files: [{ path: relativePath, type: 'registry:component' as const }],
+				registryDependencies: Array.from(registryDependencies)
+			};
+		})
+	);
+	return items.filter((item) => item !== null);
+}
+
+async function buildBlockRegistry(
+	blockPath: string,
+	blockName: string
+): Promise<RegistryItems[number]> {
+	const dir = fs.readdirSync(blockPath, { withFileTypes: true, recursive: true });
+	const registryDependencies = new Set<string>();
+
+	const pageNames = ['+page.svelte'];
+	const dataNames = ['data.json', 'data.ts'];
+	const fileEntries = dir.filter((d) => d.isFile());
+
+	const files = await Promise.all(
+		fileEntries.map(async (dirent) => {
+			const isPage = pageNames.includes(dirent.name) || dataNames.includes(dirent.name);
+			const type = isPage ? ('registry:page' as const) : ('registry:component' as const);
+
+			const filepath = path.join(dirent.parentPath, dirent.name);
+			const relativePath = path.relative(process.cwd(), filepath);
+			const source = fs.readFileSync(filepath, { encoding: 'utf8' });
+
+			const deps = await getFileDependencies(filepath, source);
+			if (deps) deps.registryDependencies.forEach((dep) => registryDependencies.add(dep));
+
+			return { path: relativePath, type };
+		})
+	);
+
+	return {
+		type: 'registry:block' as const,
+		files,
+		name: blockName,
+		registryDependencies: Array.from(registryDependencies)
+	};
+}
+
+async function crawlHooks(rootPath: string): Promise<RegistryItems> {
+	const dir = fs.readdirSync(rootPath, { withFileTypes: true });
+	const files = dir.filter((d) => d.isFile());
+	return Promise.all(
+		files.map(async (dirent) => {
+			const name = dirent.name.replace(/(\.svelte)?\.ts$/, '');
+			const filepath = path.join(rootPath, dirent.name);
+			const source = fs.readFileSync(filepath, { encoding: 'utf8' });
+			const relativePath = path.relative(process.cwd(), filepath);
+			const { registryDependencies } = await getFileDependencies(filepath, source);
+			return {
+				name,
+				type: 'registry:hook' as const,
+				files: [{ path: relativePath, type: 'registry:hook' as const }],
+				registryDependencies: Array.from(registryDependencies)
+			};
+		})
+	);
+}
+
 async function crawlExamples(rootPath: string): Promise<RegistryItems> {
 	const dir = fs.readdirSync(rootPath, { withFileTypes: true });
 	const files = dir.filter((d) => d.name.endsWith('.svelte') && d.isFile());
@@ -125,6 +217,11 @@ async function getFileDependencies(
 ): Promise<{ registryDependencies: Set<string> }> {
 	let ast: unknown;
 	let moduleAst: unknown;
+
+	// data files carry no imports
+	if (filename.endsWith('.json')) {
+		return { registryDependencies: new Set<string>() };
+	}
 
 	if (filename.endsWith('.svelte')) {
 		const { code } = await svelte.preprocess(content, [], { filename });

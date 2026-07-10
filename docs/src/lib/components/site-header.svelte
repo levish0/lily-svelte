@@ -11,9 +11,15 @@
 		{ label: 'Components', href: '/docs/components' }
 	];
 
+	function matches(href: string, path: string) {
+		if (href === '/') return path === '/';
+		return path === href || path.startsWith(href + '/');
+	}
+
 	function isActive(href: string) {
-		if (href === '/') return $page.url.pathname === '/';
-		return $page.url.pathname === href || $page.url.pathname.startsWith(href + '/');
+		const path = $page.url.pathname;
+		if (!matches(href, path)) return false;
+		return !nav.some((item) => item.href.length > href.length && matches(item.href, path));
 	}
 </script>
 
