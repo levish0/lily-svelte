@@ -1,8 +1,6 @@
 <script lang="ts" module>
 	export type FileRejectedReason =
-		| 'Maximum file size exceeded'
-		| 'Maximum files uploaded'
-		| 'File type not allowed';
+		'Maximum file size exceeded' | 'Maximum files uploaded' | 'File type not allowed';
 
 	export type FileDropZoneProps = {
 		ref?: HTMLLabelElement | null;

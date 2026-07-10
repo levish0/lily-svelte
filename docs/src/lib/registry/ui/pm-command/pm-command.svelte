@@ -52,10 +52,7 @@
 	}
 </script>
 
-<div
-	data-slot="pm-command"
-	class={cn('overflow-hidden rounded-3xl', variants[variant], className)}
->
+<div data-slot="pm-command" class={cn('overflow-hidden rounded-3xl', variants[variant], className)}>
 	<div class="flex items-center gap-2 border-b border-(--text)/8 px-3 py-2">
 		<Icon
 			icon="heroicons:command-line-solid"
