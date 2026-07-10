@@ -1,5 +1,11 @@
 # lily-svelte
 
+## 0.0.5
+
+### Patch Changes
+
+- [`8f20a77`](https://github.com/levish0/lily-svelte/commit/8f20a77fe5de67ba53ca7f7ffabd6827d71fd5b9) Thanks [@levish0](https://github.com/levish0)! - Add a README to the published CLI package so it renders on npmjs.com.
+
 ## 0.0.4
 
 ### Patch Changes
