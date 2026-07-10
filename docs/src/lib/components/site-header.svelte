@@ -8,7 +8,8 @@
 	const nav = [
 		{ label: 'Home', href: '/' },
 		{ label: 'Docs', href: '/docs' },
-		{ label: 'Components', href: '/docs/components' }
+		{ label: 'Components', href: '/docs/components' },
+		{ label: 'Blocks', href: '/blocks' }
 	];
 
 	function matches(href: string, path: string) {

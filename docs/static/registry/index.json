@@ -404,6 +404,29 @@
 		"relativeUrl": "is-mobile.json"
 	},
 	{
+		"name": "login-01",
+		"type": "registry:block",
+		"registryDependencies": [
+			"button",
+			"card",
+			"input",
+			"field"
+		],
+		"relativeUrl": "login-01.json"
+	},
+	{
+		"name": "sidebar-01",
+		"type": "registry:block",
+		"registryDependencies": [
+			"breadcrumb",
+			"separator",
+			"sidebar",
+			"label",
+			"dropdown-menu"
+		],
+		"relativeUrl": "sidebar-01.json"
+	},
+	{
 		"name": "accordion-demo",
 		"type": "registry:example",
 		"registryDependencies": [

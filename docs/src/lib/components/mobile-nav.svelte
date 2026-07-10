@@ -7,7 +7,8 @@
 	const mainNav = [
 		{ title: 'Home', href: '/' },
 		{ title: 'Docs', href: '/docs' },
-		{ title: 'Components', href: '/docs/components' }
+		{ title: 'Components', href: '/docs/components' },
+		{ title: 'Blocks', href: '/blocks' }
 	];
 
 	let open = $state(false);
