@@ -3,7 +3,7 @@ import type { HighlightedBlock } from '../../api/block/[block]/+server.js';
 
 export const prerender = true;
 
-const FEATURED_BLOCKS = ['sidebar-01', 'login-01', 'signup-01'];
+const FEATURED_BLOCKS = ['sidebar-05', 'login-01', 'signup-01'];
 
 export const load: PageLoad = async ({ fetch }) => {
 	const items = await Promise.all(

@@ -446,6 +446,50 @@
 		"relativeUrl": "sidebar-01.json"
 	},
 	{
+		"name": "sidebar-02",
+		"type": "registry:block",
+		"registryDependencies": [
+			"breadcrumb",
+			"separator",
+			"sidebar",
+			"collapsible"
+		],
+		"relativeUrl": "sidebar-02.json"
+	},
+	{
+		"name": "sidebar-03",
+		"type": "registry:block",
+		"registryDependencies": [
+			"breadcrumb",
+			"separator",
+			"sidebar"
+		],
+		"relativeUrl": "sidebar-03.json"
+	},
+	{
+		"name": "sidebar-04",
+		"type": "registry:block",
+		"registryDependencies": [
+			"breadcrumb",
+			"separator",
+			"sidebar"
+		],
+		"relativeUrl": "sidebar-04.json"
+	},
+	{
+		"name": "sidebar-05",
+		"type": "registry:block",
+		"registryDependencies": [
+			"breadcrumb",
+			"separator",
+			"sidebar",
+			"collapsible",
+			"avatar",
+			"dropdown-menu"
+		],
+		"relativeUrl": "sidebar-05.json"
+	},
+	{
 		"name": "signup-01",
 		"type": "registry:block",
 		"registryDependencies": [

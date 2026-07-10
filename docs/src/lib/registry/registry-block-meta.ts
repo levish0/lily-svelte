@@ -10,6 +10,18 @@ export const blockMeta: Record<string, BlockMeta> = {
 	'sidebar-01': {
 		description: 'A simple sidebar with navigation grouped by section.'
 	},
+	'sidebar-02': {
+		description: 'A sidebar with collapsible sections.'
+	},
+	'sidebar-03': {
+		description: 'A sidebar with submenus.'
+	},
+	'sidebar-04': {
+		description: 'A floating sidebar with submenus.'
+	},
+	'sidebar-05': {
+		description: 'A sidebar that collapses to icons.'
+	},
 	'login-01': {
 		description: 'A simple login form.',
 		iframeHeight: '870px'
