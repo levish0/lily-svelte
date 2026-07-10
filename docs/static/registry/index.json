@@ -404,6 +404,14 @@
 		"relativeUrl": "is-mobile.json"
 	},
 	{
+		"name": "calendar-01",
+		"type": "registry:block",
+		"registryDependencies": [
+			"calendar"
+		],
+		"relativeUrl": "calendar-01.json"
+	},
+	{
 		"name": "login-01",
 		"type": "registry:block",
 		"registryDependencies": [
@@ -413,6 +421,17 @@
 			"field"
 		],
 		"relativeUrl": "login-01.json"
+	},
+	{
+		"name": "otp-01",
+		"type": "registry:block",
+		"registryDependencies": [
+			"button",
+			"card",
+			"input-otp",
+			"field"
+		],
+		"relativeUrl": "otp-01.json"
 	},
 	{
 		"name": "sidebar-01",
@@ -425,6 +444,18 @@
 			"dropdown-menu"
 		],
 		"relativeUrl": "sidebar-01.json"
+	},
+	{
+		"name": "signup-01",
+		"type": "registry:block",
+		"registryDependencies": [
+			"button",
+			"card",
+			"input",
+			"password",
+			"field"
+		],
+		"relativeUrl": "signup-01.json"
 	},
 	{
 		"name": "accordion-demo",

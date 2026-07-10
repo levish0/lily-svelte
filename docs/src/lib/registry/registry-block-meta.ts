@@ -13,5 +13,17 @@ export const blockMeta: Record<string, BlockMeta> = {
 	'login-01': {
 		description: 'A simple login form.',
 		iframeHeight: '870px'
+	},
+	'signup-01': {
+		description: 'A signup form with password strength.',
+		iframeHeight: '870px'
+	},
+	'otp-01': {
+		description: 'A one-time password verification form.',
+		iframeHeight: '620px'
+	},
+	'calendar-01': {
+		description: 'A simple calendar.',
+		iframeHeight: '620px'
 	}
 };

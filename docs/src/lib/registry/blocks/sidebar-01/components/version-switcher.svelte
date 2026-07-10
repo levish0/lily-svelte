@@ -5,6 +5,7 @@
 
 	let { versions, defaultVersion }: { versions: string[]; defaultVersion: string } = $props();
 
+	// svelte-ignore state_referenced_locally -- the default is intentionally only the initial value
 	let selectedVersion = $state(defaultVersion);
 </script>
 
