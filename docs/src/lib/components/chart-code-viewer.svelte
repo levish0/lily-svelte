@@ -10,11 +10,8 @@
 
 	const isDesktop = new MediaQuery('min-width: 768px');
 
-	let {
-		chart,
-		code,
-		children
-	}: { chart: HighlightedBlock; code: string; children?: Snippet } = $props();
+	let { chart, code, children }: { chart: HighlightedBlock; code: string; children?: Snippet } =
+		$props();
 
 	const clipboard = new UseClipboard();
 </script>

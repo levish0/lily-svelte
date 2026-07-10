@@ -26,13 +26,20 @@
 
 	const chartTitle = $derived.by(() => {
 		const name = chart.name;
-		if (name.includes('chart-line')) return { icon: 'heroicons:arrow-trending-up-solid', label: 'Line Chart' };
-		if (name.includes('chart-bar')) return { icon: 'heroicons:chart-bar-solid', label: 'Bar Chart' };
-		if (name.includes('chart-pie')) return { icon: 'heroicons:chart-pie-solid', label: 'Pie Chart' };
-		if (name.includes('chart-area')) return { icon: 'heroicons:presentation-chart-line-solid', label: 'Area Chart' };
-		if (name.includes('chart-radar')) return { icon: 'heroicons:signal-solid', label: 'Radar Chart' };
-		if (name.includes('chart-radial')) return { icon: 'heroicons:chart-pie-solid', label: 'Radial Chart' };
-		if (name.includes('chart-tooltip')) return { icon: 'heroicons:cursor-arrow-rays-solid', label: 'Tooltip' };
+		if (name.includes('chart-line'))
+			return { icon: 'heroicons:arrow-trending-up-solid', label: 'Line Chart' };
+		if (name.includes('chart-bar'))
+			return { icon: 'heroicons:chart-bar-solid', label: 'Bar Chart' };
+		if (name.includes('chart-pie'))
+			return { icon: 'heroicons:chart-pie-solid', label: 'Pie Chart' };
+		if (name.includes('chart-area'))
+			return { icon: 'heroicons:presentation-chart-line-solid', label: 'Area Chart' };
+		if (name.includes('chart-radar'))
+			return { icon: 'heroicons:signal-solid', label: 'Radar Chart' };
+		if (name.includes('chart-radial'))
+			return { icon: 'heroicons:chart-pie-solid', label: 'Radial Chart' };
+		if (name.includes('chart-tooltip'))
+			return { icon: 'heroicons:cursor-arrow-rays-solid', label: 'Tooltip' };
 		return { icon: 'heroicons:chart-bar-solid', label: name };
 	});
 </script>

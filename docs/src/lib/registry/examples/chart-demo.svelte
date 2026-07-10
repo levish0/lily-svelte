@@ -66,9 +66,7 @@
 					Trending up by 5.2% this month
 					<Icon icon="heroicons:arrow-trending-up-solid" class="size-4" aria-hidden="true" />
 				</div>
-				<div class="flex items-center gap-2 leading-none text-(--text)/56">
-					January - June 2026
-				</div>
+				<div class="flex items-center gap-2 leading-none text-(--text)/56">January - June 2026</div>
 			</div>
 		</div>
 	</Card.Footer>

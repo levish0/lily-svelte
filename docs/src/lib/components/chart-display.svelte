@@ -20,7 +20,9 @@
 	<ChartToolbar {chart} class="relative z-20 border-b border-(--text)/8 px-3 py-2.5">
 		{@render children?.()}
 	</ChartToolbar>
-	<div class="relative z-10 flex flex-1 items-center [&>div]:w-full [&>div]:rounded-none [&>div]:shadow-none">
+	<div
+		class="relative z-10 flex flex-1 items-center [&>div]:w-full [&>div]:rounded-none [&>div]:shadow-none"
+	>
 		{@render children?.()}
 	</div>
 </div>
