@@ -32,9 +32,12 @@ jobs:
           node-version-file: '.nvmrc'
           cache: pnpm
 
-      # Trusted Publishing (OIDC) needs npm >= 11.5.0
+      # Trusted Publishing (OIDC) needs npm >= 11.5.0.
+      # Pinned to 11.9.0 (last 11.x): npm 12 changed the `--json` publish error
+      # shape (dropped `error.summary`), which crashes @changesets/cli's
+      # already-published detection when re-publishing an existing version.
       - name: Update npm
-        run: npm install -g npm@latest
+        run: npm install -g npm@11.9.0
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
