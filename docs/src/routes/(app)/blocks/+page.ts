@@ -14,8 +14,6 @@ export const load: PageLoad = async ({ fetch }) => {
 	);
 
 	return {
-		blocks: items.sort(
-			(a, b) => FEATURED_BLOCKS.indexOf(a.name) - FEATURED_BLOCKS.indexOf(b.name)
-		)
+		blocks: items.sort((a, b) => FEATURED_BLOCKS.indexOf(a.name) - FEATURED_BLOCKS.indexOf(b.name))
 	};
 };
