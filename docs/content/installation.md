@@ -7,11 +7,31 @@ description: Set up lily in your SvelteKit project and add your first component.
 	import Steps from "$lib/components/steps.svelte";
 	import Step from "$lib/components/step.svelte";
 	import PmCommand from "$lib/components/pm-command.svelte";
+	import Callout from "$lib/components/callout.svelte";
 </script>
 
 lily is a copy-and-own component library: the CLI scaffolds the design tokens and drops component source directly into your project, so you own and can edit every file.
 
+## Prerequisites
+
+lily builds on **Tailwind CSS v4** and **Svelte 5**, so make sure your project has both before you run the CLI.
+
+- **Svelte 5**, since the components are written with runes (`$props`, `$state`, `$derived`).
+- **Tailwind CSS v4**, since the design tokens rely on the v4 engine and CSS-first config.
+
+<Callout title="Missing one of these?">
+
+Running `init` on a Tailwind v3 or Svelte 4 project stops with a `requires Tailwind CSS v4 and Svelte v5` error. Upgrade first, or start from the fresh SvelteKit setup below, which includes both.
+
+</Callout>
+
 <Steps>
+
+<Step>Create a project (if you don't have one).</Step>
+
+Spin up a new SvelteKit project with Tailwind CSS v4 already wired up using the [`sv`](https://svelte.dev/docs/cli/overview) CLI. Skip this step if you're adding lily to an existing Svelte 5 + Tailwind v4 project.
+
+<PmCommand type="execute" command="sv create my-app --add tailwindcss" />
 
 <Step>Initialize lily in your project.</Step>
 
