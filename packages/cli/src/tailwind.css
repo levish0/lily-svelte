@@ -36,12 +36,26 @@
 		--bg: #f8f8f8;
 		--bg-elevated: #ffffff;
 		--text: #0d0d0d;
+
+		/* Chart series palette — the one sanctioned color surface in the
+		 * otherwise-monochrome system. Override to theme charts. */
+		--chart-1: #3182f6;
+		--chart-2: #10b981;
+		--chart-3: #f59e0b;
+		--chart-4: #8b5cf6;
+		--chart-5: #f43f5e;
 	}
 
 	:root.dark {
 		--bg: #111111;
 		--bg-elevated: #1c1c1c;
 		--text: #efefef;
+
+		--chart-1: #4593fc;
+		--chart-2: #34d399;
+		--chart-3: #fbbf24;
+		--chart-4: #a78bfa;
+		--chart-5: #fb7185;
 	}
 
 	body {
@@ -127,6 +141,12 @@
  * Shared component helpers (animations, stateful variants)
  * ------------------------------------------------------------------------- */
 @theme inline {
+	--color-chart-1: var(--chart-1);
+	--color-chart-2: var(--chart-2);
+	--color-chart-3: var(--chart-3);
+	--color-chart-4: var(--chart-4);
+	--color-chart-5: var(--chart-5);
+
 	--animate-accordion-down: accordion-down 0.25s cubic-bezier(0.32, 0.72, 0, 1);
 	--animate-accordion-up: accordion-up 0.25s cubic-bezier(0.32, 0.72, 0, 1);
 	--animate-collapsible-down: collapsible-down 0.25s cubic-bezier(0.32, 0.72, 0, 1);

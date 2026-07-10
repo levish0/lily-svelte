@@ -37,5 +37,35 @@ export const blockMeta: Record<string, BlockMeta> = {
 	'calendar-01': {
 		description: 'A simple calendar.',
 		iframeHeight: '620px'
+	},
+	'chart-area-default': {
+		description: 'A simple area chart.',
+		iframeHeight: '560px',
+		className: 'flex min-h-svh items-center justify-center p-6 [&>*]:max-w-lg'
+	},
+	'chart-area-stacked': {
+		description: 'A stacked area chart.',
+		iframeHeight: '560px',
+		className: 'flex min-h-svh items-center justify-center p-6 [&>*]:max-w-lg'
+	},
+	'chart-bar-default': {
+		description: 'A simple bar chart.',
+		iframeHeight: '560px',
+		className: 'flex min-h-svh items-center justify-center p-6 [&>*]:max-w-lg'
+	},
+	'chart-bar-multiple': {
+		description: 'A grouped bar chart with two series.',
+		iframeHeight: '560px',
+		className: 'flex min-h-svh items-center justify-center p-6 [&>*]:max-w-lg'
+	},
+	'chart-pie-simple': {
+		description: 'A simple pie chart.',
+		iframeHeight: '560px',
+		className: 'flex min-h-svh items-center justify-center p-6 [&>*]:max-w-lg'
+	},
+	'chart-pie-donut': {
+		description: 'A donut chart with centered total.',
+		iframeHeight: '560px',
+		className: 'flex min-h-svh items-center justify-center p-6 [&>*]:max-w-lg'
 	}
 };

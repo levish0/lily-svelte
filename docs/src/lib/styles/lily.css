@@ -36,12 +36,26 @@
 		--bg: #f8f8f8;
 		--bg-elevated: #ffffff;
 		--text: #0d0d0d;
+
+		/* Chart series palette — the one sanctioned color surface in the
+		 * otherwise-monochrome system. Override to theme charts. */
+		--chart-1: #3182f6;
+		--chart-2: #10b981;
+		--chart-3: #f59e0b;
+		--chart-4: #8b5cf6;
+		--chart-5: #f43f5e;
 	}
 
 	:root.dark {
 		--bg: #111111;
 		--bg-elevated: #1c1c1c;
 		--text: #efefef;
+
+		--chart-1: #4593fc;
+		--chart-2: #34d399;
+		--chart-3: #fbbf24;
+		--chart-4: #a78bfa;
+		--chart-5: #fb7185;
 	}
 
 	body {

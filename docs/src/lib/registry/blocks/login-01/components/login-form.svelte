@@ -2,6 +2,7 @@
 	import { Button } from '$lib/registry/ui/button/index.js';
 	import * as Card from '$lib/registry/ui/card/index.js';
 	import { Input } from '$lib/registry/ui/input/index.js';
+	import { Password } from '$lib/registry/ui/password/index.js';
 	import { Field, FieldGroup, FieldLabel, FieldDescription } from '$lib/registry/ui/field/index.js';
 
 	const id = $props.id();
@@ -29,7 +30,7 @@
 							Forgot your password?
 						</a>
 					</div>
-					<Input id="password-{id}" type="password" required />
+					<Password id="password-{id}" required />
 				</Field>
 				<Field>
 					<Button type="submit" class="w-full">Login</Button>

@@ -74,6 +74,12 @@
 		"relativeUrl": "carousel.json"
 	},
 	{
+		"name": "chart",
+		"type": "registry:ui",
+		"registryDependencies": [],
+		"relativeUrl": "chart.json"
+	},
+	{
 		"name": "checkbox",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -412,12 +418,67 @@
 		"relativeUrl": "calendar-01.json"
 	},
 	{
+		"name": "chart-area-default",
+		"type": "registry:block",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-area-default.json"
+	},
+	{
+		"name": "chart-area-stacked",
+		"type": "registry:block",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-area-stacked.json"
+	},
+	{
+		"name": "chart-bar-default",
+		"type": "registry:block",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-bar-default.json"
+	},
+	{
+		"name": "chart-bar-multiple",
+		"type": "registry:block",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-bar-multiple.json"
+	},
+	{
+		"name": "chart-pie-donut",
+		"type": "registry:block",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-pie-donut.json"
+	},
+	{
+		"name": "chart-pie-simple",
+		"type": "registry:block",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-pie-simple.json"
+	},
+	{
 		"name": "login-01",
 		"type": "registry:block",
 		"registryDependencies": [
 			"button",
 			"card",
 			"input",
+			"password",
 			"field"
 		],
 		"relativeUrl": "login-01.json"
@@ -596,6 +657,33 @@
 			"ui"
 		],
 		"relativeUrl": "carousel-demo.json"
+	},
+	{
+		"name": "chart-bar-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-bar-demo.json"
+	},
+	{
+		"name": "chart-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-demo.json"
+	},
+	{
+		"name": "chart-pie-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-pie-demo.json"
 	},
 	{
 		"name": "checkbox-demo",

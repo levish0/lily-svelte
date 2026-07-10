@@ -71,6 +71,11 @@
 	},
 	"dependencies": {
 		"@tanstack/table-core": "^8.21.3",
+		"@types/d3-scale": "^4.0.9",
+		"@types/d3-shape": "^3.1.8",
+		"d3-scale": "^4.0.2",
+		"d3-shape": "^3.2.0",
+		"layerchart": "2.0.1",
 		"mode-watcher": "^1.1.0",
 		"runed": "^0.37.1",
 		"svelte-toolbelt": "^0.10.6",

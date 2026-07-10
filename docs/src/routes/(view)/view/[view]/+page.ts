@@ -11,9 +11,10 @@ export const entries: EntryGenerator = () => blocks.map((view: string) => ({ vie
 export const load: PageLoad = async ({ params }) => {
 	if (!blocks.includes(params.view)) error(404, 'Block not found');
 
-	const comp: { default: Component } = await import(
-		`../../../../lib/registry/blocks/${params.view}/+page.svelte`
-	);
+	// Single-file blocks (chart-*) live directly in blocks/; the rest are folders.
+	const comp: { default: Component } = params.view.startsWith('chart-')
+		? await import(`../../../../lib/registry/blocks/${params.view}.svelte`)
+		: await import(`../../../../lib/registry/blocks/${params.view}/+page.svelte`);
 
 	const meta = blockMeta[params.view];
 

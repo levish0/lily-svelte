@@ -9,7 +9,8 @@
 		{ label: 'Home', href: '/' },
 		{ label: 'Docs', href: '/docs' },
 		{ label: 'Components', href: '/docs/components' },
-		{ label: 'Blocks', href: '/blocks' }
+		{ label: 'Blocks', href: '/blocks' },
+		{ label: 'Charts', href: '/charts' }
 	];
 
 	function matches(href: string, path: string) {

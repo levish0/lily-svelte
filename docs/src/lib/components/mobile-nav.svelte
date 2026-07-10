@@ -8,7 +8,8 @@
 		{ title: 'Home', href: '/' },
 		{ title: 'Docs', href: '/docs' },
 		{ title: 'Components', href: '/docs/components' },
-		{ title: 'Blocks', href: '/blocks' }
+		{ title: 'Blocks', href: '/blocks' },
+		{ title: 'Charts', href: '/charts' }
 	];
 
 	let open = $state(false);

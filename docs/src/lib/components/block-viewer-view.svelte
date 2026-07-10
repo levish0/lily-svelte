@@ -7,23 +7,26 @@
 	const ctx = BlockViewerContext.get();
 </script>
 
-<!-- Small screens: link out to the full-screen view instead of a resizable iframe. -->
-<div
-	class="flex flex-col items-start gap-3 rounded-3xl border border-(--text)/8 bg-(--bg) p-6 lg:hidden"
->
-	<p class="text-sm font-medium tracking-[-0.39px]">{ctx.item.name}</p>
-	{#if ctx.item.description}
-		<p class="text-sm tracking-[-0.39px] text-(--text)/56">{ctx.item.description}</p>
-	{/if}
-	<a
-		href="/view/{ctx.item.name}"
-		target="_blank"
-		rel="noreferrer"
-		class="inline-flex h-9 items-center gap-2 rounded-3xl bg-(--text) px-3.5 text-sm font-medium text-(--bg) hover:bg-(--text)/90"
-	>
-		Open preview
-		<Icon icon="heroicons:arrow-top-right-on-square-solid" class="size-3.5" aria-hidden="true" />
-	</a>
+<!-- Small screens: plain (non-resizable) preview with a slim caption row. -->
+<div class="flex flex-col gap-2 lg:hidden">
+	<div class="flex items-center gap-2 px-1">
+		<p class="flex-1 truncate text-sm tracking-[-0.39px] text-(--text)/72">
+			{ctx.item.description ?? ctx.item.name}
+		</p>
+		<a
+			href="/view/{ctx.item.name}"
+			target="_blank"
+			rel="noreferrer"
+			title="Open in New Tab"
+			class="inline-flex size-7 shrink-0 items-center justify-center rounded-lg text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)"
+		>
+			<span class="sr-only">Open in New Tab</span>
+			<Icon icon="heroicons:arrow-top-right-on-square-solid" class="size-4" aria-hidden="true" />
+		</a>
+	</div>
+	<div class="overflow-hidden rounded-3xl border border-(--text)/8 bg-(--bg)">
+		<BlockViewerIframe />
+	</div>
 </div>
 
 <div class="hidden group-data-[view=code]/block-view-wrapper:hidden lg:flex lg:h-(--height)">

@@ -33,6 +33,7 @@ export const docsNav: NavSection[] = [
 			{ title: 'Calendar', href: '/docs/components/calendar' },
 			{ title: 'Card', href: '/docs/components/card' },
 			{ title: 'Carousel', href: '/docs/components/carousel' },
+			{ title: 'Chart', href: '/docs/components/chart' },
 			{ title: 'Checkbox', href: '/docs/components/checkbox' },
 			{ title: 'Collapsible', href: '/docs/components/collapsible' },
 			{ title: 'Command', href: '/docs/components/command' },
