@@ -67,5 +67,35 @@ export const blockMeta: Record<string, BlockMeta> = {
 		description: 'A donut chart with centered total.',
 		iframeHeight: '560px',
 		className: 'flex min-h-svh items-center justify-center p-6 [&>*]:max-w-lg'
+	},
+	'chart-line-default': {
+		description: 'A simple line chart.',
+		iframeHeight: '560px',
+		className: 'flex min-h-svh items-center justify-center p-6 [&>*]:max-w-lg'
+	},
+	'chart-line-multiple': {
+		description: 'A line chart with two series.',
+		iframeHeight: '560px',
+		className: 'flex min-h-svh items-center justify-center p-6 [&>*]:max-w-lg'
+	},
+	'chart-radar-default': {
+		description: 'A simple radar chart.',
+		iframeHeight: '560px',
+		className: 'flex min-h-svh items-center justify-center p-6 [&>*]:max-w-lg'
+	},
+	'chart-radial-text': {
+		description: 'A radial chart with centered text.',
+		iframeHeight: '560px',
+		className: 'flex min-h-svh items-center justify-center p-6 [&>*]:max-w-lg'
+	},
+	'chart-tooltip-default': {
+		description: 'A default chart tooltip.',
+		iframeHeight: '560px',
+		className: 'flex min-h-svh items-center justify-center p-6 [&>*]:max-w-lg'
+	},
+	'chart-tooltip-indicator-line': {
+		description: 'A chart tooltip with a line indicator.',
+		iframeHeight: '560px',
+		className: 'flex min-h-svh items-center justify-center p-6 [&>*]:max-w-lg'
 	}
 };

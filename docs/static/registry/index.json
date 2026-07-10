@@ -454,6 +454,24 @@
 		"relativeUrl": "chart-bar-multiple.json"
 	},
 	{
+		"name": "chart-line-default",
+		"type": "registry:block",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-line-default.json"
+	},
+	{
+		"name": "chart-line-multiple",
+		"type": "registry:block",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-line-multiple.json"
+	},
+	{
 		"name": "chart-pie-donut",
 		"type": "registry:block",
 		"registryDependencies": [
@@ -470,6 +488,42 @@
 			"card"
 		],
 		"relativeUrl": "chart-pie-simple.json"
+	},
+	{
+		"name": "chart-radar-default",
+		"type": "registry:block",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-radar-default.json"
+	},
+	{
+		"name": "chart-radial-text",
+		"type": "registry:block",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-radial-text.json"
+	},
+	{
+		"name": "chart-tooltip-default",
+		"type": "registry:block",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-tooltip-default.json"
+	},
+	{
+		"name": "chart-tooltip-indicator-line",
+		"type": "registry:block",
+		"registryDependencies": [
+			"chart",
+			"card"
+		],
+		"relativeUrl": "chart-tooltip-indicator-line.json"
 	},
 	{
 		"name": "login-01",

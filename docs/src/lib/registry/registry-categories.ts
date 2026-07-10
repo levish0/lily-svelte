@@ -16,5 +16,9 @@ export const registryCategories: RegistryCategory[] = [
 export const chartCategories: RegistryCategory[] = [
 	{ name: 'Area', slug: 'area', hidden: false },
 	{ name: 'Bar', slug: 'bar', hidden: false },
-	{ name: 'Pie', slug: 'pie', hidden: false }
+	{ name: 'Line', slug: 'line', hidden: false },
+	{ name: 'Pie', slug: 'pie', hidden: false },
+	{ name: 'Radar', slug: 'radar', hidden: false },
+	{ name: 'Radial', slug: 'radial', hidden: false },
+	{ name: 'Tooltip', slug: 'tooltip', hidden: false }
 ];
