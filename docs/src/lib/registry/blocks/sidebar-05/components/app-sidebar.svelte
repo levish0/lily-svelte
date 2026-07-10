@@ -5,10 +5,7 @@
 	import TeamSwitcher from './team-switcher.svelte';
 	import type { ComponentProps } from 'svelte';
 
-	let {
-		ref = $bindable(null),
-		...restProps
-	}: ComponentProps<typeof Sidebar.Root> = $props();
+	let { ref = $bindable(null), ...restProps }: ComponentProps<typeof Sidebar.Root> = $props();
 
 	const data = {
 		user: {

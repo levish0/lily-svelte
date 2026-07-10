@@ -3,12 +3,7 @@
 	import * as Card from '$lib/registry/ui/card/index.js';
 	import { Input } from '$lib/registry/ui/input/index.js';
 	import { Password } from '$lib/registry/ui/password/index.js';
-	import {
-		Field,
-		FieldGroup,
-		FieldLabel,
-		FieldDescription
-	} from '$lib/registry/ui/field/index.js';
+	import { Field, FieldGroup, FieldLabel, FieldDescription } from '$lib/registry/ui/field/index.js';
 
 	const id = $props.id();
 

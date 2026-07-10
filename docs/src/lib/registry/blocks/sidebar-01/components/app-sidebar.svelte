@@ -4,10 +4,7 @@
 	import VersionSwitcher from './version-switcher.svelte';
 	import type { ComponentProps } from 'svelte';
 
-	let {
-		ref = $bindable(null),
-		...restProps
-	}: ComponentProps<typeof Sidebar.Root> = $props();
+	let { ref = $bindable(null), ...restProps }: ComponentProps<typeof Sidebar.Root> = $props();
 
 	const data = {
 		versions: ['1.0.1', '1.1.0-alpha', '2.0.0-beta1'],
