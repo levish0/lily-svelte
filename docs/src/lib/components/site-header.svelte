@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { page } from '$app/stores';
-	import { toggleMode, mode } from 'mode-watcher';
+	import { toggleMode } from 'mode-watcher';
 	import MobileNav from '$lib/components/mobile-nav.svelte';
 	import SiteSearch from '$lib/components/site-search.svelte';
 
@@ -63,11 +63,11 @@
 				aria-label="Toggle theme"
 				class="inline-flex size-9 items-center justify-center rounded-xl text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/5 hover:text-(--text)"
 			>
-				{#if mode.current === 'dark'}
-					<Icon icon="heroicons:sun-solid" class="size-4.5" aria-hidden="true" />
-				{:else}
-					<Icon icon="heroicons:moon-solid" class="size-4.5" aria-hidden="true" />
-				{/if}
+				<!-- Both icons render so server and client markup always match
+				     (a conditional on the persisted mode breaks hydration) —
+				     the dark: variant picks the visible one. -->
+				<Icon icon="heroicons:sun-solid" class="hidden size-4.5 dark:block" aria-hidden="true" />
+				<Icon icon="heroicons:moon-solid" class="size-4.5 dark:hidden" aria-hidden="true" />
 			</button>
 		</div>
 	</div>
