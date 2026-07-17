@@ -1,5 +1,11 @@
 # lily-svelte
 
+## 0.2.1
+
+### Patch Changes
+
+- [`49aed15`](https://github.com/levish0/lily-svelte/commit/49aed1527f06546d5329f7fcb5e788f1735d957a) Thanks [@levish0](https://github.com/levish0)! - feat(docs): add code-block registry component"
+
 ## 0.2.0
 
 ### Minor Changes
