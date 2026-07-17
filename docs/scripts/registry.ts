@@ -237,17 +237,23 @@ async function getFileDependencies(
 	const registryDependencies = new Set<string>();
 
 	const enter = (node: Node) => {
+		let source: string;
 		if (node.type === 'ImportDeclaration') {
-			const source = node.source.value as string;
+			source = node.source.value as string;
+		} else if (node.type === 'ImportExpression' && node.source.type === 'Literal') {
+			// dynamic imports, e.g. `() => import('$lib/registry/ui/...')`
+			source = node.source.value as string;
+		} else {
+			return;
+		}
 
-			if (source.startsWith(REGISTRY_DEPENDENCY) && source !== UTILS_PATH) {
-				if (source.includes('ui')) {
-					const component = source.split('/').at(-2)!;
-					registryDependencies.add(component);
-				} else if (source.includes('hook')) {
-					const hook = source.split('/').at(-1)!.split('.')[0]!;
-					registryDependencies.add(hook);
-				}
+		if (source.startsWith(REGISTRY_DEPENDENCY) && source !== UTILS_PATH) {
+			if (source.includes('ui')) {
+				const component = source.split('/').at(-2)!;
+				registryDependencies.add(component);
+			} else if (source.includes('hook')) {
+				const hook = source.split('/').at(-1)!.split('.')[0]!;
+				registryDependencies.add(hook);
 			}
 		}
 	};

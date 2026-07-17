@@ -143,8 +143,15 @@ export async function getFileDependencies(opts: GetFileDepOpts) {
 	const devDependencies = new Set<string>();
 
 	const enter = (node: Node) => {
-		if (node.type !== 'ImportDeclaration') return;
-		const source = node.source.value as string;
+		let source: string;
+		if (node.type === 'ImportDeclaration') {
+			source = node.source.value as string;
+		} else if (node.type === 'ImportExpression' && node.source.type === 'Literal') {
+			// dynamic imports, e.g. shiki's lazy `() => import('@shikijs/langs/...')`
+			source = node.source.value as string;
+		} else {
+			return;
+		}
 
 		const deps = resolveDepsFromImport(source, opts.dependencies);
 		deps.forEach((dep) => dependencies.add(dep));

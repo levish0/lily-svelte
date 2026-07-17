@@ -35,6 +35,7 @@ export const docsNav: NavSection[] = [
 			{ title: 'Carousel', href: '/docs/components/carousel' },
 			{ title: 'Chart', href: '/docs/components/chart' },
 			{ title: 'Checkbox', href: '/docs/components/checkbox' },
+			{ title: 'Code Block', href: '/docs/components/code-block' },
 			{ title: 'Collapsible', href: '/docs/components/collapsible' },
 			{ title: 'Command', href: '/docs/components/command' },
 			{ title: 'Context Menu', href: '/docs/components/context-menu' },

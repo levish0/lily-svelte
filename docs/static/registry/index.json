@@ -86,6 +86,14 @@
 		"relativeUrl": "checkbox.json"
 	},
 	{
+		"name": "code-block",
+		"type": "registry:ui",
+		"registryDependencies": [
+			"tooltip"
+		],
+		"relativeUrl": "code-block.json"
+	},
+	{
 		"name": "collapsible",
 		"type": "registry:ui",
 		"registryDependencies": [],
@@ -746,6 +754,14 @@
 			"ui"
 		],
 		"relativeUrl": "checkbox-demo.json"
+	},
+	{
+		"name": "code-block-demo",
+		"type": "registry:example",
+		"registryDependencies": [
+			"code-block"
+		],
+		"relativeUrl": "code-block-demo.json"
 	},
 	{
 		"name": "collapsible-demo",
