@@ -255,8 +255,8 @@ importers:
         specifier: ^1.6.4
         version: 1.6.7
       postcss:
-        specifier: ^8.5.5
-        version: 8.5.16
+        specifier: ^8.5.18
+        version: 8.5.18
       svelte:
         specifier: ^5.0.0
         version: 5.56.4(@typescript-eslint/types@8.63.0)
@@ -3510,6 +3510,11 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  nanoid@3.3.16:
+    resolution: {integrity: sha512-bzlKTyNJ7+LdGIIwy8ijFpIqEQIvafahV7eYykJ8Cvh42EdJeODoJ6gUJXpQJvej1BddH8OqTXZNE/KfbWAu8Q==}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
@@ -3701,6 +3706,10 @@ packages:
 
   postcss@8.5.16:
     resolution: {integrity: sha512-vuwillviilfKZsg0VGj5R/YwwcHx4SLsIOI/7K6mQkWx+l5cUHTjj5g0AasTBcyXsbfTgrwsUNmVUb5xVwyPwg==}
+    engines: {node: ^10 || ^12 || >=14}
+
+  postcss@8.5.18:
+    resolution: {integrity: sha512-xdB1oSLHbz1vRWgCDalrCqEFTWzFlhqFC5tIHLMOSUIjhm3XXQ1qrFy8S/ESr1JYRRXqM3c1QFiMZUJdUTqyMQ==}
     engines: {node: ^10 || ^12 || >=14}
 
   powershell-utils@0.1.0:
@@ -7894,6 +7903,8 @@ snapshots:
 
   nanoid@3.3.15: {}
 
+  nanoid@3.3.16: {}
+
   natural-compare@1.4.0: {}
 
   node-fetch-native@1.6.7: {}
@@ -8039,9 +8050,9 @@ snapshots:
     dependencies:
       postcss: 8.5.16
 
-  postcss-scss@4.0.9(postcss@8.5.16):
+  postcss-scss@4.0.9(postcss@8.5.18):
     dependencies:
-      postcss: 8.5.16
+      postcss: 8.5.18
 
   postcss-selector-parser@6.0.10:
     dependencies:
@@ -8056,6 +8067,12 @@ snapshots:
   postcss@8.5.16:
     dependencies:
       nanoid: 3.3.15
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
+  postcss@8.5.18:
+    dependencies:
+      nanoid: 3.3.16
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
@@ -8562,8 +8579,8 @@ snapshots:
       eslint-scope: 8.4.0
       eslint-visitor-keys: 4.2.1
       espree: 10.4.0
-      postcss: 8.5.16
-      postcss-scss: 4.0.9(postcss@8.5.16)
+      postcss: 8.5.18
+      postcss-scss: 4.0.9(postcss@8.5.18)
       postcss-selector-parser: 7.1.4
       semver: 7.8.5
     optionalDependencies:
