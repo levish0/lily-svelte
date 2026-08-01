@@ -1,5 +1,11 @@
 # lily-svelte
 
+## 0.2.2
+
+### Patch Changes
+
+- [`8574db7`](https://github.com/levish0/lily-svelte/commit/8574db74dcb8454e8d9c15019a172ba7ac05237c) Thanks [@levish0](https://github.com/levish0)! - Point the registry base URL at the new Workers deployment. The docs site moved from Cloudflare Pages (`lily-svelte.pages.dev`) to Workers (`lily-svelte.levish.workers.dev`), and the old origin is going away.
+
 ## 0.2.1
 
 ### Patch Changes
