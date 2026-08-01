@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "pnpm build:registry && pnpm build:content && vite dev",
 		"build": "pnpm build:registry && pnpm build:content && wrangler types && vite build",
-		"preview": "wrangler pages dev .svelte-kit/cloudflare --port 4173",
+		"preview": "wrangler dev .svelte-kit/cloudflare/_worker.js --port 4173",
 		"prepare": "svelte-kit sync || echo ''",
 		"build:registry": "tsx scripts/build-registry.ts build-registry",
 		"build:content": "velite",
