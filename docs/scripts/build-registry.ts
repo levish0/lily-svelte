@@ -53,7 +53,7 @@ export async function build(): Promise<void> {
 		{
 			$schema: './static/schema/registry.json',
 			name: 'lily',
-			homepage: 'https://lily-svelte.pages.dev',
+			homepage: 'https://lily-svelte.levish.workers.dev',
 			aliases: {
 				lib: '$lib/registry/lib',
 				ui: '$lib/registry/ui',

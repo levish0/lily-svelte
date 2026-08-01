@@ -1,6 +1,6 @@
 // !! BROWSER SAFE !!
 
-export const SITE_BASE_URL = 'https://lily-svelte.pages.dev';
+export const SITE_BASE_URL = 'https://lily-svelte.levish.workers.dev';
 export const OFFICIAL_REGISTRY_URL = `${SITE_BASE_URL}/registry`;
 
 export const ALIASES = ['components', 'ui', 'hooks', 'utils', 'lib'] as const;

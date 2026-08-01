@@ -1,6 +1,6 @@
 # lily-svelte
 
-A CLI for adding [lily](https://lily-svelte.pages.dev) components to your project.
+A CLI for adding [lily](https://lily-svelte.levish.workers.dev) components to your project.
 
 **lily** is a calm, rounded **Svelte 5** component library — one unified, soft, monochrome style.
 Components are copy-paste (you own the code), fetched from a hosted registry, shadcn-style.
@@ -40,7 +40,7 @@ npx lily-svelte@latest add
 
 ## Documentation
 
-Visit <https://lily-svelte.pages.dev> to view the documentation.
+Visit <https://lily-svelte.levish.workers.dev> to view the documentation.
 
 ## License
 

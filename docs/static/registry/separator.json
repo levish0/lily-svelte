@@ -1,5 +1,5 @@
 {
-	"$schema": "https://lily-svelte.pages.dev/schema/registry-item.json",
+	"$schema": "https://lily-svelte.levish.workers.dev/schema/registry-item.json",
 	"name": "separator",
 	"type": "registry:ui",
 	"files": [

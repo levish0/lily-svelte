@@ -212,7 +212,7 @@
 							]
 						},
 						"registry": {
-							"default": "https://lily-svelte.pages.dev/registry",
+							"default": "https://lily-svelte.levish.workers.dev/registry",
 							"type": "string"
 						},
 						"iconLibrary": {

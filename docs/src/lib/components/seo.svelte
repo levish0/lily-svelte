@@ -4,7 +4,7 @@
 	let { title, description }: { title: string; description: string } = $props();
 
 	const SITE = 'lily';
-	const BASE = 'https://lily-svelte.pages.dev';
+	const BASE = 'https://lily-svelte.levish.workers.dev';
 
 	// "Button" -> "Button · lily"; a title that already mentions lily is used as-is.
 	const fullTitle = $derived(title.toLowerCase().includes(SITE) ? title : `${title} · ${SITE}`);
