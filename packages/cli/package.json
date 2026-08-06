@@ -110,7 +110,7 @@
 		"sucrase": "^3.35.0",
 		"tinyexec": "^1.0.1",
 		"tsdown": "^0.22.14",
-		"type-fest": "^4.41.0",
+		"type-fest": "^5.8.0",
 		"typescript": "^6.0.3",
 		"zod": "^4.3.6"
 	}
