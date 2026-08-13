@@ -292,8 +292,8 @@ importers:
         specifier: ^4.3.1
         version: 4.3.1
       empathic:
-        specifier: ^1.1.0
-        version: 1.1.0
+        specifier: ^2.0.1
+        version: 2.0.1
       estree-walker:
         specifier: ^3.0.3
         version: 3.0.3
@@ -2308,10 +2308,6 @@ packages:
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
-
-  empathic@1.1.0:
-    resolution: {integrity: sha512-rsPft6CK3eHtrlp9Y5ALBb+hfK+DWnA4WFebbazxjWyx8vSm3rZeoM3z9irsjcqO3PYRzlfv27XIB4tz2DV7RA==}
-    engines: {node: '>=14'}
 
   empathic@2.0.1:
     resolution: {integrity: sha512-YGRs8knHhKHVShLkFET/rWAU8kmHbOV5LwN938RHI0pljAJ1Gf6SzXsSmRaEzcXTtOOmVqJ5+WtQPL5uigY50Q==}
@@ -6117,8 +6113,6 @@ snapshots:
   embla-carousel@8.6.0: {}
 
   emoji-regex@8.0.0: {}
-
-  empathic@1.1.0: {}
 
   empathic@2.0.1: {}
 
