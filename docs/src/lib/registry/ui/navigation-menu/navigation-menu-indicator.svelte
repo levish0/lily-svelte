@@ -13,7 +13,7 @@
 	bind:ref
 	data-slot="navigation-menu-indicator"
 	class={cn(
-		'top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=visible]:fade-in-0 data-[state=hidden]:animate-out data-[state=hidden]:fade-out-0',
+		'top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=hidden]:animate-out data-[state=hidden]:fade-out-0 data-[state=visible]:animate-in data-[state=visible]:fade-in-0',
 		className
 	)}
 	{...restProps}

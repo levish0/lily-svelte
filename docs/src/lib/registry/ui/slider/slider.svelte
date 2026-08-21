@@ -17,7 +17,7 @@
 	data-slot="slider"
 	{orientation}
 	class={cn(
-		'relative flex touch-none items-center select-none data-disabled:opacity-50 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col',
+		'relative flex touch-none items-center select-none data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col data-disabled:opacity-50',
 		className
 	)}
 	{...restProps}
@@ -38,7 +38,7 @@
 			<SliderPrimitive.Thumb
 				index={thumb.index}
 				data-slot="slider-thumb"
-				class="block size-5 shrink-0 rounded-full border border-(--text)/8 bg-(--bg-elevated) shadow-sm outline-none transition-[box-shadow,transform] active:scale-110 focus-visible:ring-2 focus-visible:ring-(--text)/24 disabled:pointer-events-none disabled:opacity-50"
+				class="block size-5 shrink-0 rounded-full border border-(--text)/8 bg-(--bg-elevated) shadow-sm transition-[box-shadow,transform] outline-none focus-visible:ring-2 focus-visible:ring-(--text)/24 active:scale-110 disabled:pointer-events-none disabled:opacity-50"
 			/>
 		{/each}
 	{/snippet}

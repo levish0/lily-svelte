@@ -55,8 +55,8 @@
 		// a grid line there and rule ends up overlapping the marks because it is rendered after
 		// the marks
 		'[&_.lc-rule-x-line:not(.lc-grid-x-rule)]:stroke-0 [&_.lc-rule-y-line:not(.lc-grid-y-rule)]:stroke-0',
-		'[&_.lc-grid-x-radial-line]:stroke-(--text)/8 [&_.lc-grid-x-radial-circle]:stroke-(--text)/8',
-		'[&_.lc-grid-y-radial-line]:stroke-(--text)/8 [&_.lc-grid-y-radial-circle]:stroke-(--text)/8',
+		'[&_.lc-grid-x-radial-circle]:stroke-(--text)/8 [&_.lc-grid-x-radial-line]:stroke-(--text)/8',
+		'[&_.lc-grid-y-radial-circle]:stroke-(--text)/8 [&_.lc-grid-y-radial-line]:stroke-(--text)/8',
 
 		// Legend adjustments
 		'[&_.lc-legend-swatch-button]:items-center [&_.lc-legend-swatch-button]:gap-1.5',

@@ -1,15 +1,14 @@
 <script lang="ts" module>
-	import { zxcvbnOptions } from '@zxcvbn-ts/core';
+	import { ZxcvbnFactory } from '@zxcvbn-ts/core';
 	import * as zxcvbnCommon from '@zxcvbn-ts/language-common';
 
-	let configured = false;
-	function ensureConfigured() {
-		if (configured) return;
-		zxcvbnOptions.setOptions({
+	let estimator: ZxcvbnFactory | null = null;
+	function getEstimator() {
+		estimator ??= new ZxcvbnFactory({
 			dictionary: { ...zxcvbnCommon.dictionary },
 			graphs: zxcvbnCommon.adjacencyGraphs
 		});
-		configured = true;
+		return estimator;
 	}
 
 	const STRENGTH_LABELS = ['Very weak', 'Weak', 'Fair', 'Good', 'Strong'];
@@ -27,7 +26,6 @@
 	import Icon from '@iconify/svelte';
 	import { cn, type WithElementRef } from '$lib/utils.js';
 	import { Input } from '$lib/registry/ui/input';
-	import { zxcvbn } from '@zxcvbn-ts/core';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	let {
@@ -44,8 +42,7 @@
 
 	const score = $derived.by(() => {
 		if (!showStrength || !value) return null;
-		ensureConfigured();
-		return zxcvbn(String(value)).score; // 0–4
+		return getEstimator().check(String(value)).score; // 0–4
 	});
 </script>
 

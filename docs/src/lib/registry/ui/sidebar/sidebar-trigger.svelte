@@ -21,7 +21,7 @@
 	data-slot="sidebar-trigger"
 	type="button"
 	class={cn(
-		'inline-flex size-8 shrink-0 items-center justify-center rounded-xl text-(--text)/40 outline-none transition-colors duration-150 hover:bg-(--text)/5 hover:text-(--text)',
+		'inline-flex size-8 shrink-0 items-center justify-center rounded-xl text-(--text)/40 transition-colors duration-150 outline-none hover:bg-(--text)/5 hover:text-(--text)',
 		className
 	)}
 	onclick={(e) => {

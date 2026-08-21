@@ -18,7 +18,7 @@
 <Seo title={doc.title} description={doc.description} />
 
 <div class="flex justify-between gap-12">
-	<article class="min-w-0 max-w-3xl flex-1">
+	<article class="max-w-3xl min-w-0 flex-1">
 		<div class="flex flex-col gap-2">
 			<h1 class="text-3xl font-semibold tracking-[-0.96px]">{doc.title}</h1>
 			{#if doc.description}

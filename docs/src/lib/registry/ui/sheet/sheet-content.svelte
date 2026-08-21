@@ -42,7 +42,7 @@
 		data-slot="sheet-content"
 		data-side={side}
 		class={cn(
-			'fixed z-50 flex flex-col gap-4 bg-(--bg-elevated) p-6 shadow-lg outline-none data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0',
+			'fixed z-50 flex flex-col gap-4 bg-(--bg-elevated) p-6 shadow-lg outline-none data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0',
 			sideClasses[side],
 			className
 		)}

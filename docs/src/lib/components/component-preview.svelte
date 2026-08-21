@@ -44,7 +44,7 @@
 		</div>
 	</TabsContent>
 
-	<TabsContent value="code" class="[&_pre]:max-h-[34rem] [&_.code-block]:my-0">
+	<TabsContent value="code" class="[&_.code-block]:my-0 [&_pre]:max-h-[34rem]">
 		{@render children?.()}
 	</TabsContent>
 </Tabs>

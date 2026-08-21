@@ -64,7 +64,7 @@
 								<button
 									type="button"
 									onclick={header.column.getToggleSortingHandler()}
-									class="inline-flex items-center gap-1 outline-none transition-colors duration-150 hover:text-(--text)"
+									class="inline-flex items-center gap-1 transition-colors duration-150 outline-none hover:text-(--text)"
 								>
 									<FlexRender
 										content={header.column.columnDef.header}

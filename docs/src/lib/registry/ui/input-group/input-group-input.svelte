@@ -15,7 +15,7 @@
 	bind:value
 	data-slot="input-group-input"
 	class={cn(
-		'h-full w-full min-w-0 flex-1 bg-transparent px-4 text-sm tracking-[-0.39px] text-(--text) outline-none [appearance:textfield] placeholder:text-(--text)/40 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none disabled:pointer-events-none disabled:opacity-50',
+		'h-full w-full min-w-0 flex-1 [appearance:textfield] bg-transparent px-4 text-sm tracking-[-0.39px] text-(--text) outline-none placeholder:text-(--text)/40 disabled:pointer-events-none disabled:opacity-50 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none',
 		className
 	)}
 	{...restProps}

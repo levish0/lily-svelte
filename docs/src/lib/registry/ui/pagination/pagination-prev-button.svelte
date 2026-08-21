@@ -16,7 +16,7 @@
 	aria-label="Go to previous page"
 	data-slot="pagination-prev"
 	class={cn(
-		'inline-flex h-10 items-center gap-1 rounded-2xl px-3 text-sm tracking-[-0.39px] text-(--text)/72 outline-none transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) disabled:pointer-events-none disabled:opacity-40',
+		'inline-flex h-10 items-center gap-1 rounded-2xl px-3 text-sm tracking-[-0.39px] text-(--text)/72 transition-colors duration-150 outline-none hover:bg-(--text)/8 hover:text-(--text) disabled:pointer-events-none disabled:opacity-40',
 		className
 	)}
 	{...restProps}

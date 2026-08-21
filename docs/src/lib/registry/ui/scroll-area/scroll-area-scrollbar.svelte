@@ -17,7 +17,7 @@
 	data-orientation={orientation}
 	{orientation}
 	class={cn(
-		'flex touch-none select-none p-0.5 transition-colors',
+		'flex touch-none p-0.5 transition-colors select-none',
 		orientation === 'vertical' && 'h-full w-2.5',
 		orientation === 'horizontal' && 'h-2.5 flex-col',
 		className

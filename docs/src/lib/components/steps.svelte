@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class={cn('mb-12 ms-4 border-s border-(--text)/8 ps-8 [counter-reset:step]', className)}
+	class={cn('ms-4 mb-12 border-s border-(--text)/8 ps-8 [counter-reset:step]', className)}
 	{...restProps}
 >
 	{@render children?.()}

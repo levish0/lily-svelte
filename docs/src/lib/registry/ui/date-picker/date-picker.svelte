@@ -30,7 +30,7 @@
 				{disabled}
 				data-slot="date-picker"
 				class={cn(
-					'inline-flex h-10 w-60 items-center gap-2.5 rounded-3xl bg-(--text)/5 px-4 text-left text-sm tracking-[-0.39px] outline-none transition-colors duration-150 hover:bg-(--text)/8 disabled:pointer-events-none disabled:opacity-50',
+					'inline-flex h-10 w-60 items-center gap-2.5 rounded-3xl bg-(--text)/5 px-4 text-left text-sm tracking-[-0.39px] transition-colors duration-150 outline-none hover:bg-(--text)/8 disabled:pointer-events-none disabled:opacity-50',
 					!value && 'text-(--text)/40',
 					className
 				)}

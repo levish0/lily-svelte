@@ -21,7 +21,7 @@
 	data-slot="pagination-link"
 	data-active={isActive}
 	class={cn(
-		'inline-flex size-10 items-center justify-center rounded-2xl text-sm tracking-[-0.39px] outline-none transition-colors duration-150',
+		'inline-flex size-10 items-center justify-center rounded-2xl text-sm tracking-[-0.39px] transition-colors duration-150 outline-none',
 		isActive
 			? 'bg-(--text)/8 font-medium text-(--text)'
 			: 'text-(--text)/72 hover:bg-(--text)/8 hover:text-(--text)',

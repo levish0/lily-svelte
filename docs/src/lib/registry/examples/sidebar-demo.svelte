@@ -18,7 +18,7 @@
 
 <!-- The `transform` traps the sidebar's `position: fixed` inside the preview box. -->
 <div
-	class="h-[560px] w-full overflow-hidden rounded-3xl border border-(--text)/8 [transform:translateZ(0)]"
+	class="h-[560px] w-full [transform:translateZ(0)] overflow-hidden rounded-3xl border border-(--text)/8"
 >
 	<Sidebar.Provider class="h-full min-h-full">
 		<Sidebar.Root collapsible="icon" class="h-full">

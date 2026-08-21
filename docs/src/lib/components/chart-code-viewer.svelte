@@ -19,7 +19,7 @@
 {#snippet Content()}
 	<div class="flex min-h-0 flex-1 flex-col">
 		<div
-			class="hidden shrink-0 border-b border-(--text)/8 p-4 sm:block **:data-chart:mx-auto **:data-chart:max-h-[35vh] [&>div]:shadow-none"
+			class="hidden shrink-0 border-b border-(--text)/8 p-4 **:data-chart:mx-auto **:data-chart:max-h-[35vh] sm:block [&>div]:shadow-none"
 		>
 			{@render children?.()}
 		</div>

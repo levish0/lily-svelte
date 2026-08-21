@@ -44,7 +44,7 @@
 		bind:this={ref}
 		data-slot="button"
 		class={cn(
-			'inline-flex cursor-pointer select-none items-center justify-center whitespace-nowrap outline-none transition-all duration-150 [&_svg]:pointer-events-none [&_svg]:shrink-0 disabled:pointer-events-none disabled:opacity-40',
+			'inline-flex cursor-pointer items-center justify-center whitespace-nowrap transition-all duration-150 outline-none select-none disabled:pointer-events-none disabled:opacity-40 [&_svg]:pointer-events-none [&_svg]:shrink-0',
 			variants[variant],
 			sizes[size],
 			className
@@ -62,7 +62,7 @@
 		bind:this={ref}
 		data-slot="button"
 		class={cn(
-			'inline-flex cursor-pointer select-none items-center justify-center whitespace-nowrap outline-none transition-all duration-150 [&_svg]:pointer-events-none [&_svg]:shrink-0 disabled:pointer-events-none disabled:opacity-40',
+			'inline-flex cursor-pointer items-center justify-center whitespace-nowrap transition-all duration-150 outline-none select-none disabled:pointer-events-none disabled:opacity-40 [&_svg]:pointer-events-none [&_svg]:shrink-0',
 			variants[variant],
 			sizes[size],
 			className

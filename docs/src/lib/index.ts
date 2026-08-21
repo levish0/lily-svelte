@@ -11,7 +11,8 @@ export {
 } from './registry/ui/card/index.js';
 
 export { Badge } from './registry/ui/badge/index.js';
-export { Avatar } from './registry/ui/avatar/index.js';
+export { Avatar, AvatarGroup, AvatarGroupCount, AvatarBadge } from './registry/ui/avatar/index.js';
+export type { AvatarSize, AvatarGroupSpacing } from './registry/ui/avatar/index.js';
 export { Separator } from './registry/ui/separator/index.js';
 
 export { cn } from './utils.js';
