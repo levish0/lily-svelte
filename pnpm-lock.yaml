@@ -147,8 +147,8 @@ importers:
         specifier: ^4.1.8
         version: 4.1.10(playwright@1.62.1)(vite@8.2.0(@types/node@25.9.5)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(tsx@4.23.5)(yaml@2.9.0))(vitest@4.1.10)
       '@zxcvbn-ts/core':
-        specifier: ^3.0.4
-        version: 3.0.4
+        specifier: ^4.1.2
+        version: 4.1.2
       '@zxcvbn-ts/language-common':
         specifier: ^3.0.4
         version: 3.0.4
@@ -1894,8 +1894,8 @@ packages:
   '@yuku-toolchain/types@0.8.1':
     resolution: {integrity: sha512-HcGEV3kOn9evBTm2ARYOFNKAI7sY9twQozCVd9EVdlsBlnKi0a2iv8xXxYVHFCBQpX3SvvPXBhk8lcK6NUTdNg==}
 
-  '@zxcvbn-ts/core@3.0.4':
-    resolution: {integrity: sha512-aQeiT0F09FuJaAqNrxynlAwZ2mW/1MdXakKWNmGM1Qp/VaY6CnB/GfnMS2T8gB2231Esp1/maCWd8vTG4OuShw==}
+  '@zxcvbn-ts/core@4.1.2':
+    resolution: {integrity: sha512-RQmxWB3AMI+HGQErQdUv6Aq32aQhp6xOxrfgCP0+T9MsLZoP3xtLHuT8O8VojsUxdmQVZfJlYkYb1A0wOwIS+Q==}
 
   '@zxcvbn-ts/language-common@3.0.4':
     resolution: {integrity: sha512-viSNNnRYtc7ULXzxrQIVUNwHAPSXRtoIwy/Tq4XQQdIknBzw4vz36lQLF6mvhMlTIlpjoN/Z1GFu/fwiAlUSsw==}
@@ -5775,7 +5775,7 @@ snapshots:
 
   '@yuku-toolchain/types@0.8.1': {}
 
-  '@zxcvbn-ts/core@3.0.4':
+  '@zxcvbn-ts/core@4.1.2':
     dependencies:
       fastest-levenshtein: 1.0.16
 
