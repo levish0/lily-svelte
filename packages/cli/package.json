@@ -101,7 +101,7 @@
 		"get-tsconfig": "^4.7.3",
 		"ignore": "^7.0.4",
 		"magic-string": "^1.1.0",
-		"memfs": "^4.65.0",
+		"memfs": "^4.68.1",
 		"open": "^11.0.0",
 		"package-manager-detector": "^1.2.0",
 		"picocolors": "^1.1.1",
