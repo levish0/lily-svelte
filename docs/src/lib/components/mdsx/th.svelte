@@ -7,7 +7,7 @@
 
 <th
 	class={cn(
-		'px-4 py-2 text-start font-bold [&[align=center]]:text-center [&[align=right]]:text-end',
+		'h-11 px-4 text-start align-middle text-xs font-medium tracking-[-0.3px] whitespace-nowrap text-(--text)/56 [&[align=center]]:text-center [&[align=right]]:text-end',
 		className
 	)}
 	{...restProps}

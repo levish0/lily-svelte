@@ -23,6 +23,7 @@
 	import Icon from '@iconify/svelte';
 	import type { HighlighterCore } from 'shiki/core';
 	import * as Tooltip from '$lib/registry/ui/tooltip/index.js';
+	import { UseClipboard } from '$lib/registry/hooks/use-clipboard.svelte.js';
 	import { getHighlighter } from './shiki.js';
 
 	let { class: className, variant = 'default', code, lang = 'svelte' }: CodeBlockProps = $props();
@@ -46,15 +47,7 @@
 		}
 	});
 
-	let copied = $state(false);
-	let timeout: ReturnType<typeof setTimeout>;
-
-	function copy() {
-		navigator.clipboard.writeText(code);
-		copied = true;
-		clearTimeout(timeout);
-		timeout = setTimeout(() => (copied = false), 2000);
-	}
+	const clipboard = new UseClipboard();
 </script>
 
 <div
@@ -71,16 +64,24 @@
 		<Tooltip.Root>
 			<Tooltip.Trigger
 				aria-label="Copy code"
-				onclick={copy}
+				onclick={() => clipboard.copy(code)}
 				class="absolute end-3 top-3 inline-flex size-7 items-center justify-center rounded-xl bg-(--text)/8 text-(--text)/56 transition-colors duration-150 hover:bg-(--text)/12 hover:text-(--text) focus-visible:outline-none"
 			>
-				{#if copied}
+				{#if clipboard.status === 'success'}
 					<Icon icon="heroicons:check-solid" class="size-4" aria-hidden="true" />
+				{:else if clipboard.status === 'failure'}
+					<Icon icon="heroicons:x-mark-solid" class="size-4" aria-hidden="true" />
 				{:else}
 					<Icon icon="heroicons:clipboard-document-solid" class="size-4" aria-hidden="true" />
 				{/if}
 			</Tooltip.Trigger>
-			<Tooltip.Content>{copied ? 'Copied' : 'Copy'}</Tooltip.Content>
+			<Tooltip.Content>
+				{clipboard.status === 'success'
+					? 'Copied'
+					: clipboard.status === 'failure'
+						? 'Failed to copy'
+						: 'Copy'}
+			</Tooltip.Content>
 		</Tooltip.Root>
 	</Tooltip.Provider>
 </div>

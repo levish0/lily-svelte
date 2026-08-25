@@ -72,7 +72,18 @@
 	function update() {
 		const scrollTop = root ? root.scrollTop : window.scrollY;
 		const containerTop = root ? root.getBoundingClientRect().top : 0;
-		const y = scrollTop + offset;
+		const viewport = root ? root.clientHeight : window.innerHeight;
+		const scrollHeight = root ? root.scrollHeight : document.documentElement.scrollHeight;
+
+		// A heading only becomes current once it can be scrolled to within `offset` of the
+		// top — which the ones in the last screenful never can, so the highlight used to
+		// stall on an earlier heading. In that final stretch the line sweeps down to the
+		// bottom of the viewport instead, picking the trailing headings up on the way.
+		const tail = Math.max(0, viewport - offset);
+		const maxScroll = Math.max(0, scrollHeight - viewport);
+		const sweep = Math.min(tail, Math.max(0, scrollTop - (maxScroll - tail)));
+		const y = scrollTop + offset + sweep;
+
 		let active = '';
 		for (const item of flat) {
 			const el = document.getElementById(item.url.replace(/^#/, ''));
@@ -82,14 +93,21 @@
 				: el.getBoundingClientRect().top + window.scrollY;
 			if (top <= y) active = el.id;
 		}
-		activeId = active;
+		// Above the first heading nothing has passed the line, but that section is what you
+		// are reading — keep the first item current rather than dropping the highlight.
+		activeId = active || flat[0]?.url.replace(/^#/, '') || '';
 	}
 
 	$effect(() => {
 		const target: HTMLElement | Window = root ?? window;
 		update();
 		target.addEventListener('scroll', update, { passive: true });
-		return () => target.removeEventListener('scroll', update);
+		// the sweep depends on viewport height, so a resize changes the answer
+		window.addEventListener('resize', update, { passive: true });
+		return () => {
+			target.removeEventListener('scroll', update);
+			window.removeEventListener('resize', update);
+		};
 	});
 
 	// Keep the active item scrolled into view within the TOC.
