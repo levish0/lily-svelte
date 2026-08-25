@@ -34,6 +34,21 @@ function validateRegistry(registry: Registry['items']) {
 	if (selfReferenceError) {
 		throw new Error(selfReferenceError);
 	}
+
+	const names = new Set(registry.map((item) => item.name));
+	const unresolvedError = registry
+		.flatMap((item) =>
+			(item.registryDependencies ?? [])
+				.filter((dep) => !dep.startsWith('http') && !names.has(dep))
+				.map(
+					(dep) =>
+						`Registry item '${item.name}' depends on '${dep}', which is not in the registry`
+				)
+		)
+		.join('\n');
+	if (unresolvedError) {
+		throw new Error(unresolvedError);
+	}
 }
 
 export async function build(): Promise<void> {

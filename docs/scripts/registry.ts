@@ -248,12 +248,16 @@ async function getFileDependencies(
 		}
 
 		if (source.startsWith(REGISTRY_DEPENDENCY) && source !== UTILS_PATH) {
-			if (source.includes('ui')) {
-				const component = source.split('/').at(-2)!;
-				registryDependencies.add(component);
-			} else if (source.includes('hook')) {
-				const hook = source.split('/').at(-1)!.split('.')[0]!;
-				registryDependencies.add(hook);
+			// Match on path SEGMENTS, and name the component from the segment AFTER the
+			// alias: an import may point at a file ('ui/input/index.js') or at the
+			// directory alone ('ui/input'), so the last-but-one segment is not the name.
+			const segments = source.split('/');
+			const uiIndex = segments.indexOf('ui');
+
+			if (uiIndex !== -1 && segments[uiIndex + 1]) {
+				registryDependencies.add(segments[uiIndex + 1]!);
+			} else if (segments.includes('hooks') || segments.includes('hook')) {
+				registryDependencies.add(segments.at(-1)!.split('.')[0]!);
 			}
 		}
 	};

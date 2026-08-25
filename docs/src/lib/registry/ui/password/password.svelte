@@ -25,7 +25,7 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { cn, type WithElementRef } from '$lib/utils.js';
-	import { Input } from '$lib/registry/ui/input';
+	import { Input } from '$lib/registry/ui/input/index.js';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	let {
