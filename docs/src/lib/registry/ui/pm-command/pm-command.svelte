@@ -28,6 +28,7 @@
 	import { resolveCommand } from 'package-manager-detector/commands';
 	import { Tabs, TabsList, TabsTrigger } from '$lib/registry/ui/tabs/index.js';
 	import * as Tooltip from '$lib/registry/ui/tooltip/index.js';
+	import { UseClipboard } from '$lib/registry/hooks/use-clipboard.svelte.js';
 
 	let {
 		class: className,
@@ -41,15 +42,7 @@
 	const resolved = $derived(resolveCommand(agent, command, args));
 	const text = $derived(resolved ? `${resolved.command} ${resolved.args.join(' ')}`.trim() : '');
 
-	let copied = $state(false);
-	let timeout: ReturnType<typeof setTimeout>;
-
-	function copy() {
-		navigator.clipboard.writeText(text);
-		copied = true;
-		clearTimeout(timeout);
-		timeout = setTimeout(() => (copied = false), 2000);
-	}
+	const clipboard = new UseClipboard();
 </script>
 
 <div data-slot="pm-command" class={cn('overflow-hidden rounded-3xl', variants[variant], className)}>
@@ -70,16 +63,24 @@
 			<Tooltip.Root>
 				<Tooltip.Trigger
 					aria-label="Copy command"
-					onclick={copy}
+					onclick={() => clipboard.copy(text)}
 					class="ms-auto inline-flex size-7 items-center justify-center rounded-xl bg-(--text)/8 text-(--text)/56 transition-colors duration-150 hover:bg-(--text)/12 hover:text-(--text) focus-visible:outline-none"
 				>
-					{#if copied}
+					{#if clipboard.status === 'success'}
 						<Icon icon="heroicons:check-solid" class="size-4" aria-hidden="true" />
+					{:else if clipboard.status === 'failure'}
+						<Icon icon="heroicons:x-mark-solid" class="size-4" aria-hidden="true" />
 					{:else}
 						<Icon icon="heroicons:clipboard-document-solid" class="size-4" aria-hidden="true" />
 					{/if}
 				</Tooltip.Trigger>
-				<Tooltip.Content>{copied ? 'Copied' : 'Copy'}</Tooltip.Content>
+				<Tooltip.Content>
+					{clipboard.status === 'success'
+						? 'Copied'
+						: clipboard.status === 'failure'
+							? 'Failed to copy'
+							: 'Copy'}
+				</Tooltip.Content>
 			</Tooltip.Root>
 		</Tooltip.Provider>
 	</div>

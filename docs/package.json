@@ -53,7 +53,7 @@
 		"rehype-slug": "^6.0.0",
 		"remark-gfm": "^4.0.1",
 		"shiki": "^4.4.3",
-		"svelte": "^5.56.9",
+		"svelte": "^5.56.10",
 		"svelte-check": "^4.7.6",
 		"svelte-sonner": "^1.2.1",
 		"svelte-tel-input": "^4.3.2",
@@ -72,13 +72,16 @@
 	"dependencies": {
 		"@tanstack/table-core": "^8.21.3",
 		"@types/d3-scale": "^4.0.9",
-		"@types/d3-shape": "^3.1.8",
+		"@types/d3-shape": "^3.2.0",
 		"d3-scale": "^4.0.2",
 		"d3-shape": "^3.2.0",
+		"formsnap": "^2.0.1",
 		"layerchart": "2.0.1",
 		"mode-watcher": "^1.1.0",
 		"runed": "^0.37.1",
+		"svelte-easy-crop": "^5.0.1",
 		"svelte-toolbelt": "^0.10.6",
+		"sveltekit-superforms": "^2.30.2",
 		"vaul-svelte": "1.0.0-next.7"
 	}
 }

@@ -5,6 +5,6 @@
 	let { class: className, children, ...restProps }: HTMLAttributes<HTMLTableRowElement> = $props();
 </script>
 
-<tr class={cn('m-0 border-b', className)} {...restProps}>
+<tr class={cn('border-b border-(--text)/8', className)} {...restProps}>
 	{@render children?.()}
 </tr>
