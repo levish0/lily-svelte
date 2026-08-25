@@ -11,7 +11,12 @@ import { getEnvProxy } from '../../utils/get-env-proxy.js';
 import { cancel, intro, prettifyList, handleError } from '../../utils/prompt-helpers.js';
 import * as p from '@clack/prompts';
 import * as registry from '../../utils/registry/index.js';
-import { ensureDesignSystem } from '../../utils/css.js';
+import {
+	updateDesignSystem,
+	findDesignSystemRegion,
+	buildDesignSystemRegion
+} from '../../utils/css.js';
+import { getCLIPackageInfo } from '../../utils/get-package-info.js';
 import { transformCss } from '../../utils/transform-css.js';
 import { setupFonts, type Font } from '../../utils/fonts.js';
 import { checkPreconditions } from '../../utils/preconditions.js';
@@ -266,17 +271,40 @@ async function runUpdate(cwd: string, config: cliConfig.ResolvedConfig, options:
 	cssVars = merge(cssVars, fontsCssVars);
 	fontsDependencies.forEach((dep) => devDependencies.add(dep));
 
-	if (Object.keys(cssVars).length > 0 || Object.keys(css).length > 0) {
-		// Update the stylesheet
+	// The design system is one managed region inside the user's stylesheet, so bringing it up
+	// to date is part of `update` even when no component asked for a CSS change.
+	const cssPath = config.resolvedPaths.tailwindCss;
+	const cssSource = await fs.readFile(cssPath, 'utf8');
+	const withItemCss = transformCss(cssSource, { css, cssVars });
+	const designSystem = updateDesignSystem(withItemCss);
+
+	let nextCss = designSystem.css;
+	if (designSystem.status === 'edited') {
+		p.log.warn(
+			`Your ${highlight('lily design system')} block has local edits, so it was left as it is.\n${color.gray(summarizeCssDiff(designSystem.current, designSystem.next))}`
+		);
+
+		if (!options.yes) {
+			const replace = await p.confirm({
+				message: `Replace it with the ${highlight('v' + (getCLIPackageInfo().version ?? '0.0.0'))} design system? Your edits to that block will be lost.`,
+				initialValue: false
+			});
+			if (p.isCancel(replace)) cancel();
+			if (replace) {
+				const region = findDesignSystemRegion(withItemCss)!;
+				nextCss =
+					withItemCss.slice(0, region.start) +
+					buildDesignSystemRegion() +
+					withItemCss.slice(region.end);
+			}
+		}
+	}
+
+	if (nextCss !== cssSource) {
 		tasks.push({
 			title: 'Updating stylesheet',
 			async task() {
-				const cssPath = config.resolvedPaths.tailwindCss;
-				const cssSource = await fs.readFile(cssPath, 'utf8');
-
-				const modifiedCss = ensureDesignSystem(transformCss(cssSource, { css, cssVars }));
-				await fs.writeFile(cssPath, modifiedCss, 'utf8');
-
+				await fs.writeFile(cssPath, nextCss, 'utf8');
 				const relative = path.relative(cwd, cssPath);
 				return `${highlight('Stylesheet')} updated at ${color.dim(relative)}`;
 			}
@@ -307,4 +335,24 @@ async function runUpdate(cwd: string, config: cliConfig.ResolvedConfig, options:
 	if (Object.keys(componentsToRemove).length > 0) {
 		p.log.message(color.bold('You may want to delete them.'));
 	}
+}
+
+/** A short, readable account of how the on-disk block differs from the shipped one. */
+function summarizeCssDiff(current: string, next: string): string {
+	const a = current.split('\n');
+	const b = next.split('\n');
+	const removed = a.filter((line) => !b.includes(line));
+	const added = b.filter((line) => !a.includes(line));
+
+	const preview = [
+		...removed.slice(0, 5).map((line) => `- ${line.trim()}`),
+		...added.slice(0, 5).map((line) => `+ ${line.trim()}`)
+	];
+	const hidden = removed.length + added.length - preview.length;
+
+	return [
+		`${removed.length} line(s) yours, ${added.length} line(s) in v${getCLIPackageInfo().version ?? '0.0.0'}`,
+		...preview,
+		...(hidden > 0 ? [`  …and ${hidden} more`] : [])
+	].join('\n');
 }

@@ -173,7 +173,7 @@ async function promptForConfig({
 	if (globalCss === undefined) {
 		const cssDefault = cliConfig.DEFAULT_CONFIG.tailwind.css;
 		const input = await p.text({
-			message: `Where is your ${highlight('global CSS')} file? ${color.gray('(this file will be overwritten)')}`,
+			message: `Where is your ${highlight('global CSS')} file? ${color.gray('(the lily design system is appended to it)')}`,
 			initialValue: existingConfig?.tailwind.css ?? cssPath ?? cssDefault,
 			placeholder: cssPath ?? cssDefault,
 			validate: (value) => {
