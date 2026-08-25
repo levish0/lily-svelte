@@ -33,7 +33,11 @@
 	}
 
 	:root {
-		--bg: #f8f8f8;
+		/* The step between these two is load-bearing: lily separates cards, dialogs and
+		 * popovers from the page with colour alone, no borders. #f0f0f0 -> #ffffff is 5.2 L*,
+		 * matching the dark pair, so the same design reads the same in both modes. Equal
+		 * values make every elevated surface invisible. */
+		--bg: #f0f0f0;
 		--bg-elevated: #ffffff;
 		--text: #0d0d0d;
 
