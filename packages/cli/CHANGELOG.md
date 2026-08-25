@@ -1,5 +1,46 @@
 # lily-svelte
 
+## 0.4.0
+
+### Minor Changes
+
+- [`b72039f`](https://github.com/levish0/lily-svelte/commit/b72039fc0000f736ee4d5799c9d569e253b34e8e) Thanks [@levish0](https://github.com/levish0)! - Give `avatar` the image attributes it was hiding.
+
+  `srcset`, `sizes`, `loading`, `crossorigin` and `referrerpolicy` are now props on `Avatar`, passed
+  through to the underlying `<img>` — `restProps` lands on the wrapper, so there was no way to reach
+  them before. `loading` was hardcoded to `lazy`, which meant the avatars above the fold always
+  popped in late, and without `srcset` every avatar was soft on a 2x display. Both are worst exactly
+  where avatars are most common: a list of them.
+
+  ```svelte
+  <Avatar
+  	src={user.avatar}
+  	srcset="{user.avatar} 1x, {user.avatar2x} 2x"
+  	loading="eager"
+  	alt={user.name}
+  />
+  ```
+
+- [`1542941`](https://github.com/levish0/lily-svelte/commit/15429414504e53b0879a3ef1ad2ed87c22b5a287) Thanks [@levish0](https://github.com/levish0)! - Give `button` and `badge` a real weight ladder, `password` composable parts, and `select` groups.
+
+  **Breaking:** `Button`'s variants are renamed and re-cut. `variant="default"` is now `variant="solid"`, and the old `variant="ghost"` — which carried a resting tint — is now `variant="soft"`. `ghost` is a new, quieter level. `Badge` uses the same names. Rename call sites: `default` → `solid`, `ghost` → `soft`.
+
+  - **`button` gains a third weight** — `solid` / `soft` / `ghost`, loudest to quietest, with `destructive` outside the ladder as a meaning. `ghost` is transparent until hovered, so a row of icon buttons no longer reads as a row of filled chips.
+  - **`button` gains `loading`** — shows a spinner and swallows clicks while an action is in flight. The label keeps its box so the button never resizes; it uses `aria-disabled` + `aria-busy` rather than `disabled`, so a keyboard user does not lose focus mid-action; and the spinner waits `loadingDelay` (150ms, tunable) so quick actions never flash.
+  - **`button` gains an icon size scale** — `icon-sm` / `icon` / `icon-lg`, matching the `sm` / `default` / `lg` text buttons.
+  - **`buttonVariants()` and `badgeVariants()` are exported** — for styling something that is not a `Button` or `Badge`, e.g. `<a class={buttonVariants({ variant: 'ghost', size: 'sm' })}>`.
+  - **`badge` gains variants** — a `solid` / `soft` / `quiet` / `destructive` ladder, defaulting to `soft` (today's look). `quiet` keeps a fill rather than going transparent: a badge has no hover state to fall back on, so a fill-less pill stops reading as a status. It dims the label as well as the fill so the step stays legible. Hover treatment now only applies when the badge is a link, so a static status label no longer looks clickable.
+  - **`password` exposes its parts** — `PasswordRoot` / `PasswordInput` / `PasswordToggleVisibility` / `PasswordStrength`, with `<Password />` kept as the composed happy path. Adds `result` (the full zxcvbn result, bindable out), `minScore`, and custom strength labels. Scoring is lazy, so a plain `<Password />` never pays for zxcvbn.
+  - **`spinner` now draws in `currentColor`** — it was pinned to `--text`, so it disappeared on any surface painted in that colour, including the new `solid` loading button. It now inherits the text colour of wherever it is dropped.
+  - **`select` gains `Group`, `GroupHeading` and `Separator`** — options can be grouped under headings once there are more than a handful.
+
+- [`b72039f`](https://github.com/levish0/lily-svelte/commit/b72039fc0000f736ee4d5799c9d569e253b34e8e) Thanks [@levish0](https://github.com/levish0)! - Rename the project config to `lily.json`, and give `file-drop-zone` its size and accept constants.
+
+  **Breaking:** the CLI now reads and writes `lily.json` instead of `components.json`. Running `init` on an existing lily project moves the settings across and removes the old file, so there is nothing to do by hand.
+
+  - **`components.json` → `lily.json`** — the old name is also shadcn-svelte's, and both tools default to `$lib/components/ui`, so a project could only ever host one of them. Worse, lily could not tell its own config from shadcn's: running `init` in a shadcn project inherited that project's `registry`, failed on the first fetch, and left the user's config half-rewritten. lily now only reads a `components.json` that points at a lily registry or schema, and ignores a foreign one entirely — which also makes gradual migration possible, with shadcn staying in `$lib/components/ui` while lily is installed under a different alias.
+  - **`file-drop-zone` exports `BYTE` / `KILOBYTE` / `MEGABYTE` / `GIGABYTE` and `ACCEPT_IMAGE` / `ACCEPT_VIDEO` / `ACCEPT_AUDIO`** — the natural companions to `maxFileSize` and `accept`, which every project was re-declaring. They are 1024-based, matching `displaySize` and the server limits they usually mirror (nginx's `client_max_body_size 10m` and body-parser's `'10mb'` are both 1024-based, so 1000-based constants would reject files the server would have accepted).
+
 ## 0.3.0
 
 ### Minor Changes
