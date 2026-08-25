@@ -1,89 +1,50 @@
 <script lang="ts" module>
-	import { ZxcvbnFactory } from '@zxcvbn-ts/core';
-	import * as zxcvbnCommon from '@zxcvbn-ts/language-common';
+	import type { ZxcvbnResult } from '@zxcvbn-ts/core';
+	import type { HTMLInputAttributes } from 'svelte/elements';
+	import type { PasswordScore } from './password.svelte.js';
+	import type { WithElementRef } from '$lib/utils.js';
 
-	let estimator: ZxcvbnFactory | null = null;
-	function getEstimator() {
-		estimator ??= new ZxcvbnFactory({
-			dictionary: { ...zxcvbnCommon.dictionary },
-			graphs: zxcvbnCommon.adjacencyGraphs
-		});
-		return estimator;
-	}
-
-	const STRENGTH_LABELS = ['Very weak', 'Weak', 'Fair', 'Good', 'Strong'];
-	// Weak → strong: red → amber → lime → green.
-	const STRENGTH_COLORS = [
-		'bg-red-500',
-		'bg-red-500',
-		'bg-amber-500',
-		'bg-lime-500',
-		'bg-green-500'
-	];
+	export type PasswordProps = WithElementRef<
+		Omit<HTMLInputAttributes, 'type' | 'files' | 'value'>,
+		HTMLInputElement
+	> & {
+		value?: string;
+		/** The full zxcvbn result, bindable out for form validation. */
+		result?: ZxcvbnResult | null;
+		/** Marks the input invalid until the score reaches this. */
+		minScore?: PasswordScore;
+		/** Show the strength meter under the input. */
+		showStrength?: boolean;
+		/** Replaces the built-in strength labels; five entries, weakest first. */
+		strengthLabels?: string[];
+	};
 </script>
 
 <script lang="ts">
-	import Icon from '@iconify/svelte';
-	import { cn, type WithElementRef } from '$lib/utils.js';
-	import { Input } from '$lib/registry/ui/input/index.js';
-	import type { HTMLInputAttributes } from 'svelte/elements';
+	import Root from './password-root.svelte';
+	import Input from './password-input.svelte';
+	import ToggleVisibility from './password-toggle-visibility.svelte';
+	import Strength from './password-strength.svelte';
 
 	let {
 		ref = $bindable(null),
 		value = $bindable(''),
+		result = $bindable(null),
+		minScore,
 		showStrength = false,
+		strengthLabels,
 		class: className,
 		...restProps
-	}: WithElementRef<Omit<HTMLInputAttributes, 'type' | 'files'>, HTMLInputElement> & {
-		showStrength?: boolean;
-	} = $props();
-
-	let visible = $state(false);
-
-	const score = $derived.by(() => {
-		if (!showStrength || !value) return null;
-		return getEstimator().check(String(value)).score; // 0–4
-	});
+	}: PasswordProps = $props();
 </script>
 
-<div class="flex flex-col gap-2">
+<!-- The composed happy path. Reach for the parts when this layout does not fit. -->
+<Root bind:value bind:result {minScore}>
 	<div class="relative">
-		<Input
-			bind:ref
-			bind:value
-			type={visible ? 'text' : 'password'}
-			class={cn('pe-11', className)}
-			{...restProps}
-		/>
-		<button
-			type="button"
-			tabindex={-1}
-			aria-label={visible ? 'Hide password' : 'Show password'}
-			onclick={() => (visible = !visible)}
-			class="absolute end-1.5 top-1/2 inline-flex size-8 -translate-y-1/2 items-center justify-center rounded-full text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)/72 focus-visible:outline-none"
-		>
-			{#if visible}
-				<Icon icon="heroicons:eye-slash-solid" class="size-4.5" aria-hidden="true" />
-			{:else}
-				<Icon icon="heroicons:eye-solid" class="size-4.5" aria-hidden="true" />
-			{/if}
-		</button>
+		<Input bind:ref class={className} {...restProps} />
+		<ToggleVisibility class="absolute end-1.5 top-1/2 -translate-y-1/2" />
 	</div>
-
-	{#if showStrength && score !== null}
-		<div class="flex items-center gap-3 px-1.5">
-			<div class="h-1.5 flex-1 overflow-hidden rounded-full bg-(--text)/12">
-				<div
-					class={cn(
-						'h-full rounded-full transition-all duration-300 ease-out',
-						STRENGTH_COLORS[score]
-					)}
-					style="width: {((score + 1) / 5) * 100}%"
-				></div>
-			</div>
-			<span class="w-16 shrink-0 text-right text-xs tracking-[-0.3px] text-(--text)/56">
-				{STRENGTH_LABELS[score]}
-			</span>
-		</div>
+	{#if showStrength}
+		<Strength labels={strengthLabels} />
 	{/if}
-</div>
+</Root>

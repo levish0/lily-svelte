@@ -28,7 +28,7 @@
 		<DialogFooter>
 			<DialogClose>
 				{#snippet child({ props })}
-					<Button variant="ghost" {...props}>Cancel</Button>
+					<Button variant="soft" {...props}>Cancel</Button>
 				{/snippet}
 			</DialogClose>
 			<Button variant="destructive">Delete</Button>

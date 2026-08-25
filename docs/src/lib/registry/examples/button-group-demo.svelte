@@ -4,9 +4,9 @@
 </script>
 
 <ButtonGroup>
-	<Button variant="ghost">Day</Button>
+	<Button variant="soft">Day</Button>
 	<ButtonGroupSeparator />
-	<Button variant="ghost">Week</Button>
+	<Button variant="soft">Week</Button>
 	<ButtonGroupSeparator />
-	<Button variant="ghost">Month</Button>
+	<Button variant="soft">Month</Button>
 </ButtonGroup>

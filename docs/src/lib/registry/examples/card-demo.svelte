@@ -22,6 +22,6 @@
 	</CardContent>
 	<CardFooter>
 		<Button>Upgrade</Button>
-		<Button variant="ghost">Maybe later</Button>
+		<Button variant="soft">Maybe later</Button>
 	</CardFooter>
 </Card>

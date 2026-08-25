@@ -8,7 +8,7 @@
 <Popover>
 	<PopoverTrigger>
 		{#snippet child({ props })}
-			<Button variant="ghost" {...props}>Open popover</Button>
+			<Button variant="soft" {...props}>Open popover</Button>
 		{/snippet}
 	</PopoverTrigger>
 	<PopoverContent>

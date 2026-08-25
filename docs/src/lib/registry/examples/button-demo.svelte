@@ -3,7 +3,8 @@
 </script>
 
 <div class="flex flex-wrap items-center gap-3">
-	<Button>Default</Button>
+	<Button>Solid</Button>
+	<Button variant="soft">Soft</Button>
 	<Button variant="ghost">Ghost</Button>
 	<Button variant="destructive">Destructive</Button>
 </div>

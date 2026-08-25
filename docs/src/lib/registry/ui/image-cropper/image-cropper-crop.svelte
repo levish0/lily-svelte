@@ -5,7 +5,7 @@
 
 	let {
 		ref = $bindable(null),
-		variant = 'default',
+		variant = 'solid',
 		size = 'sm',
 		onclick,
 		children,

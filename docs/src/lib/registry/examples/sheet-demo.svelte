@@ -15,7 +15,7 @@
 <Sheet>
 	<SheetTrigger>
 		{#snippet child({ props })}
-			<Button variant="ghost" {...props}>Open sheet</Button>
+			<Button variant="soft" {...props}>Open sheet</Button>
 		{/snippet}
 	</SheetTrigger>
 	<SheetContent side="right">

@@ -55,3 +55,30 @@ npx lily-svelte@latest init
 	</SelectContent>
 </Select>
 ```
+
+## Groups
+
+Once a select holds more than a handful of options, group them under headings. `SelectSeparator`
+draws a rule between groups.
+
+<ComponentPreview name="select-group-demo">
+<div></div>
+</ComponentPreview>
+
+```svelte
+<SelectContent>
+	<SelectGroup>
+		<SelectGroupHeading>Asia</SelectGroupHeading>
+		<SelectItem value="Seoul">Seoul</SelectItem>
+		<SelectItem value="Tokyo">Tokyo</SelectItem>
+	</SelectGroup>
+	<SelectSeparator />
+	<SelectGroup>
+		<SelectGroupHeading>Europe</SelectGroupHeading>
+		<SelectItem value="London">London</SelectItem>
+	</SelectGroup>
+</SelectContent>
+```
+
+`SelectGroupHeading` is a label, not an option — it is skipped by keyboard navigation and
+announced as the group's name for the items under it.

@@ -15,7 +15,7 @@
 <Drawer>
 	<DrawerTrigger>
 		{#snippet child({ props })}
-			<Button variant="ghost" {...props}>Open drawer</Button>
+			<Button variant="soft" {...props}>Open drawer</Button>
 		{/snippet}
 	</DrawerTrigger>
 	<DrawerContent>
@@ -28,7 +28,7 @@
 				<Button>Submit</Button>
 				<DrawerClose>
 					{#snippet child({ props })}
-						<Button variant="ghost" {...props}>Cancel</Button>
+						<Button variant="soft" {...props}>Cancel</Button>
 					{/snippet}
 				</DrawerClose>
 			</DrawerFooter>

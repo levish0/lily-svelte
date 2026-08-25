@@ -34,7 +34,7 @@
 				</Field>
 				<Field>
 					<Button type="submit" class="w-full">Login</Button>
-					<Button variant="ghost" class="w-full">
+					<Button variant="soft" class="w-full">
 						<svg class="me-2 size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 							<path
 								fill="#4285F4"

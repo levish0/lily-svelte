@@ -4,7 +4,7 @@
 </script>
 
 <Button
-	variant="ghost"
+	variant="soft"
 	onclick={() =>
 		toast('Event created', {
 			description: 'Sunday, December 03 at 9:00 AM'

@@ -13,7 +13,7 @@
 <DropdownMenu>
 	<DropdownMenuTrigger>
 		{#snippet child({ props })}
-			<Button variant="ghost" {...props}>Open menu</Button>
+			<Button variant="soft" {...props}>Open menu</Button>
 		{/snippet}
 	</DropdownMenuTrigger>
 	<DropdownMenuContent>

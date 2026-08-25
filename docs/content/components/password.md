@@ -61,3 +61,65 @@ Pass `showStrength` to render a strength bar. Scoring uses [`@zxcvbn-ts`](https:
 ```bash
 npm install @zxcvbn-ts/core @zxcvbn-ts/language-common
 ```
+
+## Reading the score
+
+`result` binds the full [zxcvbn](https://github.com/zxcvbn-ts/zxcvbn) result out, so form
+validation can read `score` (0–4) or any of the crack-time estimates. `minScore` marks the input
+invalid until the password reaches it.
+
+```svelte
+<script lang="ts">
+	import type { ZxcvbnResult } from '@zxcvbn-ts/core';
+
+	let value = $state('');
+	let result = $state<ZxcvbnResult | null>(null);
+
+	const strongEnough = $derived((result?.score ?? -1) >= 3);
+</script>
+
+<Password bind:value bind:result minScore={3} showStrength />
+```
+
+Scoring is lazy — zxcvbn only runs when something actually reads the score, so a plain
+`<Password />` never pays for it.
+
+## Parts
+
+`<Password />` is the composed happy path. When that layout does not fit — a label with your own
+copy, the strength meter somewhere else, a different toggle — build it from the parts instead.
+
+<ComponentPreview name="password-parts-demo">
+<div></div>
+</ComponentPreview>
+
+```svelte
+<script lang="ts">
+	import {
+		PasswordRoot,
+		PasswordInput,
+		PasswordToggleVisibility,
+		PasswordStrength
+	} from '$lib/components/ui/password';
+
+	let value = $state('');
+</script>
+
+<PasswordRoot bind:value minScore={2}>
+	<div class="relative">
+		<PasswordInput placeholder="Enter your password" />
+		<PasswordToggleVisibility class="absolute end-1.5 top-1/2 -translate-y-1/2" />
+	</div>
+	<PasswordStrength labels={['Poor', 'Weak', 'Average', 'Strong', 'Secure']} />
+</PasswordRoot>
+```
+
+| Part                       | Does                                                                                                                |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `PasswordRoot`             | holds `value`, visibility and the score; everything else reads from it                                              |
+| `PasswordInput`            | the input, switching between `password` and `text`                                                                  |
+| `PasswordToggleVisibility` | the eye button — place it wherever you like, or pass children to replace the icon                                   |
+| `PasswordStrength`         | the bar and label; `labels` replaces the copy, `showLabel={false}` drops it, or pass a snippet for your own readout |
+
+Only one field needs the meter? Give that one a `PasswordStrength` and leave it off the other —
+each `PasswordRoot` is independent.

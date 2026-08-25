@@ -7,7 +7,7 @@
 	<Tooltip.Root>
 		<Tooltip.Trigger>
 			{#snippet child({ props })}
-				<Button variant="ghost" {...props}>Hover me</Button>
+				<Button variant="soft" {...props}>Hover me</Button>
 			{/snippet}
 		</Tooltip.Trigger>
 		<Tooltip.Content>Add to library</Tooltip.Content>

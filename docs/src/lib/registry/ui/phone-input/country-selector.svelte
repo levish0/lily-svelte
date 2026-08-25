@@ -42,7 +42,7 @@
 			<Button
 				{...props}
 				type="button"
-				variant="ghost"
+				variant="soft"
 				{disabled}
 				class="shrink-0 gap-1.5 rounded-l-3xl rounded-r-none px-3"
 			>

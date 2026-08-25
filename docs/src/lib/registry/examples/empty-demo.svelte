@@ -10,5 +10,5 @@
 	</EmptyMedia>
 	<EmptyTitle>No messages</EmptyTitle>
 	<EmptyDescription>You're all caught up. New messages will show up here.</EmptyDescription>
-	<Button size="sm" variant="ghost" class="mt-2">Refresh</Button>
+	<Button size="sm" variant="soft" class="mt-2">Refresh</Button>
 </Empty>

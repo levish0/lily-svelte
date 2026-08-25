@@ -8,7 +8,7 @@
 		disabled = false,
 		child,
 		children,
-		variant = 'default',
+		variant = 'solid',
 		size = 'default',
 		...rest
 	}: StepperNextButtonProps = $props();

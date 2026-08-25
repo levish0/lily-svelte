@@ -6,7 +6,7 @@
 <AlertDialog.Root>
 	<AlertDialog.Trigger>
 		{#snippet child({ props })}
-			<Button variant="ghost" {...props}>Delete account</Button>
+			<Button variant="soft" {...props}>Delete account</Button>
 		{/snippet}
 	</AlertDialog.Trigger>
 	<AlertDialog.Content>

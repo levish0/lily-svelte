@@ -48,10 +48,38 @@ npx lily-svelte@latest init
 <Badge>New</Badge>
 ```
 
+## Variants
+
+Badges are usually status labels, and status has weight — `deleted` and `draft` should not read
+the same. `solid`, `soft` and `ghost` are the same ladder the [Button](/docs/components/button)
+uses; `destructive` is a meaning, not a weight.
+
+```svelte
+<Badge variant="solid">Live</Badge>
+<Badge>Draft</Badge>
+<Badge variant="ghost">Archived</Badge>
+<Badge variant="destructive">Deleted</Badge>
+```
+
+`soft` is the default, so a badge you drop in without thinking stays quiet.
+
 ## Link
 
-Pass an `href` to render the badge as an anchor with a subtle hover treatment.
+Pass an `href` to render the badge as an anchor. Only then does it pick up a hover treatment, so
+a static status label never looks clickable.
 
 ```svelte
 <Badge href="/changelog">v1.0</Badge>
+```
+
+## badgeVariants
+
+To style something that is not a `Badge`, use `badgeVariants()`.
+
+```svelte
+<script lang="ts">
+	import { badgeVariants } from '$lib/components/ui/badge';
+</script>
+
+<span class={badgeVariants({ variant: 'ghost' })}>Archived</span>
 ```
