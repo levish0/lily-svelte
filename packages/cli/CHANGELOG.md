@@ -1,5 +1,11 @@
 # lily-svelte
 
+## 0.6.0
+
+### Minor Changes
+
+- [`0e9e08f`](https://github.com/levish0/lily-svelte/commit/0e9e08fd741da0fcfafc375f0c8d235b074c03f1) Thanks [@levish0](https://github.com/levish0)! - Add optional compound triggers to File Drop Zone while preserving whole-zone file selection by default.
+
 ## 0.5.0
 
 ### Minor Changes
