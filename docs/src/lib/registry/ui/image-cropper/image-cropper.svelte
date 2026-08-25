@@ -8,6 +8,7 @@
 		src?: string;
 		onCropped?: (url: string) => void;
 		onUnsupportedFile?: (file: File) => void;
+		onCropError?: (error: unknown) => void;
 		children?: Snippet;
 	};
 </script>
@@ -22,6 +23,7 @@
 		src = $bindable(''),
 		onCropped = () => {},
 		onUnsupportedFile = () => {},
+		onCropError = () => {},
 		accept = 'image/*',
 		children,
 		...restProps
@@ -42,6 +44,9 @@
 		},
 		get onUnsupportedFile() {
 			return onUnsupportedFile;
+		},
+		get onCropError() {
+			return onCropError;
 		}
 	});
 

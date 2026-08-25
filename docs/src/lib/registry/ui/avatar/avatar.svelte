@@ -13,21 +13,30 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { cn, type WithElementRef } from '$lib/utils.js';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes, HTMLImgAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 
-	type Props = WithElementRef<HTMLAttributes<HTMLDivElement>> & {
-		src?: string;
-		alt?: string;
-		size?: AvatarSize;
-		fallback?: Snippet | string;
-	};
+	type Props = WithElementRef<HTMLAttributes<HTMLDivElement>> &
+		// `restProps` lands on the wrapper, so the handful of image attributes worth reaching for
+		// are named here instead. An avatar is the most repeated image on a page, which is exactly
+		// where `srcset` and an eager first row matter.
+		Pick<HTMLImgAttributes, 'srcset' | 'sizes' | 'loading' | 'crossorigin' | 'referrerpolicy'> & {
+			src?: string;
+			alt?: string;
+			size?: AvatarSize;
+			fallback?: Snippet | string;
+		};
 
 	let {
 		ref = $bindable(null),
 		src,
+		srcset,
+		sizes,
 		alt = '',
 		size = 'default',
+		loading = 'lazy',
+		crossorigin,
+		referrerpolicy,
 		fallback,
 		class: className,
 		children,
@@ -50,8 +59,12 @@
 		{#if showImage}
 			<img
 				{src}
+				{srcset}
+				{sizes}
 				{alt}
-				loading="lazy"
+				{loading}
+				{crossorigin}
+				{referrerpolicy}
 				decoding="async"
 				class="size-full object-cover"
 				onerror={() => (failedSrc = src)}

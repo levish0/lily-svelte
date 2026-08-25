@@ -20,6 +20,7 @@
 	bind:ref
 	{variant}
 	{size}
+	disabled={root.cropping}
 	data-slot="image-cropper-cancel"
 	onclick={(e) => {
 		onclick?.(e as ButtonClick);

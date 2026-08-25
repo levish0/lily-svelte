@@ -125,7 +125,7 @@ export async function resolveRegistryItems({
 
 				let message = `Registry item '${item}' does not exist in the registry at '${registryUrl}'.`;
 				if (registryUrl !== OFFICIAL_REGISTRY_URL) {
-					message += `\n\nIf you're trying to use lily components, ensure your 'registry' property in components.json is set to '${OFFICIAL_REGISTRY_URL}'.`;
+					message += `\n\nIf you're trying to use lily components, ensure your 'registry' property in lily.json is set to '${OFFICIAL_REGISTRY_URL}'.`;
 				}
 				throw error(message);
 			}

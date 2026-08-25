@@ -236,11 +236,18 @@ export async function runInit({
 
 	const tasks: p.Task[] = [];
 
+	// a pre-rename project still has its config in components.json; write the new file and
+	// take the old one away, so the next run has exactly one source of truth
+	const legacyPath = cliConfig.legacyConfigPath(cwd);
+
 	tasks.push({
-		title: 'Creating config file',
+		title: legacyPath ? 'Migrating config file' : 'Creating config file',
 		async task() {
 			cliConfig.writeConfig(cwd, config);
-			return `Config file ${highlight('components.json')} created`;
+			if (!legacyPath) return `Config file ${highlight(cliConfig.CONFIG_FILE)} created`;
+
+			await fs.rm(legacyPath);
+			return `Config migrated from ${highlight(cliConfig.LEGACY_CONFIG_FILE)} to ${highlight(cliConfig.CONFIG_FILE)}`;
 		}
 	});
 

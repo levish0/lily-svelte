@@ -34,8 +34,22 @@ export type PasswordRootStateProps = {
 
 export class PasswordRootState {
 	visible = $state(false);
+	/** How many Strength parts are mounted; scoring is skipped while this is 0. */
+	#readers = $state(0);
 
 	constructor(readonly opts: PasswordRootStateProps) {}
+
+	/** Called by every part that needs a score, so a plain input never runs zxcvbn. */
+	addScoreReader = () => {
+		this.#readers += 1;
+		return () => {
+			this.#readers -= 1;
+		};
+	};
+
+	get scored() {
+		return this.#readers > 0 || this.opts.minScore !== undefined;
+	}
 
 	get id() {
 		return this.opts.id;
@@ -49,9 +63,9 @@ export class PasswordRootState {
 		this.opts.value = v;
 	}
 
-	/** `$derived` is lazy, so zxcvbn only runs where a Strength part (or `minScore`) reads it. */
+	/** zxcvbn is expensive, so it only runs once something actually asks for a score. */
 	readonly result = $derived.by<ZxcvbnResult | null>(() =>
-		this.opts.value ? getEstimator().check(this.opts.value) : null
+		this.scored && this.opts.value ? getEstimator().check(this.opts.value) : null
 	);
 
 	get score(): PasswordScore | null {

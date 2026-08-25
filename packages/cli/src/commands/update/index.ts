@@ -68,7 +68,7 @@ export const update = new Command()
 			const config = await cliConfig.getConfig(cwd);
 			if (!config) {
 				throw error(
-					`Configuration file is missing. Please run ${color.green('init')} to create a ${highlight('components.json')} file.`
+					`Configuration file is missing. Please run ${color.green('init')} to create a ${highlight(cliConfig.CONFIG_FILE)} file.`
 				);
 			}
 

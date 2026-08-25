@@ -14,12 +14,9 @@
 	const root = usePasswordRoot();
 </script>
 
-<!-- tabindex -1: the toggle is a convenience, and stopping on it every Tab makes the
-	 form slower to fill than it saves -->
 <button
 	bind:this={ref}
 	type="button"
-	tabindex={-1}
 	data-slot="password-toggle-visibility"
 	aria-label={root.visible ? 'Hide password' : 'Show password'}
 	aria-pressed={root.visible}

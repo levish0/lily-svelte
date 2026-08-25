@@ -21,6 +21,7 @@
 	bind:ref
 	{variant}
 	{size}
+	loading={root.cropping}
 	data-slot="image-cropper-crop"
 	class="gap-1.5"
 	onclick={(e) => {

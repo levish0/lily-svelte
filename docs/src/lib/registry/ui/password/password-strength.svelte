@@ -31,6 +31,10 @@
 	}: PasswordStrengthProps = $props();
 
 	const root = usePasswordRoot();
+
+	// registering is what switches scoring on for this Root
+	$effect(root.addScoreReader);
+
 	const score = $derived(root.score);
 	const label = $derived(score === null ? null : (labels[score] ?? null));
 </script>

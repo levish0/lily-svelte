@@ -86,6 +86,10 @@
 
 	const classes = $derived(buttonVariants({ variant, size, class: className }));
 
+	// `disabled` leaves the tab order; `loading` stays in it so focus survives the action.
+	// Dropping `href` makes an anchor unfocusable, so it needs the tabindex back.
+	const tabindex = $derived(disabled ? -1 : loading ? 0 : undefined);
+
 	// `disabled` would drop focus the moment the action starts, so a keyboard user loses their
 	// place. `aria-disabled` keeps the button focusable and announced; the click is swallowed here.
 	type ButtonClick = MouseEvent & { currentTarget: EventTarget & HTMLButtonElement };
@@ -121,8 +125,8 @@
 		href={disabled || loading ? undefined : href}
 		aria-disabled={disabled || loading || undefined}
 		aria-busy={loading || undefined}
-		role={disabled ? 'link' : undefined}
-		tabindex={disabled ? -1 : undefined}
+		role={disabled || loading ? 'link' : undefined}
+		{tabindex}
 		onclick={handleClick}
 		{...restProps}
 	>

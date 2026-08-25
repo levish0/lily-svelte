@@ -15,7 +15,7 @@ type ResolveImportOpts = {
 };
 
 /**
- * Returns the absolute path for a given `components.json` import alias.
+ * Returns the absolute path for a given `lily.json` import alias.
  */
 export function resolveImportAlias(opts: ResolveImportOpts): string | undefined {
 	const matcher = createPathsMatcher(opts.tsconfig);

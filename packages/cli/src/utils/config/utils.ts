@@ -42,7 +42,7 @@ export async function resolveConfig(cwd: string, config: RawConfig): Promise<Res
 
 	const aliasError = (type: string, alias: string) =>
 		new ConfigError(
-			`Invalid import alias found: (${highlight(`"${type}": "${alias}"`)}) in ${highlight('components.json')}.
+			`Invalid import alias found: (${highlight(`"${type}": "${alias}"`)}) in ${highlight(CONFIG_FILE)}.
    - Import aliases ${color.underline('must use')} existing path aliases defined in your ${highlight(tsconfigFilename)} (e.g. "${type}": "$lib/${type}").
    - See: ${color.underline(`${SITE_BASE_URL}/docs/installation/manual#configure-path-aliases`)}.`
 		);
@@ -63,10 +63,27 @@ export async function resolveConfig(cwd: string, config: RawConfig): Promise<Res
 	return resolvedConfigSchema.parse({ ...config, sveltekit, resolvedPaths });
 }
 
-export function loadConfig(cwd: string): RawConfig | undefined {
-	const configPath = path.resolve(cwd, 'components.json');
-	if (!fs.existsSync(configPath)) return;
+/** The project config lily reads and writes. */
+export const CONFIG_FILE = 'lily.json';
+/** What lily used to write, and what shadcn-svelte still calls its own. */
+export const LEGACY_CONFIG_FILE = 'components.json';
 
+/**
+ * `components.json` is also shadcn-svelte's filename, and both tools default to
+ * `$lib/components/ui`, so a project could only ever host one of them. A config counts as
+ * lily's only if it points at a lily registry or schema; anything else belongs to another
+ * tool and is left untouched.
+ */
+function isLilyConfig(config: unknown): boolean {
+	if (typeof config !== 'object' || config === null) return false;
+	const { registry, $schema } = config as { registry?: unknown; $schema?: unknown };
+	return (
+		(typeof registry === 'string' && registry.startsWith(SITE_BASE_URL)) ||
+		(typeof $schema === 'string' && $schema.startsWith(SITE_BASE_URL))
+	);
+}
+
+function readLilyConfig(configPath: string): RawConfig {
 	try {
 		const configResult = fs.readFileSync(configPath, { encoding: 'utf8' });
 		const config = JSON.parse(configResult);
@@ -75,9 +92,39 @@ export function loadConfig(cwd: string): RawConfig | undefined {
 		if (!(e instanceof z.ZodError)) throw e;
 		const formatted = z.prettifyError(e);
 		throw new ConfigError(
-			`Invalid configuration found in ${highlight(configPath)}.\n\n${formatted}`
+			`Invalid configuration found in ${highlight(configPath)}.
+
+${formatted}`
 		);
 	}
+}
+
+/** The path of a pre-rename lily config, if that is where the config still lives. */
+export function legacyConfigPath(cwd: string): string | undefined {
+	if (fs.existsSync(path.resolve(cwd, CONFIG_FILE))) return;
+
+	const legacyPath = path.resolve(cwd, LEGACY_CONFIG_FILE);
+	if (!fs.existsSync(legacyPath)) return;
+
+	try {
+		if (!isLilyConfig(JSON.parse(fs.readFileSync(legacyPath, { encoding: 'utf8' })))) return;
+	} catch {
+		return;
+	}
+	return legacyPath;
+}
+
+export function loadConfig(cwd: string): RawConfig | undefined {
+	const configPath = path.resolve(cwd, CONFIG_FILE);
+	if (fs.existsSync(configPath)) return readLilyConfig(configPath);
+
+	// carry a pre-rename lily project over; a foreign components.json is ignored, so running
+	// `init` inside a shadcn-svelte project starts clean instead of inheriting its registry
+	// and failing halfway through
+	const legacyPath = legacyConfigPath(cwd);
+	if (!legacyPath) return;
+
+	return readLilyConfig(legacyPath);
 }
 
 export function parseRawConfig(config: unknown) {
@@ -159,7 +206,7 @@ async function promptAlias(
 }
 
 export function writeConfig(cwd: string, config: RawConfig): void {
-	const targetPath = path.resolve(cwd, 'components.json');
+	const targetPath = path.resolve(cwd, CONFIG_FILE);
 	const conf = newConfigSchema.parse(config, { jitless: true }); // `jitless` to retain the property order
 	fs.writeFileSync(targetPath, JSON.stringify(conf, null, '\t') + '\n', 'utf8');
 }
@@ -181,7 +228,7 @@ export function resolveTSConfig(cwd: string, config: RawConfig) {
 		let msg = `Failed to find a ${highlight(tsconfigType)} file. `;
 
 		if (config.typescript)
-			msg += `See: ${color.underline(`${SITE_BASE_URL}/docs/components-json#typescript`)}`;
+			msg += `See: ${color.underline(`${SITE_BASE_URL}/docs/installation#lilyjson`)}`;
 		else
 			msg += `See: ${color.underline(`${SITE_BASE_URL}/docs/installation#opt-out-of-typescript`)}`;
 

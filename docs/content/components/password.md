@@ -81,8 +81,9 @@ invalid until the password reaches it.
 <Password bind:value bind:result minScore={3} showStrength />
 ```
 
-Scoring is lazy — zxcvbn only runs when something actually reads the score, so a plain
-`<Password />` never pays for it.
+Scoring is skipped entirely until something asks for it: a `PasswordStrength` part being
+rendered, `showStrength`, or a `minScore`. A plain `<Password />` never runs zxcvbn, and `result`
+stays `null` until one of those turns it on.
 
 ## Parts
 

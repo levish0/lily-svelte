@@ -19,13 +19,26 @@
 		children?: import('svelte').Snippet;
 	};
 
-	/** Human-readable byte size, e.g. 1536 → "1.5 KB". */
+	// 1024, to line up with the server limit this is usually mirroring — nginx's
+	// `client_max_body_size 10m` and body-parser's `'10mb'` are both 1024-based, so 1000-based
+	// constants would reject files the server would have accepted.
+	export const BYTE = 1;
+	export const KILOBYTE = 1024 * BYTE;
+	export const MEGABYTE = 1024 * KILOBYTE;
+	export const GIGABYTE = 1024 * MEGABYTE;
+
+	/** Ready-made `accept` values for the common cases. */
+	export const ACCEPT_IMAGE = 'image/*';
+	export const ACCEPT_VIDEO = 'video/*';
+	export const ACCEPT_AUDIO = 'audio/*';
+
+	/** Human-readable byte size, e.g. 1536 → "1.5 KB". Same units as the constants above. */
 	export function displaySize(bytes: number): string {
 		const units = ['B', 'KB', 'MB', 'GB'];
 		let size = bytes;
 		let unit = 0;
-		while (size >= 1024 && unit < units.length - 1) {
-			size /= 1024;
+		while (size >= KILOBYTE && unit < units.length - 1) {
+			size /= KILOBYTE;
 			unit++;
 		}
 		return `${Math.round(size * 10) / 10} ${units[unit]}`;

@@ -35,7 +35,7 @@ Spin up a new SvelteKit project with Tailwind CSS v4 already wired up using the 
 
 <Step>Initialize lily in your project.</Step>
 
-Run the init command once per project. It creates a `components.json` file, wires up the `cn` utility, and writes the lily design tokens directly into your global stylesheet — so you own and can edit every token.
+Run the init command once per project. It creates a `lily.json` file, wires up the `cn` utility, and writes the lily design tokens directly into your global stylesheet — so you own and can edit every token.
 
 <PmCommand type="execute" command="lily-svelte@latest init" />
 
@@ -63,9 +63,11 @@ Import it from your local `ui` directory and start building.
 
 </Steps>
 
-## components.json
+## lily.json
 
-`components.json` records your project settings (aliases and the path lily writes components to) so the CLI knows where to place new files on every `add`. You normally do not need to edit it by hand.
+`lily.json` records your project settings (aliases and the path lily writes components to) so the CLI knows where to place new files on every `add`. You normally do not need to edit it by hand.
+
+The file used to be called `components.json` — the same name shadcn-svelte uses. Running `init` on an older lily project moves the settings across and removes the old file. A `components.json` belonging to another tool is left alone, so lily and shadcn-svelte can live in one project while you migrate screen by screen.
 
 ## Design tokens
 

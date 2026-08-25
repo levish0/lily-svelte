@@ -237,7 +237,7 @@ export const registrySchema = z.object({
 		.describe('Defines a custom component registry.')
 });
 
-/** Schema for a project's `components.json` config file. */
+/** Schema for a project's `lily.json` config file. */
 export const componentsJsonSchema = z.object({
 	$schema: z.string().optional(),
 	style: z

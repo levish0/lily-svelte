@@ -69,6 +69,31 @@ With no `fallback` at all, a neutral placeholder icon is used.
 <Avatar alt="Unknown user" />
 ```
 
+## Images
+
+The avatar is usually the most repeated image on a page, so the image attributes that matter for
+that are props of their own: `srcset`, `sizes`, `loading`, `crossorigin` and `referrerpolicy`.
+
+```svelte
+<Avatar src="/avatars/lily.png" srcset="/avatars/lily.png 1x, /avatars/lily@2x.png 2x" alt="lily" />
+```
+
+`loading` defaults to `lazy`. The avatars above the fold — the first row of a member list, the
+one in the header — should be `eager`, or they pop in after the page settles.
+
+```svelte
+<Avatar src={user.avatar} loading="eager" alt={user.name} />
+```
+
+For a third-party avatar host, `referrerpolicy` keeps your URLs out of their logs, and
+`crossorigin` is what lets the image be read back from a canvas.
+
+```svelte
+<Avatar src={githubAvatar} referrerpolicy="no-referrer" alt={user.name} />
+```
+
+Everything else you pass lands on the wrapper, not the image.
+
 ## Sizes
 
 ```svelte

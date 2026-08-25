@@ -51,17 +51,22 @@ npx lily-svelte@latest init
 ## Variants
 
 Badges are usually status labels, and status has weight — `deleted` and `draft` should not read
-the same. `solid`, `soft` and `ghost` are the same ladder the [Button](/docs/components/button)
-uses; `destructive` is a meaning, not a weight.
+the same. `solid`, `soft` and `quiet` step down in weight; `destructive` is a meaning, not a
+weight.
 
 ```svelte
 <Badge variant="solid">Live</Badge>
 <Badge>Draft</Badge>
-<Badge variant="ghost">Archived</Badge>
+<Badge variant="quiet">Archived</Badge>
 <Badge variant="destructive">Deleted</Badge>
 ```
 
-`soft` is the default, so a badge you drop in without thinking stays quiet.
+`soft` is the default, so a badge you drop in without thinking stays out of the way.
+
+Every level keeps a fill, including `quiet`. Unlike a [Button](/docs/components/button), a badge
+has no hover state to fall back on, so a fill-less pill is just text with unexplained padding —
+in a table cell it stops reading as a status. That is also why `quiet` dims the label as well as
+the fill: moving both axes keeps the step legible when the fills are only three points apart.
 
 ## Link
 
@@ -81,5 +86,5 @@ To style something that is not a `Badge`, use `badgeVariants()`.
 	import { badgeVariants } from '$lib/components/ui/badge';
 </script>
 
-<span class={badgeVariants({ variant: 'ghost' })}>Archived</span>
+<span class={badgeVariants({ variant: 'quiet' })}>Archived</span>
 ```

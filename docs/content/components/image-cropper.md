@@ -102,7 +102,11 @@ To submit it, turn the URL into a `File`.
 <ImageCropper.Root onCropped={upload}>…</ImageCropper.Root>
 ```
 
-Files whose type is not a browser-renderable image are rejected through `onUnsupportedFile`.
+Files whose type is not a browser-renderable image are rejected through `onUnsupportedFile`, and
+a canvas that fails to draw reports through `onCropError`.
+
+While the crop is drawing, the Crop button shows a spinner and Cancel is disabled, so a second
+click cannot crop the same file twice. Picking a new file mid-crop discards the stale result.
 
 ## Shape and preview
 
