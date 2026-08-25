@@ -10,9 +10,11 @@ import Root, {
 	type FileDropZoneProps,
 	type FileRejectedReason
 } from './file-drop-zone.svelte';
+import Trigger, { type FileDropZoneTriggerProps } from './file-drop-zone-trigger.svelte';
 
 export {
 	Root,
+	Trigger,
 	displaySize,
 	BYTE,
 	KILOBYTE,
@@ -23,6 +25,8 @@ export {
 	ACCEPT_AUDIO,
 	type FileDropZoneProps,
 	type FileRejectedReason,
+	type FileDropZoneTriggerProps,
 	//
-	Root as FileDropZone
+	Root as FileDropZone,
+	Trigger as FileDropZoneTrigger
 };

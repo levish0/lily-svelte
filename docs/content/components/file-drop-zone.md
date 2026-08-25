@@ -57,6 +57,23 @@ npx lily-svelte@latest init
 />
 ```
 
+Use compound mode when only a specific control should open the file picker. This keeps adjacent
+buttons, such as delete or retry actions, independent from file selection.
+
+```svelte
+<script lang="ts">
+	import * as FileDropZone from '$lib/components/ui/file-drop-zone';
+</script>
+
+<FileDropZone.Root clickToSelect={false} maxFiles={1} onUpload={handleUpload}>
+	<div class="flex items-center gap-3">
+		<span class="flex-1">Current file.png</span>
+		<FileDropZone.Trigger class="rounded-full px-4 py-2">Change</FileDropZone.Trigger>
+		<button type="button" onclick={deleteFile}>Delete</button>
+	</div>
+</FileDropZone.Root>
+```
+
 ## Props
 
 - `accept` — comma-separated list, e.g. `"image/*,.pdf"`.
@@ -64,3 +81,5 @@ npx lily-svelte@latest init
 - `maxFileSize` — maximum bytes per file.
 - `onUpload(files)` — receives the accepted files.
 - `onFileRejected({ file, reason })` — called per rejected file.
+- `clickToSelect` — when `true` (default), the whole root opens the picker; set it to `false` and
+  use one or more `FileDropZone.Trigger` components for compound layouts.

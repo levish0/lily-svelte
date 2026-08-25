@@ -1,10 +1,23 @@
 <script lang="ts" module>
+	export {
+		displaySize,
+		BYTE,
+		KILOBYTE,
+		MEGABYTE,
+		GIGABYTE,
+		ACCEPT_IMAGE,
+		ACCEPT_VIDEO,
+		ACCEPT_AUDIO
+	} from './file-drop-zone-utils.js';
+
 	export type FileRejectedReason =
 		'Maximum file size exceeded' | 'Maximum files uploaded' | 'File type not allowed';
 
 	export type FileDropZoneProps = {
-		ref?: HTMLLabelElement | null;
+		ref?: HTMLElement | null;
 		class?: string;
+		/** When false, only nested `FileDropZone.Trigger` components open the file picker. */
+		clickToSelect?: boolean;
 		/** Max number of files allowed (across uploads — pass `fileCount`). */
 		maxFiles?: number;
 		/** Number of files already uploaded (for `maxFiles` accounting). */
@@ -18,40 +31,17 @@
 		onFileRejected?: (opts: { file: File; reason: FileRejectedReason }) => void;
 		children?: import('svelte').Snippet;
 	};
-
-	// 1024, to line up with the server limit this is usually mirroring — nginx's
-	// `client_max_body_size 10m` and body-parser's `'10mb'` are both 1024-based, so 1000-based
-	// constants would reject files the server would have accepted.
-	export const BYTE = 1;
-	export const KILOBYTE = 1024 * BYTE;
-	export const MEGABYTE = 1024 * KILOBYTE;
-	export const GIGABYTE = 1024 * MEGABYTE;
-
-	/** Ready-made `accept` values for the common cases. */
-	export const ACCEPT_IMAGE = 'image/*';
-	export const ACCEPT_VIDEO = 'video/*';
-	export const ACCEPT_AUDIO = 'audio/*';
-
-	/** Human-readable byte size, e.g. 1536 → "1.5 KB". Same units as the constants above. */
-	export function displaySize(bytes: number): string {
-		const units = ['B', 'KB', 'MB', 'GB'];
-		let size = bytes;
-		let unit = 0;
-		while (size >= KILOBYTE && unit < units.length - 1) {
-			size /= KILOBYTE;
-			unit++;
-		}
-		return `${Math.round(size * 10) / 10} ${units[unit]}`;
-	}
 </script>
 
 <script lang="ts">
-	import Icon from '@iconify/svelte';
 	import { cn } from '$lib/utils.js';
+	import { setFileDropZoneContext } from './file-drop-zone-context.svelte.js';
+	import Trigger from './file-drop-zone-trigger.svelte';
 
 	let {
 		ref = $bindable(null),
 		class: className,
+		clickToSelect = true,
 		maxFiles,
 		fileCount,
 		maxFileSize,
@@ -64,12 +54,33 @@
 
 	let dragOver = $state(false);
 	let uploading = $state(false);
+	const uid = $props.id();
+	const inputId = `file-drop-zone-${uid}`;
 
 	const canUpload = $derived(
 		!disabled &&
 			!uploading &&
 			!(maxFiles !== undefined && fileCount !== undefined && fileCount >= maxFiles)
 	);
+
+	setFileDropZoneContext({
+		inputId,
+		get clickToSelect() {
+			return clickToSelect;
+		},
+		get canUpload() {
+			return canUpload;
+		},
+		get dragOver() {
+			return dragOver;
+		},
+		get maxFiles() {
+			return maxFiles;
+		},
+		get maxFileSize() {
+			return maxFileSize;
+		}
+	});
 
 	function shouldAccept(file: File, index: number): FileRejectedReason | undefined {
 		if (maxFileSize !== undefined && file.size > maxFileSize) return 'Maximum file size exceeded';
@@ -109,9 +120,10 @@
 
 	async function onchange(e: Event & { currentTarget: HTMLInputElement }) {
 		if (disabled) return;
-		const files = e.currentTarget.files;
+		const input = e.currentTarget;
+		const files = input.files;
 		if (files) await process(Array.from(files));
-		e.currentTarget.value = '';
+		input.value = '';
 	}
 
 	async function ondrop(e: DragEvent) {
@@ -122,10 +134,13 @@
 	}
 </script>
 
-<label
+<svelte:element
+	this={clickToSelect ? 'label' : 'div'}
 	bind:this={ref}
-	aria-disabled={disabled}
-	ondragover={(e) => {
+	role="group"
+	aria-disabled={!canUpload}
+	data-slot="file-drop-zone"
+	ondragover={(e: DragEvent) => {
 		e.preventDefault();
 		if (canUpload) dragOver = true;
 	}}
@@ -133,34 +148,19 @@
 	{ondrop}
 	class={cn('group block', disabled && 'pointer-events-none opacity-50', className)}
 >
-	<input type="file" class="sr-only" multiple={maxFiles !== 1} {accept} {disabled} {onchange} />
+	<input
+		id={inputId}
+		type="file"
+		class="sr-only"
+		multiple={maxFiles !== 1}
+		{accept}
+		disabled={!canUpload}
+		{onchange}
+	/>
 
 	{#if children}
 		{@render children()}
 	{:else}
-		<div
-			class={cn(
-				'flex h-48 cursor-pointer flex-col items-center justify-center gap-3 rounded-3xl bg-(--text)/5 p-6 text-center transition-colors duration-150 hover:bg-(--text)/8',
-				dragOver && 'bg-(--text)/8'
-			)}
-		>
-			<div
-				class="flex size-12 items-center justify-center rounded-full bg-(--text)/8 text-(--text)/56"
-			>
-				<Icon icon="heroicons:arrow-up-tray-solid" class="size-6" aria-hidden="true" />
-			</div>
-			<div class="flex flex-col gap-0.5">
-				<span class="text-sm font-medium tracking-[-0.39px]">
-					Drag &amp; drop files here, or click to select
-				</span>
-				{#if maxFiles || maxFileSize}
-					<span class="text-xs tracking-[-0.3px] text-(--text)/56">
-						{#if maxFiles}Up to {maxFiles} files{/if}
-						{#if maxFiles && maxFileSize}&nbsp;({displaySize(maxFileSize)} each){/if}
-						{#if maxFileSize && !maxFiles}Maximum {displaySize(maxFileSize)}{/if}
-					</span>
-				{/if}
-			</div>
-		</div>
+		<Trigger />
 	{/if}
-</label>
+</svelte:element>
