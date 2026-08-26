@@ -36,6 +36,8 @@
 		//
 		// Stroke around dots/marks when hovering
 		'[&_.lc-highlight-point]:stroke-transparent',
+		// Keep the hovered category visible without covering the chart in LayerChart's default fill
+		'[&_.lc-highlight-area]:[--fill-color:color-mix(in_oklab,var(--text)_8%,transparent)]',
 		// override the default stroke color of lines
 		'[&_.lc-line]:stroke-(--text)/8',
 
