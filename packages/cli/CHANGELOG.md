@@ -1,5 +1,11 @@
 # lily-svelte
 
+## 0.7.0
+
+### Minor Changes
+
+- [`3edea30`](https://github.com/levish0/lily-svelte/commit/3edea309e256a6ba04579cce9234e43a624eb84b) Thanks [@levish0](https://github.com/levish0)! - Remove the unused icon-library and menu-style configuration fields and their public transformer exports. Lily now uses its single built-in icon and menu design without configurable alternatives. Also prevent the password strength reader from recursively updating so strength feedback renders normally.
+
 ## 0.6.0
 
 ### Minor Changes
