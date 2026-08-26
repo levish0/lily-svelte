@@ -1,5 +1,11 @@
 # lily-svelte
 
+## 0.7.1
+
+### Patch Changes
+
+- [`27d9aa6`](https://github.com/levish0/lily-svelte/commit/27d9aa65eed6b14380a9af30023d28db070926df) Thanks [@levish0](https://github.com/levish0)! - Style chart hover areas with a subtle theme-aware highlight.
+
 ## 0.7.0
 
 ### Minor Changes
