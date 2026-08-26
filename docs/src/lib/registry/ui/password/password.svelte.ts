@@ -1,4 +1,5 @@
 import { Context } from 'runed';
+import { untrack } from 'svelte';
 import { ZxcvbnFactory, type Score, type ZxcvbnResult } from '@zxcvbn-ts/core';
 import * as zxcvbnCommon from '@zxcvbn-ts/language-common';
 
@@ -41,9 +42,13 @@ export class PasswordRootState {
 
 	/** Called by every part that needs a score, so a plain input never runs zxcvbn. */
 	addScoreReader = () => {
-		this.#readers += 1;
+		untrack(() => {
+			this.#readers += 1;
+		});
 		return () => {
-			this.#readers -= 1;
+			untrack(() => {
+				this.#readers -= 1;
+			});
 		};
 	};
 

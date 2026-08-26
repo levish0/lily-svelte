@@ -26,8 +26,6 @@ import {
 	transform,
 	transformFont,
 	transformImports,
-	transformIcons,
-	transformMenu,
 	transformStripTypes
 } from '../../utils/transformers/index.js';
 import { getSupportedFontMarkers, type FontMarkerSource } from '../../utils/font-markers.js';
@@ -208,13 +206,7 @@ async function runUpdate(cwd: string, config: cliConfig.ResolvedConfig, options:
 							config,
 							supportedFontMarkers: registryFontMarkers
 						},
-						[
-							transformImports,
-							transformIcons,
-							transformMenu,
-							transformFont,
-							!config.typescript && transformStripTypes
-						]
+						[transformImports, transformFont, !config.typescript && transformStripTypes]
 					);
 
 					transformDependencies?.forEach((dep) => dependencies.add(dep));

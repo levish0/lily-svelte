@@ -21,10 +21,7 @@ import * as project from '../../utils/project.js';
 
 // Hardcoded lily design-system defaults (no style variants).
 const LILY_DEFAULTS = {
-	baseColor: 'neutral',
-	iconLibrary: 'lucide',
-	menuColor: 'default',
-	menuAccent: 'subtle'
+	baseColor: 'neutral'
 } as const;
 
 const baseColors = registry.getBaseColors();
@@ -209,10 +206,7 @@ async function promptForConfig({
 			components: componentAlias,
 			hooks: hooksAlias,
 			ui: uiAlias
-		},
-		iconLibrary: existingConfig?.iconLibrary ?? LILY_DEFAULTS.iconLibrary,
-		menuColor: existingConfig?.menuColor ?? LILY_DEFAULTS.menuColor,
-		menuAccent: existingConfig?.menuAccent ?? LILY_DEFAULTS.menuAccent
+		}
 	});
 
 	return {

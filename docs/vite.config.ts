@@ -80,6 +80,9 @@ export default defineConfig({
 			allow: ['.velite', 'content']
 		}
 	},
+	optimizeDeps: {
+		include: ['@zxcvbn-ts/core', '@zxcvbn-ts/language-common', 'bits-ui', 'runed']
+	},
 	test: {
 		expect: { requireAssertions: true },
 		projects: [

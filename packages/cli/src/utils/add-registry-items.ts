@@ -13,8 +13,6 @@ import {
 	transform,
 	transformFont,
 	transformImports,
-	transformIcons,
-	transformMenu,
 	transformStripTypes
 } from './transformers/index.js';
 import { getSupportedFontMarkers, type FontMarkerSource } from './font-markers.js';
@@ -164,13 +162,7 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 							config: opts.config,
 							supportedFontMarkers: registryFontMarkers
 						},
-						[
-							transformImports,
-							transformIcons,
-							transformMenu,
-							transformFont,
-							!opts.config.typescript && transformStripTypes
-						]
+						[transformImports, transformFont, !opts.config.typescript && transformStripTypes]
 					);
 
 					transformDependencies?.forEach((dep) => dependencies.add(dep));

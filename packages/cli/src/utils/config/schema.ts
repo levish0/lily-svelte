@@ -2,10 +2,6 @@
 
 import { z } from 'zod';
 import { SITE_BASE_URL } from '../../constants.js';
-import { keys } from '../utils.js';
-import { iconLibraries } from '../../icons/libraries.js';
-
-export const ICON_LIBRARIES = keys(iconLibraries);
 
 export const BASE_COLORS = ['neutral', 'stone', 'zinc', 'mauve', 'olive', 'mist', 'taupe'] as const;
 export type BaseColorName = (typeof BASE_COLORS)[number];
@@ -36,16 +32,6 @@ export const THEMES = [
 	'taupe'
 ] as const;
 export type ThemeName = (typeof THEMES)[number];
-export const MENU_ACCENTS = ['subtle', 'bold'] as const;
-export type MenuAccent = (typeof MENU_ACCENTS)[number];
-export const MENU_COLORS = [
-	'default',
-	'inverted',
-	'default-translucent',
-	'inverted-translucent'
-] as const;
-export type MenuColor = (typeof MENU_COLORS)[number];
-
 export const DEFAULT_CONFIG = {
 	$schema: `${SITE_BASE_URL}/schema.json`,
 	aliases: {
@@ -60,10 +46,7 @@ export const DEFAULT_CONFIG = {
 		css: 'src/app.css'
 	},
 	typescript: true,
-	registry: `${SITE_BASE_URL}/registry`,
-	iconLibrary: 'lucide',
-	menuColor: 'default',
-	menuAccent: 'subtle'
+	registry: `${SITE_BASE_URL}/registry`
 } as const;
 
 export const stripTrailingSlash = (s: string) => (s.endsWith('/') ? s.slice(0, -1) : s);
@@ -111,11 +94,7 @@ export const newConfigSchema = baseConfigSchema.extend({
 		hooks: aliasSchema('hooks').default(DEFAULT_CONFIG.aliases.hooks),
 		lib: aliasSchema('lib').default(DEFAULT_CONFIG.aliases.lib)
 	}),
-	registry: z.string().default(DEFAULT_CONFIG.registry),
-	// design system
-	iconLibrary: z.enum(ICON_LIBRARIES).optional(),
-	menuColor: z.enum(MENU_COLORS).optional(),
-	menuAccent: z.enum(MENU_ACCENTS).optional()
+	registry: z.string().default(DEFAULT_CONFIG.registry)
 });
 
 export type RawConfig = z.infer<typeof rawConfigSchema>;
@@ -140,8 +119,5 @@ export const resolvedConfigSchema = rawConfigSchema.extend({
 		hooks: z.string(),
 		ui: z.string(),
 		lib: z.string()
-	}),
-	iconLibrary: z.enum(ICON_LIBRARIES).default(DEFAULT_CONFIG.iconLibrary),
-	menuColor: z.enum(MENU_COLORS).default(DEFAULT_CONFIG.menuColor),
-	menuAccent: z.enum(MENU_ACCENTS).default(DEFAULT_CONFIG.menuAccent)
+	})
 });
