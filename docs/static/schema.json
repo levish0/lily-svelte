@@ -25,7 +25,10 @@
 					"type": "string"
 				}
 			},
-			"required": ["css", "baseColor"],
+			"required": [
+				"css",
+				"baseColor"
+			],
 			"additionalProperties": false
 		},
 		"aliases": {
@@ -52,7 +55,10 @@
 					"type": "string"
 				}
 			},
-			"required": ["components", "utils"],
+			"required": [
+				"components",
+				"utils"
+			],
 			"additionalProperties": false,
 			"description": "The CLI uses these values and the `alias` config from your `svelte.config.js` file to place generated components in the correct location."
 		},
@@ -74,12 +80,17 @@
 							"description": "Path to the tsconfig/jsconfig file."
 						}
 					},
-					"required": ["config"],
+					"required": [
+						"config"
+					],
 					"additionalProperties": false
 				}
 			]
 		}
 	},
-	"required": ["tailwind", "aliases"],
+	"required": [
+		"tailwind",
+		"aliases"
+	],
 	"additionalProperties": false
 }

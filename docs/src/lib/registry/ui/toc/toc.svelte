@@ -56,12 +56,12 @@
 		});
 	});
 
-	// Proximity focus: the active item blooms, neighbours shrink and fade by distance.
+	// Proximity focus: scale the label without changing the link's layout height.
 	const spring = 'cubic-bezier(0.34,1.56,0.64,1)';
-	function fontSize(i: number): number {
-		if (activeIdx < 0) return 12.5;
+	function scale(i: number): number {
+		if (activeIdx < 0) return 1;
 		const d = Math.abs(i - activeIdx);
-		return d === 0 ? 15 : d === 1 ? 12.5 : d === 2 ? 12 : 11.5;
+		return d === 0 ? 1.08 : d === 1 ? 1 : d === 2 ? 0.96 : 0.92;
 	}
 	function opacity(i: number): number {
 		if (activeIdx < 0) return 0.38;
@@ -129,13 +129,17 @@
 			{#each flat as item, i (item.url)}
 				<a
 					href={item.url}
-					style="font-size:{fontSize(i)}px;opacity:{opacity(i)};font-weight:{activeIdx === i
-						? 500
-						: 400};padding-block:{activeIdx === i ? 5 : 3}px;padding-inline-start:{item.depth *
-						0.75}rem;color:var(--text);transition:font-size 0.3s {spring},opacity 0.2s ease,padding 0.3s {spring};"
-					class="block leading-[1.5] tracking-[-0.3px]"
+					style:padding-inline-start={`${item.depth * 0.75}rem`}
+					class="block py-[3px] text-[12.5px] leading-[1.5] tracking-[-0.3px]"
 				>
-					{#if numbered}<span class="me-1.5 opacity-40">{numbering[i]}</span>{/if}{item.title}
+					<span
+						style="transform:scale({scale(i)});opacity:{opacity(i)};font-weight:{activeIdx === i
+							? 500
+							: 400};color:var(--text);transition:transform 0.3s {spring},opacity 0.2s ease;"
+						class="block w-[92.5%] origin-left will-change-[transform,opacity] motion-reduce:transition-none"
+					>
+						{#if numbered}<span class="me-1.5 opacity-40">{numbering[i]}</span>{/if}{item.title}
+					</span>
 				</a>
 			{/each}
 		</nav>
