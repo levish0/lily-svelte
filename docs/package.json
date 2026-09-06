@@ -25,7 +25,7 @@
 		"@playwright/test": "^1.62.1",
 		"@prettier/sync": "0.6.1",
 		"@shikijs/langs": "^4.4.3",
-		"@shikijs/themes": "^3.23.0",
+		"@shikijs/themes": "^4.4.3",
 		"@sveltejs/acorn-typescript": "^1.0.13",
 		"@sveltejs/adapter-cloudflare": "^7.2.9",
 		"@sveltejs/kit": "^2.70.3",
