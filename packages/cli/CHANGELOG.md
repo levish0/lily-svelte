@@ -1,5 +1,11 @@
 # lily-svelte
 
+## 0.7.2
+
+### Patch Changes
+
+- [`38d9d0d`](https://github.com/levish0/lily-svelte/commit/38d9d0d01580b8527cf49667320011c3237d7dba) Thanks [@levish0](https://github.com/levish0)! - Keep table-of-contents rows stable during proximity-focus animation and prevent enlarged labels from being clipped.
+
 ## 0.7.1
 
 ### Patch Changes
