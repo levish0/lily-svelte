@@ -46,7 +46,7 @@ jobs:
       #  - if there are pending changesets -> opens/updates a "Version Packages" PR
       #  - once that PR is merged (no pending changesets, versions bumped) -> runs `publish`
       - name: Create Release Pull Request or Publish
-        uses: changesets/action@v1
+        uses: changesets/action@v2
         with:
           commit: 'chore(release): version packages'
           title: 'chore(release): version packages'
