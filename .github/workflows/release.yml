@@ -48,9 +48,9 @@ jobs:
       - name: Create Release Pull Request or Publish
         uses: changesets/action@v2
         with:
-          commit: 'chore(release): version packages'
-          title: 'chore(release): version packages'
-          publish: pnpm ci:release
+          commit-message: 'chore(release): version packages'
+          pr-title: 'chore(release): version packages'
+          publish-script: pnpm ci:release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # No NPM token: auth is via OIDC Trusted Publishing.
