@@ -6,6 +6,7 @@
 	import { cn } from '$lib/utils.js';
 	import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/registry/ui/tabs';
 
+	// eslint-disable-next-line svelte/no-unused-props -- mdsx injects source snippets; displayed source comes from the selected registry.
 	let {
 		name,
 		component,
