@@ -1,6 +1,6 @@
 ---
 title: Button Group
-description: Joins related buttons into a single segmented control.
+description: Joins related buttons into a single choice group.
 component: true
 links:
   source: https://github.com/levish0/lily-svelte/tree/main/docs/src/lib/registry/ui/button-group

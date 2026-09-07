@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
-@import '../lib/styles/lily.css';
+@import '../lib/styles/preview-styles.css';
 @plugin '@tailwindcss/typography';
 
 /* ----------------------------------------------------------------------------

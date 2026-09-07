@@ -81,7 +81,16 @@ export default defineConfig({
 		}
 	},
 	optimizeDeps: {
-		include: ['@zxcvbn-ts/core', '@zxcvbn-ts/language-common', 'bits-ui', 'runed']
+		// Markdown previews inject their imports after Vite's route scan. Scan the
+		// registry too so visiting another component does not rebuild shared dependencies.
+		entries: ['src/routes/**/*.{svelte,ts}', 'src/lib/registry/**/*.svelte'],
+		include: [
+			'@zxcvbn-ts/core',
+			'@zxcvbn-ts/language-common',
+			'bits-ui',
+			'runed',
+			'@internationalized/date'
+		]
 	},
 	test: {
 		expect: { requireAssertions: true },

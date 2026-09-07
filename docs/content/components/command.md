@@ -40,6 +40,8 @@ npx lily-svelte@latest init
 
 ## Usage
 
+Focus the search field and type to filter commands. Use **↑ / ↓** to move through matching items and **Enter** to select. Set `loop` on `Command.Root` to wrap at the ends. Attach `onSelect` to each `Command.Item` to run its action; pointer and keyboard selection use the same callback.
+
 ```svelte
 <script lang="ts">
 	import * as Command from '$lib/components/ui/command';

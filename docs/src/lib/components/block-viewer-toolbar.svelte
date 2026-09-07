@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Button from './docs-button.svelte';
 	import Icon from '@iconify/svelte';
 	import { BlockViewerContext } from './block-viewer.svelte';
 	import { UseClipboard } from '$lib/hooks/use-clipboard.svelte.js';
@@ -17,7 +18,7 @@
 </script>
 
 <div class="hidden w-full items-center gap-2 lg:flex">
-	<Tabs bind:value={ctx.view}>
+	<Tabs variant="segmented" bind:value={ctx.view}>
 		<TabsList>
 			<TabsTrigger value="preview">Preview</TabsTrigger>
 			<TabsTrigger value="code">Code</TabsTrigger>
@@ -63,7 +64,9 @@
 				<span class="sr-only">Open in New Tab</span>
 				<Icon icon="heroicons:arrow-top-right-on-square-solid" class="size-4" aria-hidden="true" />
 			</a>
-			<button
+			<Button
+				size="icon-sm"
+				variant="ghost"
 				type="button"
 				title="Refresh Preview"
 				class={iconButton}
@@ -73,11 +76,14 @@
 			>
 				<Icon icon="heroicons:arrow-path-solid" class="size-4" aria-hidden="true" />
 				<span class="sr-only">Refresh Preview</span>
-			</button>
+			</Button>
 		</div>
-		<button
+		<Button
+			size="md"
+			diamondClass="rounded-lg"
+			variant="ghost"
 			type="button"
-			class="inline-flex h-9 items-center gap-2 rounded-xl bg-(--text)/5 px-3 font-mono text-xs text-(--text)/72 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)"
+			class="inline-flex h-9 items-center gap-2 bg-(--text)/5 px-3 font-mono text-xs text-(--text)/72 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)"
 			onclick={() => clipboard.copy(command)}
 		>
 			{#if clipboard.copied}
@@ -86,6 +92,6 @@
 				<Icon icon="heroicons:command-line-solid" class="size-3.5" aria-hidden="true" />
 			{/if}
 			<span class="hidden xl:inline">{command}</span>
-		</button>
+		</Button>
 	</div>
 </div>

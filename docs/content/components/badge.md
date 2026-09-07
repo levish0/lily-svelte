@@ -88,3 +88,9 @@ To style something that is not a `Badge`, use `badgeVariants()`.
 
 <span class={badgeVariants({ variant: 'quiet' })}>Archived</span>
 ```
+
+## Sizes and colors
+
+`size` accepts `xs`, `sm`, `md`, and `lg`. `color` accepts `blue`, `teal`, `green`, `red`, `yellow`, and `elephant`. Aquamarine maps `solid` to the reference fill treatment and `soft` to weak, including separate foreground and background colors.
+
+<ComponentPreview name="badge-sizes-demo" />

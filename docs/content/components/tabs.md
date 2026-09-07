@@ -54,3 +54,9 @@ npx lily-svelte@latest init
 	<TabsContent value="password">Password settings.</TabsContent>
 </Tabs>
 ```
+
+## Segmented presentation
+
+Use `<Tabs variant="segmented">` for compact view switches such as Preview/Code. The default Aquamarine tabs use the navigation underline presentation. For choosing a single value instead of switching panels, use Choice Group.
+
+<ComponentPreview name="choice-group-demo" />

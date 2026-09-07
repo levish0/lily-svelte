@@ -5,7 +5,7 @@
 	let { cli, manual }: { cli: Snippet; manual: Snippet } = $props();
 </script>
 
-<Tabs value="cli" class="my-4">
+<Tabs variant="segmented" value="cli" class="my-4">
 	<TabsList>
 		<TabsTrigger value="cli">CLI</TabsTrigger>
 		<TabsTrigger value="manual">Manual</TabsTrigger>

@@ -39,6 +39,8 @@ Run the init command once per project. It creates a `lily.json` file, wires up t
 
 <PmCommand type="execute" command="lily-svelte@latest init" />
 
+Diamond is the default. To start with Aquamarine, run `lily-svelte@latest init --style aquamarine`. The choice is saved in `lily.json` and applies to added components and dependencies. Changing that value does not restyle installed source. For an existing project, generate the other style in a separate project and merge the changes into your customized files.
+
 <Step>Add components.</Step>
 
 Add any component with the `add` command. The source is copied into `$lib/components/ui/<name>` so you can read and customize it.
