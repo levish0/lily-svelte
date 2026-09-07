@@ -16,7 +16,7 @@
 	data-slot="breadcrumb-separator"
 	role="presentation"
 	aria-hidden="true"
-	class={cn('text-(--text)/40 [&>svg]:size-3.5', className)}
+	class={cn('lily-breadcrumb-separator-1 text-(--text)/40 [&>svg]:size-3.5', className)}
 	{...restProps}
 >
 	{#if children}

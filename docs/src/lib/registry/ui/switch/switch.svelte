@@ -15,13 +15,15 @@
 	bind:checked
 	data-slot="switch"
 	class={cn(
-		'peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full p-0.5 transition-colors duration-150 outline-none data-[state=checked]:bg-(--text) data-[state=unchecked]:bg-(--text)/16 data-disabled:cursor-not-allowed data-disabled:opacity-50',
+		'peer lily-switch-2 inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full p-0.5 transition-colors duration-150 outline-none data-[state=checked]:bg-(--text) data-[state=unchecked]:bg-(--text)/16 data-disabled:cursor-not-allowed data-disabled:opacity-50',
 		className
 	)}
 	{...restProps}
 >
 	<SwitchPrimitive.Thumb
 		data-slot="switch-thumb"
-		class="pointer-events-none block size-5 rounded-full bg-(--bg) shadow-sm ring-0 transition-transform duration-150 data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0"
+		class={cn(
+			'lily-switch-1 pointer-events-none block size-5 rounded-full bg-(--bg) shadow-sm ring-0 transition-transform duration-150 data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0'
+		)}
 	/>
 </SwitchPrimitive.Root>

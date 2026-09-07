@@ -21,6 +21,12 @@ export const docsNav: NavSection[] = [
 		title: 'Components',
 		items: [
 			{ title: 'Overview', href: '/docs/components' },
+			{ title: 'Action Footer', href: '/docs/components/action-footer' },
+			{ title: 'Grid List', href: '/docs/components/grid-list' },
+			{ title: 'List Row', href: '/docs/components/list-row' },
+			{ title: 'Search Field', href: '/docs/components/search-field' },
+			{ title: 'Choice Group', href: '/docs/components/choice-group' },
+			{ title: 'Top', href: '/docs/components/top' },
 			{ title: 'Accordion', href: '/docs/components/accordion' },
 			{ title: 'Alert', href: '/docs/components/alert' },
 			{ title: 'Alert Dialog', href: '/docs/components/alert-dialog' },

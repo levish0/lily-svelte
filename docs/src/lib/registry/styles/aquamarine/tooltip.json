@@ -1,0 +1,4 @@
+{
+	"lily-tooltip-content-1": "z-50 w-fit max-w-xs origin-(--bits-tooltip-content-transform-origin) rounded-[10px] bg-(--text) px-3 py-1.5 text-xs font-medium tracking-normal text-(--bg) shadow-lg",
+	"lily-tooltip-content-2": "z-50 size-2.5 rotate-45 rounded-xs bg-(--text)"
+}

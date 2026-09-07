@@ -13,7 +13,10 @@
 <h3
 	bind:this={ref}
 	data-slot="card-title"
-	class={cn('text-base leading-[1.5] font-medium tracking-[-0.48px] text-(--text)', className)}
+	class={cn(
+		'lily-card-title-1 text-base leading-[1.5] font-medium tracking-[-0.48px] text-(--text)',
+		className
+	)}
 	{...restProps}
 >
 	{@render children?.()}

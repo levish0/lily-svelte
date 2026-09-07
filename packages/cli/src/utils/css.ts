@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import type { StyleName } from './config/schema.js';
 import { fileURLToPath } from 'node:url';
 
 /** Opening marker of the region the CLI manages inside the user's stylesheet. */
@@ -20,8 +21,8 @@ export function createGlobalCssFile(): string {
  * writes this straight into the user's stylesheet so they fully own and can
  * edit every token.
  */
-export function getDesignSystemCss(): string {
-	const found = findAlongside('tailwind.css');
+export function getDesignSystemCss(style: StyleName = 'diamond'): string {
+	const found = findAlongside(style === 'diamond' ? 'tailwind.css' : `${style}.css`);
 	if (found) return fs.readFileSync(found, 'utf8');
 	throw new Error('lily: could not locate the design system (tailwind.css).');
 }
@@ -60,15 +61,15 @@ function fingerprint(body: string): string {
 }
 
 /** The design system wrapped in its markers, ready to drop into a stylesheet. */
-export function buildDesignSystemRegion(): string {
-	const body = getDesignSystemCss()
+export function buildDesignSystemRegion(style: StyleName = 'diamond'): string {
+	const body = getDesignSystemCss(style)
 		// the shipped file opens with its own marker line; the wrapper replaces it
 		.replace(/^\/\* lily design system[^\n]*\n/, '')
 		.trim();
 	const version = cliVersion();
 
 	return [
-		`${LILY_CSS_MARKER} v${version} — managed by the lily CLI; yours to edit.`,
+		`${LILY_CSS_MARKER} style=${style} v${version} â€” managed by the lily CLI; yours to edit.`,
 		`   Edit freely: \`lily update\` leaves an edited region alone and shows you what changed.`,
 		`   ${fingerprint(body)} */`,
 		body,
@@ -85,7 +86,7 @@ export type DesignSystemRegion = {
 	body: string;
 	/** Digest recorded when the CLI wrote it, if the region carries one. */
 	recordedHash?: string;
-	/** True when the body still matches the digest — i.e. nobody has edited it. */
+	/** True when the body still matches the digest â€” i.e. nobody has edited it. */
 	pristine: boolean;
 };
 
@@ -118,15 +119,16 @@ export function findDesignSystemRegion(cssSource: string): DesignSystemRegion | 
 		body,
 		recordedHash,
 		// No digest means the block predates the marker format, which only ever held the CLI's
-		// own output — so it is replaceable, same as one whose digest still matches.
+		// own output â€” so it is replaceable, same as one whose digest still matches.
 		pristine: recordedHash === undefined || recordedHash === fingerprint(body)
 	};
 }
 
 /** Append the lily design system to the user's stylesheet, once. */
-export function ensureDesignSystem(cssSource: string): string {
+export function ensureDesignSystem(cssSource: string, style: StyleName = 'diamond'): string {
+	assertDesignSystemStyle(cssSource, style);
 	if (findDesignSystemRegion(cssSource)) return cssSource;
-	return `${cssSource.trimEnd()}\n\n${buildDesignSystemRegion()}\n`;
+	return `${cssSource.trimEnd()}\n\n${buildDesignSystemRegion(style)}\n`;
 }
 
 export type DesignSystemUpdate =
@@ -139,12 +141,16 @@ export type DesignSystemUpdate =
 /**
  * Bring the managed region up to this CLI's design system.
  *
- * A region the user has edited is never overwritten — the caller gets both versions
+ * A region the user has edited is never overwritten â€” the caller gets both versions
  * back so it can show the difference and let the user decide.
  */
-export function updateDesignSystem(cssSource: string): DesignSystemUpdate {
+export function updateDesignSystem(
+	cssSource: string,
+	style: StyleName = 'diamond'
+): DesignSystemUpdate {
 	const region = findDesignSystemRegion(cssSource);
-	const next = buildDesignSystemRegion();
+	assertDesignSystemStyle(cssSource, style);
+	const next = buildDesignSystemRegion(style);
 
 	if (!region) {
 		return { status: 'added', css: `${cssSource.trimEnd()}\n\n${next}\n` };
@@ -153,7 +159,7 @@ export function updateDesignSystem(cssSource: string): DesignSystemUpdate {
 	const replaced = cssSource.slice(0, region.start) + next + cssSource.slice(region.end);
 
 	// an unterminated region swallowed everything to EOF, so rewriting it is also what
-	// gives it an end marker — worth doing even when the body has not changed
+	// gives it an end marker â€” worth doing even when the body has not changed
 	if (region.pristine && region.body === extractBody(next)) {
 		return region.text.includes(LILY_CSS_END_MARKER)
 			? { status: 'unchanged', css: cssSource }
@@ -170,4 +176,16 @@ export function updateDesignSystem(cssSource: string): DesignSystemUpdate {
 function extractBody(region: string): string {
 	const headerEnd = region.indexOf('*/');
 	return region.slice(headerEnd + 2, region.length - LILY_CSS_END_MARKER.length).trim();
+}
+
+/** Refuse a config-only switch before touching installed sources. */
+export function assertDesignSystemStyle(css: string, style: StyleName = 'diamond'): void {
+	const region = findDesignSystemRegion(css);
+	if (!region) return;
+	const installed =
+		region.text.split('*/')[0]?.match(/style=([a-z][a-z0-9-]*)\b/)?.[1] ?? 'diamond';
+	if (installed !== style)
+		throw new Error(
+			`lily.json selects ${style}, but the installed CSS is ${installed}. Changing the config alone cannot convert component sources. Initialize a separate project with --style ${style}, review and merge the sources and CSS together, then update lily.json.`
+		);
 }

@@ -22,7 +22,7 @@
 	aria-pressed={root.visible}
 	onclick={root.toggleVisibility}
 	class={cn(
-		'inline-flex size-8 items-center justify-center rounded-full text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)/72 focus-visible:outline-none',
+		'lily-password-toggle-visibility-1 inline-flex size-8 items-center justify-center rounded-full text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)/72 focus-visible:outline-none',
 		className
 	)}
 	{...restProps}
@@ -32,7 +32,7 @@
 	{:else}
 		<Icon
 			icon={root.visible ? 'heroicons:eye-slash-solid' : 'heroicons:eye-solid'}
-			class="size-4.5"
+			class={cn('lily-password-toggle-visibility-2 size-4.5')}
 			aria-hidden="true"
 		/>
 	{/if}

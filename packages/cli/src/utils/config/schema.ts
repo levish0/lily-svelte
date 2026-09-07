@@ -3,6 +3,9 @@
 import { z } from 'zod';
 import { SITE_BASE_URL } from '../../constants.js';
 
+import { STYLE_NAMES } from '../../styles.js';
+export { STYLE_NAMES as STYLES, DESIGN_STYLES, type StyleName } from '../../styles.js';
+
 export const BASE_COLORS = ['neutral', 'stone', 'zinc', 'mauve', 'olive', 'mist', 'taupe'] as const;
 export type BaseColorName = (typeof BASE_COLORS)[number];
 export const THEMES = [
@@ -33,6 +36,7 @@ export const THEMES = [
 ] as const;
 export type ThemeName = (typeof THEMES)[number];
 export const DEFAULT_CONFIG = {
+	style: 'diamond',
 	$schema: `${SITE_BASE_URL}/schema.json`,
 	aliases: {
 		lib: '$lib',
@@ -54,6 +58,7 @@ export const stripTrailingSlash = (s: string) => (s.endsWith('/') ? s.slice(0, -
 const aliasSchema = (alias: string) => z.string(`Missing aliases.${alias} alias`);
 
 const baseConfigSchema = z.object({
+	style: z.enum(STYLE_NAMES).default('diamond'),
 	$schema: z.string().optional(),
 	tailwind: z.object(
 		{

@@ -5,6 +5,9 @@
 	export type FileDropZoneTriggerProps = HTMLAttributes<HTMLElement> & {
 		ref?: HTMLElement | null;
 		children?: Snippet;
+		child?: Snippet<
+			[{ props: { type: 'button'; disabled: boolean; onclick: () => void; 'data-slot': string } }]
+		>;
 	};
 </script>
 
@@ -18,50 +21,70 @@
 		ref = $bindable(null),
 		class: className,
 		children,
+		child,
 		...restProps
 	}: FileDropZoneTriggerProps = $props();
 
 	const root = getFileDropZoneContext();
 </script>
 
-<svelte:element
-	this={root.clickToSelect ? 'span' : 'label'}
-	bind:this={ref}
-	for={!root.clickToSelect && root.canUpload ? root.inputId : undefined}
-	aria-disabled={!root.canUpload}
-	data-slot="file-drop-zone-trigger"
-	class={cn(
-		!children &&
-			'flex h-48 cursor-pointer flex-col items-center justify-center gap-3 rounded-3xl bg-(--text)/5 p-6 text-center transition-colors duration-150 hover:bg-(--text)/8',
-		!children && root.dragOver && 'bg-(--text)/8',
-		!root.canUpload && 'pointer-events-none opacity-50',
-		className
-	)}
-	{...restProps}
->
-	{#if children}
-		{@render children()}
-	{:else}
-		<div
-			class="flex size-12 items-center justify-center rounded-full bg-(--text)/8 text-(--text)/56"
-		>
-			<Icon icon="heroicons:arrow-up-tray-solid" class="size-6" aria-hidden="true" />
-		</div>
-		<div class="flex flex-col gap-0.5">
-			<span class="text-sm font-medium tracking-[-0.39px]">
-				Drag &amp; drop files here, or click to select
-			</span>
-			{#if root.maxFiles || root.maxFileSize}
-				<span class="text-xs tracking-[-0.3px] text-(--text)/56">
-					{#if root.maxFiles}Up to {root.maxFiles} files{/if}
-					{#if root.maxFiles && root.maxFileSize}
-						&nbsp;({displaySize(root.maxFileSize)} each)
-					{/if}
-					{#if root.maxFileSize && !root.maxFiles}
-						Maximum {displaySize(root.maxFileSize)}
-					{/if}
+{#if child}
+	{@render child({
+		props: {
+			type: 'button',
+			disabled: !root.canUpload,
+			onclick: root.openPicker,
+			'data-slot': 'file-drop-zone-trigger'
+		}
+	})}
+{:else}
+	<svelte:element
+		this={root.clickToSelect ? 'span' : 'label'}
+		bind:this={ref}
+		for={!root.clickToSelect && root.canUpload ? root.inputId : undefined}
+		aria-disabled={!root.canUpload}
+		data-slot="file-drop-zone-trigger"
+		class={cn(
+			!children &&
+				'lily-file-drop-zone-trigger-1 flex h-48 cursor-pointer flex-col items-center justify-center gap-3 rounded-3xl bg-(--text)/5 p-6 text-center transition-colors duration-150 hover:bg-(--text)/8',
+			!children && root.dragOver && 'bg-(--text)/8',
+			!root.canUpload && 'lily-file-drop-zone-trigger-2 pointer-events-none opacity-50',
+			className
+		)}
+		{...restProps}
+	>
+		{#if children}
+			{@render children()}
+		{:else}
+			<div
+				class={cn(
+					'lily-file-drop-zone-trigger-3 flex size-12 items-center justify-center rounded-full bg-(--text)/8 text-(--text)/56'
+				)}
+			>
+				<Icon
+					icon="heroicons:arrow-up-tray-solid"
+					class={cn('lily-file-drop-zone-trigger-4 size-6')}
+					aria-hidden="true"
+				/>
+			</div>
+			<div class={cn('lily-file-drop-zone-trigger-5 flex flex-col gap-0.5')}>
+				<span class={cn('lily-file-drop-zone-trigger-6 text-sm font-medium tracking-[-0.39px]')}>
+					Drag &amp; drop files here, or click to select
 				</span>
-			{/if}
-		</div>
-	{/if}
-</svelte:element>
+				{#if root.maxFiles || root.maxFileSize}
+					<span
+						class={cn('lily-file-drop-zone-trigger-7 text-xs tracking-[-0.3px] text-(--text)/56')}
+					>
+						{#if root.maxFiles}Up to {root.maxFiles} files{/if}
+						{#if root.maxFiles && root.maxFileSize}
+							&nbsp;({displaySize(root.maxFileSize)} each)
+						{/if}
+						{#if root.maxFileSize && !root.maxFiles}
+							Maximum {displaySize(root.maxFileSize)}
+						{/if}
+					</span>
+				{/if}
+			</div>
+		{/if}
+	</svelte:element>
+{/if}

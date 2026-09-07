@@ -5,6 +5,7 @@ export type RegistryCategory = {
 };
 
 export const registryCategories: RegistryCategory[] = [
+	{ name: 'Workshops', slug: 'workshop', hidden: false },
 	{ name: 'Sidebar', slug: 'sidebar', hidden: false },
 	{ name: 'Login', slug: 'login', hidden: false },
 	{ name: 'Signup', slug: 'signup', hidden: false },

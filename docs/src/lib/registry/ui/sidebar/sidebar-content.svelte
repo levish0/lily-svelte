@@ -15,7 +15,7 @@
 	data-slot="sidebar-content"
 	data-sidebar="content"
 	class={cn(
-		'flex min-h-0 flex-1 flex-col gap-1 overflow-auto group-data-[collapsible=icon]:overflow-hidden',
+		'lily-sidebar-content-1 flex min-h-0 flex-1 flex-col gap-1 overflow-auto group-data-[collapsible=icon]:overflow-hidden',
 		className
 	)}
 	{...restProps}

@@ -17,7 +17,7 @@
 	class={cn(
 		// currentColor, so the spinner reads correctly on any surface it is dropped onto —
 		// a solid button, a destructive button, a coloured banner
-		'size-5 animate-spin rounded-full border-2 border-current/12 border-t-current',
+		'lily-spinner-1 size-5 animate-spin rounded-full border-2 border-current/12 border-t-current',
 		className
 	)}
 	{...restProps}

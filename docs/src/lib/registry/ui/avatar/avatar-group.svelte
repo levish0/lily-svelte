@@ -29,7 +29,7 @@
 	class={cn(
 		// the ring separates overlapping avatars, so it has to match whatever surface
 		// they sit on — override with class="[--avatar-ring:var(--bg-elevated)]" inside cards
-		'flex items-center [--avatar-ring:var(--bg)]',
+		'lily-avatar-group-1 flex items-center [--avatar-ring:var(--bg)]',
 		'*:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-(--avatar-ring)',
 		'*:data-[slot=avatar-group-count]:ring-2 *:data-[slot=avatar-group-count]:ring-(--avatar-ring)',
 		spacings[spacing],

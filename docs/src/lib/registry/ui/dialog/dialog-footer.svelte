@@ -13,7 +13,10 @@
 <div
 	bind:this={ref}
 	data-slot="dialog-footer"
-	class={cn('flex flex-col-reverse gap-2 sm:flex-row sm:justify-end', className)}
+	class={cn(
+		'lily-dialog-footer-1 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end',
+		className
+	)}
 	{...restProps}
 >
 	{@render children?.()}

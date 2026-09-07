@@ -12,6 +12,6 @@
 <SheetPrimitive.Title
 	bind:ref
 	data-slot="sheet-title"
-	class={cn('text-lg font-semibold tracking-[-0.6px]', className)}
+	class={cn('lily-sheet-title-1 text-lg font-semibold tracking-[-0.6px]', className)}
 	{...restProps}
 />

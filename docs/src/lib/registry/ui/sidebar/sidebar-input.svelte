@@ -16,6 +16,6 @@
 	bind:value
 	data-slot="sidebar-input"
 	data-sidebar="input"
-	class={cn('h-9 w-full', className)}
+	class={cn('lily-sidebar-input-1 h-9 w-full', className)}
 	{...restProps}
 />

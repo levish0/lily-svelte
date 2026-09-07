@@ -7,3 +7,8 @@ bun.lockb
 
 # Miscellaneous
 /static/
+
+# Generated registry payloads and schemas
+docs/static/registry/
+docs/static/schema.json
+docs/static/schema/

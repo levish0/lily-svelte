@@ -12,6 +12,9 @@
 <DialogPrimitive.Description
 	bind:ref
 	data-slot="dialog-description"
-	class={cn('text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/56', className)}
+	class={cn(
+		'lily-dialog-description-1 text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/56',
+		className
+	)}
 	{...restProps}
 />

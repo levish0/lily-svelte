@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Button from './docs-button.svelte';
 	import Icon from '@iconify/svelte';
 	import { MediaQuery } from 'svelte/reactivity';
 	import { cn } from '$lib/utils.js';
@@ -30,10 +31,13 @@
 				<Icon icon="heroicons:document-solid" class="size-4 text-(--text)/40" aria-hidden="true" />
 				{chart.name}.svelte
 				<div class="ms-auto flex items-center gap-2">
-					<button
+					<Button
+						size="icon-sm"
+						diamondClass="rounded-lg"
+						variant="ghost"
 						type="button"
 						aria-label="Copy code"
-						class="inline-flex size-7 shrink-0 items-center justify-center rounded-lg text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)"
+						class="inline-flex size-7 shrink-0 items-center justify-center text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)"
 						onclick={() => clipboard.copy(code)}
 					>
 						{#if clipboard.copied}
@@ -41,7 +45,7 @@
 						{:else}
 							<Icon icon="heroicons:clipboard-solid" class="size-3.5" aria-hidden="true" />
 						{/if}
-					</button>
+					</Button>
 				</div>
 			</figcaption>
 			<div
@@ -55,16 +59,19 @@
 {/snippet}
 
 {#snippet Trigger({ props }: { props: Record<string, unknown> })}
-	<button
+	<Button
+		size="sm"
+		diamondClass="rounded-lg"
+		variant="ghost"
 		type="button"
 		{...props}
 		class={cn(
-			'inline-flex h-7 items-center rounded-lg bg-(--text)/5 px-2.5 text-xs font-medium tracking-[-0.3px] text-(--text)/72 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)',
+			'inline-flex h-7 items-center bg-(--text)/5 px-2.5 text-xs font-medium tracking-[-0.3px] text-(--text)/72 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)',
 			props.class as string
 		)}
 	>
 		View Code
-	</button>
+	</Button>
 {/snippet}
 
 {#if !isDesktop.current}

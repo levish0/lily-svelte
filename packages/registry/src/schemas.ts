@@ -205,6 +205,13 @@ export const registrySchema = z.object({
 
 /** Schema for a project's `components.json` config file. */
 export const componentsJsonSchema = z.object({
+	style: z
+		.string()
+		.min(1)
+		.default('diamond')
+		.describe(
+			'Component design style. Missing style preserves Diamond. Changing this field alone does not convert installed sources.'
+		),
 	$schema: z.string().optional(),
 	tailwind: z.object({
 		css: z.string().describe('Path to the CSS file that imports Tailwind CSS into your project.')

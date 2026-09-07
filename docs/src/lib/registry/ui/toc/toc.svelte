@@ -121,24 +121,32 @@
 </script>
 
 {#if flat.length}
-	<div data-slot="toc" class={cn('flex flex-col', className)}>
+	<div data-slot="toc" class={cn('lily-toc-1 flex flex-col', className)}>
 		{#if title}
-			<p class="pb-2 text-xs font-medium tracking-[-0.3px] text-(--text)/40">{title}</p>
+			<p class={cn('lily-toc-2 pb-2 text-xs font-medium tracking-[-0.3px] text-(--text)/40')}>
+				{title}
+			</p>
 		{/if}
-		<nav bind:this={navEl} class="no-scrollbar flex max-h-[60vh] flex-col overflow-y-auto">
+		<nav
+			bind:this={navEl}
+			class={cn('lily-toc-6 no-scrollbar flex max-h-[60vh] flex-col overflow-y-auto')}
+		>
 			{#each flat as item, i (item.url)}
 				<a
 					href={item.url}
 					style:padding-inline-start={`${item.depth * 0.75}rem`}
-					class="block py-[3px] text-[12.5px] leading-[1.5] tracking-[-0.3px]"
+					class={cn('lily-toc-3 block py-[3px] text-[12.5px] leading-[1.5] tracking-[-0.3px]')}
 				>
 					<span
 						style="transform:scale({scale(i)});opacity:{opacity(i)};font-weight:{activeIdx === i
 							? 500
 							: 400};color:var(--text);transition:transform 0.3s {spring},opacity 0.2s ease;"
-						class="block w-[92.5%] origin-left will-change-[transform,opacity] motion-reduce:transition-none"
+						class={cn(
+							'lily-toc-4 block w-[92.5%] origin-left will-change-[transform,opacity] motion-reduce:transition-none'
+						)}
 					>
-						{#if numbered}<span class="me-1.5 opacity-40">{numbering[i]}</span>{/if}{item.title}
+						{#if numbered}<span class={cn('lily-toc-5 me-1.5 opacity-40')}>{numbering[i]}</span
+							>{/if}{item.title}
 					</span>
 				</a>
 			{/each}

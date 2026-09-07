@@ -15,9 +15,13 @@
 	data-slot="breadcrumb-ellipsis"
 	role="presentation"
 	aria-hidden="true"
-	class={cn('flex size-5 items-center justify-center', className)}
+	class={cn('lily-breadcrumb-ellipsis-1 flex size-5 items-center justify-center', className)}
 	{...restProps}
 >
-	<Icon icon="heroicons:ellipsis-horizontal-solid" class="size-4" aria-hidden="true" />
-	<span class="sr-only">More</span>
+	<Icon
+		icon="heroicons:ellipsis-horizontal-solid"
+		class={cn('lily-breadcrumb-ellipsis-2 size-4')}
+		aria-hidden="true"
+	/>
+	<span class={cn('lily-breadcrumb-ellipsis-3 sr-only')}>More</span>
 </span>

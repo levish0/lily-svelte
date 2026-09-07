@@ -1,0 +1,12 @@
+{
+	"lily-country-selector-1": "shrink-0 gap-1.5 rounded-l-3xl rounded-r-none px-3",
+	"lily-country-selector-2": "w-[300px] p-0",
+	"lily-country-selector-3": "h-72",
+	"lily-country-selector-4": "flex-1 text-[17px] tracking-normal",
+	"lily-country-selector-5": "text-[17px] text-(--text-tertiary)",
+	"lily-country-selector-6": "w-4",
+	"lily-country-selector-7": "size-4",
+	"lily-flag-1": "flex h-4 w-6 shrink-0 overflow-clip rounded-sm bg-(--border) [&>svg]:h-4! [&>svg]:w-6!",
+	"lily-phone-input-1": "flex w-full place-items-center",
+	"lily-phone-input-2": "flex min-h-[54px] w-full min-w-0 rounded-l-none rounded-r-3xl bg-(--surface-muted) px-4 text-[17px] tracking-normal transition-colors duration-150 ease-out outline-none placeholder:text-(--text-tertiary) hover:bg-(--surface-hover) focus:bg-(--border) disabled:pointer-events-none disabled:opacity-50 aria-[invalid=true]:text-red-600 dark:aria-[invalid=true]:text-red-400"
+}

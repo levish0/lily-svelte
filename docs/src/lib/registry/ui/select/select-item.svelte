@@ -18,13 +18,13 @@
 	{value}
 	data-slot="select-item"
 	class={cn(
-		'relative flex w-full cursor-default items-center rounded-xl py-2 ps-3 pe-8 text-sm tracking-[-0.39px] outline-none select-none data-highlighted:bg-(--text)/8 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+		'lily-select-item-1 relative flex w-full cursor-default items-center rounded-xl py-2 ps-3 pe-8 text-sm tracking-[-0.39px] outline-none select-none data-highlighted:bg-(--text)/8 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
 		className
 	)}
 	{...restProps}
 >
 	{#snippet children({ selected, highlighted })}
-		<span class="grow whitespace-nowrap">
+		<span class={cn('lily-select-item-2 grow whitespace-nowrap')}>
 			{#if childrenProp}
 				{@render childrenProp({ selected, highlighted })}
 			{:else}
@@ -32,8 +32,14 @@
 			{/if}
 		</span>
 		{#if selected}
-			<span class="absolute end-2.5 flex size-4 items-center justify-center">
-				<Icon icon="heroicons:check-solid" class="size-4" aria-hidden="true" />
+			<span
+				class={cn('lily-select-item-3 absolute end-2.5 flex size-4 items-center justify-center')}
+			>
+				<Icon
+					icon="heroicons:check-solid"
+					class={cn('lily-select-item-4 size-4')}
+					aria-hidden="true"
+				/>
 			</span>
 		{/if}
 	{/snippet}

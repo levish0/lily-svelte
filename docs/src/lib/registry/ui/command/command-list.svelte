@@ -12,6 +12,6 @@
 <CommandPrimitive.List
 	bind:ref
 	data-slot="command-list"
-	class={cn('max-h-72 overflow-x-hidden overflow-y-auto p-1.5', className)}
+	class={cn('lily-command-list-1 max-h-72 overflow-x-hidden overflow-y-auto p-1.5', className)}
 	{...restProps}
 />

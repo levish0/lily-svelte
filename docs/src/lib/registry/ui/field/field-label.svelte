@@ -13,7 +13,7 @@
 <label
 	bind:this={ref}
 	data-slot="field-label"
-	class={cn('text-sm font-medium tracking-[-0.39px] select-none', className)}
+	class={cn('lily-field-label-1 text-sm font-medium tracking-[-0.39px] select-none', className)}
 	{...restProps}
 >
 	{@render children?.()}

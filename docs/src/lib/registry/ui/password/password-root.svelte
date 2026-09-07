@@ -58,7 +58,7 @@
 <div
 	bind:this={ref}
 	data-slot="password"
-	class={cn('flex flex-col gap-2', className)}
+	class={cn('lily-password-root-1 flex flex-col gap-2', className)}
 	{...restProps}
 >
 	{@render children?.()}

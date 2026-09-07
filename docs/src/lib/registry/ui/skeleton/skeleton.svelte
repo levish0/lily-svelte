@@ -12,6 +12,6 @@
 <div
 	bind:this={ref}
 	data-slot="skeleton"
-	class={cn('animate-pulse rounded-2xl bg-(--text)/8', className)}
+	class={cn('lily-skeleton-1 animate-pulse rounded-2xl bg-(--text)/8', className)}
 	{...restProps}
 ></div>

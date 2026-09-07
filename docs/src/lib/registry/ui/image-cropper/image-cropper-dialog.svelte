@@ -23,7 +23,7 @@
 	<DialogContent
 		data-slot="image-cropper-dialog"
 		showCloseButton={false}
-		class={cn('gap-4 p-4', className)}
+		class={cn('lily-image-cropper-dialog-1 gap-4 p-4', className)}
 		{...restProps}
 	>
 		{@render children?.()}

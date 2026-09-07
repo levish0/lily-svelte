@@ -23,7 +23,9 @@
 >
 	{#if heading}
 		<CommandPrimitive.GroupHeading
-			class="px-3 py-1.5 text-xs font-medium tracking-[-0.3px] text-(--text)/56"
+			class={cn(
+				'lily-command-group-1 px-3 py-1.5 text-xs font-medium tracking-[-0.3px] text-(--text)/56'
+			)}
 		>
 			{heading}
 		</CommandPrimitive.GroupHeading>

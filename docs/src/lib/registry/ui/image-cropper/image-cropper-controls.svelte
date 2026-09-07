@@ -13,7 +13,7 @@
 <div
 	bind:this={ref}
 	data-slot="image-cropper-controls"
-	class={cn('flex w-full items-center justify-end gap-2', className)}
+	class={cn('lily-image-cropper-controls-1 flex w-full items-center justify-end gap-2', className)}
 	{...restProps}
 >
 	{@render children?.()}

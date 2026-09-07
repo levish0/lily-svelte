@@ -1,0 +1,6 @@
+{
+	"lily-date-picker-1": "inline-flex h-10 w-60 items-center gap-2.5 rounded-3xl bg-(--surface-muted) px-4 text-left text-sm tracking-normal transition-colors duration-150 ease-out outline-none hover:bg-(--surface-hover) disabled:pointer-events-none disabled:opacity-50",
+	"lily-date-picker-2": "size-4 shrink-0 text-(--text-tertiary)",
+	"lily-date-picker-3": "w-auto p-0",
+	"lily-date-picker-4": "bg-transparent"
+}

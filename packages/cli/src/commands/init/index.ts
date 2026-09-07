@@ -19,7 +19,7 @@ import { installDependencies } from '../../utils/install-deps.js';
 import { checkPreconditions } from '../../utils/preconditions.js';
 import * as project from '../../utils/project.js';
 
-// Hardcoded lily design-system defaults (no style variants).
+// Color and design style are separate choices.
 const LILY_DEFAULTS = {
 	baseColor: 'neutral'
 } as const;
@@ -28,6 +28,7 @@ const baseColors = registry.getBaseColors();
 
 const initOptionsSchema = z.object({
 	cwd: z.string(),
+	style: z.enum(cliConfig.STYLES).optional(),
 	baseColor: z.string().optional(),
 	css: z.string().optional(),
 	componentsAlias: z.string().optional(),
@@ -47,6 +48,7 @@ export const init = new Command()
 	.command('init')
 	.description('initialize your project and install dependencies')
 	.option('-c, --cwd <path>', 'the working directory', process.cwd())
+	.addOption(new Option('--style <name>', 'component design style').choices([...cliConfig.STYLES]))
 	.option('-o, --overwrite', 'overwrite existing files', false)
 	.option('--no-deps', 'disable adding & installing dependencies')
 	.option('--skip-preflight', 'ignore preflight checks and continue', false)
@@ -194,8 +196,28 @@ async function promptForConfig({
 			existingConfig
 		});
 
+	let style = options.style ?? existingConfig?.style;
+	if (!style) {
+		const selected = await p.select({
+			message: 'Choose a design style:',
+			initialValue: 'diamond',
+			options: cliConfig.STYLES.map((value) => ({
+				value,
+				label: cliConfig.DESIGN_STYLES[value].label,
+				hint: cliConfig.DESIGN_STYLES[value].description
+			}))
+		});
+		if (p.isCancel(selected)) cancel();
+		style = cliConfig.rawConfigSchema.shape.style.parse(selected);
+	}
+	if (existingConfig && style !== existingConfig.style) {
+		throw error(
+			'Changing styles requires replacing installed sources and CSS. Initialize the new style in a separate directory and review the diff; init will not overwrite your current style.'
+		);
+	}
 	const rawConfig = cliConfig.parseRawConfig({
 		...config,
+		style,
 		tailwind: {
 			css: globalCss,
 			baseColor: options.baseColor ?? existingConfig?.tailwind.baseColor ?? LILY_DEFAULTS.baseColor

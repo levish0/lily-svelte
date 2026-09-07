@@ -6,7 +6,7 @@ import * as p from '@clack/prompts';
 import * as registry from './registry/index.js';
 import { highlight } from './colors.js';
 import { cancel, prettifyList } from './prompt-helpers.js';
-import { ensureDesignSystem } from './css.js';
+import { ensureDesignSystem, assertDesignSystemStyle } from './css.js';
 import { transformCss } from './transform-css.js';
 import type { ResolvedConfig } from './config/index.js';
 import {
@@ -29,6 +29,10 @@ type AddRegistryItemsProps = {
 
 // this logic is shared between the `add` and `init` commands
 export async function addRegistryItems(opts: AddRegistryItemsProps) {
+	assertDesignSystemStyle(
+		await fs.readFile(opts.config.resolvedPaths.tailwindCss, 'utf8'),
+		opts.config.style
+	);
 	const dependencies = new Set<string>();
 	const devDependencies = new Set<string>();
 	const skippedDeps = new Set<string>();
@@ -215,7 +219,10 @@ export async function addRegistryItems(opts: AddRegistryItemsProps) {
 		const cssSource = await fs.readFile(cssPath, 'utf8');
 
 		// Inline the full lily design system into the user's stylesheet so they own it.
-		const modifiedCss = ensureDesignSystem(transformCss(cssSource, { css, cssVars }));
+		const modifiedCss = ensureDesignSystem(
+			transformCss(cssSource, { css, cssVars }),
+			opts.config.style
+		);
 
 		const isModified = cssSource !== modifiedCss;
 

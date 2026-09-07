@@ -18,6 +18,12 @@ links:
 <div></div>
 </ComponentPreview>
 
+## Custom trigger
+
+Choose a file using a dedicated trigger.
+
+<ComponentPreview name="file-drop-zone-trigger-demo" />
+
 ## Installation
 
 <InstallTabs>
@@ -63,13 +69,16 @@ buttons, such as delete or retry actions, independent from file selection.
 ```svelte
 <script lang="ts">
 	import * as FileDropZone from '$lib/components/ui/file-drop-zone';
+	import { Button } from '$lib/components/ui/button';
 </script>
 
 <FileDropZone.Root clickToSelect={false} maxFiles={1} onUpload={handleUpload}>
 	<div class="flex items-center gap-3">
 		<span class="flex-1">Current file.png</span>
-		<FileDropZone.Trigger class="rounded-full px-4 py-2">Change</FileDropZone.Trigger>
-		<button type="button" onclick={deleteFile}>Delete</button>
+		<FileDropZone.Trigger>
+			{#snippet child({ props })}<Button {...props} size="md">Change</Button>{/snippet}
+		</FileDropZone.Trigger>
+		<Button variant="ghost" size="md" onclick={deleteFile}>Delete</Button>
 	</div>
 </FileDropZone.Root>
 ```
@@ -83,3 +92,5 @@ buttons, such as delete or retry actions, independent from file selection.
 - `onFileRejected({ file, reason })` — called per rejected file.
 - `clickToSelect` — when `true` (default), the whole root opens the picker; set it to `false` and
   use one or more `FileDropZone.Trigger` components for compound layouts.
+
+`FileDropZone.Trigger` accepts a `child` snippet with button props for composing a Lily Button. The supplied disabled state and click handler preserve upload restrictions and keyboard activation.

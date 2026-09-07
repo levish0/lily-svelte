@@ -22,6 +22,6 @@
 	{count}
 	{perPage}
 	{siblingCount}
-	class={cn('mx-auto flex w-full justify-center', className)}
+	class={cn('lily-pagination-1 mx-auto flex w-full justify-center', className)}
 	{...restProps}
 />

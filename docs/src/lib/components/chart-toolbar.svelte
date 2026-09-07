@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Button from './docs-button.svelte';
 	import Icon from '@iconify/svelte';
 	import { cn } from '$lib/utils.js';
 	import { UseClipboard } from '$lib/hooks/use-clipboard.svelte.js';
@@ -50,10 +51,13 @@
 		{chartTitle.label}
 	</div>
 	<div class="ms-auto flex items-center gap-1.5">
-		<button
+		<Button
+			size="icon-sm"
+			diamondClass="rounded-lg"
+			variant="ghost"
 			type="button"
 			aria-label="Copy code"
-			class="inline-flex size-7 shrink-0 items-center justify-center rounded-lg text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)"
+			class="inline-flex size-7 shrink-0 items-center justify-center text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)"
 			onclick={() => clipboard.copy(code)}
 		>
 			{#if clipboard.copied}
@@ -61,7 +65,7 @@
 			{:else}
 				<Icon icon="heroicons:clipboard-solid" class="size-3.5" aria-hidden="true" />
 			{/if}
-		</button>
+		</Button>
 		<Separator orientation="vertical" class="mx-0 hidden h-4! md:block" />
 		<ChartCodeViewer {chart} {code}>{@render children?.()}</ChartCodeViewer>
 	</div>

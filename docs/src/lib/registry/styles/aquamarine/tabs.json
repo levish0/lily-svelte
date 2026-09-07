@@ -1,0 +1,9 @@
+{
+	"lily-tabs-list-1": "inline-flex w-full items-center gap-0 border-b border-(--border) bg-transparent",
+	"lily-tabs-trigger-1": "inline-flex min-h-[51px] flex-1 items-center justify-center gap-2 border-b-2 border-transparent px-[8px] py-[8px] text-[17px] leading-[1.35] whitespace-nowrap text-(--text-secondary) transition-colors duration-150 ease-out outline-none hover:text-(--text) disabled:pointer-events-none disabled:opacity-40 data-[state=active]:border-(--text) data-[state=active]:font-semibold data-[state=active]:text-(--text) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg)",
+	"lily-tabs-1": "flex flex-col gap-3",
+	"lily-tabs-list-segmented": "inline-flex w-fit max-w-full items-stretch gap-0 rounded-[11px] bg-(--surface-hover) p-[3px]",
+	"lily-tabs-list-segmented-large": "rounded-[14px] px-[5px] py-[4px]",
+	"lily-tabs-trigger-segmented": "inline-flex min-h-[33.25px] flex-1 items-center justify-center gap-2 rounded-[8px] px-[14px] py-[5px] text-[15px] leading-[1.5] font-semibold tracking-normal whitespace-nowrap text-[#6b7684] outline-none disabled:pointer-events-none disabled:opacity-40 data-[state=active]:bg-(--bg-elevated) data-[state=active]:text-(--text) data-[state=active]:shadow-[0_1px_2px_0_rgb(0_0_0/0.09)] focus-visible:ring-2 focus-visible:ring-(--accent)/40",
+	"lily-tabs-trigger-segmented-large": "min-h-[39.5px] rounded-[10px] px-[12px] py-[7px] text-[17px] leading-[1.5]"
+}

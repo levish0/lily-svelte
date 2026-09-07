@@ -20,6 +20,6 @@
 	bind:value
 	bind:ref
 	data-slot="command"
-	class={cn('flex size-full flex-col overflow-hidden', className)}
+	class={cn('lily-command-1 flex size-full flex-col overflow-hidden', className)}
 	{...restProps}
 />

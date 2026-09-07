@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Button } from '$lib/registry/ui/button';
 	import {
 		type ColumnDef,
 		type SortingState,
@@ -61,10 +62,12 @@
 					{#each headerGroup.headers as header (header.id)}
 						<Table.Head class={header.column.id === 'amount' ? 'text-right' : ''}>
 							{#if !header.isPlaceholder}
-								<button
+								<Button
+									variant="ghost"
+									size="sm"
 									type="button"
 									onclick={header.column.getToggleSortingHandler()}
-									class="inline-flex items-center gap-1 transition-colors duration-150 outline-none hover:text-(--text)"
+									class="inline-flex h-auto min-h-0 min-w-0 items-center gap-1 rounded-none bg-transparent p-0 text-inherit transition-colors duration-150 outline-none hover:bg-transparent hover:text-(--text)"
 								>
 									<FlexRender
 										content={header.column.columnDef.header}
@@ -81,7 +84,7 @@
 											aria-hidden="true"
 										/>
 									{/if}
-								</button>
+								</Button>
 							{/if}
 						</Table.Head>
 					{/each}

@@ -8,8 +8,8 @@
 <div
 	data-slot="stepper-description"
 	class={cn(
-		'text-xs leading-[1.4] tracking-[-0.3px] text-(--text)/40',
-		'group-data-[orientation=horizontal]/stepper-nav:text-center group-data-[orientation=vertical]/stepper-nav:text-left',
+		'lily-stepper-description-1 text-xs leading-[1.4] tracking-[-0.3px] text-(--text)/40',
+		'lily-stepper-description-2 group-data-[orientation=horizontal]/stepper-nav:text-center group-data-[orientation=vertical]/stepper-nav:text-left',
 		className
 	)}
 	{...rest}

@@ -9,12 +9,16 @@
 	}: NavigationMenuPrimitive.ViewportProps = $props();
 </script>
 
-<div class="absolute start-0 top-full isolate z-50 flex justify-center">
+<div
+	class={cn(
+		'lily-navigation-menu-viewport-1 absolute start-0 top-full isolate z-50 flex justify-center'
+	)}
+>
 	<NavigationMenuPrimitive.Viewport
 		bind:ref
 		data-slot="navigation-menu-viewport"
 		class={cn(
-			'relative mt-1.5 h-[calc(var(--bits-navigation-menu-viewport-height)+1rem)] w-full origin-top overflow-hidden rounded-2xl bg-(--bg-elevated) shadow-lg transition-[width,height] duration-200 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 md:w-[calc(var(--bits-navigation-menu-viewport-width)+1rem)]',
+			'lily-navigation-menu-viewport-2 relative mt-1.5 h-[calc(var(--bits-navigation-menu-viewport-height)+1rem)] w-full origin-top overflow-hidden rounded-2xl bg-(--bg-elevated) shadow-lg transition-[width,height] duration-200 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 md:w-[calc(var(--bits-navigation-menu-viewport-width)+1rem)]',
 			className
 		)}
 		{...restProps}

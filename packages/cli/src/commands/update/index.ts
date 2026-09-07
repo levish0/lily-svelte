@@ -13,6 +13,7 @@ import * as p from '@clack/prompts';
 import * as registry from '../../utils/registry/index.js';
 import {
 	updateDesignSystem,
+	assertDesignSystemStyle,
 	findDesignSystemRegion,
 	buildDesignSystemRegion
 } from '../../utils/css.js';
@@ -96,6 +97,10 @@ async function runUpdate(cwd: string, config: cliConfig.ResolvedConfig, options:
 
 	const components = options.components;
 
+	assertDesignSystemStyle(
+		await fs.readFile(config.resolvedPaths.tailwindCss, 'utf8'),
+		config.style
+	);
 	const registryUrl = registry.getRegistryUrl(config);
 	const registryIndex = await registry.getRegistryIndex(registryUrl);
 
@@ -268,7 +273,7 @@ async function runUpdate(cwd: string, config: cliConfig.ResolvedConfig, options:
 	const cssPath = config.resolvedPaths.tailwindCss;
 	const cssSource = await fs.readFile(cssPath, 'utf8');
 	const withItemCss = transformCss(cssSource, { css, cssVars });
-	const designSystem = updateDesignSystem(withItemCss);
+	const designSystem = updateDesignSystem(withItemCss, config.style);
 
 	let nextCss = designSystem.css;
 	if (designSystem.status === 'edited') {
@@ -286,7 +291,7 @@ async function runUpdate(cwd: string, config: cliConfig.ResolvedConfig, options:
 				const region = findDesignSystemRegion(withItemCss)!;
 				nextCss =
 					withItemCss.slice(0, region.start) +
-					buildDesignSystemRegion() +
+					buildDesignSystemRegion(config.style) +
 					withItemCss.slice(region.end);
 			}
 		}

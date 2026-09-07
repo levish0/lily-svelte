@@ -1,0 +1,10 @@
+{
+	"lily-select-content-1": "relative z-50 max-h-72 min-w-(--bits-select-anchor-width) overflow-y-auto overscroll-contain rounded-[16px] bg-(--bg-elevated) p-1.5 shadow-lg outline-none data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
+	"lily-select-group-heading-1": "px-3 py-1.5 text-xs tracking-normal text-(--text-tertiary) select-none",
+	"lily-select-item-1": "relative flex w-full cursor-default items-center rounded-[10px] py-2 ps-3 pe-8 text-sm tracking-normal outline-none select-none data-highlighted:bg-(--surface-hover) data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+	"lily-select-item-2": "grow whitespace-nowrap",
+	"lily-select-item-3": "absolute end-2.5 flex size-4 items-center justify-center",
+	"lily-select-item-4": "size-4",
+	"lily-select-trigger-1": "flex h-[38px] w-fit min-w-44 items-center justify-between gap-2 rounded-[10px] bg-(--surface-muted) px-4 py-2 text-sm tracking-normal transition-colors duration-150 ease-out outline-none hover:bg-(--surface-hover) focus-visible:bg-(--border) disabled:cursor-not-allowed disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-(--accent)/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg)",
+	"lily-select-trigger-2": "size-4 shrink-0 text-(--text-tertiary)"
+}

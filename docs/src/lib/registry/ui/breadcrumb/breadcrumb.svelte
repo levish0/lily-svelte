@@ -15,7 +15,7 @@
 	bind:this={ref}
 	data-slot="breadcrumb"
 	aria-label="breadcrumb"
-	class={cn('text-sm tracking-[-0.39px]', className)}
+	class={cn('lily-breadcrumb-1 text-sm tracking-[-0.39px]', className)}
 	{...restProps}
 >
 	{@render children?.()}

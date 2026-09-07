@@ -44,7 +44,7 @@
 				type="button"
 				variant="soft"
 				{disabled}
-				class="shrink-0 gap-1.5 rounded-l-3xl rounded-r-none px-3"
+				class={cn('lily-country-selector-1 shrink-0 gap-1.5 rounded-l-3xl rounded-r-none px-3')}
 			>
 				<Flag country={selectedCountry} />
 				<Icon
@@ -56,7 +56,7 @@
 		{/snippet}
 	</Popover.Trigger>
 	<Popover.Content
-		class="w-[300px] p-0"
+		class={cn('lily-country-selector-2 w-[300px] p-0')}
 		align="start"
 		onCloseAutoFocus={(e) => {
 			if (selectedValue) {
@@ -68,17 +68,25 @@
 		<Command.Root>
 			<Command.Input placeholder="Search country…" />
 			<Command.List>
-				<ScrollArea class="h-72">
+				<ScrollArea class={cn('lily-country-selector-3 h-72')}>
 					<Command.Empty>No country found.</Command.Empty>
 					<Command.Group>
 						{#each [...countries].sort(order) as country (country.id)}
 							<Command.Item value={country.name} onSelect={() => selectCountry(country)}>
 								<Flag {country} />
-								<span class="flex-1 text-sm tracking-[-0.39px]">{country.name}</span>
-								<span class="text-sm text-(--text)/40">+{country.dialCode}</span>
-								<div class="w-4">
+								<span class={cn('lily-country-selector-4 flex-1 text-sm tracking-[-0.39px]')}
+									>{country.name}</span
+								>
+								<span class={cn('lily-country-selector-5 text-sm text-(--text)/40')}
+									>+{country.dialCode}</span
+								>
+								<div class={cn('lily-country-selector-6 w-4')}>
 									{#if country.iso2 == selected}
-										<Icon icon="heroicons:check-solid" class="size-4" aria-hidden="true" />
+										<Icon
+											icon="heroicons:check-solid"
+											class={cn('lily-country-selector-7 size-4')}
+											aria-hidden="true"
+										/>
 									{/if}
 								</div>
 							</Command.Item>

@@ -1,0 +1,15 @@
+{
+	"lily-pm-command-1": "overflow-hidden rounded-3xl",
+	"lily-pm-command-2": "flex items-center gap-2 border-b border-(--border) px-3 py-2",
+	"lily-pm-command-3": "size-4 shrink-0 text-(--text-tertiary)",
+	"lily-pm-command-4": "bg-transparent p-0",
+	"lily-pm-command-5": "px-2.5 py-1 text-xs",
+	"lily-pm-command-6": "ms-auto inline-flex size-7 items-center justify-center rounded-xl bg-(--surface-hover) text-(--text-secondary) transition-colors duration-150 ease-out hover:bg-(--border) hover:text-(--text) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg)",
+	"lily-pm-command-7": "size-4",
+	"lily-pm-command-8": "size-4",
+	"lily-pm-command-9": "size-4",
+	"lily-pm-command-10": "font-mono text-sm text-nowrap text-(--text-secondary)",
+	"lily-pm-command-11": "no-scrollbar overflow-x-auto px-5 py-3.5",
+	"lily-pm-command-picker": "",
+	"lily-pm-command-option": ""
+}

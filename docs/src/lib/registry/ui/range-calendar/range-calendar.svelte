@@ -21,31 +21,51 @@
 	{weekdayFormat}
 	{locale}
 	data-slot="range-calendar"
-	class={cn('w-fit rounded-3xl bg-(--bg-elevated) p-4', className)}
+	class={cn('lily-range-calendar-1 w-fit rounded-3xl bg-(--bg-elevated) p-4', className)}
 	{...restProps}
 >
 	{#snippet children({ months, weekdays })}
-		<RangeCalendarPrimitive.Header class="relative flex w-full items-center justify-between pb-3">
+		<RangeCalendarPrimitive.Header
+			class={cn('lily-range-calendar-2 relative flex w-full items-center justify-between pb-3')}
+		>
 			<RangeCalendarPrimitive.PrevButton
-				class="inline-flex size-9 items-center justify-center rounded-2xl text-(--text)/72 transition-colors duration-150 outline-none hover:bg-(--text)/8 hover:text-(--text)"
+				class={cn(
+					'lily-range-calendar-3 inline-flex size-9 items-center justify-center rounded-2xl text-(--text)/72 transition-colors duration-150 outline-none hover:bg-(--text)/8 hover:text-(--text)'
+				)}
 			>
-				<Icon icon="heroicons:chevron-left-solid" class="size-4" aria-hidden="true" />
+				<Icon
+					icon="heroicons:chevron-left-solid"
+					class={cn('lily-range-calendar-4 size-4')}
+					aria-hidden="true"
+				/>
 			</RangeCalendarPrimitive.PrevButton>
-			<RangeCalendarPrimitive.Heading class="text-sm font-medium tracking-[-0.42px]" />
+			<RangeCalendarPrimitive.Heading
+				class={cn('lily-range-calendar-5 text-sm font-medium tracking-[-0.42px]')}
+			/>
 			<RangeCalendarPrimitive.NextButton
-				class="inline-flex size-9 items-center justify-center rounded-2xl text-(--text)/72 transition-colors duration-150 outline-none hover:bg-(--text)/8 hover:text-(--text)"
+				class={cn(
+					'lily-range-calendar-6 inline-flex size-9 items-center justify-center rounded-2xl text-(--text)/72 transition-colors duration-150 outline-none hover:bg-(--text)/8 hover:text-(--text)'
+				)}
 			>
-				<Icon icon="heroicons:chevron-right-solid" class="size-4" aria-hidden="true" />
+				<Icon
+					icon="heroicons:chevron-right-solid"
+					class={cn('lily-range-calendar-7 size-4')}
+					aria-hidden="true"
+				/>
 			</RangeCalendarPrimitive.NextButton>
 		</RangeCalendarPrimitive.Header>
-		<div class="flex flex-col gap-4 sm:flex-row">
+		<div class={cn('lily-range-calendar-8 flex flex-col gap-4 sm:flex-row')}>
 			{#each months as month (month.value)}
-				<RangeCalendarPrimitive.Grid class="w-full border-collapse select-none">
+				<RangeCalendarPrimitive.Grid
+					class={cn('lily-range-calendar-9 w-full border-collapse select-none')}
+				>
 					<RangeCalendarPrimitive.GridHead>
-						<RangeCalendarPrimitive.GridRow class="flex">
+						<RangeCalendarPrimitive.GridRow class={cn('lily-range-calendar-10 flex')}>
 							{#each weekdays as weekday (weekday)}
 								<RangeCalendarPrimitive.HeadCell
-									class="w-9 pb-1 text-xs font-normal tracking-[-0.3px] text-(--text)/40"
+									class={cn(
+										'lily-range-calendar-11 w-9 pb-1 text-xs font-normal tracking-[-0.3px] text-(--text)/40'
+									)}
 								>
 									{weekday.slice(0, 2)}
 								</RangeCalendarPrimitive.HeadCell>
@@ -54,15 +74,21 @@
 					</RangeCalendarPrimitive.GridHead>
 					<RangeCalendarPrimitive.GridBody>
 						{#each month.weeks as weekDates (weekDates)}
-							<RangeCalendarPrimitive.GridRow class="mt-0.5 flex w-full">
+							<RangeCalendarPrimitive.GridRow
+								class={cn('lily-range-calendar-12 mt-0.5 flex w-full')}
+							>
 								{#each weekDates as date (date)}
 									<RangeCalendarPrimitive.Cell
 										{date}
 										month={month.value}
-										class="relative size-9 p-0 text-center [&:has([data-selected])]:bg-(--text)/8 [&:has([data-selection-end])]:rounded-r-2xl [&:has([data-selection-start])]:rounded-l-2xl"
+										class={cn(
+											'lily-range-calendar-13 relative size-9 p-0 text-center [&:has([data-selected])]:bg-(--text)/8 [&:has([data-selection-end])]:rounded-r-2xl [&:has([data-selection-start])]:rounded-l-2xl'
+										)}
 									>
 										<RangeCalendarPrimitive.Day
-											class="inline-flex size-9 items-center justify-center rounded-2xl text-sm tracking-[-0.39px] text-(--text)/72 transition-colors duration-150 outline-none hover:bg-(--text)/8 hover:text-(--text) data-outside-month:opacity-30 data-selection-end:bg-(--text) data-selection-end:font-medium data-selection-end:text-(--bg) data-selection-start:bg-(--text) data-selection-start:font-medium data-selection-start:text-(--bg) data-today:font-semibold not-data-selected:data-today:bg-(--text)/8 not-data-selected:data-today:text-(--text) data-unavailable:line-through data-disabled:pointer-events-none data-disabled:opacity-30"
+											class={cn(
+												'lily-range-calendar-14 inline-flex size-9 items-center justify-center rounded-2xl text-sm tracking-[-0.39px] text-(--text)/72 transition-colors duration-150 outline-none hover:bg-(--text)/8 hover:text-(--text) data-outside-month:opacity-30 data-selection-end:bg-(--text) data-selection-end:font-medium data-selection-end:text-(--bg) data-selection-start:bg-(--text) data-selection-start:font-medium data-selection-start:text-(--bg) data-today:font-semibold not-data-selected:data-today:bg-(--text)/8 not-data-selected:data-today:text-(--text) data-unavailable:line-through data-disabled:pointer-events-none data-disabled:opacity-30'
+											)}
 										/>
 									</RangeCalendarPrimitive.Cell>
 								{/each}

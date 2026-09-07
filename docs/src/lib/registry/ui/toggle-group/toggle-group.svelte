@@ -49,6 +49,9 @@
 	bind:ref
 	{orientation}
 	data-slot="toggle-group"
-	class={cn('flex w-fit items-center gap-1 data-[orientation=vertical]:flex-col', className)}
+	class={cn(
+		'lily-toggle-group-1 flex w-fit items-center gap-1 data-[orientation=vertical]:flex-col',
+		className
+	)}
 	{...restProps}
 />

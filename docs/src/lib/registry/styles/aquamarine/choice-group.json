@@ -1,0 +1,6 @@
+{
+	"lily-choice-group-base": "inline-flex w-fit max-w-full items-stretch gap-0 rounded-[11px] bg-(--surface-hover) p-[3px]",
+	"lily-choice-group-large": "rounded-[14px] px-[5px] py-[4px]",
+	"lily-choice-group-item-base": "inline-flex min-h-[33.25px] flex-1 items-center justify-center gap-2 rounded-[8px] px-[14px] py-[5px] text-[15px] leading-[1.5] font-semibold tracking-normal whitespace-nowrap text-[#6b7684] outline-none disabled:pointer-events-none disabled:opacity-40 data-[state=checked]:bg-(--bg-elevated) data-[state=checked]:text-(--text) data-[state=checked]:shadow-[0_1px_2px_0_rgb(0_0_0/0.09)] focus-visible:ring-2 focus-visible:ring-(--accent)/40",
+	"lily-choice-group-item-large": "min-h-[39.5px] rounded-[10px] px-[12px] py-[7px] text-[17px] leading-[1.5]"
+}

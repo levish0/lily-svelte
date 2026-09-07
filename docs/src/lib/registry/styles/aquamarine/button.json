@@ -1,0 +1,20 @@
+{
+	"lily-button-1": "relative inline-flex cursor-pointer items-center justify-center gap-[10px] whitespace-nowrap font-semibold leading-[1.252] tracking-normal transition-colors duration-150 ease-out outline-none select-none disabled:pointer-events-none disabled:opacity-30 aria-disabled:cursor-default active:enabled:brightness-95 [&_svg]:pointer-events-none [&_svg]:shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg)",
+	"lily-button-2": "bg-(--button-fill) text-(--button-label) hover:brightness-95",
+	"lily-button-3": "bg-(--button-weak) text-(--button-weak-label) hover:brightness-95",
+	"lily-button-4": "bg-transparent text-(--button-fill) hover:bg-(--button-fill)/8",
+	"lily-button-5": "bg-(--action-danger-weak) text-(--action-danger-ink) hover:brightness-95",
+	"lily-button-6": "min-h-[32px] min-w-[52px] rounded-[8px] px-[10px] py-[2px] text-[13px]",
+	"lily-button-7": "min-h-[56px] min-w-[96px] rounded-[16px] px-[28px] py-[2px] text-[17px]",
+	"lily-button-8": "min-h-[48px] min-w-[80px] rounded-[14px] px-[16px] py-[2px] text-[17px]",
+	"lily-button-9": "min-h-[56px] min-w-[96px] rounded-[16px] px-[28px] py-[2px] text-[17px]",
+	"lily-button-10": "size-[32px] shrink-0 rounded-[8px]",
+	"lily-button-11": "size-[38px] shrink-0 rounded-[10px]",
+	"lily-button-12": "size-[48px] shrink-0 rounded-[14px]",
+	"lily-button-13": "absolute inset-0 flex items-center justify-center",
+	"lily-button-tone-brand": "[--button-fill:var(--accent)] [--button-label:white] [--button-weak:var(--action-brand-weak)] [--button-weak-label:var(--action-brand-ink)]",
+	"lily-button-tone-neutral": "[--button-fill:var(--action-neutral-fill)] [--button-label:white] [--button-weak:var(--surface-control)] [--button-weak-label:var(--text-secondary)]",
+	"lily-button-tone-danger": "[--button-fill:var(--danger)] [--button-label:white] [--button-weak:var(--action-danger-weak)] [--button-weak-label:var(--action-danger-ink)]",
+	"lily-button-tone-inverse": "[--button-fill:white] [--button-label:#1b64da] [--button-weak:rgba(222,222,255,0.19)] [--button-weak-label:white]",
+	"lily-button-medium": "min-h-[38px] min-w-[64px] rounded-[10px] px-[16px] py-[2px] text-[15px]"
+}

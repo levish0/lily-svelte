@@ -14,6 +14,6 @@
 	bind:ref
 	data-slot="sidebar-separator"
 	data-sidebar="separator"
-	class={cn('mx-3 w-auto', className)}
+	class={cn('lily-sidebar-separator-1 mx-3 w-auto', className)}
 	{...restProps}
 />

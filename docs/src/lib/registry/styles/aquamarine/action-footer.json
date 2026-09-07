@@ -1,0 +1,7 @@
+{
+	"lily-action-footer-root": "flex flex-col gap-[12px] bg-transparent px-[24px] pt-[16px] pb-[max(24px,env(safe-area-inset-bottom))]",
+	"lily-action-footer-actions": "flex items-center gap-[8px] [&>*]:flex-1",
+	"lily-bottom-demo-stage": "grid w-full max-w-sm gap-4",
+	"lily-bottom-demo-screen": "flex min-h-[360px] flex-col overflow-hidden rounded-[20px] bg-(--bg-elevated)",
+	"lily-bottom-demo-body": "px-6 text-[15px] leading-relaxed text-(--text-secondary)"
+}

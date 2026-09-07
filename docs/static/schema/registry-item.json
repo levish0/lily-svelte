@@ -152,6 +152,14 @@
 				"config": {
 					"type": "object",
 					"properties": {
+						"style": {
+							"default": "diamond",
+							"type": "string",
+							"enum": [
+								"diamond",
+								"aquamarine"
+							]
+						},
 						"$schema": {
 							"type": "string"
 						},

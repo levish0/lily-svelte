@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Button from './docs-button.svelte';
 	import Icon from '@iconify/svelte';
 	import { UseClipboard } from '$lib/hooks/use-clipboard.svelte.js';
 	import { BlockViewerContext } from './block-viewer.svelte';
@@ -9,10 +10,13 @@
 </script>
 
 {#if ctx.activeFileCodeToCopy}
-	<button
+	<Button
+		size="icon-sm"
+		diamondClass="rounded-lg"
+		variant="ghost"
 		type="button"
 		aria-label="Copy code"
-		class="inline-flex size-7 shrink-0 items-center justify-center rounded-lg text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)"
+		class="inline-flex size-7 shrink-0 items-center justify-center text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text)"
 		onclick={() => {
 			clipboard.copy(ctx.activeFileCodeToCopy);
 		}}
@@ -22,5 +26,5 @@
 		{:else}
 			<Icon icon="heroicons:clipboard-solid" class="size-3.5" aria-hidden="true" />
 		{/if}
-	</button>
+	</Button>
 {/if}

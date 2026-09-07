@@ -1,0 +1,4 @@
+{
+	"lily-home-grid": "columns-1 gap-4 pb-24 md:columns-2 xl:columns-3 2xl:columns-4 [&>*]:mb-4 [&>*]:break-inside-avoid",
+	"lily-home-calendar": "bg-transparent p-0"
+}

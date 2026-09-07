@@ -13,7 +13,7 @@
 <thead
 	bind:this={ref}
 	data-slot="table-header"
-	class={cn('[&_tr]:border-b [&_tr]:border-(--text)/8', className)}
+	class={cn('lily-table-header-1 [&_tr]:border-b [&_tr]:border-(--text)/8', className)}
 	{...restProps}
 >
 	{@render children?.()}

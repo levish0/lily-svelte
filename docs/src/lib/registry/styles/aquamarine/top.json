@@ -1,0 +1,7 @@
+{
+	"lily-top-root": "flex flex-col gap-[16px] p-[24px]",
+	"lily-top-eyebrow": "mb-[8px] text-[15px] leading-[1.5] text-(--text-secondary)",
+	"lily-top-title": "text-[26px] font-bold leading-[1.35] tracking-normal text-(--text)",
+	"lily-top-description": "mt-[8px] text-[17px] leading-[1.5] text-(--text-secondary)",
+	"lily-top-demo-actions": "p-6"
+}

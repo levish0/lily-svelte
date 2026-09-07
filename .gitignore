@@ -114,3 +114,7 @@ repro/src/lib/components/ui
 .claude
 
 /reference
+# Compiled style sources; edit registry/styles instead.
+docs/src/lib/registry-styles/
+docs/src/lib/styles/preview-styles.css
+docs/src/lib/styles/preview-presentations.json

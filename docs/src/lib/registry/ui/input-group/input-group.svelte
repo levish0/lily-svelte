@@ -14,7 +14,7 @@
 	bind:this={ref}
 	data-slot="input-group"
 	class={cn(
-		'flex h-10 w-full items-center overflow-hidden rounded-3xl bg-(--text)/5 transition-colors duration-150 focus-within:bg-(--text)/8',
+		'lily-input-group-1 flex h-10 w-full items-center overflow-hidden rounded-3xl bg-(--text)/5 transition-colors duration-150 focus-within:bg-(--text)/8',
 		className
 	)}
 	{...restProps}

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { getDesignStyle } from '$lib/design-style';
+	const style = getDesignStyle();
 	import { onMount } from 'svelte';
 	import Icon from '@iconify/svelte';
 	import type { Command } from 'package-manager-detector';
@@ -42,10 +44,13 @@
 			class="size-4 shrink-0 text-(--text)/40"
 			aria-hidden="true"
 		/>
-		<Tabs bind:value={pm}>
-			<TabsList class="bg-transparent p-0">
+		<Tabs variant="segmented" bind:value={pm}>
+			<TabsList class={style.current === 'diamond' ? 'bg-transparent p-0' : undefined}>
 				{#each PACKAGE_MANAGERS as p (p)}
-					<TabsTrigger value={p} class="px-2.5 py-1 text-xs">{p}</TabsTrigger>
+					<TabsTrigger
+						value={p}
+						class={style.current === 'diamond' ? 'px-2.5 py-1 text-xs' : undefined}>{p}</TabsTrigger
+					>
 				{/each}
 			</TabsList>
 		</Tabs>

@@ -6,13 +6,13 @@
 
 	const variants: Record<SidebarMenuButtonVariant, string> = {
 		default: '',
-		outline: 'border border-(--text)/8 bg-(--bg-elevated)'
+		outline: 'border border-(--text)/8 bg-(--bg-elevated) lily-sidebar-menu-button-1'
 	};
 
 	const sizes: Record<SidebarMenuButtonSize, string> = {
-		default: 'h-9 text-sm',
-		sm: 'h-8 text-xs',
-		lg: 'h-12 text-sm group-data-[collapsible=icon]:p-0!'
+		default: 'h-9 text-sm lily-sidebar-menu-button-2',
+		sm: 'h-8 text-xs lily-sidebar-menu-button-3',
+		lg: 'h-12 text-sm group-data-[collapsible=icon]:p-0! lily-sidebar-menu-button-4'
 	};
 
 	export function sidebarMenuButtonVariants({
@@ -23,7 +23,7 @@
 		size?: SidebarMenuButtonSize;
 	} = {}): string {
 		return cn(
-			'peer/menu-button group/menu-button flex w-full items-center gap-2.5 overflow-hidden rounded-xl px-3 text-left tracking-[-0.39px] text-(--text)/56 outline-none transition-[width,height,padding,color,background-color] duration-200 select-none hover:bg-(--text)/5 hover:text-(--text) focus-visible:bg-(--text)/5 focus-visible:text-(--text) disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-active:bg-(--text)/8 data-active:font-medium data-active:text-(--text) data-[state=open]:hover:bg-(--text)/5 group-has-data-[sidebar=menu-action]/menu-item:pe-8 group-data-[collapsible=icon]:size-9! group-data-[collapsible=icon]:p-2.5! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0',
+			'peer/menu-button group/menu-button flex w-full items-center gap-2.5 overflow-hidden rounded-xl px-3 text-left tracking-[-0.39px] text-(--text)/56 outline-none transition-[width,height,padding,color,background-color] duration-200 select-none hover:bg-(--text)/5 hover:text-(--text) focus-visible:bg-(--text)/5 focus-visible:text-(--text) disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-active:bg-(--text)/8 data-active:font-medium data-active:text-(--text) data-[state=open]:hover:bg-(--text)/5 group-has-data-[sidebar=menu-action]/menu-item:pe-8 group-data-[collapsible=icon]:size-9! group-data-[collapsible=icon]:p-2.5! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 lily-sidebar-menu-button-5',
 			variants[variant],
 			sizes[size]
 		);

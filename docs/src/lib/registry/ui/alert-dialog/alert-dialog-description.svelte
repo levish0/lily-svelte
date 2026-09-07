@@ -12,6 +12,9 @@
 <AlertDialogPrimitive.Description
 	bind:ref
 	data-slot="alert-dialog-description"
-	class={cn('text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/56', className)}
+	class={cn(
+		'lily-alert-dialog-description-1 text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/56',
+		className
+	)}
 	{...restProps}
 />

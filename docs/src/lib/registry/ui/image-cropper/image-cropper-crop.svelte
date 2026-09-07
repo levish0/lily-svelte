@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { cn } from '$lib/utils.js';
 	import Icon from '@iconify/svelte';
 	import { Button, type ButtonProps } from '$lib/registry/ui/button/index.js';
 	import { useImageCropperRoot } from './image-cropper.svelte.js';
@@ -23,7 +24,7 @@
 	{size}
 	loading={root.cropping}
 	data-slot="image-cropper-crop"
-	class="gap-1.5"
+	class={cn('lily-image-cropper-crop-1 gap-1.5')}
 	onclick={(e) => {
 		onclick?.(e as ButtonClick);
 		root.onCrop();
@@ -33,7 +34,11 @@
 	{#if children}
 		{@render children()}
 	{:else}
-		<Icon icon="heroicons:check-solid" class="size-4" aria-hidden="true" />
+		<Icon
+			icon="heroicons:check-solid"
+			class={cn('lily-image-cropper-crop-2 size-4')}
+			aria-hidden="true"
+		/>
 		Crop
 	{/if}
 </Button>

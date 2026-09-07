@@ -1,7 +1,9 @@
 <script lang="ts">
+	import Button from './docs-button.svelte';
 	import Icon from '@iconify/svelte';
 	import { page } from '$app/stores';
 	import { toggleMode } from 'mode-watcher';
+	import StyleSelect from '$lib/components/style-select.svelte';
 	import MobileNav from '$lib/components/mobile-nav.svelte';
 	import SiteSearch from '$lib/components/site-search.svelte';
 
@@ -31,44 +33,57 @@
 
 		<nav class="hidden items-center gap-1 md:flex">
 			{#each nav as { label, href } (href)}
-				<a
+				<Button
+					size="md"
+					diamondClass="rounded-xl hover:bg-transparent"
+					variant="ghost"
+					tone="neutral"
 					{href}
-					class="rounded-xl px-3 py-1.5 text-sm tracking-[-0.39px] transition-colors duration-150
+					class="px-3 py-1.5 text-sm tracking-[-0.39px] transition-colors duration-150
 						{isActive(href) ? 'text-(--text)' : 'text-(--text)/56 hover:text-(--text)'}"
 				>
 					{label}
-				</a>
+				</Button>
 			{/each}
 		</nav>
 
 		<div class="ml-auto flex items-center gap-2">
+			<StyleSelect />
 			<div class="hidden sm:block">
 				<SiteSearch />
 			</div>
-			<a
+			<Button
+				size="icon-sm"
+				diamondClass="rounded-xl"
+				variant="ghost"
+				tone="neutral"
 				href="https://github.com/levish0/lily-svelte"
 				target="_blank"
 				rel="noreferrer"
 				aria-label="GitHub"
-				class="inline-flex size-9 items-center justify-center rounded-xl text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/5 hover:text-(--text)"
+				class="inline-flex size-9 items-center justify-center text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/5 hover:text-(--text)"
 			>
 				<svg class="size-4.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
 					<path
 						d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.44 9.63 8.21 11.19.6.11.82-.25.82-.56v-2.01c-3.34.71-4.04-1.59-4.04-1.59-.55-1.38-1.34-1.74-1.34-1.74-1.09-.74.08-.73.08-.73 1.21.08 1.84 1.22 1.84 1.22 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.58-2.67-.3-5.47-1.31-5.47-5.82 0-1.29.47-2.34 1.24-3.16-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.21a11.6 11.6 0 0 1 3-.4c1.02 0 2.05.13 3 .4 2.29-1.53 3.3-1.21 3.3-1.21.66 1.65.24 2.87.12 3.17.77.82 1.24 1.87 1.24 3.16 0 4.52-2.81 5.51-5.49 5.81.43.37.81 1.1.81 2.22v3.29c0 .31.22.68.83.56C20.56 21.91 24 17.5 24 12.29 24 5.78 18.63.5 12 .5Z"
 					/>
 				</svg>
-			</a>
-			<button
+			</Button>
+			<Button
+				size="icon-sm"
+				diamondClass="rounded-xl"
+				variant="ghost"
+				tone="neutral"
 				onclick={toggleMode}
 				aria-label="Toggle theme"
-				class="inline-flex size-9 items-center justify-center rounded-xl text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/5 hover:text-(--text)"
+				class="inline-flex size-9 items-center justify-center text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/5 hover:text-(--text)"
 			>
 				<!-- Both icons render so server and client markup always match
 				     (a conditional on the persisted mode breaks hydration) —
 				     the dark: variant picks the visible one. -->
 				<Icon icon="heroicons:sun-solid" class="hidden size-4.5 dark:block" aria-hidden="true" />
 				<Icon icon="heroicons:moon-solid" class="size-4.5 dark:hidden" aria-hidden="true" />
-			</button>
+			</Button>
 		</div>
 	</div>
 </header>

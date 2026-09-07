@@ -18,7 +18,7 @@
 	data-slot="input-group-addon"
 	data-align={align}
 	class={cn(
-		'flex shrink-0 items-center text-sm tracking-[-0.39px] text-(--text)/56 [&_svg]:size-4',
+		'lily-input-group-addon-1 flex shrink-0 items-center text-sm tracking-[-0.39px] text-(--text)/56 [&_svg]:size-4',
 		align === 'inline-start' ? 'ps-4' : 'pe-2',
 		className
 	)}

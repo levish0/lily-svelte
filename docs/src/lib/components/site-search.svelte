@@ -1,89 +1,65 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { goto } from '$app/navigation';
-	import { Dialog, DialogContent } from '$lib/registry/ui/dialog';
+	import Button from './docs-button.svelte';
+	import { Dialog, DialogContent, DialogTitle, DialogDescription } from '$lib/registry/ui/dialog';
+	import * as Command from '$lib/registry/ui/command';
 	import { Kbd } from '$lib/registry/ui/kbd';
 	import { docsNav } from '$lib/config/docs-nav.js';
-
 	let open = $state(false);
-	let query = $state('');
-	let inputEl = $state<HTMLInputElement>();
-
-	type Result = { title: string; href: string; section: string };
-	const allItems: Result[] = docsNav.flatMap((s) =>
-		s.items.map((i) => ({ title: i.title, href: i.href, section: s.title }))
-	);
-
-	const results = $derived(
-		query.trim()
-			? allItems.filter((i) => i.title.toLowerCase().includes(query.trim().toLowerCase()))
-			: allItems
-	);
-
-	function handleKeydown(e: KeyboardEvent) {
-		if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-			e.preventDefault();
-			open = true;
+	function handleKeydown(event: KeyboardEvent) {
+		if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+			event.preventDefault();
+			open = !open;
 		}
 	}
-
 	function select(href: string) {
 		open = false;
-		query = '';
 		goto(href);
 	}
-
-	$effect(() => {
-		if (open) {
-			query = '';
-			// focus the input once the dialog mounts
-			setTimeout(() => inputEl?.focus(), 0);
-		}
-	});
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
 
-<button
-	type="button"
+<Button
+	size="md"
+	diamondClass="h-9 w-72 rounded-2xl bg-(--text)/5 px-3.5 text-sm tracking-[-0.39px] text-(--text)/40 hover:bg-(--text)/8 hover:text-(--text)/40"
+	variant="soft"
+	tone="neutral"
 	onclick={() => (open = true)}
-	class="inline-flex h-9 w-72 items-center gap-2 rounded-2xl bg-(--text)/5 px-3.5 text-sm tracking-[-0.39px] text-(--text)/40 transition-colors duration-150 hover:bg-(--text)/8"
+	aria-label="Search documentation"
+	class="w-56 gap-2 lg:w-72"
 >
 	<Icon icon="heroicons:magnifying-glass-solid" class="size-4 shrink-0" aria-hidden="true" />
-	<span class="flex-1 text-left whitespace-nowrap">Search documentation…</span>
+	<span class="flex-1 truncate text-left">Search documentation…</span>
 	<Kbd class="shrink-0">⌘K</Kbd>
-</button>
+</Button>
 
 <Dialog bind:open>
-	<DialogContent showCloseButton={false} class="top-24 max-w-lg translate-y-0 gap-0 p-0">
-		<div class="flex items-center gap-2 border-b border-(--text)/8 px-4">
-			<Icon
-				icon="heroicons:magnifying-glass-solid"
-				class="size-4.5 shrink-0 text-(--text)/40"
-				aria-hidden="true"
-			/>
-			<input
-				bind:this={inputEl}
-				bind:value={query}
-				placeholder="Search documentation..."
-				class="h-12 flex-1 bg-transparent text-sm tracking-[-0.39px] outline-none placeholder:text-(--text)/40"
-			/>
-		</div>
-		<div class="max-h-80 overflow-y-auto p-2">
-			{#if results.length === 0}
-				<p class="px-3 py-6 text-center text-sm text-(--text)/40">No results found.</p>
-			{:else}
-				{#each results as item (item.href)}
-					<button
-						type="button"
-						onclick={() => select(item.href)}
-						class="flex w-full items-center justify-between gap-2 rounded-xl px-3 py-2 text-left text-sm tracking-[-0.39px] transition-colors duration-100 hover:bg-(--text)/8"
-					>
-						<span>{item.title}</span>
-						<span class="text-xs text-(--text)/40">{item.section}</span>
-					</button>
+	<DialogContent
+		showCloseButton={false}
+		class="top-24 max-w-lg translate-y-0 gap-0 overflow-hidden p-0"
+	>
+		<DialogTitle class="sr-only">Search documentation</DialogTitle>
+		<DialogDescription class="sr-only"
+			>Search pages, use arrow keys to navigate, and Enter to open a result.</DialogDescription
+		>
+		<Command.Root loop>
+			<Command.Input aria-label="Search documentation pages" placeholder="Search documentation…" />
+			<Command.List>
+				<Command.Empty>No results found.</Command.Empty>
+				{#each docsNav as section (section.title)}
+					<Command.Group heading={section.title}>
+						{#each section.items as item (item.href)}
+							<Command.Item
+								value={item.href}
+								keywords={[item.title, section.title]}
+								onSelect={() => select(item.href)}>{item.title}</Command.Item
+							>
+						{/each}
+					</Command.Group>
 				{/each}
-			{/if}
-		</div>
+			</Command.List>
+		</Command.Root>
 	</DialogContent>
 </Dialog>

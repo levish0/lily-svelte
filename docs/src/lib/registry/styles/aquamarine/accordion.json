@@ -1,0 +1,9 @@
+{
+	"lily-accordion-content-1": "overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
+	"lily-accordion-content-2": "pb-4 text-sm leading-[1.6] tracking-normal text-(--text-secondary)",
+	"lily-accordion-item-1": "border-b border-(--border)",
+	"lily-accordion-trigger-1": "flex",
+	"lily-accordion-trigger-2": "size-4 shrink-0 text-(--text-tertiary) transition-transform duration-200 ease-out group-aria-expanded/accordion:rotate-180",
+	"lily-accordion-1": "flex w-full flex-col",
+	"lily-accordion-trigger-3": "group/accordion flex flex-1 items-center justify-between gap-4 py-4 text-left text-sm font-medium tracking-normal transition-colors duration-150 outline-none hover:text-(--text)/72 active:[transform:none] disabled:pointer-events-none disabled:opacity-50"
+}

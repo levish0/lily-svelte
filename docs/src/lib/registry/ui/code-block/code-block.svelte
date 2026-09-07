@@ -52,27 +52,45 @@
 
 <div
 	data-slot="code-block"
-	class={cn('relative overflow-hidden rounded-3xl', variants[variant], className)}
+	class={cn('lily-code-block-1 relative overflow-hidden rounded-3xl', variants[variant], className)}
 >
 	<div
-		class="no-scrollbar overflow-x-auto px-5 py-4 pe-14 font-mono text-sm leading-[1.7] [&_pre]:m-0 [&_pre]:bg-transparent [&_span]:text-(--shiki-light) dark:[&_span]:text-(--shiki-dark)"
+		class={cn(
+			'lily-code-block-7 no-scrollbar overflow-x-auto px-5 py-4 pe-14 font-mono text-sm leading-[1.7] [&_pre]:m-0 [&_pre]:bg-transparent [&_span]:text-(--shiki-light) dark:[&_span]:text-(--shiki-dark)'
+		)}
 	>
 		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-		{#if html}{@html html}{:else}<pre class="text-(--text)/72"><code>{code}</code></pre>{/if}
+		{#if html}{@html html}{:else}<pre class={cn('lily-code-block-2 text-(--text)/72')}><code
+					>{code}</code
+				></pre>{/if}
 	</div>
 	<Tooltip.Provider>
 		<Tooltip.Root>
 			<Tooltip.Trigger
 				aria-label="Copy code"
 				onclick={() => clipboard.copy(code)}
-				class="absolute end-3 top-3 inline-flex size-7 items-center justify-center rounded-xl bg-(--text)/8 text-(--text)/56 transition-colors duration-150 hover:bg-(--text)/12 hover:text-(--text) focus-visible:outline-none"
+				class={cn(
+					'lily-code-block-3 absolute end-3 top-3 inline-flex size-7 items-center justify-center rounded-xl bg-(--text)/8 text-(--text)/56 transition-colors duration-150 hover:bg-(--text)/12 hover:text-(--text) focus-visible:outline-none'
+				)}
 			>
 				{#if clipboard.status === 'success'}
-					<Icon icon="heroicons:check-solid" class="size-4" aria-hidden="true" />
+					<Icon
+						icon="heroicons:check-solid"
+						class={cn('lily-code-block-4 size-4')}
+						aria-hidden="true"
+					/>
 				{:else if clipboard.status === 'failure'}
-					<Icon icon="heroicons:x-mark-solid" class="size-4" aria-hidden="true" />
+					<Icon
+						icon="heroicons:x-mark-solid"
+						class={cn('lily-code-block-5 size-4')}
+						aria-hidden="true"
+					/>
 				{:else}
-					<Icon icon="heroicons:clipboard-document-solid" class="size-4" aria-hidden="true" />
+					<Icon
+						icon="heroicons:clipboard-document-solid"
+						class={cn('lily-code-block-6 size-4')}
+						aria-hidden="true"
+					/>
 				{/if}
 			</Tooltip.Trigger>
 			<Tooltip.Content>

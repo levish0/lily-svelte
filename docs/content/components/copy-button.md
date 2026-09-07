@@ -84,11 +84,12 @@ The button is built on `UseClipboard`, which you can use on its own.
 ```svelte
 <script lang="ts">
 	import { UseClipboard } from '$lib/hooks/use-clipboard.svelte';
+	import { Button } from '$lib/components/ui/button';
 
 	const clipboard = new UseClipboard();
 </script>
 
-<button onclick={() => clipboard.copy('hello')}>
+<Button onclick={() => clipboard.copy('hello')}>
 	{clipboard.copied ? 'Copied' : 'Copy'}
-</button>
+</Button>
 ```

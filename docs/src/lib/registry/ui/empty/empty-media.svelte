@@ -14,7 +14,7 @@
 	bind:this={ref}
 	data-slot="empty-media"
 	class={cn(
-		'mb-2 flex size-12 items-center justify-center rounded-2xl bg-(--text)/5 text-(--text)/56 [&_svg]:size-6',
+		'lily-empty-media-1 mb-2 flex size-12 items-center justify-center rounded-2xl bg-(--text)/5 text-(--text)/56 [&_svg]:size-6',
 		className
 	)}
 	{...restProps}
