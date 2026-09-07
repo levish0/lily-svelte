@@ -9,13 +9,13 @@ component: true
  import PMAddComp from "$lib/components/pm-add-comp.svelte";
 </script>
 
-<ComponentPreview name="action-footer-demo" class="p-4 sm:p-6" />
+<ComponentPreview name="action-footer-demo" surface="inset" class="p-4 sm:p-6" />
 
 ## Two actions
 
 Use a secondary action alongside the primary action.
 
-<ComponentPreview name="action-footer-double-demo" class="p-4 sm:p-6" />
+<ComponentPreview name="action-footer-double-demo" surface="inset" class="p-4 sm:p-6" />
 
 ## Installation
 

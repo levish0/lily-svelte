@@ -11,11 +11,14 @@
 		name,
 		component,
 		align = 'center',
+		surface = 'default',
 		class: className
 	}: {
 		name: string;
 		component?: Component;
 		align?: 'center' | 'start' | 'end';
+		/** Opt in to a contrasting canvas for elevated screen examples. */
+		surface?: 'default' | 'inset';
 		class?: string;
 		/** The shiki-highlighted source, inlined by mdsx (rehypeComponentExample). */
 		children?: Snippet;
@@ -34,7 +37,9 @@
 		<div
 			class={cn(
 				'flex min-h-80 w-full justify-center rounded-3xl border border-(--text)/8 bg-(--bg) p-10',
-				style.current === 'aquamarine' && 'bg-(--surface-inset) dark:bg-(--bg)',
+				surface === 'inset' &&
+					style.current === 'aquamarine' &&
+					'bg-(--surface-inset) dark:bg-(--bg)',
 				align === 'center' && 'items-center',
 				align === 'start' && 'items-start',
 				align === 'end' && 'items-end',

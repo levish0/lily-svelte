@@ -9,7 +9,7 @@ component: true
  import PMAddComp from "$lib/components/pm-add-comp.svelte";
 </script>
 
-<ComponentPreview name="list-row-demo" class="p-4 sm:p-6" />
+<ComponentPreview name="list-row-demo" surface="inset" class="p-4 sm:p-6" />
 
 ## Installation
 
