@@ -1,32 +1,13 @@
 // @ts-nocheck
-import { readFileSync } from 'node:fs';
-import process from 'node:process';
-import { join, resolve } from 'node:path';
+import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import prettier from '@prettier/sync';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { visit } from 'unist-util-visit';
-import { u } from 'unist-builder';
 import { createHighlighterCore } from 'shiki/core';
 import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
 import { defineConfig } from 'mdsx';
-import { Index } from './src/__registry__/index.js';
-
-/** @type {import('prettier').Config} */
-const codeBlockPrettierConfig = {
-	useTabs: false,
-	tabWidth: 2,
-	singleQuote: false,
-	trailingComma: 'none',
-	printWidth: 80,
-	endOfLine: 'lf',
-	parser: 'svelte',
-	plugins: ['prettier-plugin-svelte'],
-	overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }],
-	bracketSameLine: false
-};
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const jsEngine = createJavaScriptRegexEngine();
@@ -82,7 +63,6 @@ export const mdsxConfig = defineConfig({
 	remarkPlugins: [remarkGfm, remarkRemovePrettierIgnore],
 	rehypePlugins: [
 		rehypeSlug,
-		rehypeComponentExample,
 		rehypePreData,
 		[rehypePrettyCode, prettyCodeOptions],
 		rehypeHandleMetadata
@@ -144,86 +124,6 @@ function rehypePreData() {
 	};
 }
 
-/** @returns {HastTransformer} */
-export function rehypeComponentExample() {
-	return (tree) => {
-		const nameRegex = /name="([^"]+)"/;
-		const titleRegex = /title="([^"]+)"/;
-		visit(tree, (node, index, parent) => {
-			if (
-				node?.type === 'raw' &&
-				(node?.value?.startsWith('<ComponentPreview') ||
-					node?.value?.startsWith('<ComponentSource'))
-			) {
-				const match = node.value.match(nameRegex);
-				const name = match ? match[1] : null;
-				const titleMatch = node.value.match(titleRegex);
-				const title = titleMatch ? titleMatch[1] : null;
-
-				if (!name) return null;
-
-				try {
-					// @ts-expect-error - this is fine
-					const component = Index[name];
-					if (!component) return;
-
-					const files = component.files;
-					if (!files) return;
-					const src = files[0]?.replace('/lib/', '/src/lib/');
-
-					let sourceCode = getComponentSourceFileContent(src);
-					if (!sourceCode || sourceCode === null) return;
-
-					sourceCode = sourceCode
-						.replaceAll('$lib/registry/', '$lib/components/')
-						.replace(/ lily-[\w-]+/g, '');
-
-					const meta = title
-						? { meta: `title="${title}" showLineNumbers` }
-						: { meta: `showLineNumbers` };
-
-					const sourceCodeNode = u('element', {
-						tagName: 'pre',
-						properties: { __src__: src, className: ['code'] },
-						children: [
-							u('element', {
-								tagName: 'code',
-								properties: { className: [`language-svelte`] },
-								attributes: {},
-								data: meta,
-								children: [{ type: 'text', value: sourceCode.replace(/^\n+/, '') }]
-							})
-						]
-					});
-					if (index === null || index === undefined || !parent) return;
-
-					// When the component is written without blank lines around its children,
-					// the whole `<ComponentPreview>...</ComponentPreview>` block is a single
-					// raw node — split it so the code lands INSIDE the component (its Code tab),
-					// not after it.
-					const closeTag = node.value.match(/<\/Component(Preview|Source)>\s*$/)?.[0];
-					if (closeTag) {
-						const closeIndex = node.value.lastIndexOf(closeTag);
-						parent.children.splice(
-							index,
-							1,
-							u('raw', node.value.slice(0, closeIndex)),
-							// @ts-expect-error - this is fine
-							sourceCodeNode,
-							u('raw', node.value.slice(closeIndex))
-						);
-						return index + 3;
-					}
-					// @ts-expect-error - this is fine
-					parent.children.splice(index + 1, 0, sourceCodeNode);
-				} catch (e) {
-					console.error(e);
-				}
-			}
-		});
-	};
-}
-
 /**
  * Adds `data-metadata` to `<figure>` elements that contain a `<figcaption>`.
  * @returns {HastTransformer}
@@ -251,18 +151,4 @@ function rehypeHandleMetadata() {
 			}
 		});
 	};
-}
-
-function getComponentSourceFileContent(src = '') {
-	const newSrc = src.replace('../', './');
-	if (!newSrc) return null;
-
-	const filePath = join(process.cwd(), newSrc);
-
-	const formattedSource = prettier.format(
-		readFileSync(filePath, 'utf-8'),
-		/** @type {any} */ (codeBlockPrettierConfig)
-	);
-
-	return formattedSource.trim();
 }

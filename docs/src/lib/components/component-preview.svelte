@@ -2,11 +2,10 @@
 	import { getDesignStyle } from '$lib/design-style';
 	import RegistrySource from './registry-source.svelte';
 	const style = getDesignStyle();
-	import type { Component, Snippet } from 'svelte';
+	import type { Component } from 'svelte';
 	import { cn } from '$lib/utils.js';
 	import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/registry/ui/tabs';
 
-	// eslint-disable-next-line svelte/no-unused-props -- mdsx injects source snippets; displayed source comes from the selected registry.
 	let {
 		name,
 		component,
@@ -20,8 +19,6 @@
 		/** Opt in to a contrasting canvas for elevated screen examples. */
 		surface?: 'default' | 'inset';
 		class?: string;
-		/** The shiki-highlighted source, inlined by mdsx (rehypeComponentExample). */
-		children?: Snippet;
 	} = $props();
 
 	const Comp = $derived(component);
