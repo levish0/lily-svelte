@@ -16,7 +16,7 @@
 	data-slot="input-otp"
 	spellcheck={false}
 	class={cn(
-		'flex items-center gap-2 disabled:cursor-not-allowed has-disabled:opacity-50',
+		'lily-input-otp-1 flex items-center gap-2 disabled:cursor-not-allowed has-disabled:opacity-50',
 		className
 	)}
 	{...restProps}

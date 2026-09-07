@@ -27,7 +27,7 @@
 	bind:ref
 	data-slot="toggle-group-item"
 	class={cn(
-		'shrink-0 focus-visible:z-10',
+		'lily-toggle-group-item-1 shrink-0 focus-visible:z-10',
 		toggleVariants({ variant: ctx?.variant ?? variant, size: ctx?.size ?? size }),
 		className
 	)}

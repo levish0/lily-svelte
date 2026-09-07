@@ -1,0 +1,5 @@
+{
+	"lily-form-field-errors-1": "flex flex-col gap-1 empty:hidden",
+	"lily-form-label-1": "data-[fs-error]:text-red-600 dark:data-[fs-error]:text-red-400",
+	"lily-form-legend-1": "data-[fs-error]:text-red-600 dark:data-[fs-error]:text-red-400"
+}

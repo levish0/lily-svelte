@@ -20,7 +20,10 @@
 			bind:ref
 			data-slot="form-label"
 			{...props}
-			class={cn('data-[fs-error]:text-red-600 dark:data-[fs-error]:text-red-400', className)}
+			class={cn(
+				'lily-form-label-1 data-[fs-error]:text-red-600 dark:data-[fs-error]:text-red-400',
+				className
+			)}
 		>
 			{@render children?.()}
 		</FieldLabel>

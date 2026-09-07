@@ -23,7 +23,7 @@
 	aria-disabled={!emblaCtx.canScrollPrev}
 	disabled={!emblaCtx.canScrollPrev}
 	class={cn(
-		'absolute touch-manipulation rounded-full',
+		'lily-carousel-previous-1 absolute touch-manipulation rounded-full',
 		emblaCtx.orientation === 'horizontal'
 			? '-start-12 top-1/2 -translate-y-1/2'
 			: 'start-1/2 -top-12 -translate-x-1/2 rotate-90',
@@ -34,6 +34,10 @@
 	bind:ref
 	{...restProps}
 >
-	<Icon icon="heroicons:chevron-left-solid" class="size-4" aria-hidden="true" />
-	<span class="sr-only">Previous slide</span>
+	<Icon
+		icon="heroicons:chevron-left-solid"
+		class={cn('lily-carousel-previous-2 size-4')}
+		aria-hidden="true"
+	/>
+	<span class={cn('lily-carousel-previous-3 sr-only')}>Previous slide</span>
 </Button>

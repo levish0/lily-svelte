@@ -1,0 +1,6 @@
+{
+	"lily-search-field-root": "flex min-h-[44px] w-full items-center gap-[8px] rounded-[12px] bg-(--surface-control) px-[10px] py-[8px] text-(--text-secondary) focus-within:bg-(--surface-hover)",
+	"lily-search-field-icon": "size-[24px] shrink-0",
+	"lily-search-field-input": "w-full min-w-0 border-0 bg-transparent p-0 text-[16px] leading-[1.252] tracking-normal text-(--text) outline-none placeholder:text-(--text-placeholder) [&::-webkit-search-cancel-button]:appearance-none",
+	"lily-search-field-clear": "flex size-[24px] shrink-0 cursor-pointer items-center justify-center rounded-full text-(--text-placeholder) outline-none focus-visible:ring-2 focus-visible:ring-(--accent)/40"
+}

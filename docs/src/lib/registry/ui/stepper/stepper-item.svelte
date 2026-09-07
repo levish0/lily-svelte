@@ -15,8 +15,8 @@
 <div
 	data-slot="stepper-item"
 	class={cn(
-		'group/stepper-item relative flex flex-1',
-		'group-data-[orientation=horizontal]/stepper-nav:flex-col group-data-[orientation=horizontal]/stepper-nav:items-center',
+		'group/stepper-item lily-stepper-item-2 relative flex flex-1',
+		'lily-stepper-item-1 group-data-[orientation=horizontal]/stepper-nav:flex-col group-data-[orientation=horizontal]/stepper-nav:items-center',
 		className
 	)}
 	{...stepperItemState.props}

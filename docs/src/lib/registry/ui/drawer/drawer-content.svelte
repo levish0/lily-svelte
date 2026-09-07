@@ -23,7 +23,7 @@
 		bind:ref
 		data-slot="drawer-content"
 		class={cn(
-			'group/drawer-content fixed z-50 flex h-auto flex-col bg-(--bg-elevated) text-sm shadow-lg outline-none',
+			'group/drawer-content lily-drawer-content-2 fixed z-50 flex h-auto flex-col bg-(--bg-elevated) text-sm shadow-lg outline-none',
 			'data-[vaul-drawer-direction=bottom]:inset-x-0 data-[vaul-drawer-direction=bottom]:bottom-0 data-[vaul-drawer-direction=bottom]:mt-24 data-[vaul-drawer-direction=bottom]:max-h-[80vh] data-[vaul-drawer-direction=bottom]:rounded-t-3xl',
 			'data-[vaul-drawer-direction=top]:inset-x-0 data-[vaul-drawer-direction=top]:top-0 data-[vaul-drawer-direction=top]:mb-24 data-[vaul-drawer-direction=top]:max-h-[80vh] data-[vaul-drawer-direction=top]:rounded-b-3xl',
 			'data-[vaul-drawer-direction=right]:inset-y-0 data-[vaul-drawer-direction=right]:right-0 data-[vaul-drawer-direction=right]:w-3/4 data-[vaul-drawer-direction=right]:rounded-l-3xl data-[vaul-drawer-direction=right]:sm:max-w-sm',
@@ -33,7 +33,9 @@
 		{...restProps}
 	>
 		<div
-			class="mx-auto mt-3 hidden h-1.5 w-12 shrink-0 rounded-full bg-(--text)/16 group-data-[vaul-drawer-direction=bottom]/drawer-content:block"
+			class={cn(
+				'lily-drawer-content-1 mx-auto mt-3 hidden h-1.5 w-12 shrink-0 rounded-full bg-(--text)/16 group-data-[vaul-drawer-direction=bottom]/drawer-content:block'
+			)}
 		></div>
 		{@render children?.()}
 	</DrawerPrimitive.Content>

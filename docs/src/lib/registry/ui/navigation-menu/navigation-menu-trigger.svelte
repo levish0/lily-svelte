@@ -2,7 +2,7 @@
 	import { cn } from '$lib/utils.js';
 
 	export function navigationMenuTriggerStyle(): string {
-		return 'inline-flex h-9 w-max items-center justify-center gap-1 rounded-2xl px-3 text-sm font-medium tracking-[-0.39px] text-(--text)/72 outline-none transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) focus-visible:bg-(--text)/8 data-[state=open]:bg-(--text)/8 data-[state=open]:text-(--text) disabled:pointer-events-none disabled:opacity-50';
+		return 'inline-flex h-9 w-max items-center justify-center gap-1 rounded-2xl px-3 text-sm font-medium tracking-[-0.39px] text-(--text)/72 outline-none transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) focus-visible:bg-(--text)/8 data-[state=open]:bg-(--text)/8 data-[state=open]:text-(--text) disabled:pointer-events-none disabled:opacity-50 lily-navigation-menu-trigger-1';
 	}
 </script>
 
@@ -27,7 +27,9 @@
 	{@render children?.()}
 	<Icon
 		icon="heroicons:chevron-down-solid"
-		class="size-3.5 text-(--text)/40 transition-transform duration-200 ease-out group-data-[state=open]:rotate-180"
+		class={cn(
+			'lily-navigation-menu-trigger-2 size-3.5 text-(--text)/40 transition-transform duration-200 ease-out group-data-[state=open]:rotate-180'
+		)}
 		aria-hidden="true"
 	/>
 </NavigationMenuPrimitive.Trigger>

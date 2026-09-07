@@ -1,0 +1,8 @@
+{
+	"lily-list-row-root": "flex w-full items-center gap-[16px] px-[24px]",
+	"lily-list-row-compact": "py-[8px]",
+	"lily-list-row-default": "py-[12px]",
+	"lily-list-row-comfortable": "py-[16px]",
+	"lily-list-row-title": "text-[17px] font-medium leading-[1.35] tracking-normal text-(--text)",
+	"lily-list-row-description": "mt-[4px] text-[13px] leading-[1.5] text-(--text-secondary)"
+}

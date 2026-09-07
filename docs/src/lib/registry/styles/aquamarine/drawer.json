@@ -1,0 +1,9 @@
+{
+	"lily-drawer-content-1": "mx-auto mt-3 hidden h-1.5 w-12 shrink-0 rounded-full bg-(--border) group-data-[vaul-drawer-direction=bottom]/drawer-content:block",
+	"lily-drawer-description-1": "text-[15px] leading-[1.6] tracking-normal text-(--text-secondary)",
+	"lily-drawer-footer-1": "mt-auto flex flex-col gap-2 p-5",
+	"lily-drawer-header-1": "flex flex-col gap-1.5 p-5 group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center md:text-left",
+	"lily-drawer-overlay-1": "fixed inset-0 z-50 bg-black/40  data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
+	"lily-drawer-title-1": "text-lg font-semibold tracking-normal",
+	"lily-drawer-content-2": "group/drawer-content fixed z-50 flex h-auto flex-col bg-(--bg-elevated) text-[15px] shadow-lg outline-none"
+}

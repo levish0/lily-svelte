@@ -12,6 +12,9 @@
 <CommandPrimitive.Empty
 	bind:ref
 	data-slot="command-empty"
-	class={cn('py-6 text-center text-sm tracking-[-0.39px] text-(--text)/40', className)}
+	class={cn(
+		'lily-command-empty-1 py-6 text-center text-sm tracking-[-0.39px] text-(--text)/40',
+		className
+	)}
 	{...restProps}
 />

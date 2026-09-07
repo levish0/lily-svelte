@@ -21,7 +21,7 @@
 	data-slot="sidebar-trigger"
 	type="button"
 	class={cn(
-		'inline-flex size-8 shrink-0 items-center justify-center rounded-xl text-(--text)/40 transition-colors duration-150 outline-none hover:bg-(--text)/5 hover:text-(--text)',
+		'lily-sidebar-trigger-1 inline-flex size-8 shrink-0 items-center justify-center rounded-xl text-(--text)/40 transition-colors duration-150 outline-none hover:bg-(--text)/5 hover:text-(--text)',
 		className
 	)}
 	onclick={(e) => {
@@ -33,7 +33,11 @@
 	{#if children}
 		{@render children()}
 	{:else}
-		<Icon icon="heroicons:bars-3-bottom-left-solid" class="size-4.5" aria-hidden="true" />
+		<Icon
+			icon="heroicons:bars-3-bottom-left-solid"
+			class={cn('lily-sidebar-trigger-2 size-4.5')}
+			aria-hidden="true"
+		/>
 	{/if}
-	<span class="sr-only">Toggle Sidebar</span>
+	<span class={cn('lily-sidebar-trigger-3 sr-only')}>Toggle Sidebar</span>
 </button>

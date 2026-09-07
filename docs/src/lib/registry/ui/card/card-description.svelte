@@ -13,7 +13,10 @@
 <p
 	bind:this={ref}
 	data-slot="card-description"
-	class={cn('text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/72', className)}
+	class={cn(
+		'lily-card-description-1 text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/72',
+		className
+	)}
 	{...restProps}
 >
 	{@render children?.()}

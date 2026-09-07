@@ -13,7 +13,10 @@
 <p
 	bind:this={ref}
 	data-slot="empty-description"
-	class={cn('max-w-sm text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/56', className)}
+	class={cn(
+		'lily-empty-description-1 max-w-sm text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/56',
+		className
+	)}
 	{...restProps}
 >
 	{@render children?.()}

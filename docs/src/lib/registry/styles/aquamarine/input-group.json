@@ -1,0 +1,5 @@
+{
+	"lily-input-group-addon-1": "flex shrink-0 items-center text-[17px] tracking-normal text-(--text-secondary) [&_svg]:size-4",
+	"lily-input-group-input-1": "h-full w-full min-w-0 flex-1 [appearance:textfield] bg-transparent px-4 text-[17px] tracking-normal text-(--text) outline-none placeholder:text-(--text-tertiary) disabled:pointer-events-none disabled:opacity-50 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none",
+	"lily-input-group-1": "flex min-h-[54px] w-full items-center overflow-hidden rounded-[14px] bg-(--surface-muted) transition-colors duration-150 ease-out focus-within:bg-(--accent)/8"
+}

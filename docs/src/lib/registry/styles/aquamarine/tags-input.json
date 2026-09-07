@@ -1,0 +1,8 @@
+{
+	"lily-tags-input-1": "flex w-full flex-wrap items-center gap-2 rounded-[14px] bg-(--surface-muted) px-3 py-2 text-[17px] transition-colors duration-150 ease-out",
+	"lily-tags-input-2": "pointer-events-none opacity-50",
+	"lily-tags-input-3": "inline-flex items-center gap-1 rounded-full bg-(--border) py-1 ps-3 pe-1.5 text-xs tracking-normal text-(--text-secondary)",
+	"lily-tags-input-4": "inline-flex size-4 items-center justify-center rounded-full text-(--text-tertiary) transition-colors duration-100 hover:bg-(--border) hover:text-(--text)",
+	"lily-tags-input-5": "size-3",
+	"lily-tags-input-6": "h-7 min-w-24 flex-1 bg-transparent tracking-normal outline-none placeholder:text-(--text-tertiary)"
+}

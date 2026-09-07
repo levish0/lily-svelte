@@ -21,6 +21,7 @@
 </script>
 
 <script lang="ts">
+	import { cn } from '$lib/utils.js';
 	import Root from './password-root.svelte';
 	import Input from './password-input.svelte';
 	import ToggleVisibility from './password-toggle-visibility.svelte';
@@ -40,9 +41,9 @@
 
 <!-- The composed happy path. Reach for the parts when this layout does not fit. -->
 <Root bind:value bind:result {minScore}>
-	<div class="relative">
+	<div class={cn('lily-password-1 relative')}>
 		<Input bind:ref class={className} {...restProps} />
-		<ToggleVisibility class="absolute end-1.5 top-1/2 -translate-y-1/2" />
+		<ToggleVisibility class={cn('lily-password-2 absolute end-1.5 top-1/2 -translate-y-1/2')} />
 	</div>
 	{#if showStrength}
 		<Strength labels={strengthLabels} />

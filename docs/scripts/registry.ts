@@ -14,9 +14,9 @@ const tsParser = acorn.Parser.extend(tsPlugin());
 type RegistryItems = Registry['items'];
 type RegistryItemFiles = Registry['items'][number]['files'];
 
-export async function buildRegistry(): Promise<RegistryItems> {
-	const registryRootPath = path.resolve('src', 'lib', 'registry');
-
+export async function buildRegistry(
+	registryRootPath = path.resolve('src', 'lib', 'registry')
+): Promise<RegistryItems> {
 	const paths = {
 		ui: path.resolve(registryRootPath, 'ui'),
 		lib: path.resolve(registryRootPath, 'lib'),

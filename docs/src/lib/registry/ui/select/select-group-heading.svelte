@@ -12,6 +12,9 @@
 <SelectPrimitive.GroupHeading
 	bind:ref
 	data-slot="select-group-heading"
-	class={cn('px-3 py-1.5 text-xs tracking-[-0.3px] text-(--text)/40 select-none', className)}
+	class={cn(
+		'lily-select-group-heading-1 px-3 py-1.5 text-xs tracking-[-0.3px] text-(--text)/40 select-none',
+		className
+	)}
 	{...restProps}
 />

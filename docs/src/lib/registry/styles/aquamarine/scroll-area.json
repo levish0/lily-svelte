@@ -1,0 +1,7 @@
+{
+	"lily-scroll-area-scrollbar-1": "flex touch-none p-0.5 transition-colors select-none",
+	"lily-scroll-area-scrollbar-2": "h-full w-2.5",
+	"lily-scroll-area-scrollbar-3": "h-2.5 flex-col",
+	"lily-scroll-area-scrollbar-4": "relative flex-1 rounded-full bg-(--border) transition-colors hover:bg-(--text)/24",
+	"lily-scroll-area-1": "size-full rounded-[inherit] outline-none"
+}

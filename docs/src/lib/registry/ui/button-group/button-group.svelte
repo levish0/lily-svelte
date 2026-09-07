@@ -19,7 +19,7 @@
 	const orientationClasses: Record<ButtonGroupOrientation, string> = {
 		horizontal: '[&>*:not(:last-child)]:rounded-r-none [&>*:not(:first-child)]:rounded-l-none',
 		vertical:
-			'flex-col [&>*:not(:last-child)]:rounded-b-none [&>*:not(:first-child)]:rounded-t-none'
+			'flex-col [&>*:not(:last-child)]:rounded-b-none [&>*:not(:first-child)]:rounded-t-none lily-button-group-1'
 	};
 </script>
 
@@ -29,7 +29,7 @@
 	data-slot="button-group"
 	data-orientation={orientation}
 	class={cn(
-		'flex w-fit items-stretch [&>*]:focus-visible:relative [&>*]:focus-visible:z-10',
+		'lily-button-group-2 flex w-fit items-stretch [&>*]:focus-visible:relative [&>*]:focus-visible:z-10',
 		orientationClasses[orientation],
 		className
 	)}

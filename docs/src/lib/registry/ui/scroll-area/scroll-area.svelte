@@ -40,7 +40,7 @@
 	<ScrollAreaPrimitive.Viewport
 		bind:ref={viewportRef}
 		data-slot="scroll-area-viewport"
-		class={cn('size-full rounded-[inherit] outline-none', maskClass)}
+		class={cn('lily-scroll-area-1 size-full rounded-[inherit] outline-none', maskClass)}
 	>
 		{@render children?.()}
 	</ScrollAreaPrimitive.Viewport>

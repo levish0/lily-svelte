@@ -1,0 +1,15 @@
+{
+	"lily-image-cropper-controls-1": "flex w-full items-center justify-end gap-2",
+	"lily-image-cropper-crop-1": "gap-1.5",
+	"lily-image-cropper-crop-2": "size-4",
+	"lily-image-cropper-cropper-1": "relative h-72 w-full overflow-hidden rounded-2xl bg-(--surface-muted)",
+	"lily-image-cropper-dialog-1": "gap-4 p-4",
+	"lily-image-cropper-preview-1": "size-20 transition-opacity duration-150 ease-out hover:opacity-80",
+	"lily-image-cropper-preview-2": "size-5",
+	"lily-image-cropper-preview-3": "sr-only",
+	"lily-image-cropper-upload-trigger-1": "inline-block w-fit cursor-pointer",
+	"lily-image-cropper-zoom-1": "flex items-center gap-3 px-1 text-(--text-tertiary)",
+	"lily-image-cropper-zoom-2": "size-4 shrink-0",
+	"lily-image-cropper-zoom-3": "size-4 shrink-0",
+	"lily-image-cropper-1": "sr-only"
+}

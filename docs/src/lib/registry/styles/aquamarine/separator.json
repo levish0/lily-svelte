@@ -1,0 +1,5 @@
+{
+	"lily-separator-1": "shrink-0 bg-(--surface-hover)",
+	"lily-separator-2": "h-px w-full",
+	"lily-separator-3": "h-full w-px"
+}

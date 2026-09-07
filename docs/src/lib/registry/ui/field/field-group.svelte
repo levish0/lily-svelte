@@ -13,7 +13,7 @@
 <div
 	bind:this={ref}
 	data-slot="field-group"
-	class={cn('flex flex-col gap-5', className)}
+	class={cn('lily-field-group-1 flex flex-col gap-5', className)}
 	{...restProps}
 >
 	{@render children?.()}

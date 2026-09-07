@@ -1,0 +1,9 @@
+{
+	"lily-input-otp-group-1": "flex items-center gap-2",
+	"lily-input-otp-separator-1": "flex items-center text-(--text-tertiary)",
+	"lily-input-otp-separator-2": "h-px w-2.5 bg-(--text)/24",
+	"lily-input-otp-slot-1": "relative flex size-12 items-center justify-center rounded-2xl bg-(--surface-muted) text-base font-medium tracking-normal transition-colors duration-150 ease-out outline-none data-[active=true]:z-10 data-[active=true]:bg-(--border)",
+	"lily-input-otp-slot-2": "pointer-events-none absolute inset-0 flex items-center justify-center",
+	"lily-input-otp-slot-3": "h-5 w-px animate-caret-blink bg-(--text) duration-1000",
+	"lily-input-otp-1": "flex items-center gap-2 disabled:cursor-not-allowed has-disabled:opacity-50"
+}

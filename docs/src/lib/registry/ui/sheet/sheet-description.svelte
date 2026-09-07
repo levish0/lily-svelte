@@ -12,6 +12,9 @@
 <SheetPrimitive.Description
 	bind:ref
 	data-slot="sheet-description"
-	class={cn('text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/56', className)}
+	class={cn(
+		'lily-sheet-description-1 text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/56',
+		className
+	)}
 	{...restProps}
 />

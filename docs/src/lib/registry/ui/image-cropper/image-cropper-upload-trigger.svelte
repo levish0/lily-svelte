@@ -17,7 +17,7 @@
 	bind:this={ref}
 	for={root.id}
 	data-slot="image-cropper-upload-trigger"
-	class={cn('inline-block w-fit cursor-pointer', className)}
+	class={cn('lily-image-cropper-upload-trigger-1 inline-block w-fit cursor-pointer', className)}
 	{...restProps}
 >
 	{@render children?.()}

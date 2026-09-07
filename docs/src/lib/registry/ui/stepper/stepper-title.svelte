@@ -8,8 +8,8 @@
 <div
 	data-slot="stepper-title"
 	class={cn(
-		'text-sm font-medium tracking-[-0.39px]',
-		'group-data-[orientation=horizontal]/stepper-nav:text-center group-data-[orientation=vertical]/stepper-nav:text-left',
+		'lily-stepper-title-1 text-sm font-medium tracking-[-0.39px]',
+		'lily-stepper-title-2 group-data-[orientation=horizontal]/stepper-nav:text-center group-data-[orientation=vertical]/stepper-nav:text-left',
 		'group-data-[state=inactive]/stepper-trigger:text-(--text)/56',
 		className
 	)}

@@ -16,7 +16,7 @@
 <FormPrimitive.FieldErrors
 	bind:ref
 	data-slot="form-field-errors"
-	class={cn('flex flex-col gap-1 empty:hidden', className)}
+	class={cn('lily-form-field-errors-1 flex flex-col gap-1 empty:hidden', className)}
 	{...restProps}
 >
 	{#snippet children({ errors, errorProps })}

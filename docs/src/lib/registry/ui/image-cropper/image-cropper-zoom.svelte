@@ -24,10 +24,18 @@
 <div
 	bind:this={ref}
 	data-slot="image-cropper-zoom"
-	class={cn('flex items-center gap-3 px-1 text-(--text)/40', className)}
+	class={cn('lily-image-cropper-zoom-1 flex items-center gap-3 px-1 text-(--text)/40', className)}
 	{...restProps}
 >
-	<Icon icon="heroicons:magnifying-glass-minus-solid" class="size-4 shrink-0" aria-hidden="true" />
+	<Icon
+		icon="heroicons:magnifying-glass-minus-solid"
+		class={cn('lily-image-cropper-zoom-2 size-4 shrink-0')}
+		aria-hidden="true"
+	/>
 	<Slider type="single" bind:value={root.zoom} {min} {max} {step} aria-label="Zoom" />
-	<Icon icon="heroicons:magnifying-glass-plus-solid" class="size-4 shrink-0" aria-hidden="true" />
+	<Icon
+		icon="heroicons:magnifying-glass-plus-solid"
+		class={cn('lily-image-cropper-zoom-3 size-4 shrink-0')}
+		aria-hidden="true"
+	/>
 </div>

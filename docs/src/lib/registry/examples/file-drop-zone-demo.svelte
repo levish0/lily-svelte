@@ -22,22 +22,3 @@
 		</ul>
 	{/if}
 </div>
-
-<FileDropZone.Root
-	class="mt-6 flex w-full max-w-md items-center gap-3 rounded-3xl bg-(--text)/5 p-4"
-	clickToSelect={false}
-	maxFiles={1}
-	accept="image/*"
-	onUpload={(uploaded) => {
-		files = uploaded.map((file) => file.name);
-	}}
->
-	<div class="min-w-0 flex-1 text-sm text-(--text)/72">
-		{files[0] ?? 'No image selected'}
-	</div>
-	<FileDropZone.Trigger
-		class="shrink-0 cursor-pointer rounded-full bg-(--text) px-4 py-2 text-sm font-medium text-(--bg)"
-	>
-		Choose image
-	</FileDropZone.Trigger>
-</FileDropZone.Root>

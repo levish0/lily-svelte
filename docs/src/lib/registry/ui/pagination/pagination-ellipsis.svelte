@@ -14,9 +14,16 @@
 	bind:this={ref}
 	aria-hidden="true"
 	data-slot="pagination-ellipsis"
-	class={cn('flex size-10 items-center justify-center text-(--text)/40', className)}
+	class={cn(
+		'lily-pagination-ellipsis-1 flex size-10 items-center justify-center text-(--text)/40',
+		className
+	)}
 	{...restProps}
 >
-	<Icon icon="heroicons:ellipsis-horizontal-solid" class="size-4" aria-hidden="true" />
-	<span class="sr-only">More pages</span>
+	<Icon
+		icon="heroicons:ellipsis-horizontal-solid"
+		class={cn('lily-pagination-ellipsis-2 size-4')}
+		aria-hidden="true"
+	/>
+	<span class={cn('lily-pagination-ellipsis-3 sr-only')}>More pages</span>
 </span>

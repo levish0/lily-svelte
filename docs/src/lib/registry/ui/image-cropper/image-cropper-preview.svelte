@@ -26,12 +26,19 @@
 		src={root.src || undefined}
 		alt=""
 		data-slot="image-cropper-preview"
-		class={cn('size-20 transition-opacity duration-150 hover:opacity-80', className)}
+		class={cn(
+			'lily-image-cropper-preview-1 size-20 transition-opacity duration-150 hover:opacity-80',
+			className
+		)}
 		{...restProps}
 	>
 		{#snippet fallback()}
-			<Icon icon="heroicons:arrow-up-tray-solid" class="size-5" aria-hidden="true" />
-			<span class="sr-only">Upload image</span>
+			<Icon
+				icon="heroicons:arrow-up-tray-solid"
+				class={cn('lily-image-cropper-preview-2 size-5')}
+				aria-hidden="true"
+			/>
+			<span class={cn('lily-image-cropper-preview-3 sr-only')}>Upload image</span>
 		{/snippet}
 	</Avatar>
 {/if}

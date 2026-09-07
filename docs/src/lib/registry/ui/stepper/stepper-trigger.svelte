@@ -26,9 +26,9 @@
 	bind:this={ref}
 	data-slot="stepper-trigger"
 	class={cn(
-		'group/stepper-trigger z-1 flex outline-none active:[transform:none]',
-		'group-data-[orientation=horizontal]/stepper-nav:flex-col group-data-[orientation=horizontal]/stepper-nav:items-center group-data-[orientation=horizontal]/stepper-nav:gap-2',
-		'group-data-[orientation=vertical]/stepper-nav:flex-row group-data-[orientation=vertical]/stepper-nav:gap-4',
+		'group/stepper-trigger lily-stepper-trigger-3 z-1 flex outline-none active:[transform:none]',
+		'lily-stepper-trigger-1 group-data-[orientation=horizontal]/stepper-nav:flex-col group-data-[orientation=horizontal]/stepper-nav:items-center group-data-[orientation=horizontal]/stepper-nav:gap-2',
+		'lily-stepper-trigger-2 group-data-[orientation=vertical]/stepper-nav:flex-row group-data-[orientation=vertical]/stepper-nav:gap-4',
 		className
 	)}
 	{...triggerState.props}

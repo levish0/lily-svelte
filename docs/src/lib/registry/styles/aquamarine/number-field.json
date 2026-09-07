@@ -1,0 +1,13 @@
+{
+	"lily-number-field-1": "inline-flex w-fit items-center rounded-(--step-radius) bg-(--surface-hover) py-(--step-outer) text-(--text-secondary)",
+	"lily-number-field-2": "pointer-events-none opacity-30",
+	"lily-number-field-3": "inline-flex h-(--step-height) w-(--step-control) shrink-0 items-center justify-center rounded-[inherit] text-(--text-secondary) outline-none transition-colors hover:bg-(--surface-control) active:bg-(--surface-control) disabled:pointer-events-none disabled:opacity-30 focus-visible:ring-2 focus-visible:ring-(--accent)/40",
+	"lily-number-field-4": "size-(--step-icon)",
+	"lily-number-field-5": "h-(--step-height) w-[calc(3ch+var(--step-padding)*2)] rounded-(--step-inner-radius) bg-(--bg-elevated) px-(--step-padding) text-center text-(length:--step-font) leading-[1.5] font-semibold tracking-normal tabular-nums shadow-[0_1px_3px_rgb(0_0_0/0.09)] outline-none [appearance:textfield] focus-visible:bg-(--action-brand-weak) [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none",
+	"lily-number-field-6": "inline-flex h-(--step-height) w-(--step-control) shrink-0 items-center justify-center rounded-[inherit] text-(--text-secondary) outline-none transition-colors hover:bg-(--surface-control) active:bg-(--surface-control) disabled:pointer-events-none disabled:opacity-30 focus-visible:ring-2 focus-visible:ring-(--accent)/40",
+	"lily-number-field-7": "size-(--step-icon)",
+	"lily-number-field-sm": "[--step-height:25.5px] [--step-radius:8px] [--step-inner-radius:6px] [--step-outer:3px] [--step-padding:5px] [--step-font:13px] [--step-icon:12px] [--step-control:28px]",
+	"lily-number-field-md": "[--step-height:32.5px] [--step-radius:10px] [--step-inner-radius:8px] [--step-outer:3px] [--step-padding:6px] [--step-font:15px] [--step-icon:12px] [--step-control:36px]",
+	"lily-number-field-lg": "[--step-height:41.5px] [--step-radius:14px] [--step-inner-radius:10px] [--step-outer:4px] [--step-padding:10px] [--step-font:17px] [--step-icon:16px] [--step-control:40px]",
+	"lily-number-field-xl": "[--step-height:49.5px] [--step-radius:16px] [--step-inner-radius:14px] [--step-outer:4px] [--step-padding:14px] [--step-font:17px] [--step-icon:16px] [--step-control:48px]"
+}

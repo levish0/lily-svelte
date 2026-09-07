@@ -1,0 +1,15 @@
+{
+	"lily-badge-1": "inline-flex w-fit shrink-0 items-center justify-center gap-1 align-middle leading-[1.5] tracking-normal [--badge-fill:#3182f6] [--badge-label:white] [--badge-weak:var(--badge-blue-weak)] [--badge-ink:var(--badge-blue-ink)]",
+	"lily-badge-2": "bg-(--badge-fill) text-(--badge-label)",
+	"lily-badge-3": "bg-(--badge-weak) text-(--badge-ink)",
+	"lily-badge-4": "bg-(--surface-muted) text-(--text-tertiary)",
+	"lily-badge-5": "bg-(--badge-red-weak) text-(--badge-red-ink)",
+	"lily-badge-6": "transition-opacity duration-150 hover:opacity-80",
+	"lily-badge-7": "transition-opacity duration-150 hover:opacity-80",
+	"lily-badge-8": "transition-opacity duration-150 hover:opacity-80",
+	"lily-badge-9": "transition-opacity duration-150 hover:opacity-80",
+	"lily-badge-size-xs": "rounded-[9px] px-[7px] py-[3px] text-[10px] font-semibold",
+	"lily-badge-size-sm": "rounded-[11px] px-[7px] py-[3px] text-[12px] font-bold",
+	"lily-badge-size-md": "rounded-[12px] px-[7px] py-[3px] text-[13px] font-bold",
+	"lily-badge-size-lg": "rounded-[13px] px-[8px] py-[4px] text-[14px] font-bold"
+}

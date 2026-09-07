@@ -47,15 +47,17 @@
 <div
 	data-slot="tags-input"
 	class={cn(
-		'flex w-full flex-wrap items-center gap-2 rounded-3xl bg-(--text)/5 px-3 py-2 text-sm transition-colors duration-150',
+		'lily-tags-input-1 flex w-full flex-wrap items-center gap-2 rounded-3xl bg-(--text)/5 px-3 py-2 text-sm transition-colors duration-150',
 		!disabled && 'focus-within:bg-(--text)/8',
-		disabled && 'pointer-events-none opacity-50',
+		disabled && 'lily-tags-input-2 pointer-events-none opacity-50',
 		className
 	)}
 >
 	{#each value as tag, i (i)}
 		<span
-			class="inline-flex items-center gap-1 rounded-full bg-(--text)/12 py-1 ps-3 pe-1.5 text-xs tracking-[-0.3px] text-(--text)/72"
+			class={cn(
+				'lily-tags-input-3 inline-flex items-center gap-1 rounded-full bg-(--text)/12 py-1 ps-3 pe-1.5 text-xs tracking-[-0.3px] text-(--text)/72'
+			)}
 		>
 			{tag}
 			<button
@@ -65,9 +67,15 @@
 					e.stopPropagation();
 					removeTag(i);
 				}}
-				class="inline-flex size-4 items-center justify-center rounded-full text-(--text)/40 transition-colors duration-100 hover:bg-(--text)/12 hover:text-(--text)"
+				class={cn(
+					'lily-tags-input-4 inline-flex size-4 items-center justify-center rounded-full text-(--text)/40 transition-colors duration-100 hover:bg-(--text)/12 hover:text-(--text)'
+				)}
 			>
-				<Icon icon="heroicons:x-mark-solid" class="size-3" aria-hidden="true" />
+				<Icon
+					icon="heroicons:x-mark-solid"
+					class={cn('lily-tags-input-5 size-3')}
+					aria-hidden="true"
+				/>
 			</button>
 		</span>
 	{/each}
@@ -78,6 +86,8 @@
 		{disabled}
 		aria-label="Add a tag"
 		placeholder={atMax ? '' : placeholder}
-		class="h-7 min-w-24 flex-1 bg-transparent tracking-[-0.39px] outline-none placeholder:text-(--text)/40"
+		class={cn(
+			'lily-tags-input-6 h-7 min-w-24 flex-1 bg-transparent tracking-[-0.39px] outline-none placeholder:text-(--text)/40'
+		)}
 	/>
 </div>

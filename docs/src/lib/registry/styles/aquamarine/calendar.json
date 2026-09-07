@@ -1,0 +1,16 @@
+{
+	"lily-calendar-1": "w-fit rounded-3xl bg-(--bg-elevated) p-4",
+	"lily-calendar-2": "relative flex w-full items-center justify-between pb-3",
+	"lily-calendar-3": "inline-flex size-9 items-center justify-center rounded-2xl text-(--text-secondary) transition-colors duration-150 ease-out outline-none hover:bg-(--surface-hover) hover:text-(--text)",
+	"lily-calendar-4": "size-4",
+	"lily-calendar-5": "text-sm font-medium tracking-normal",
+	"lily-calendar-6": "inline-flex size-9 items-center justify-center rounded-2xl text-(--text-secondary) transition-colors duration-150 ease-out outline-none hover:bg-(--surface-hover) hover:text-(--text)",
+	"lily-calendar-7": "size-4",
+	"lily-calendar-8": "flex flex-col gap-4 sm:flex-row",
+	"lily-calendar-9": "w-full border-collapse select-none",
+	"lily-calendar-10": "flex",
+	"lily-calendar-11": "w-9 pb-1 text-xs font-normal tracking-normal text-(--text-tertiary)",
+	"lily-calendar-12": "mt-0.5 flex w-full",
+	"lily-calendar-13": "relative size-9 p-0 text-center",
+	"lily-calendar-14": "inline-flex size-9 items-center justify-center rounded-2xl text-sm tracking-normal text-(--text-secondary) transition-colors duration-150 ease-out outline-none hover:bg-(--surface-hover) hover:text-(--text) data-outside-month:opacity-30 data-selected:bg-(--text) data-selected:font-medium data-selected:text-(--bg) data-today:bg-(--surface-hover) data-today:font-semibold data-today:text-(--text) data-unavailable:line-through data-disabled:pointer-events-none data-disabled:opacity-30"
+}

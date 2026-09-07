@@ -1,0 +1,8 @@
+{
+	"lily-toc-1": "flex flex-col",
+	"lily-toc-2": "pb-2 text-xs font-medium tracking-normal text-(--text-tertiary)",
+	"lily-toc-3": "block py-[3px] text-[12.5px] leading-[1.5] tracking-normal",
+	"lily-toc-4": "block w-[92.5%] origin-left will-change-[transform,opacity] motion-reduce:transition-none",
+	"lily-toc-5": "me-1.5 opacity-40",
+	"lily-toc-6": "no-scrollbar flex max-h-[60vh] flex-col overflow-y-auto"
+}

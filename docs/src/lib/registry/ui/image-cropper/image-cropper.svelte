@@ -14,6 +14,7 @@
 </script>
 
 <script lang="ts">
+	import { cn } from '$lib/utils.js';
 	import { onDestroy } from 'svelte';
 	import { useId } from 'bits-ui';
 	import { setImageCropperRoot } from './image-cropper.svelte.js';
@@ -61,7 +62,7 @@
 	{id}
 	type="file"
 	{accept}
-	class="sr-only"
+	class={cn('lily-image-cropper-1 sr-only')}
 	onchange={(e) => {
 		const input = e.currentTarget;
 		const file = input.files?.[0];

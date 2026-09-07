@@ -1,0 +1,11 @@
+{
+	"lily-dialog-content-1": "fixed top-1/2 left-1/2 z-50 flex w-[calc(100%-48px)] max-w-[400px] -translate-x-1/2 -translate-y-1/2 flex-col gap-[8px] rounded-[24px] bg-(--bg-elevated) p-[22px] shadow-xl outline-none data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0",
+	"lily-dialog-content-2": "absolute end-4 top-4 inline-flex size-8 items-center justify-center rounded-xl text-(--text-tertiary) transition-colors duration-150 ease-out hover:bg-(--surface-hover) hover:text-(--text) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg)",
+	"lily-dialog-content-3": "size-4",
+	"lily-dialog-content-4": "sr-only",
+	"lily-dialog-description-1": "text-[15px] leading-[1.6] tracking-normal text-(--text-secondary)",
+	"lily-dialog-footer-1": "flex flex-wrap items-center justify-end gap-[10px] pt-[14px]",
+	"lily-dialog-header-1": "flex flex-col gap-[8px] pe-6",
+	"lily-dialog-overlay-1": "fixed inset-0 z-50 bg-black/40 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0",
+	"lily-dialog-title-1": "text-[20px] leading-[1.35] font-bold tracking-normal text-(--text)"
+}

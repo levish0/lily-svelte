@@ -31,7 +31,7 @@
 	data-chart={chartId}
 	data-slot="chart"
 	class={cn(
-		'flex aspect-video justify-center overflow-visible text-xs',
+		'lily-chart-container-1 flex aspect-video justify-center overflow-visible text-xs',
 		// Overrides
 		//
 		// Stroke around dots/marks when hovering
@@ -46,7 +46,7 @@
 
 		// by default, when you hover a point on a stacked series chart, it will drop the opacity
 		// of the other series, this overrides that
-		'[&_.lc-area-path]:opacity-100 [&_.lc-highlight-line]:opacity-100 [&_.lc-highlight-point]:opacity-100 [&_.lc-spline-path]:opacity-100 [&_.lc-text]:text-xs [&_.lc-text-svg]:overflow-visible',
+		'lily-chart-container-2 [&_.lc-area-path]:opacity-100 [&_.lc-highlight-line]:opacity-100 [&_.lc-highlight-point]:opacity-100 [&_.lc-spline-path]:opacity-100 [&_.lc-text]:text-xs [&_.lc-text-svg]:overflow-visible',
 
 		// We don't want the little tick lines between the axis labels and the chart, so we remove
 		// the stroke. The alternative is to manually disable `tickMarks` on the x/y axis of every
@@ -61,9 +61,9 @@
 		'[&_.lc-grid-y-radial-circle]:stroke-(--text)/8 [&_.lc-grid-y-radial-line]:stroke-(--text)/8',
 
 		// Legend adjustments
-		'[&_.lc-legend-swatch-button]:items-center [&_.lc-legend-swatch-button]:gap-1.5',
-		'[&_.lc-legend-swatch-group]:items-center [&_.lc-legend-swatch-group]:gap-4',
-		'[&_.lc-legend-swatch]:size-2.5 [&_.lc-legend-swatch]:rounded-[4px]',
+		'lily-chart-container-3 [&_.lc-legend-swatch-button]:items-center [&_.lc-legend-swatch-button]:gap-1.5',
+		'lily-chart-container-4 [&_.lc-legend-swatch-group]:items-center [&_.lc-legend-swatch-group]:gap-4',
+		'lily-chart-container-5 [&_.lc-legend-swatch]:size-2.5 [&_.lc-legend-swatch]:rounded-[4px]',
 
 		// Labels
 		'[&_.lc-labels-text:not([fill])]:fill-(--text) [&_text]:stroke-transparent',

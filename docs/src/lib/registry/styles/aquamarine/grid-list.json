@@ -1,0 +1,5 @@
+{
+	"lily-grid-list-base": "grid list-none gap-[8px] px-[24px] pb-[8px]",
+	"lily-grid-list-item-base": "h-auto min-h-0 w-full min-w-0 flex-col gap-[6px] rounded-[9px] bg-(--surface-grid) px-[8px] py-[12px] text-[14px] leading-[1.5] font-medium tracking-normal whitespace-normal text-(--text) hover:bg-(--surface-hover)",
+	"lily-grid-list-media": "flex size-[24px] items-center justify-center"
+}

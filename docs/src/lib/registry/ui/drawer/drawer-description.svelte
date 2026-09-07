@@ -12,6 +12,9 @@
 <DrawerPrimitive.Description
 	bind:ref
 	data-slot="drawer-description"
-	class={cn('text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/56', className)}
+	class={cn(
+		'lily-drawer-description-1 text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/56',
+		className
+	)}
 	{...restProps}
 />

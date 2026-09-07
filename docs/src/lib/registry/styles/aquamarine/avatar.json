@@ -1,0 +1,20 @@
+{
+	"lily-avatar-badge-1": "absolute right-0 bottom-0 z-10 inline-flex items-center justify-center rounded-full ring-2 ring-[var(--avatar-ring,var(--bg))] select-none",
+	"lily-avatar-badge-2": "group-data-[size=xs]/avatar:size-1.5 group-data-[size=xs]/avatar:[&>svg]:hidden",
+	"lily-avatar-badge-3": "group-data-[size=sm]/avatar:size-2 group-data-[size=sm]/avatar:[&>svg]:hidden",
+	"lily-avatar-badge-4": "group-data-[size=default]/avatar:size-2.5 group-data-[size=default]/avatar:[&>svg]:size-2",
+	"lily-avatar-group-count-1": "relative flex shrink-0 items-center justify-center rounded-full bg-(--surface-hover) font-medium tracking-normal text-(--text-secondary) select-none",
+	"lily-avatar-group-1": "flex items-center [--avatar-ring:var(--bg)]",
+	"lily-avatar-1": "size-5 text-[10px]",
+	"lily-avatar-2": "size-7 text-xs",
+	"lily-avatar-3": "size-9 text-sm",
+	"lily-avatar-4": "size-12 text-base",
+	"lily-avatar-5": "size-16 text-xl",
+	"lily-avatar-6": "size-full overflow-hidden rounded-full bg-(--surface-hover)",
+	"lily-avatar-7": "size-full object-cover",
+	"lily-avatar-8": "flex size-full items-center justify-center font-medium tracking-normal text-(--text-secondary) select-none",
+	"lily-avatar-9": "flex size-full items-center justify-center text-(--text-tertiary)",
+	"lily-avatar-10": "flex size-full items-center justify-center text-(--text-tertiary)",
+	"lily-avatar-11": "size-[55%]",
+	"lily-avatar-12": "group/avatar relative shrink-0 rounded-full"
+}

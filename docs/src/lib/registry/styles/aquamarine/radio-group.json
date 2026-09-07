@@ -1,0 +1,5 @@
+{
+	"lily-radio-group-item-1": "flex aspect-square size-5 shrink-0 items-center justify-center rounded-full border border-(--border) transition-colors duration-150 ease-out outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-(--accent)",
+	"lily-radio-group-item-2": "size-3 animate-in rounded-full bg-(--accent) duration-150 ease-out zoom-in-50",
+	"lily-radio-group-1": "flex flex-col gap-3"
+}

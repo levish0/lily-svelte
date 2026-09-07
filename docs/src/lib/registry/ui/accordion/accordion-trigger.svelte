@@ -14,12 +14,12 @@
 	} = $props();
 </script>
 
-<AccordionPrimitive.Header {level} class="flex">
+<AccordionPrimitive.Header {level} class={cn('lily-accordion-trigger-1 flex')}>
 	<AccordionPrimitive.Trigger
 		bind:ref
 		data-slot="accordion-trigger"
 		class={cn(
-			'group/accordion flex flex-1 items-center justify-between gap-4 py-4 text-left text-sm font-medium tracking-[-0.39px] transition-colors duration-150 outline-none hover:text-(--text)/72 active:[transform:none] disabled:pointer-events-none disabled:opacity-50',
+			'group/accordion lily-accordion-trigger-3 flex flex-1 items-center justify-between gap-4 py-4 text-left text-sm font-medium tracking-[-0.39px] transition-colors duration-150 outline-none hover:text-(--text)/72 active:[transform:none] disabled:pointer-events-none disabled:opacity-50',
 			className
 		)}
 		{...restProps}
@@ -27,7 +27,9 @@
 		{@render children?.()}
 		<Icon
 			icon="heroicons:chevron-down-solid"
-			class="size-4 shrink-0 text-(--text)/40 transition-transform duration-200 ease-out group-aria-expanded/accordion:rotate-180"
+			class={cn(
+				'lily-accordion-trigger-2 size-4 shrink-0 text-(--text)/40 transition-transform duration-200 ease-out group-aria-expanded/accordion:rotate-180'
+			)}
 			aria-hidden="true"
 		/>
 	</AccordionPrimitive.Trigger>

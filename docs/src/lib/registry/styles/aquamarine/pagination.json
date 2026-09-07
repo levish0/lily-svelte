@@ -1,0 +1,16 @@
+{
+	"lily-pagination-content-1": "flex items-center gap-1",
+	"lily-pagination-ellipsis-1": "flex size-10 items-center justify-center text-(--text-tertiary)",
+	"lily-pagination-ellipsis-2": "size-4",
+	"lily-pagination-ellipsis-3": "sr-only",
+	"lily-pagination-link-1": "inline-flex size-10 items-center justify-center rounded-2xl text-sm tracking-normal transition-colors duration-150 ease-out outline-none",
+	"lily-pagination-link-2": "bg-(--surface-hover) font-medium text-(--text)",
+	"lily-pagination-link-3": "text-(--text-secondary) hover:bg-(--surface-hover) hover:text-(--text)",
+	"lily-pagination-next-button-1": "inline-flex h-10 items-center gap-1 rounded-2xl px-3 text-sm tracking-normal text-(--text-secondary) transition-colors duration-150 ease-out outline-none hover:bg-(--surface-hover) hover:text-(--text) disabled:pointer-events-none disabled:opacity-40",
+	"lily-pagination-next-button-2": "hidden sm:block",
+	"lily-pagination-next-button-3": "size-4",
+	"lily-pagination-prev-button-1": "inline-flex h-10 items-center gap-1 rounded-2xl px-3 text-sm tracking-normal text-(--text-secondary) transition-colors duration-150 ease-out outline-none hover:bg-(--surface-hover) hover:text-(--text) disabled:pointer-events-none disabled:opacity-40",
+	"lily-pagination-prev-button-2": "size-4",
+	"lily-pagination-prev-button-3": "hidden sm:block",
+	"lily-pagination-1": "mx-auto flex w-full justify-center"
+}

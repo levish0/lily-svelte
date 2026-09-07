@@ -18,8 +18,10 @@
 	data-slot="button-group-separator"
 	data-orientation={orientation}
 	class={cn(
-		'self-stretch bg-(--bg)',
-		orientation === 'vertical' ? 'my-px w-px' : 'mx-px h-px',
+		'lily-button-group-separator-3 self-stretch bg-(--bg)',
+		orientation === 'vertical'
+			? 'lily-button-group-separator-1 my-px w-px'
+			: 'lily-button-group-separator-2 mx-px h-px',
 		className
 	)}
 	{...restProps}

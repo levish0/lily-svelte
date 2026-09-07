@@ -1,0 +1,11 @@
+{
+	"lily-breadcrumb-ellipsis-1": "flex size-5 items-center justify-center",
+	"lily-breadcrumb-ellipsis-2": "size-4",
+	"lily-breadcrumb-ellipsis-3": "sr-only",
+	"lily-breadcrumb-item-1": "inline-flex items-center gap-1.5",
+	"lily-breadcrumb-link-1": "transition-colors duration-150 ease-out hover:text-(--text)",
+	"lily-breadcrumb-list-1": "flex flex-wrap items-center gap-1.5 wrap-break-word text-(--text-secondary)",
+	"lily-breadcrumb-page-1": "font-medium text-(--text)",
+	"lily-breadcrumb-separator-1": "text-(--text-tertiary) [&>svg]:size-3.5",
+	"lily-breadcrumb-1": "text-sm tracking-normal"
+}

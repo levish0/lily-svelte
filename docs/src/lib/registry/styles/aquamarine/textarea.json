@@ -1,0 +1,3 @@
+{
+	"lily-textarea-1": "flex field-sizing-content min-h-20 w-full resize-none rounded-[14px] bg-(--surface-muted) px-4 py-2.5 text-[17px] leading-[1.5] tracking-normal transition-colors duration-150 ease-out outline-none placeholder:text-(--text-tertiary) hover:bg-(--surface-hover) focus-visible:bg-(--accent)/8 disabled:pointer-events-none disabled:opacity-50 aria-invalid:bg-(--danger)/8 aria-invalid:text-(--danger)"
+}

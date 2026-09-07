@@ -93,7 +93,7 @@
 
 {#snippet TooltipLabel()}
 	{#if formattedLabel}
-		<div class={cn('font-medium text-(--text)', labelClassName)}>
+		<div class={cn('lily-chart-tooltip-1 font-medium text-(--text)', labelClassName)}>
 			{#if typeof formattedLabel === 'function'}
 				{@render formattedLabel()}
 			{:else}
@@ -107,7 +107,7 @@
 	<div
 		bind:this={ref}
 		class={cn(
-			'grid min-w-[9rem] items-start gap-1.5 rounded-xl border border-(--text)/8 bg-(--bg-elevated) px-3 py-2 text-xs tracking-[-0.3px] shadow-lg',
+			'lily-chart-tooltip-2 grid min-w-[9rem] items-start gap-1.5 rounded-xl border border-(--text)/8 bg-(--bg-elevated) px-3 py-2 text-xs tracking-[-0.3px] shadow-lg',
 			className
 		)}
 		{...restProps}
@@ -115,7 +115,7 @@
 		{#if !nestLabel}
 			{@render TooltipLabel()}
 		{/if}
-		<div class="grid gap-1.5">
+		<div class={cn('lily-chart-tooltip-3 grid gap-1.5')}>
 			{#each visibleSeries as item, i (item.key + i)}
 				{@const key = `${nameKey || item.key || item.label || 'value'}`}
 				{@const itemConfig = getPayloadConfigFromPayload(
@@ -127,7 +127,7 @@
 				{@const indicatorColor = color || item.config?.color || item.color}
 				<div
 					class={cn(
-						'flex w-full flex-wrap items-stretch gap-2 [&>svg]:size-2.5 [&>svg]:text-(--text)/40',
+						'lily-chart-tooltip-4 flex w-full flex-wrap items-stretch gap-2 [&>svg]:size-2.5 [&>svg]:text-(--text)/40',
 						indicator === 'dot' && 'items-center'
 					)}
 				>
@@ -145,30 +145,34 @@
 						{:else if !hideIndicator}
 							<div
 								style="--color-bg: {indicatorColor}; --color-border: {indicatorColor};"
-								class={cn('shrink-0 rounded-[2px] border-(--color-border) bg-(--color-bg)', {
-									'size-2.5': indicator === 'dot',
-									'h-full w-1': indicator === 'line',
-									'w-0 border-[1.5px] border-dashed bg-transparent': indicator === 'dashed',
-									'my-0.5': nestLabel && indicator === 'dashed'
-								})}
+								class={cn(
+									'lily-chart-tooltip-5 shrink-0 rounded-[2px] border-(--color-border) bg-(--color-bg)',
+									{
+										'size-2.5': indicator === 'dot',
+										'lily-chart-tooltip-6 h-full w-1': indicator === 'line',
+										'lily-chart-tooltip-7 w-0 border-[1.5px] border-dashed bg-transparent':
+											indicator === 'dashed',
+										'my-0.5': nestLabel && indicator === 'dashed'
+									}
+								)}
 							></div>
 						{/if}
 						<div
 							class={cn(
-								'flex flex-1 shrink-0 justify-between leading-none',
+								'lily-chart-tooltip-8 flex flex-1 shrink-0 justify-between leading-none',
 								nestLabel ? 'items-end' : 'items-center'
 							)}
 						>
-							<div class="grid gap-1.5">
+							<div class={cn('lily-chart-tooltip-9 grid gap-1.5')}>
 								{#if nestLabel}
 									{@render TooltipLabel()}
 								{/if}
-								<span class="text-(--text)/56">
+								<span class={cn('lily-chart-tooltip-10 text-(--text)/56')}>
 									{itemConfig?.label || item.label}
 								</span>
 							</div>
 							{#if item.value !== undefined}
-								<span class="font-medium text-(--text) tabular-nums">
+								<span class={cn('lily-chart-tooltip-11 font-medium text-(--text) tabular-nums')}>
 									{item.value.toLocaleString()}
 								</span>
 							{/if}

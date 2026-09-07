@@ -9,15 +9,17 @@
 		min,
 		max,
 		step = 1,
+		size = 'md',
 		disabled = false,
 		class: className,
 		...restProps
-	}: Omit<HTMLInputAttributes, 'type' | 'value' | 'min' | 'max' | 'step'> & {
+	}: Omit<HTMLInputAttributes, 'type' | 'value' | 'min' | 'max' | 'step' | 'size'> & {
 		ref?: HTMLInputElement | null;
 		value?: number | null;
 		min?: number;
 		max?: number;
 		step?: number;
+		size?: 'sm' | 'md' | 'lg' | 'xl';
 		disabled?: boolean;
 	} = $props();
 
@@ -38,8 +40,14 @@
 <div
 	data-slot="number-field"
 	class={cn(
-		'inline-flex w-fit items-center rounded-3xl bg-(--text)/5 transition-colors duration-150 focus-within:bg-(--text)/8 hover:bg-(--text)/8',
-		disabled && 'pointer-events-none opacity-50',
+		'lily-number-field-1 inline-flex w-fit items-center rounded-3xl bg-(--text)/5 transition-colors duration-150 focus-within:bg-(--text)/8 hover:bg-(--text)/8',
+		disabled && 'lily-number-field-2 pointer-events-none opacity-50',
+		{
+			sm: ' lily-number-field-sm',
+			md: ' lily-number-field-md',
+			lg: ' lily-number-field-lg',
+			xl: ' lily-number-field-xl'
+		}[size],
 		className
 	)}
 >
@@ -48,9 +56,15 @@
 		aria-label="Decrement"
 		disabled={disabled || atMin}
 		onclick={() => step_by(-1)}
-		class="inline-flex size-10 shrink-0 items-center justify-center rounded-l-3xl text-(--text)/56 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) disabled:pointer-events-none disabled:opacity-40"
+		class={cn(
+			'lily-number-field-3 inline-flex size-10 shrink-0 items-center justify-center rounded-l-3xl text-(--text)/56 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) disabled:pointer-events-none disabled:opacity-40'
+		)}
 	>
-		<Icon icon="heroicons:minus-solid" class="size-4" aria-hidden="true" />
+		<Icon
+			icon="heroicons:minus-solid"
+			class={cn('lily-number-field-4 size-4')}
+			aria-hidden="true"
+		/>
 	</button>
 	<input
 		bind:this={ref}
@@ -63,7 +77,9 @@
 		onblur={() => {
 			if (value !== null) value = clamp(value);
 		}}
-		class="w-14 [appearance:textfield] bg-transparent text-center text-sm tracking-[-0.39px] outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+		class={cn(
+			'lily-number-field-5 w-14 [appearance:textfield] bg-transparent text-center text-sm tracking-[-0.39px] outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none'
+		)}
 		{...restProps}
 	/>
 	<button
@@ -71,8 +87,10 @@
 		aria-label="Increment"
 		disabled={disabled || atMax}
 		onclick={() => step_by(1)}
-		class="inline-flex size-10 shrink-0 items-center justify-center rounded-r-3xl text-(--text)/56 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) disabled:pointer-events-none disabled:opacity-40"
+		class={cn(
+			'lily-number-field-6 inline-flex size-10 shrink-0 items-center justify-center rounded-r-3xl text-(--text)/56 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) disabled:pointer-events-none disabled:opacity-40'
+		)}
 	>
-		<Icon icon="heroicons:plus-solid" class="size-4" aria-hidden="true" />
+		<Icon icon="heroicons:plus-solid" class={cn('lily-number-field-7 size-4')} aria-hidden="true" />
 	</button>
 </div>

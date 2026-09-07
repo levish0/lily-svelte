@@ -1,0 +1,8 @@
+{
+	"lily-button-group-separator-1": "my-px w-px",
+	"lily-button-group-separator-2": "mx-px h-px",
+	"lily-button-group-text-1": "flex items-center rounded-3xl bg-(--surface-muted) px-4 text-sm tracking-normal text-(--text-secondary) [&_svg]:pointer-events-none [&_svg]:size-4",
+	"lily-button-group-1": "flex-col [&>*:not(:last-child)]:rounded-b-none [&>*:not(:first-child)]:rounded-t-none",
+	"lily-button-group-2": "flex w-fit items-stretch [&>*]:focus-visible:relative [&>*]:focus-visible:z-10",
+	"lily-button-group-separator-3": "self-stretch bg-(--bg)"
+}

@@ -19,7 +19,7 @@
 	data-slot="avatar-group-count"
 	data-size={size}
 	class={cn(
-		'relative flex shrink-0 items-center justify-center rounded-full bg-(--text)/8 font-medium tracking-[-0.39px] text-(--text)/56 select-none',
+		'lily-avatar-group-count-1 relative flex shrink-0 items-center justify-center rounded-full bg-(--text)/8 font-medium tracking-[-0.39px] text-(--text)/56 select-none',
 		avatarSizes[size],
 		className
 	)}

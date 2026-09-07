@@ -16,7 +16,7 @@
 	aria-label="Go to next page"
 	data-slot="pagination-next"
 	class={cn(
-		'inline-flex h-10 items-center gap-1 rounded-2xl px-3 text-sm tracking-[-0.39px] text-(--text)/72 transition-colors duration-150 outline-none hover:bg-(--text)/8 hover:text-(--text) disabled:pointer-events-none disabled:opacity-40',
+		'lily-pagination-next-button-1 inline-flex h-10 items-center gap-1 rounded-2xl px-3 text-sm tracking-[-0.39px] text-(--text)/72 transition-colors duration-150 outline-none hover:bg-(--text)/8 hover:text-(--text) disabled:pointer-events-none disabled:opacity-40',
 		className
 	)}
 	{...restProps}
@@ -24,7 +24,11 @@
 	{#if children}
 		{@render children?.()}
 	{:else}
-		<span class="hidden sm:block">Next</span>
-		<Icon icon="heroicons:chevron-right-solid" class="size-4" aria-hidden="true" />
+		<span class={cn('lily-pagination-next-button-2 hidden sm:block')}>Next</span>
+		<Icon
+			icon="heroicons:chevron-right-solid"
+			class={cn('lily-pagination-next-button-3 size-4')}
+			aria-hidden="true"
+		/>
 	{/if}
 </PaginationPrimitive.NextButton>

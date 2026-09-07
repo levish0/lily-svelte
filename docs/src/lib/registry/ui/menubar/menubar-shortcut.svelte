@@ -13,7 +13,10 @@
 <span
 	bind:this={ref}
 	data-slot="menubar-shortcut"
-	class={cn('ml-auto text-xs tracking-[-0.3px] text-(--text)/40', className)}
+	class={cn(
+		'lily-menubar-shortcut-1 ml-auto text-xs tracking-[-0.3px] text-(--text)/40',
+		className
+	)}
 	{...restProps}
 >
 	{@render children?.()}

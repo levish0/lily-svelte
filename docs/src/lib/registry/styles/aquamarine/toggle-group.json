@@ -1,0 +1,4 @@
+{
+	"lily-toggle-group-item-1": "shrink-0 focus-visible:z-10",
+	"lily-toggle-group-1": "flex w-fit items-center gap-1 data-[orientation=vertical]:flex-col"
+}

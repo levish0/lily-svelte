@@ -14,6 +14,6 @@
 	bind:ref
 	bind:value
 	data-slot="radio-group"
-	class={cn('flex flex-col gap-3', className)}
+	class={cn('lily-radio-group-1 flex flex-col gap-3', className)}
 	{...restProps}
 />

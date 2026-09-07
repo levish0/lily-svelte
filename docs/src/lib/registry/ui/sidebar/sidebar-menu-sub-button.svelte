@@ -19,7 +19,7 @@
 
 	const mergedProps = $derived({
 		class: cn(
-			'flex h-8 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-xl px-2.5 tracking-[-0.39px] text-(--text)/56 outline-none transition-colors duration-150 select-none hover:bg-(--text)/5 hover:text-(--text) focus-visible:bg-(--text)/5 focus-visible:text-(--text) disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-active:bg-(--text)/8 data-active:font-medium data-active:text-(--text) data-[size=md]:text-sm data-[size=sm]:text-xs group-data-[collapsible=icon]:hidden [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0',
+			'flex h-8 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-xl px-2.5 tracking-[-0.39px] text-(--text)/56 outline-none transition-colors duration-150 select-none hover:bg-(--text)/5 hover:text-(--text) focus-visible:bg-(--text)/5 focus-visible:text-(--text) disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-active:bg-(--text)/8 data-active:font-medium data-active:text-(--text) data-[size=md]:text-sm data-[size=sm]:text-xs group-data-[collapsible=icon]:hidden [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 lily-sidebar-menu-sub-button-1',
 			className
 		),
 		'data-slot': 'sidebar-menu-sub-button',

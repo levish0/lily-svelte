@@ -1,0 +1,10 @@
+{
+	"lily-table-caption-1": "py-3.5 text-sm tracking-normal text-(--text-secondary)",
+	"lily-table-cell-1": "px-4 py-3.5 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0",
+	"lily-table-footer-1": "bg-(--surface-muted) font-medium [&>tr]:last:border-b-0",
+	"lily-table-head-1": "h-12 px-4 text-left align-middle text-xs font-medium tracking-normal whitespace-nowrap text-(--text-secondary) [&:has([role=checkbox])]:pr-0",
+	"lily-table-header-1": "[&_tr]:border-b [&_tr]:border-(--border)",
+	"lily-table-row-1": "transition-colors duration-150 ease-out hover:bg-(--surface-muted) data-[state=selected]:bg-(--surface-hover)",
+	"lily-table-1": "relative w-full overflow-x-auto rounded-3xl bg-(--bg-elevated)",
+	"lily-table-2": "w-full caption-bottom text-sm tracking-normal"
+}

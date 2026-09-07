@@ -1,0 +1,16 @@
+{
+	"lily-stepper-description-1": "text-xs leading-[1.4] tracking-normal text-(--text-tertiary)",
+	"lily-stepper-description-2": "group-data-[orientation=horizontal]/stepper-nav:text-center group-data-[orientation=vertical]/stepper-nav:text-left",
+	"lily-stepper-indicator-1": "relative z-1 flex size-7 shrink-0 items-center justify-center rounded-full bg-(--accent) text-xs font-medium text-white transition-colors duration-150 ease-out outline-none select-none [&_svg]:size-4",
+	"lily-stepper-indicator-2": "group-data-[state=inactive]/stepper-trigger:bg-(--surface-hover) group-data-[state=inactive]/stepper-trigger:text-(--text-secondary)",
+	"lily-stepper-item-1": "group-data-[orientation=horizontal]/stepper-nav:flex-col group-data-[orientation=horizontal]/stepper-nav:items-center",
+	"lily-stepper-nav-1": "flex-col gap-2",
+	"lily-stepper-separator-1": "absolute shrink-0 rounded-full bg-(--border) transition-colors duration-150 ease-out data-[state=completed]:bg-(--accent)",
+	"lily-stepper-title-1": "text-sm font-medium tracking-normal",
+	"lily-stepper-title-2": "group-data-[orientation=horizontal]/stepper-nav:text-center group-data-[orientation=vertical]/stepper-nav:text-left",
+	"lily-stepper-trigger-1": "group-data-[orientation=horizontal]/stepper-nav:flex-col group-data-[orientation=horizontal]/stepper-nav:items-center group-data-[orientation=horizontal]/stepper-nav:gap-2",
+	"lily-stepper-trigger-2": "group-data-[orientation=vertical]/stepper-nav:flex-row group-data-[orientation=vertical]/stepper-nav:gap-4",
+	"lily-stepper-item-2": "group/stepper-item relative flex flex-1",
+	"lily-stepper-nav-2": "group/stepper-nav flex",
+	"lily-stepper-trigger-3": "group/stepper-trigger z-1 flex outline-none active:[transform:none]"
+}

@@ -1,0 +1,6 @@
+{
+	"lily-checkbox-1": "size-[16px]",
+	"lily-checkbox-2": "size-[16px]",
+	"lily-checkbox-3": "peer flex size-[24px] shrink-0 items-center justify-center rounded-full border-2 border-(--border) transition-colors duration-150 ease-out outline-none disabled:cursor-not-allowed disabled:opacity-30 data-[state=checked]:border-(--accent) data-[state=checked]:bg-(--accent) data-[state=checked]:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg)",
+	"lily-checkbox-line": "rounded-none border-0 bg-transparent text-(--border) data-[state=checked]:bg-transparent data-[state=checked]:text-(--accent) data-[state=indeterminate]:bg-transparent data-[state=indeterminate]:text-(--accent)"
+}

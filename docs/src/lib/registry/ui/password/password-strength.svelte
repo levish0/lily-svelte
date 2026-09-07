@@ -44,12 +44,16 @@
 		bind:this={ref}
 		data-slot="password-strength"
 		data-score={score}
-		class={cn('flex items-center gap-3 px-1.5', className)}
+		class={cn('lily-password-strength-1 flex items-center gap-3 px-1.5', className)}
 	>
-		<div class="h-1.5 flex-1 overflow-hidden rounded-full bg-(--text)/12">
+		<div
+			class={cn(
+				'lily-password-strength-2 h-1.5 flex-1 overflow-hidden rounded-full bg-(--text)/12'
+			)}
+		>
 			<div
 				class={cn(
-					'h-full rounded-full transition-all duration-300 ease-out',
+					'lily-password-strength-3 h-full rounded-full transition-all duration-300 ease-out',
 					PASSWORD_STRENGTH_COLORS[score]
 				)}
 				style="width: {((score + 1) / 5) * 100}%"
@@ -58,7 +62,11 @@
 		{#if children}
 			{@render children({ score, label })}
 		{:else if showLabel}
-			<span class="w-16 shrink-0 text-right text-xs tracking-[-0.3px] text-(--text)/56">
+			<span
+				class={cn(
+					'lily-password-strength-4 w-16 shrink-0 text-right text-xs tracking-[-0.3px] text-(--text)/56'
+				)}
+			>
 				{label}
 			</span>
 		{/if}

@@ -12,6 +12,6 @@
 <DrawerPrimitive.Title
 	bind:ref
 	data-slot="drawer-title"
-	class={cn('text-lg font-semibold tracking-[-0.6px]', className)}
+	class={cn('lily-drawer-title-1 text-lg font-semibold tracking-[-0.6px]', className)}
 	{...restProps}
 />

@@ -13,7 +13,10 @@
 <p
 	bind:this={ref}
 	data-slot="field-description"
-	class={cn('text-xs leading-[1.5] tracking-[-0.3px] text-(--text)/56', className)}
+	class={cn(
+		'lily-field-description-1 text-xs leading-[1.5] tracking-[-0.3px] text-(--text)/56',
+		className
+	)}
 	{...restProps}
 >
 	{@render children?.()}

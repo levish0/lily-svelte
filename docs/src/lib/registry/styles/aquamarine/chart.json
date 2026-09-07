@@ -1,0 +1,18 @@
+{
+	"lily-chart-container-1": "flex aspect-video justify-center overflow-visible text-xs",
+	"lily-chart-container-2": "[&_.lc-area-path]:opacity-100 [&_.lc-highlight-line]:opacity-100 [&_.lc-highlight-point]:opacity-100 [&_.lc-spline-path]:opacity-100 [&_.lc-text]:text-xs [&_.lc-text-svg]:overflow-visible",
+	"lily-chart-container-3": "[&_.lc-legend-swatch-button]:items-center [&_.lc-legend-swatch-button]:gap-1.5",
+	"lily-chart-container-4": "[&_.lc-legend-swatch-group]:items-center [&_.lc-legend-swatch-group]:gap-4",
+	"lily-chart-container-5": "[&_.lc-legend-swatch]:size-2.5 [&_.lc-legend-swatch]:rounded-[4px]",
+	"lily-chart-tooltip-1": "font-medium text-(--text)",
+	"lily-chart-tooltip-2": "grid min-w-[9rem] items-start gap-1.5 rounded-xl border border-(--border) bg-(--bg-elevated) px-3 py-2 text-xs tracking-normal shadow-lg",
+	"lily-chart-tooltip-3": "grid gap-1.5",
+	"lily-chart-tooltip-4": "flex w-full flex-wrap items-stretch gap-2 [&>svg]:size-2.5 [&>svg]:text-(--text-tertiary)",
+	"lily-chart-tooltip-5": "shrink-0 rounded-[2px] border-(--color-border) bg-(--color-bg)",
+	"lily-chart-tooltip-6": "h-full w-1",
+	"lily-chart-tooltip-7": "w-0 border-[1.5px] border-dashed bg-transparent",
+	"lily-chart-tooltip-8": "flex flex-1 shrink-0 justify-between leading-none",
+	"lily-chart-tooltip-9": "grid gap-1.5",
+	"lily-chart-tooltip-10": "text-(--text-secondary)",
+	"lily-chart-tooltip-11": "font-medium text-(--text) tabular-nums"
+}

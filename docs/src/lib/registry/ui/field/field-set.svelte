@@ -13,7 +13,7 @@
 <fieldset
 	bind:this={ref}
 	data-slot="field-set"
-	class={cn('flex min-w-0 flex-col gap-5', className)}
+	class={cn('lily-field-set-1 flex min-w-0 flex-col gap-5', className)}
 	{...restProps}
 >
 	{@render children?.()}

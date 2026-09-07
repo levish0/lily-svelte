@@ -13,11 +13,11 @@
 
 <div
 	data-slot="command-input-wrapper"
-	class="flex items-center gap-2 border-b border-(--text)/8 px-4"
+	class={cn('lily-command-input-1 flex items-center gap-2 border-b border-(--text)/8 px-4')}
 >
 	<Icon
 		icon="heroicons:magnifying-glass-solid"
-		class="size-4.5 shrink-0 text-(--text)/40"
+		class={cn('lily-command-input-2 size-4.5 shrink-0 text-(--text)/40')}
 		aria-hidden="true"
 	/>
 	<CommandPrimitive.Input {value} data-slot="command-input" {...restProps}>
@@ -27,7 +27,7 @@
 				bind:value
 				bind:this={ref}
 				class={cn(
-					'h-12 flex-1 bg-transparent text-sm tracking-[-0.39px] outline-none placeholder:text-(--text)/40 disabled:cursor-not-allowed disabled:opacity-50',
+					'lily-command-input-3 h-12 flex-1 bg-transparent text-sm tracking-[-0.39px] outline-none placeholder:text-(--text)/40 disabled:cursor-not-allowed disabled:opacity-50',
 					className
 				)}
 			/>

@@ -1,0 +1,3 @@
+{
+	"lily-kbd-1": "inline-flex h-5 min-w-5 items-center justify-center gap-1 rounded-md bg-(--surface-hover) px-1.5 font-sans text-[0.7rem] font-medium tracking-normal text-(--text-secondary) select-none"
+}

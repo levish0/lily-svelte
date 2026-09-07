@@ -16,14 +16,16 @@
 	bind:this={ref}
 	data-slot="field-separator"
 	data-content={children ? '' : undefined}
-	class={cn('relative -my-2 flex h-5 items-center', className)}
+	class={cn('lily-field-separator-1 relative -my-2 flex h-5 items-center', className)}
 	{...restProps}
 >
-	<Separator class="absolute inset-x-0 top-1/2" />
+	<Separator class={cn('lily-field-separator-2 absolute inset-x-0 top-1/2')} />
 	{#if children}
 		<span
 			data-slot="field-separator-content"
-			class="relative mx-auto bg-(--bg) px-2 text-xs tracking-[-0.3px] text-(--text)/56"
+			class={cn(
+				'lily-field-separator-3 relative mx-auto bg-(--bg) px-2 text-xs tracking-[-0.3px] text-(--text)/56'
+			)}
 		>
 			{@render children()}
 		</span>

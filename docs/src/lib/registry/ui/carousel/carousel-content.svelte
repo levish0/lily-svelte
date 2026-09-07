@@ -16,7 +16,7 @@
 
 <div
 	data-slot="carousel-content"
-	class="overflow-hidden"
+	class={cn('lily-carousel-content-1 overflow-hidden')}
 	use:emblaCarouselSvelte={{
 		options: {
 			container: '[data-embla-container]',

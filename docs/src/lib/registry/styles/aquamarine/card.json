@@ -1,0 +1,8 @@
+{
+	"lily-card-content-1": "flex flex-col gap-3",
+	"lily-card-description-1": "text-sm leading-[1.6] tracking-normal text-(--text-secondary)",
+	"lily-card-footer-1": "flex items-center gap-2",
+	"lily-card-header-1": "flex flex-col gap-1",
+	"lily-card-title-1": "text-base leading-[1.5] font-medium tracking-normal text-(--text)",
+	"lily-card-1": "flex flex-col gap-[16px] rounded-[20px] bg-(--surface-card) [--surface-muted:var(--surface-inset)] p-[24px]"
+}

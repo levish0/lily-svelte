@@ -16,7 +16,7 @@
 	role="link"
 	aria-disabled="true"
 	aria-current="page"
-	class={cn('font-medium text-(--text)', className)}
+	class={cn('lily-breadcrumb-page-1 font-medium text-(--text)', className)}
 	{...restProps}
 >
 	{@render children?.()}

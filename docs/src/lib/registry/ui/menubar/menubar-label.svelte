@@ -13,7 +13,10 @@
 <div
 	bind:this={ref}
 	data-slot="menubar-label"
-	class={cn('px-3 py-1.5 text-xs font-medium tracking-[-0.3px] text-(--text)/56', className)}
+	class={cn(
+		'lily-menubar-label-1 px-3 py-1.5 text-xs font-medium tracking-[-0.3px] text-(--text)/56',
+		className
+	)}
 	{...restProps}
 >
 	{@render children?.()}

@@ -14,7 +14,10 @@
 <legend
 	bind:this={ref}
 	data-slot="field-legend"
-	class={cn('mb-3 text-sm font-medium tracking-[-0.39px] select-none', className)}
+	class={cn(
+		'lily-field-legend-1 mb-3 text-sm font-medium tracking-[-0.39px] select-none',
+		className
+	)}
 	{...restProps}
 >
 	{@render children?.()}

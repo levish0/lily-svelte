@@ -60,7 +60,7 @@
 	data-slot="copy-button"
 	data-status={clipboard.status}
 	aria-label={children ? undefined : label}
-	class={cn('gap-2 [&_svg]:size-4', className)}
+	class={cn('lily-copy-button-1 gap-2 [&_svg]:size-4', className)}
 	onclick={async (e) => {
 		onclick?.(e as ButtonClick);
 		onCopy?.(await clipboard.copy(text));

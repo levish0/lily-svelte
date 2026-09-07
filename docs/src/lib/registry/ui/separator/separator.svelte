@@ -23,8 +23,8 @@
 	role={decorative ? 'none' : 'separator'}
 	aria-orientation={decorative ? undefined : orientation}
 	class={cn(
-		'shrink-0 bg-(--text)/8',
-		orientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',
+		'lily-separator-1 shrink-0 bg-(--text)/8',
+		orientation === 'horizontal' ? 'lily-separator-2 h-px w-full' : 'lily-separator-3 h-full w-px',
 		className
 	)}
 	{...restProps}

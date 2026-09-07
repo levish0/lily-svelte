@@ -19,8 +19,8 @@
 <div
 	data-slot="stepper-nav"
 	class={cn(
-		'group/stepper-nav flex',
-		orientation === 'horizontal' ? 'flex-row' : 'flex-col gap-2',
+		'group/stepper-nav lily-stepper-nav-2 flex',
+		orientation === 'horizontal' ? 'flex-row' : 'lily-stepper-nav-1 flex-col gap-2',
 		className
 	)}
 	{...stepperNavState.props}

@@ -1,0 +1,6 @@
+{
+	"lily-slider-1": "relative flex touch-none items-center select-none data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col data-disabled:opacity-50",
+	"lily-slider-2": "relative grow overflow-hidden rounded-full bg-(--border) data-[orientation=horizontal]:h-2.5 data-[orientation=vertical]:w-2.5",
+	"lily-slider-3": "absolute rounded-full bg-(--accent) data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full",
+	"lily-slider-4": "block size-[26px] shrink-0 rounded-full border border-(--border) bg-(--bg-elevated) shadow-sm transition-[box-shadow,transform] outline-none focus-visible:ring-2 focus-visible:ring-(--accent)/30 active:scale-105 disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-(--accent)/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg)"
+}

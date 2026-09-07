@@ -19,7 +19,10 @@
 <!-- svelte-easy-crop fills its nearest positioned ancestor -->
 <div
 	data-slot="image-cropper-cropper"
-	class={cn('relative h-72 w-full overflow-hidden rounded-2xl bg-(--text)/5', className)}
+	class={cn(
+		'lily-image-cropper-cropper-1 relative h-72 w-full overflow-hidden rounded-2xl bg-(--text)/5',
+		className
+	)}
 >
 	{#if root.tempUrl}
 		<Cropper

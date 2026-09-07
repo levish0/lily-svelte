@@ -8,8 +8,8 @@
 <div
 	data-slot="stepper-indicator"
 	class={cn(
-		'relative z-1 flex size-7 shrink-0 items-center justify-center rounded-full bg-(--text) text-xs font-medium text-(--bg) transition-colors duration-150 outline-none select-none [&_svg]:size-4',
-		'group-data-[state=inactive]/stepper-trigger:bg-(--text)/8 group-data-[state=inactive]/stepper-trigger:text-(--text)/56',
+		'lily-stepper-indicator-1 relative z-1 flex size-7 shrink-0 items-center justify-center rounded-full bg-(--text) text-xs font-medium text-(--bg) transition-colors duration-150 outline-none select-none [&_svg]:size-4',
+		'lily-stepper-indicator-2 group-data-[state=inactive]/stepper-trigger:bg-(--text)/8 group-data-[state=inactive]/stepper-trigger:text-(--text)/56',
 		'group-focus-visible/stepper-trigger:ring-2 group-focus-visible/stepper-trigger:ring-(--text)/24',
 		className
 	)}

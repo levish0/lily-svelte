@@ -52,6 +52,7 @@
 		children
 	}: FileDropZoneProps = $props();
 
+	let inputRef = $state<HTMLInputElement | null>(null);
 	let dragOver = $state(false);
 	let uploading = $state(false);
 	const uid = $props.id();
@@ -65,6 +66,9 @@
 
 	setFileDropZoneContext({
 		inputId,
+		openPicker() {
+			if (canUpload) inputRef?.click();
+		},
 		get clickToSelect() {
 			return clickToSelect;
 		},
@@ -146,12 +150,17 @@
 	}}
 	ondragleave={() => (dragOver = false)}
 	{ondrop}
-	class={cn('group block', disabled && 'pointer-events-none opacity-50', className)}
+	class={cn(
+		'group block',
+		disabled && 'lily-file-drop-zone-1 pointer-events-none opacity-50',
+		className
+	)}
 >
 	<input
+		bind:this={inputRef}
 		id={inputId}
 		type="file"
-		class="sr-only"
+		class={cn('lily-file-drop-zone-2 sr-only')}
 		multiple={maxFiles !== 1}
 		{accept}
 		disabled={!canUpload}

@@ -1,0 +1,12 @@
+{
+	"lily-field-description-1": "text-xs leading-[1.5] tracking-normal text-(--text-secondary)",
+	"lily-field-error-1": "text-xs leading-[1.5] tracking-normal text-red-600 dark:text-red-400",
+	"lily-field-group-1": "flex flex-col gap-5",
+	"lily-field-label-1": "text-[13px] font-medium tracking-normal select-none",
+	"lily-field-legend-1": "mb-3 text-[13px] font-medium tracking-normal select-none",
+	"lily-field-separator-1": "relative -my-2 flex h-5 items-center",
+	"lily-field-separator-2": "absolute inset-x-0 top-1/2",
+	"lily-field-separator-3": "relative mx-auto bg-(--bg) px-2 text-xs tracking-normal text-(--text-secondary)",
+	"lily-field-set-1": "flex min-w-0 flex-col gap-5",
+	"lily-field-1": "flex flex-col gap-[8px]"
+}
