@@ -1,5 +1,17 @@
 # lily-svelte
 
+## 0.8.0
+
+### Minor Changes
+
+- [#66](https://github.com/levish0/lily-svelte/pull/66) [`b526799`](https://github.com/levish0/lily-svelte/commit/b526799784cc4afe6ecc905114001b2d2ea58935) Thanks [@levish0](https://github.com/levish0)! - Add project-level Diamond and Aquamarine design styles. `init --style` saves the selection in `lily.json`, and subsequent component installation and updates resolve the matching registry, dependencies, and CSS. Existing configurations without a style continue to use Diamond.
+
+  Protect existing projects from config-only style switches and accidental replacement of customized CSS. Changing styles requires reviewing and migrating installed sources and styles together.
+
+  Add Action Footer, Choice Group, Grid List, List Row, Search Field, and Top components, plus the Workshop block. Extend button, input, and tab variants; improve Command keyboard navigation; and support custom File Drop Zone triggers composed with Lily Button.
+
+  Keep documentation controls, previews, displayed source, and installation instructions aligned with the selected style. Fix preview overflow, per-example backgrounds, mobile navigation, and presentation extraction after class formatting.
+
 ## 0.7.2
 
 ### Patch Changes
