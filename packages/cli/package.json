@@ -46,6 +46,10 @@
 		},
 		"./tailwind.css": {
 			"style": "./dist/tailwind.css"
+		},
+		"./styles": {
+			"types": "./dist/styles.d.mts",
+			"default": "./dist/styles.mjs"
 		}
 	},
 	"files": [

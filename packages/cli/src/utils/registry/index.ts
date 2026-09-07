@@ -3,23 +3,31 @@ import { fetch } from 'node-fetch-native';
 import { createProxy } from 'node-fetch-native/proxy';
 import { isUrl, resolveURL } from '../utils.js';
 import { CLIError, error } from '../errors.js';
-import { BASE_COLORS, type ResolvedConfig } from '../config/index.js';
+import { BASE_COLORS, type ResolvedConfig, type StyleName } from '../config/index.js';
 import { getEnvProxy } from '../get-env-proxy.js';
 import { OFFICIAL_REGISTRY_URL } from '../../constants.js';
 import * as schemas from '../../schema/index.js';
 import { parse as parseCss } from 'postcss';
 
-export function getRegistryUrl(config: { registry: string }) {
+export function getRegistryUrl(config: { registry: string; style?: StyleName }) {
 	// so old URL's will still work
 	if (process.env.COMPONENTS_REGISTRY_URL) {
-		return process.env.COMPONENTS_REGISTRY_URL;
+		return styleRegistryUrl(process.env.COMPONENTS_REGISTRY_URL, config.style);
 	}
 	const url = process.env.REGISTRY_URL ?? config.registry;
 
-	return new URL(url).toString();
+	return styleRegistryUrl(url, config.style);
 }
 
-export function getSiteUrl(config: { registry: string }) {
+function styleRegistryUrl(url: string, style = 'diamond') {
+	const base = new URL(url);
+	if (style !== 'diamond' && !base.pathname.replace(/\/$/, '').endsWith(`/styles/${style}`)) {
+		base.pathname = base.pathname.replace(/\/$/, '') + `/styles/${style}`;
+	}
+	return base.toString();
+}
+
+export function getSiteUrl(config: { registry: string; style?: StyleName }) {
 	const registryUrl = getRegistryUrl(config);
 	return new URL(registryUrl).origin;
 }

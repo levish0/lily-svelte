@@ -239,13 +239,12 @@ export const registrySchema = z.object({
 
 /** Schema for a project's `lily.json` config file. */
 export const componentsJsonSchema = z.object({
-	$schema: z.string().optional(),
-	style: z
-		.string()
-		.optional()
+	style: rawConfigSchema.shape.style
+		.default('diamond')
 		.describe(
-			'DEPRECATED IN TAILWIND v4! The style for your components. This cannot be changed after initialization.'
+			'Component design style. Missing style preserves Diamond. Changing this field alone does not convert installed sources.'
 		),
+	$schema: z.string().optional(),
 	tailwind: z.object({
 		css: z.string().describe('Path to the CSS file that imports Tailwind CSS into your project.'),
 		baseColor: z
