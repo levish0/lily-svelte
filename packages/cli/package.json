@@ -92,7 +92,7 @@
 		"estree-walker": "^3.0.3",
 		"get-tsconfig": "^4.14.3",
 		"ignore": "^7.0.4",
-		"magic-string": "^1.1.0",
+		"magic-string": "^1.2.3",
 		"memfs": "^4.68.1",
 		"open": "^11.0.0",
 		"package-manager-detector": "^1.2.0",
