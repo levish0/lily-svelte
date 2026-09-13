@@ -1,5 +1,13 @@
 # lily-svelte
 
+## 0.8.1
+
+### Patch Changes
+
+- [`880f047`](https://github.com/levish0/lily-svelte/commit/880f04755e05a13876954ae588c5c14272947c7f) Thanks [@levish0](https://github.com/levish0)! - Restore Diamond motion timing and missing transitions in Aquamarine buttons, badges, dialogs, number fields, and segmented tabs. Preserve reduced-motion support.
+
+  Fix Workshop block tab sizing and screen insets so both design styles have full-width navigation and consistent grid spacing.
+
 ## 0.8.0
 
 ### Minor Changes
