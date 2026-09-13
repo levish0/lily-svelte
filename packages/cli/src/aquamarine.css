@@ -51,8 +51,8 @@
 		--chart-3: #ffb338;
 		--chart-4: #8b62e7;
 		--chart-5: #f04452;
-		--ease-spring: cubic-bezier(0.2, 0, 0, 1);
-		--default-transition-timing-function: ease-out;
+		--ease-spring: cubic-bezier(0.34, 1.2, 0.64, 1);
+		--default-transition-timing-function: var(--ease-spring);
 		--default-transition-duration: 150ms;
 	}
 	:root.dark {

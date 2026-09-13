@@ -1,5 +1,5 @@
 {
-	"lily-button-1": "relative inline-flex cursor-pointer items-center justify-center gap-[10px] whitespace-nowrap font-semibold leading-[1.252] tracking-normal transition-colors duration-150 ease-out outline-none select-none disabled:pointer-events-none disabled:opacity-30 aria-disabled:cursor-default active:enabled:brightness-95 [&_svg]:pointer-events-none [&_svg]:shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg)",
+	"lily-button-1": "relative inline-flex cursor-pointer items-center justify-center gap-[10px] whitespace-nowrap font-semibold leading-[1.252] tracking-normal transition-all duration-150 outline-none select-none disabled:pointer-events-none disabled:opacity-30 aria-disabled:cursor-default active:enabled:brightness-95 [&_svg]:pointer-events-none [&_svg]:shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg)",
 	"lily-button-2": "bg-(--button-fill) text-(--button-label) hover:brightness-95",
 	"lily-button-3": "bg-(--button-weak) text-(--button-weak-label) hover:brightness-95",
 	"lily-button-4": "bg-transparent text-(--button-fill) hover:bg-(--button-fill)/8",

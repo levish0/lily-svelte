@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
+	import { cn } from '$lib/utils';
 	import { Button } from '$lib/registry/ui/button';
 	import { Top } from '$lib/registry/ui/top';
 	import { ListRow } from '$lib/registry/ui/list-row';
@@ -65,7 +66,7 @@
 		<div class="px-6 pb-4">
 			<SearchField aria-label="Search classes" placeholder="Search classes" bind:value={query} />
 		</div>
-		<GridList columns={2}>
+		<GridList columns={2} class="px-6">
 			{#each services.filter((service) => service.name.includes(query)) as service (service.name)}
 				<GridListItem onclick={() => (notice = service.name)}>
 					{#snippet media()}<Icon icon={service.icon} class={service.color} width="24" />{/snippet}
@@ -77,11 +78,14 @@
 	</section>
 	<section aria-label="Class booking" class="overflow-hidden rounded-[24px] bg-(--bg-elevated)">
 		<Tabs value="benefits" class="gap-0">
-			<TabsList aria-label="Class navigation"
-				><TabsTrigger value="benefits">Classes</TabsTrigger><TabsTrigger value="history"
-					>Bookings</TabsTrigger
-				></TabsList
-			>
+			<div class={cn('lily-workshop-tabs-inset px-4 pt-4')}>
+				<TabsList class="w-full" aria-label="Class navigation"
+					><TabsTrigger class="flex-1" value="benefits">Classes</TabsTrigger><TabsTrigger
+						class="flex-1"
+						value="history">Bookings</TabsTrigger
+					></TabsList
+				>
+			</div>
 			<TabsContent value="benefits" class="mt-0">
 				<Top
 					title="Make something this weekend"

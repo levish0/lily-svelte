@@ -15,3 +15,5 @@
 - [2026-09-07: Per-example preview backgrounds](2026-09-07-preview-background-scope.md)
 
 - [2026-09-08: Preview source ownership](2026-09-08-preview-source-ownership.md)
+
+- [2026-09-13: Motion and Workshop layout](2026-09-13-motion-and-workshop.md)

@@ -155,3 +155,26 @@ test('presentation resolution leaves unrelated identifiers unchanged', () => {
 		assert.equal(resolveStyle("'lily-empty'", style, { 'lily-empty': '' }), "''");
 	}
 });
+
+test('Aquamarine preserves shared interaction motion', () => {
+	const read = (name: string) =>
+		JSON.parse(fs.readFileSync(`src/lib/registry/styles/aquamarine/${name}.json`, 'utf8'));
+	assert.match(read('button')['lily-button-1'], /transition-all duration-150/);
+	for (const state of ['closed', 'open']) {
+		assert.ok(
+			read('dialog')['lily-dialog-content-1'].includes(
+				`data-[state=${state}]:zoom-${state === 'open' ? 'in' : 'out'}-95`
+			)
+		);
+	}
+	for (const slot of [1, 3, 6]) {
+		const classes = read('number-field')[`lily-number-field-${slot}`];
+		assert.ok(classes.includes('transition-colors'));
+		assert.ok(classes.includes('duration-150'));
+	}
+	assert.match(read('tabs')['lily-tabs-trigger-segmented'], /transition-colors duration-150/);
+	const css = fs.readFileSync('../packages/cli/src/aquamarine.css', 'utf8');
+	assert.ok(css.includes('--ease-spring: cubic-bezier(0.34, 1.2, 0.64, 1)'));
+	assert.ok(css.includes('--default-transition-timing-function: var(--ease-spring)'));
+	assert.ok(css.includes('prefers-reduced-motion: reduce'));
+});
