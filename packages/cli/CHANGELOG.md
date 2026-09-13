@@ -1,5 +1,11 @@
 # lily-svelte
 
+## 0.8.2
+
+### Patch Changes
+
+- [`2d4ded8`](https://github.com/levish0/lily-svelte/commit/2d4ded864b1543774601ce9b5bc71d96cc905aba) Thanks [@levish0](https://github.com/levish0)! - Match Diamond motion across the Aquamarine component catalog, including global button press scaling, transition properties and timing, slider press feedback, and overlay animations. Preserve reduced-motion support.
+
 ## 0.8.1
 
 ### Patch Changes
