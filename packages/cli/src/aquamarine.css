@@ -109,9 +109,13 @@
 	::selection {
 		background: color-mix(in srgb, var(--accent) 20%, transparent);
 	}
+	button,
+	a[data-slot='button'] {
+		transition: transform 0.2s var(--ease-spring);
+	}
 	button:active,
 	a[data-slot='button']:active {
-		transform: none;
+		transform: scale(0.96);
 	}
 	:focus-visible {
 		outline: 2px solid var(--accent);

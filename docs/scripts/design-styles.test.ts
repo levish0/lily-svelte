@@ -1,3 +1,4 @@
+import postcss from 'postcss';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -177,4 +178,64 @@ test('Aquamarine preserves shared interaction motion', () => {
 	assert.ok(css.includes('--ease-spring: cubic-bezier(0.34, 1.2, 0.64, 1)'));
 	assert.ok(css.includes('--default-transition-timing-function: var(--ease-spring)'));
 	assert.ok(css.includes('prefers-reduced-motion: reduce'));
+});
+
+test('all Aquamarine presentation slots retain Diamond motion properties', () => {
+	const definitions: Record<string, string> = {};
+	for (const file of fs
+		.readdirSync('src/lib/registry/styles/aquamarine')
+		.filter((name) => name.endsWith('.json'))) {
+		Object.assign(
+			definitions,
+			JSON.parse(fs.readFileSync(`src/lib/registry/styles/aquamarine/${file}`, 'utf8'))
+		);
+	}
+	const motion = (classes: string) =>
+		classes
+			.split(/\s+/)
+			.filter((token) =>
+				/(^|:)-?(transition|duration|ease|animate|slide|fade|zoom|spin|motion|delay|scale|rotate|origin|transform)-/.test(
+					token
+				)
+			)
+			.sort();
+	let checked = 0;
+	for (const file of fs
+		.readdirSync('src/lib/registry/ui', { recursive: true })
+		.filter((name) => String(name).endsWith('.svelte'))) {
+		const content = fs.readFileSync(path.join('src/lib/registry/ui', String(file)), 'utf8');
+		for (const match of content.matchAll(/(['"])([^\n'"`]*\blily-[\w-]+[^\n'"`]*)\1/g)) {
+			const slot = match[2].split(/\s+/).find((token) => /^lily-[\w-]+$/.test(token));
+			if (!slot || !(slot in definitions)) continue;
+			assert.deepEqual(motion(definitions[slot]), motion(match[2]), slot);
+			checked++;
+		}
+	}
+	assert.ok(checked > 300, `Expected the full component catalog, checked ${checked} slots`);
+});
+
+test('Aquamarine global press and animation rules match Diamond', () => {
+	const extract = (file: string) => {
+		const result: Record<string, string> = {};
+		postcss.parse(fs.readFileSync(file, 'utf8')).walkDecls((decl) => {
+			if (
+				!/^(transition|transform|animation|--animate-|--ease-|--default-transition)/.test(decl.prop)
+			)
+				return;
+			const parents: string[] = [];
+			for (let parent = decl.parent; parent && parent.type !== 'root'; parent = parent.parent) {
+				parents.unshift(
+					parent.type === 'rule' ? parent.selector : `@${parent.name} ${parent.params}`
+				);
+			}
+			if (parents.some((value) => value.includes('prefers-reduced-motion'))) return;
+			result[decl.prop.startsWith('--') ? decl.prop : `${parents.join(' > ')} / ${decl.prop}`] =
+				decl.value;
+		});
+		return result;
+	};
+	assert.deepEqual(
+		extract('../packages/cli/src/aquamarine.css'),
+		extract('../packages/cli/src/tailwind.css')
+	);
 });

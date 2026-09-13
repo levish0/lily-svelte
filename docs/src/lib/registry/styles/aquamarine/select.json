@@ -5,6 +5,6 @@
 	"lily-select-item-2": "grow whitespace-nowrap",
 	"lily-select-item-3": "absolute end-2.5 flex size-4 items-center justify-center",
 	"lily-select-item-4": "size-4",
-	"lily-select-trigger-1": "flex h-[38px] w-fit min-w-44 items-center justify-between gap-2 rounded-[10px] bg-(--surface-muted) px-4 py-2 text-sm tracking-normal transition-colors duration-150 ease-out outline-none hover:bg-(--surface-hover) focus-visible:bg-(--border) disabled:cursor-not-allowed disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-(--accent)/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg)",
+	"lily-select-trigger-1": "flex h-[38px] w-fit min-w-44 items-center justify-between gap-2 rounded-[10px] bg-(--surface-muted) px-4 py-2 text-sm tracking-normal outline-none hover:bg-(--surface-hover) focus-visible:bg-(--border) disabled:cursor-not-allowed disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-(--accent)/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg) transition-colors duration-150",
 	"lily-select-trigger-2": "size-4 shrink-0 text-(--text-tertiary)"
 }

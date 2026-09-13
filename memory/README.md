@@ -17,3 +17,5 @@
 - [2026-09-08: Preview source ownership](2026-09-08-preview-source-ownership.md)
 
 - [2026-09-13: Motion and Workshop layout](2026-09-13-motion-and-workshop.md)
+
+- [2026-09-13: Full component motion parity](2026-09-13-complete-motion-parity.md)

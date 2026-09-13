@@ -4,7 +4,7 @@
 	"lily-image-cropper-crop-2": "size-4",
 	"lily-image-cropper-cropper-1": "relative h-72 w-full overflow-hidden rounded-2xl bg-(--surface-muted)",
 	"lily-image-cropper-dialog-1": "gap-4 p-4",
-	"lily-image-cropper-preview-1": "size-20 transition-opacity duration-150 ease-out hover:opacity-80",
+	"lily-image-cropper-preview-1": "size-20 hover:opacity-80 transition-opacity duration-150",
 	"lily-image-cropper-preview-2": "size-5",
 	"lily-image-cropper-preview-3": "sr-only",
 	"lily-image-cropper-upload-trigger-1": "inline-block w-fit cursor-pointer",
