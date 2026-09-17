@@ -91,7 +91,7 @@
 		"empathic": "^2.0.1",
 		"estree-walker": "^3.0.3",
 		"get-tsconfig": "^4.14.3",
-		"ignore": "^7.0.4",
+		"ignore": "^7.0.9",
 		"magic-string": "^1.2.3",
 		"memfs": "^4.68.1",
 		"open": "^11.0.2",
