@@ -58,7 +58,7 @@
 		"svelte": "^5.57.0",
 		"svelte-check": "^4.7.6",
 		"svelte-sonner": "^1.2.1",
-		"svelte-tel-input": "^4.3.2",
+		"svelte-tel-input": "^4.3.3",
 		"tailwind-merge": "^3.6.0",
 		"tailwindcss": "^4.3.3",
 		"tsx": "^4.23.13",
