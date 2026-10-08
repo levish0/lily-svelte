@@ -67,7 +67,7 @@
 		"unist-util-visit": "^5.1.0",
 		"velite": "^0.3.1",
 		"vite": "^8.2.2",
-		"vitest": "^4.1.11",
+		"vitest": "^5.0.3",
 		"vitest-browser-svelte": "^3.1.0",
 		"zod": "^4.6.5"
 	},
