@@ -27,7 +27,7 @@
 		"@shikijs/langs": "^4.4.3",
 		"@shikijs/themes": "^4.4.3",
 		"@sveltejs/acorn-typescript": "^1.0.13",
-		"@sveltejs/adapter-cloudflare": "^7.2.9",
+		"@sveltejs/adapter-cloudflare": "^8.0.1",
 		"@sveltejs/kit": "^2.70.3",
 		"@sveltejs/vite-plugin-svelte": "^7.3.0",
 		"@tailwindcss/typography": "^0.5.20",
