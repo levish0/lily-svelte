@@ -47,7 +47,7 @@
 		"svelte": "^5.57.0",
 		"typescript": "^6.0.3",
 		"typescript-eslint": "^8.69.0",
-		"wait-on": "^9.1.0",
+		"wait-on": "^9.5.1",
 		"wrangler": "4.149.0"
 	}
 }
