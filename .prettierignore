@@ -12,3 +12,6 @@ bun.lockb
 docs/static/registry/
 docs/static/schema.json
 docs/static/schema/
+
+# Rewritten by `wrangler types` on every check and build
+docs/worker-configuration.d.ts
