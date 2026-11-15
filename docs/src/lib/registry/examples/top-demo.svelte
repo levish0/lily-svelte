@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { cn } from '$lib/utils';
-	import { Top } from '$lib/registry/ui/top';
-	import { Badge } from '$lib/registry/ui/badge';
-	import { ListRow } from '$lib/registry/ui/list-row';
-	import { Button } from '$lib/registry/ui/button';
+	import { cn } from '#lib/utils.js';
+	import { Top } from '#lib/registry/ui/top/index.js';
+	import { Badge } from '#lib/registry/ui/badge/index.js';
+	import { ListRow } from '#lib/registry/ui/list-row/index.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
 	let saved = $state(false);
 </script>
 

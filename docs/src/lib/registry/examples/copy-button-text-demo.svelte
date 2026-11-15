@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { CopyButton } from '$lib/registry/ui/copy-button';
+	import { CopyButton } from '#lib/registry/ui/copy-button/index.js';
 
 	const command = 'npx lily-svelte@latest add copy-button';
 </script>

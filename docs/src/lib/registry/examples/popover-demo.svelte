@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Popover, PopoverTrigger, PopoverContent } from '$lib/registry/ui/popover';
-	import { Button } from '$lib/registry/ui/button';
-	import { Label } from '$lib/registry/ui/label';
-	import { Input } from '$lib/registry/ui/input';
+	import { Popover, PopoverTrigger, PopoverContent } from '#lib/registry/ui/popover/index.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
+	import { Label } from '#lib/registry/ui/label/index.js';
+	import { Input } from '#lib/registry/ui/input/index.js';
 </script>
 
 <Popover>

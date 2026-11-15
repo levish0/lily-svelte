@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import { docsNav } from '$lib/config/docs-nav.js';
+	import { page } from '$app/state';
+	import { docsNav } from '#lib/config/docs-nav.js';
 
 	let { children } = $props();
 
 	function isActive(href: string) {
-		return $page.url.pathname === href;
+		return page.url.pathname === href;
 	}
 </script>
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { cn, type WithElementRef } from '$lib/utils.js';
+	import { cn, type WithElementRef } from '#lib/utils.js';
 	import type { HTMLLabelAttributes } from 'svelte/elements';
 	import { useImageCropperRoot } from './image-cropper.svelte.js';
 

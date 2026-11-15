@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { createFileTreeForRegistryItemFiles } from '$lib/registry/registry-utils.js';
+	import type { createFileTreeForRegistryItemFiles } from '#lib/registry/registry-utils.js';
 	import type { Pane } from 'paneforge';
 	import { Context } from 'runed';
 	import type { HighlightedBlock } from '../../routes/api/block/[block]/+server.js';

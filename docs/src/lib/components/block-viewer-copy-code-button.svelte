@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from './docs-button.svelte';
 	import Icon from '@iconify/svelte';
-	import { UseClipboard } from '$lib/hooks/use-clipboard.svelte.js';
+	import { UseClipboard } from '#lib/hooks/use-clipboard.svelte.js';
 	import { BlockViewerContext } from './block-viewer.svelte';
 
 	const ctx = BlockViewerContext.get();

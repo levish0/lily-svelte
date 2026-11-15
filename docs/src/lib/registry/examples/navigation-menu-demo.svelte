@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as NavigationMenu from '$lib/registry/ui/navigation-menu';
+	import * as NavigationMenu from '#lib/registry/ui/navigation-menu/index.js';
 </script>
 
 <NavigationMenu.Root>

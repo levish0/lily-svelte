@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Progress } from '$lib/registry/ui/progress';
+	import { Progress } from '#lib/registry/ui/progress/index.js';
 	import { onMount } from 'svelte';
 
 	let value = $state(13);

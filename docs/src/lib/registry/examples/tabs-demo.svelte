@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/registry/ui/tabs';
+	import { Tabs, TabsList, TabsTrigger, TabsContent } from '#lib/registry/ui/tabs/index.js';
 </script>
 
 <Tabs value="account" class="w-full max-w-md">

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ChoiceGroup, ChoiceGroupItem } from '$lib/registry/ui/choice-group';
+	import { ChoiceGroup, ChoiceGroupItem } from '#lib/registry/ui/choice-group/index.js';
 	let value = $state('daily');
 </script>
 

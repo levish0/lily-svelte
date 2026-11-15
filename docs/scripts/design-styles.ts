@@ -100,8 +100,8 @@ export function buildStyleSources() {
 					entry.styles[style] = style === 'diamond' ? original : definitions[slot];
 				}
 				const resolved = resolveStyle(content, style, definitions, knownSlots).replaceAll(
-					'$lib/registry/',
-					`$lib/registry-styles/${style}/`
+					'#lib/registry/',
+					`#lib/registry-styles/${style}/`
 				);
 				writeIfChanged(output, resolved);
 			}

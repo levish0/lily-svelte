@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { getDesignStyle, DESIGN_STYLES } from '$lib/design-style';
+	import { getDesignStyle, DESIGN_STYLES } from '#lib/design-style.js';
 	const style = getDesignStyle();
-	import PmCommand from '$lib/components/pm-command.svelte';
+	import PmCommand from '#lib/components/pm-command.svelte';
 
 	let { name }: { name: string } = $props();
 </script>

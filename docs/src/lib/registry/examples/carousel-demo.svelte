@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as Carousel from '$lib/registry/ui/carousel';
+	import * as Carousel from '#lib/registry/ui/carousel/index.js';
 </script>
 
 <div class="px-12">

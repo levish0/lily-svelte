@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/registry/ui/tabs';
+	import { Tabs, TabsList, TabsTrigger, TabsContent } from '#lib/registry/ui/tabs/index.js';
 	import type { Snippet } from 'svelte';
 
 	let { cli, manual }: { cli: Snippet; manual: Snippet } = $props();

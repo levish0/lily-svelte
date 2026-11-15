@@ -1,32 +1,37 @@
 <script lang="ts">
-	import { cn } from '$lib/utils.js';
+	import { cn } from '#lib/utils.js';
 	import { onMount } from 'svelte';
 	import { today, getLocalTimeZone } from '@internationalized/date';
 	import { toast } from 'svelte-sonner';
-	import { Button } from '$lib/registry/ui/button';
-	import { Badge } from '$lib/registry/ui/badge';
-	import { Avatar } from '$lib/registry/ui/avatar';
-	import { Switch } from '$lib/registry/ui/switch';
-	import { Checkbox } from '$lib/registry/ui/checkbox';
-	import { Input } from '$lib/registry/ui/input';
-	import { Label } from '$lib/registry/ui/label';
-	import { Progress } from '$lib/registry/ui/progress';
-	import { RadioGroup, RadioGroupItem } from '$lib/registry/ui/radio-group';
-	import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/registry/ui/tabs';
-	import { Select, SelectTrigger, SelectContent, SelectItem } from '$lib/registry/ui/select';
-	import { Slider } from '$lib/registry/ui/slider';
-	import { ToggleGroup, ToggleGroupItem } from '$lib/registry/ui/toggle-group';
-	import { TagsInput } from '$lib/registry/ui/tags-input';
-	import { NumberField } from '$lib/registry/ui/number-field';
-	import { Password } from '$lib/registry/ui/password';
-	import { Alert, AlertTitle, AlertDescription } from '$lib/registry/ui/alert';
-	import { Spinner } from '$lib/registry/ui/spinner';
-	import { Skeleton } from '$lib/registry/ui/skeleton';
-	import { Kbd } from '$lib/registry/ui/kbd';
-	import { Calendar } from '$lib/registry/ui/calendar';
-	import * as Command from '$lib/registry/ui/command';
-	import * as Table from '$lib/registry/ui/table';
-	import * as Tooltip from '$lib/registry/ui/tooltip';
+	import { Button } from '#lib/registry/ui/button/index.js';
+	import { Badge } from '#lib/registry/ui/badge/index.js';
+	import { Avatar } from '#lib/registry/ui/avatar/index.js';
+	import { Switch } from '#lib/registry/ui/switch/index.js';
+	import { Checkbox } from '#lib/registry/ui/checkbox/index.js';
+	import { Input } from '#lib/registry/ui/input/index.js';
+	import { Label } from '#lib/registry/ui/label/index.js';
+	import { Progress } from '#lib/registry/ui/progress/index.js';
+	import { RadioGroup, RadioGroupItem } from '#lib/registry/ui/radio-group/index.js';
+	import { Tabs, TabsList, TabsTrigger, TabsContent } from '#lib/registry/ui/tabs/index.js';
+	import {
+		Select,
+		SelectTrigger,
+		SelectContent,
+		SelectItem
+	} from '#lib/registry/ui/select/index.js';
+	import { Slider } from '#lib/registry/ui/slider/index.js';
+	import { ToggleGroup, ToggleGroupItem } from '#lib/registry/ui/toggle-group/index.js';
+	import { TagsInput } from '#lib/registry/ui/tags-input/index.js';
+	import { NumberField } from '#lib/registry/ui/number-field/index.js';
+	import { Password } from '#lib/registry/ui/password/index.js';
+	import { Alert, AlertTitle, AlertDescription } from '#lib/registry/ui/alert/index.js';
+	import { Spinner } from '#lib/registry/ui/spinner/index.js';
+	import { Skeleton } from '#lib/registry/ui/skeleton/index.js';
+	import { Kbd } from '#lib/registry/ui/kbd/index.js';
+	import { Calendar } from '#lib/registry/ui/calendar/index.js';
+	import * as Command from '#lib/registry/ui/command/index.js';
+	import * as Table from '#lib/registry/ui/table/index.js';
+	import * as Tooltip from '#lib/registry/ui/tooltip/index.js';
 	import {
 		Dialog,
 		DialogTrigger,
@@ -36,8 +41,12 @@
 		DialogDescription,
 		DialogFooter,
 		DialogClose
-	} from '$lib/registry/ui/dialog';
-	import { HoverCard, HoverCardTrigger, HoverCardContent } from '$lib/registry/ui/hover-card';
+	} from '#lib/registry/ui/dialog/index.js';
+	import {
+		HoverCard,
+		HoverCardTrigger,
+		HoverCardContent
+	} from '#lib/registry/ui/hover-card/index.js';
 	import {
 		Breadcrumb,
 		BreadcrumbList,
@@ -45,7 +54,7 @@
 		BreadcrumbLink,
 		BreadcrumbSeparator,
 		BreadcrumbPage
-	} from '$lib/registry/ui/breadcrumb';
+	} from '#lib/registry/ui/breadcrumb/index.js';
 	import {
 		Pagination,
 		PaginationContent,
@@ -54,8 +63,14 @@
 		PaginationPrevButton,
 		PaginationNextButton,
 		PaginationEllipsis
-	} from '$lib/registry/ui/pagination';
-	import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '$lib/registry/ui/card';
+	} from '#lib/registry/ui/pagination/index.js';
+	import {
+		Card,
+		CardHeader,
+		CardTitle,
+		CardDescription,
+		CardContent
+	} from '#lib/registry/ui/card/index.js';
 
 	let progress = $state(20);
 	let plan = $state('Pro');

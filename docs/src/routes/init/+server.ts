@@ -1,5 +1,3 @@
-import { json } from '@sveltejs/kit';
-
 export const prerender = true;
 
 /**
@@ -9,7 +7,7 @@ export const prerender = true;
  * the CLI (so they own and can edit every token) — single style, no presets.
  */
 export function GET() {
-	return json({
+	return Response.json({
 		name: 'lily',
 		type: 'registry:base',
 		devDependencies: ['tw-animate-css'],

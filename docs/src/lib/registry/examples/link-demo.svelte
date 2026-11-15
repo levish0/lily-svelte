@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Link } from '$lib/registry/ui/link';
+	import { Link } from '#lib/registry/ui/link/index.js';
 </script>
 
 <p class="max-w-md text-sm leading-[1.6] tracking-[-0.39px] text-(--text)/72">

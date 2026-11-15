@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { PieChart } from 'layerchart';
-	import * as Chart from '$lib/registry/ui/chart/index.js';
-	import * as Card from '$lib/registry/ui/card/index.js';
+	import * as Chart from '#lib/registry/ui/chart/index.js';
+	import * as Card from '#lib/registry/ui/card/index.js';
 
 	const chartData = [
 		{ browser: 'chrome', visitors: 275, color: 'var(--color-chrome)' },

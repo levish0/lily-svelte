@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { cn } from '$lib/utils.js';
+	import { cn } from '#lib/utils.js';
 	import Icon from '@iconify/svelte';
-	import { Button, type ButtonProps } from '$lib/registry/ui/button/index.js';
+	import { Button, type ButtonProps } from '#lib/registry/ui/button/index.js';
 	import { useImageCropperRoot } from './image-cropper.svelte.js';
 
 	let {

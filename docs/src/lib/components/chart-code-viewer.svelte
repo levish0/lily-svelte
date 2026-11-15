@@ -2,10 +2,10 @@
 	import Button from './docs-button.svelte';
 	import Icon from '@iconify/svelte';
 	import { MediaQuery } from 'svelte/reactivity';
-	import { cn } from '$lib/utils.js';
-	import { UseClipboard } from '$lib/hooks/use-clipboard.svelte.js';
-	import * as Drawer from '$lib/registry/ui/drawer/index.js';
-	import * as Sheet from '$lib/registry/ui/sheet/index.js';
+	import { cn } from '#lib/utils.js';
+	import { UseClipboard } from '#lib/hooks/use-clipboard.svelte.js';
+	import * as Drawer from '#lib/registry/ui/drawer/index.js';
+	import * as Sheet from '#lib/registry/ui/sheet/index.js';
 	import type { Snippet } from 'svelte';
 	import type { HighlightedBlock } from '../../routes/api/block/[block]/+server.js';
 

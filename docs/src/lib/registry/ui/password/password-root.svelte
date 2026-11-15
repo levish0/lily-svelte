@@ -3,7 +3,7 @@
 	import type { ZxcvbnResult } from '@zxcvbn-ts/core';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { PasswordScore } from './password.svelte.js';
-	import type { WithElementRef } from '$lib/utils.js';
+	import type { WithElementRef } from '#lib/utils.js';
 
 	export type PasswordRootProps = WithElementRef<HTMLAttributes<HTMLDivElement>> & {
 		value?: string;
@@ -18,7 +18,7 @@
 <script lang="ts">
 	import { untrack } from 'svelte';
 	import { useId } from 'bits-ui';
-	import { cn } from '$lib/utils.js';
+	import { cn } from '#lib/utils.js';
 	import { setPasswordRoot } from './password.svelte.js';
 
 	let {

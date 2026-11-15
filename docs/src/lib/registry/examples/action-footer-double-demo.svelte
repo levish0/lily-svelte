@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { cn } from '$lib/utils';
-	import { ActionFooter } from '$lib/registry/ui/action-footer';
-	import { Button } from '$lib/registry/ui/button';
-	import { Top } from '$lib/registry/ui/top';
+	import { cn } from '#lib/utils.js';
+	import { ActionFooter } from '#lib/registry/ui/action-footer/index.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
+	import { Top } from '#lib/registry/ui/top/index.js';
 	let message = $state('');
 </script>
 

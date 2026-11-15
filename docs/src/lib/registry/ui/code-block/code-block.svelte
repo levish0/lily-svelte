@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import { cn } from '$lib/utils.js';
+	import { cn } from '#lib/utils.js';
 
 	export type CodeBlockVariant = 'default' | 'secondary';
 
@@ -22,8 +22,8 @@
 	import { onMount } from 'svelte';
 	import Icon from '@iconify/svelte';
 	import type { HighlighterCore } from 'shiki/core';
-	import * as Tooltip from '$lib/registry/ui/tooltip/index.js';
-	import { UseClipboard } from '$lib/registry/hooks/use-clipboard.svelte.js';
+	import * as Tooltip from '#lib/registry/ui/tooltip/index.js';
+	import { UseClipboard } from '#lib/registry/hooks/use-clipboard.svelte.js';
 	import { getHighlighter } from './shiki.js';
 
 	let { class: className, variant = 'default', code, lang = 'svelte' }: CodeBlockProps = $props();

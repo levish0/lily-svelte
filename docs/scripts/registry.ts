@@ -6,8 +6,8 @@ import { walk, type Node } from 'estree-walker';
 import * as svelte from 'svelte/compiler';
 import { registryItemSchema, type Registry } from 'lily-svelte/schema';
 
-const REGISTRY_DEPENDENCY = '$lib/';
-const UTILS_PATH = '$lib/utils.js';
+const REGISTRY_DEPENDENCY = '#lib/';
+const UTILS_PATH = '#lib/utils.js';
 
 const tsParser = acorn.Parser.extend(tsPlugin());
 
@@ -241,7 +241,7 @@ async function getFileDependencies(
 		if (node.type === 'ImportDeclaration') {
 			source = node.source.value as string;
 		} else if (node.type === 'ImportExpression' && node.source.type === 'Literal') {
-			// dynamic imports, e.g. `() => import('$lib/registry/ui/...')`
+			// dynamic imports, e.g. `() => import('#lib/registry/ui/...')`
 			source = node.source.value as string;
 		} else {
 			return;

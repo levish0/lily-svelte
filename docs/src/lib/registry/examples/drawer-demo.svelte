@@ -8,8 +8,8 @@
 		DrawerDescription,
 		DrawerFooter,
 		DrawerClose
-	} from '$lib/registry/ui/drawer';
-	import { Button } from '$lib/registry/ui/button';
+	} from '#lib/registry/ui/drawer/index.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
 </script>
 
 <Drawer>

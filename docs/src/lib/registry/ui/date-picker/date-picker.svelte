@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import * as Popover from '$lib/registry/ui/popover/index.js';
-	import { Calendar } from '$lib/registry/ui/calendar/index.js';
-	import { cn } from '$lib/utils.js';
+	import * as Popover from '#lib/registry/ui/popover/index.js';
+	import { Calendar } from '#lib/registry/ui/calendar/index.js';
+	import { cn } from '#lib/utils.js';
 	import { type DateValue, DateFormatter, getLocalTimeZone } from '@internationalized/date';
 
 	let {

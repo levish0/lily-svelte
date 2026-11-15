@@ -1,6 +1,10 @@
 <script lang="ts">
-	import { HoverCard, HoverCardTrigger, HoverCardContent } from '$lib/registry/ui/hover-card';
-	import { Avatar } from '$lib/registry/ui/avatar';
+	import {
+		HoverCard,
+		HoverCardTrigger,
+		HoverCardContent
+	} from '#lib/registry/ui/hover-card/index.js';
+	import { Avatar } from '#lib/registry/ui/avatar/index.js';
 </script>
 
 <HoverCard>

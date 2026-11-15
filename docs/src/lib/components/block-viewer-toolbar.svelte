@@ -2,10 +2,10 @@
 	import Button from './docs-button.svelte';
 	import Icon from '@iconify/svelte';
 	import { BlockViewerContext } from './block-viewer.svelte';
-	import { UseClipboard } from '$lib/hooks/use-clipboard.svelte.js';
-	import { Tabs, TabsList, TabsTrigger } from '$lib/registry/ui/tabs';
-	import { Separator } from '$lib/registry/ui/separator/index.js';
-	import { ToggleGroup, ToggleGroupItem } from '$lib/registry/ui/toggle-group';
+	import { UseClipboard } from '#lib/hooks/use-clipboard.svelte.js';
+	import { Tabs, TabsList, TabsTrigger } from '#lib/registry/ui/tabs/index.js';
+	import { Separator } from '#lib/registry/ui/separator/index.js';
+	import { ToggleGroup, ToggleGroupItem } from '#lib/registry/ui/toggle-group/index.js';
 
 	const ctx = BlockViewerContext.get();
 

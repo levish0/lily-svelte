@@ -14,7 +14,7 @@
 </script>
 
 <script lang="ts">
-	import { cn } from '$lib/utils.js';
+	import { cn } from '#lib/utils.js';
 	import { onDestroy } from 'svelte';
 	import { useId } from 'bits-ui';
 	import { setImageCropperRoot } from './image-cropper.svelte.js';

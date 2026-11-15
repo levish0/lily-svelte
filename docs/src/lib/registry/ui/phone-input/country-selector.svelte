@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import * as Popover from '$lib/registry/ui/popover/index.js';
-	import { Button } from '$lib/registry/ui/button/index.js';
-	import * as Command from '$lib/registry/ui/command/index.js';
-	import { ScrollArea } from '$lib/registry/ui/scroll-area/index.js';
-	import { cn } from '$lib/utils.js';
+	import * as Popover from '#lib/registry/ui/popover/index.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
+	import * as Command from '#lib/registry/ui/command/index.js';
+	import { ScrollArea } from '#lib/registry/ui/scroll-area/index.js';
+	import { cn } from '#lib/utils.js';
 	import Flag from './flag.svelte';
 	import type { Country, CountryCode } from 'svelte-tel-input/types';
 

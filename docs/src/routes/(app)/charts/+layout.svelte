@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import Seo from '$lib/components/seo.svelte';
-	import { chartCategories } from '$lib/registry/registry-categories.js';
+	import { page } from '$app/state';
+	import Seo from '#lib/components/seo.svelte';
+	import { chartCategories } from '#lib/registry/registry-categories.js';
 
 	let { children } = $props();
 
@@ -31,7 +31,7 @@
 			<a
 				href={tab.href}
 				class="shrink-0 rounded-full px-4 py-2 text-sm tracking-[-0.39px] transition-colors duration-150
-					{$page.url.pathname === tab.href
+					{page.url.pathname === tab.href
 					? 'bg-(--text)/8 font-medium text-(--text)'
 					: 'text-(--text)/56 hover:text-(--text)'}"
 			>

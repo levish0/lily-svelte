@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import { cn, type WithElementRef } from '$lib/utils.js';
+	import { cn, type WithElementRef } from '#lib/utils.js';
 	import type { ClassValue } from 'clsx';
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
 

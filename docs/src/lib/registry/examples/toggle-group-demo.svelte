@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ToggleGroup, ToggleGroupItem } from '$lib/registry/ui/toggle-group';
+	import { ToggleGroup, ToggleGroupItem } from '#lib/registry/ui/toggle-group/index.js';
 
 	let value = $state('center');
 </script>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { docsNav } from '$lib/config/docs-nav.js';
+	import { docsNav } from '#lib/config/docs-nav.js';
 
 	const items = $derived(docsNav.find((s) => s.title === 'Components')?.items ?? []);
 </script>

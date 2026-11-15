@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { cn } from '$lib/utils.js';
+	import { cn } from '#lib/utils.js';
 	import { useStepperItem } from './stepper.svelte.js';
 	import type { StepperItemProps } from './types';
 

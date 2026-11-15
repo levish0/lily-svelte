@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Calendar } from '$lib/registry/ui/calendar/index.js';
+	import { Calendar } from '#lib/registry/ui/calendar/index.js';
 	import { today, getLocalTimeZone } from '@internationalized/date';
 
 	let value = $state(today(getLocalTimeZone()));

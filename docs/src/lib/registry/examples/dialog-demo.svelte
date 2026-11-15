@@ -8,8 +8,8 @@
 		DialogDescription,
 		DialogFooter,
 		DialogClose
-	} from '$lib/registry/ui/dialog';
-	import { Button } from '$lib/registry/ui/button';
+	} from '#lib/registry/ui/dialog/index.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
 </script>
 
 <Dialog>

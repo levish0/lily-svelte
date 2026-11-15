@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import type { ComponentProps, Snippet } from 'svelte';
-	import { Avatar } from '$lib/registry/ui/avatar/index.js';
-	import { cn } from '$lib/utils.js';
+	import { Avatar } from '#lib/registry/ui/avatar/index.js';
+	import { cn } from '#lib/utils.js';
 	import { useImageCropperRoot } from './image-cropper.svelte.js';
 
 	let {

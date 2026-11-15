@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import Seo from '$lib/components/seo.svelte';
-	import { registryCategories } from '$lib/registry/registry-categories.js';
+	import { page } from '$app/state';
+	import Seo from '#lib/components/seo.svelte';
+	import { registryCategories } from '#lib/registry/registry-categories.js';
 
 	let { children } = $props();
 
@@ -13,8 +13,8 @@
 	];
 
 	function isActive(href: string) {
-		if (href === '/blocks') return $page.url.pathname === '/blocks';
-		return $page.url.pathname === href;
+		if (href === '/blocks') return page.url.pathname === '/blocks';
+		return page.url.pathname === href;
 	}
 </script>
 
@@ -46,7 +46,7 @@
 				</a>
 			{/each}
 		</nav>
-		{#if $page.url.pathname === '/blocks'}
+		{#if page.url.pathname === '/blocks'}
 			<a
 				href="/blocks/sidebar"
 				class="hidden shrink-0 rounded-full bg-(--text)/5 px-4 py-2 text-sm font-medium tracking-[-0.39px] text-(--text)/72 transition-colors duration-150 hover:bg-(--text)/8 hover:text-(--text) sm:block"

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageProps } from './$types.js';
-	import ChartDisplay from '$lib/components/chart-display.svelte';
+	import ChartDisplay from '#lib/components/chart-display.svelte';
 
 	let { data }: PageProps = $props();
 </script>

@@ -12,7 +12,7 @@
 
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { cn, type WithElementRef } from '$lib/utils.js';
+	import { cn, type WithElementRef } from '#lib/utils.js';
 	import type { HTMLAttributes, HTMLImgAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 

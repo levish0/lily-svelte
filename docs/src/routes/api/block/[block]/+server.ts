@@ -1,11 +1,11 @@
-import { error, json } from '@sveltejs/kit';
-import { highlightCode } from '$lib/highlight-code.js';
-import { blockMeta } from '$lib/registry/registry-block-meta.js';
+import { error } from '@sveltejs/kit';
+import { highlightCode } from '#lib/highlight-code.js';
+import { blockMeta } from '#lib/registry/registry-block-meta.js';
 import {
 	transformBlockPath,
 	transformImportPaths,
 	type RegistryFileType
-} from '$lib/registry/registry-utils.js';
+} from '#lib/registry/registry-utils.js';
 import { blocks } from '../../../../__registry__/blocks.js';
 import type { EntryGenerator, RequestHandler } from './$types.js';
 
@@ -67,5 +67,5 @@ async function loadItem(block: string): Promise<HighlightedBlock> {
 }
 
 export const GET: RequestHandler = async ({ params }) => {
-	return json(await loadItem(params.block));
+	return Response.json(await loadItem(params.block));
 };

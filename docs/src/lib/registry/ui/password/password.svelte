@@ -2,7 +2,7 @@
 	import type { ZxcvbnResult } from '@zxcvbn-ts/core';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { PasswordScore } from './password.svelte.js';
-	import type { WithElementRef } from '$lib/utils.js';
+	import type { WithElementRef } from '#lib/utils.js';
 
 	export type PasswordProps = WithElementRef<
 		Omit<HTMLInputAttributes, 'type' | 'files' | 'value'>,
@@ -21,7 +21,7 @@
 </script>
 
 <script lang="ts">
-	import { cn } from '$lib/utils.js';
+	import { cn } from '#lib/utils.js';
 	import Root from './password-root.svelte';
 	import Input from './password-input.svelte';
 	import ToggleVisibility from './password-toggle-visibility.svelte';

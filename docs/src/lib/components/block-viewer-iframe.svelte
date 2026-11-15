@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { getDesignStyle } from '$lib/design-style';
+	import { getDesignStyle } from '#lib/design-style.js';
 	const style = getDesignStyle();
-	import { fitBlockPreview } from '$lib/preview-height';
-	import { cn } from '$lib/utils.js';
+	import { fitBlockPreview } from '#lib/preview-height.js';
+	import { cn } from '#lib/utils.js';
 	import { BlockViewerContext } from './block-viewer.svelte';
 
 	let { class: className }: { class?: string } = $props();

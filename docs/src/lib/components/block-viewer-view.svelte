@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { BlockViewerContext } from './block-viewer.svelte';
-	import * as Resizable from '$lib/registry/ui/resizable/index.js';
+	import * as Resizable from '#lib/registry/ui/resizable/index.js';
 	import BlockViewerIframe from './block-viewer-iframe.svelte';
 
 	const ctx = BlockViewerContext.get();

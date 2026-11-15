@@ -3,7 +3,7 @@ packages:
   - docs
 
 overrides:
-  wrangler: 4.107.1
+  wrangler: 4.149.0
 
 allowBuilds:
   '@tailwindcss/oxide': true

@@ -6,7 +6,7 @@
 		ContextMenuItem,
 		ContextMenuSeparator,
 		ContextMenuLabel
-	} from '$lib/registry/ui/context-menu';
+	} from '#lib/registry/ui/context-menu/index.js';
 </script>
 
 <ContextMenu>

@@ -1,4 +1,4 @@
-import { getDoc } from '$lib/docs.js';
+import { getDoc } from '#lib/docs.js';
 import type { EntryGenerator, PageLoad } from './$types.js';
 
 export const prerender = true;

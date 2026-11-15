@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Seo from '$lib/components/seo.svelte';
-	import HomeShowcase from '$lib/registry/examples/home-showcase.svelte';
-	import { getDesignStyle } from '$lib/design-style';
+	import Seo from '#lib/components/seo.svelte';
+	import HomeShowcase from '#lib/registry/examples/home-showcase.svelte';
+	import { getDesignStyle } from '#lib/design-style.js';
 	const style = getDesignStyle();
 </script>
 

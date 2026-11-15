@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { ButtonGroup, ButtonGroupSeparator } from '$lib/registry/ui/button-group';
-	import { Button } from '$lib/registry/ui/button';
+	import { ButtonGroup, ButtonGroupSeparator } from '#lib/registry/ui/button-group/index.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
 </script>
 
 <ButtonGroup>

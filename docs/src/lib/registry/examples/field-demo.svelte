@@ -5,8 +5,8 @@
 		FieldLabel,
 		FieldDescription,
 		FieldError
-	} from '$lib/registry/ui/field';
-	import { Input } from '$lib/registry/ui/input';
+	} from '#lib/registry/ui/field/index.js';
+	import { Input } from '#lib/registry/ui/input/index.js';
 </script>
 
 <FieldGroup class="w-full max-w-sm">

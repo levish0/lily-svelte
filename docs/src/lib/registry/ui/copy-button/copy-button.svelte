@@ -1,7 +1,7 @@
 <script lang="ts" module>
-	import type { ButtonProps } from '$lib/registry/ui/button/index.js';
+	import type { ButtonProps } from '#lib/registry/ui/button/index.js';
 	import type { Snippet } from 'svelte';
-	import type { ClipboardStatus } from '$lib/registry/hooks/use-clipboard.svelte.js';
+	import type { ClipboardStatus } from '#lib/registry/hooks/use-clipboard.svelte.js';
 
 	export type CopyButtonProps = Omit<ButtonProps, 'href' | 'type'> & {
 		/** The text written to the clipboard. */
@@ -16,9 +16,9 @@
 
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { Button } from '$lib/registry/ui/button/index.js';
-	import { UseClipboard } from '$lib/registry/hooks/use-clipboard.svelte.js';
-	import { cn } from '$lib/utils.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
+	import { UseClipboard } from '#lib/registry/hooks/use-clipboard.svelte.js';
+	import { cn } from '#lib/utils.js';
 
 	let {
 		ref = $bindable(null),

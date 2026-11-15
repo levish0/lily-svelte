@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { Alert, AlertTitle, AlertDescription } from '$lib/registry/ui/alert';
+	import { Alert, AlertTitle, AlertDescription } from '#lib/registry/ui/alert/index.js';
 </script>
 
 <div class="flex w-full max-w-md flex-col gap-3">

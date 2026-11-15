@@ -4,7 +4,7 @@
 		Collapsible,
 		CollapsibleTrigger,
 		CollapsibleContent
-	} from '$lib/registry/ui/collapsible';
+	} from '#lib/registry/ui/collapsible/index.js';
 </script>
 
 <Collapsible class="flex w-full max-w-sm flex-col">

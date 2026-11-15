@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SearchField } from '$lib/registry/ui/search-field';
+	import { SearchField } from '#lib/registry/ui/search-field/index.js';
 </script>
 
 <div class="w-full max-w-sm">

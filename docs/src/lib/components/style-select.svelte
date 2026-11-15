@@ -1,8 +1,13 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { replaceState } from '$app/navigation';
-	import { getDesignStyle, STYLE_NAMES, DESIGN_STYLES, isStyle } from '$lib/design-style';
-	import { Select, SelectTrigger, SelectContent, SelectItem } from '$lib/registry/ui/select';
+	import { goto } from '$app/navigation';
+	import { getDesignStyle, STYLE_NAMES, DESIGN_STYLES, isStyle } from '#lib/design-style.js';
+	import {
+		Select,
+		SelectTrigger,
+		SelectContent,
+		SelectItem
+	} from '#lib/registry/ui/select/index.js';
 	const style = getDesignStyle();
 	function remember(value: string) {
 		if (!isStyle(value)) return;
@@ -12,11 +17,13 @@
 		} catch {
 			/* Optional persistence. */
 		}
-		const url = new URL(page.url);
+		// After a shallow navigation, `page.url` is still the rendered page;
+		// the visible URL is `page.shallow.url`.
+		const url = new URL((page.shallow?.url ?? page.url).href);
 		url.searchParams.set('style', style.current);
 		// The current page URL already includes the configured base path.
 		// eslint-disable-next-line svelte/no-navigation-without-resolve
-		replaceState(url, page.state);
+		goto(url, { shallow: true, replace: true, state: page.state });
 	}
 </script>
 

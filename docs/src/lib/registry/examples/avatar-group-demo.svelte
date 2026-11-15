@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Avatar, AvatarGroup, AvatarGroupCount } from '$lib/registry/ui/avatar';
+	import { Avatar, AvatarGroup, AvatarGroupCount } from '#lib/registry/ui/avatar/index.js';
 </script>
 
 <AvatarGroup>

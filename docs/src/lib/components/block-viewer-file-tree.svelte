@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { BlockViewerContext } from './block-viewer.svelte';
-	import * as Sidebar from '$lib/registry/ui/sidebar/index.js';
+	import * as Sidebar from '#lib/registry/ui/sidebar/index.js';
 	import BlockViewerTree from './block-viewer-tree.svelte';
 
 	const ctx = BlockViewerContext.get();

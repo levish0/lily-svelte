@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { getDesignStyle } from '$lib/design-style';
+	import { getDesignStyle } from '#lib/design-style.js';
 	import RegistrySource from './registry-source.svelte';
 	const style = getDesignStyle();
 	import type { Component } from 'svelte';
-	import { cn } from '$lib/utils.js';
-	import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/registry/ui/tabs';
+	import { cn } from '#lib/utils.js';
+	import { Tabs, TabsList, TabsTrigger, TabsContent } from '#lib/registry/ui/tabs/index.js';
 
 	let {
 		name,

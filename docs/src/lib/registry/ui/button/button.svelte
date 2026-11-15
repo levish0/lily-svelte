@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import { cn, type WithElementRef } from '$lib/utils.js';
+	import { cn, type WithElementRef } from '#lib/utils.js';
 	import type { ClassValue } from 'clsx';
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 
@@ -68,7 +68,7 @@
 </script>
 
 <script lang="ts">
-	import { Spinner } from '$lib/registry/ui/spinner/index.js';
+	import { Spinner } from '#lib/registry/ui/spinner/index.js';
 
 	let {
 		class: className,

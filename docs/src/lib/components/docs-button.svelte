@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Button, type ButtonProps } from '$lib/registry/ui/button';
-	import { getDesignStyle } from '$lib/design-style';
-	import { cn } from '$lib/utils.js';
+	import { Button, type ButtonProps } from '#lib/registry/ui/button/index.js';
+	import { getDesignStyle } from '#lib/design-style.js';
+	import { cn } from '#lib/utils.js';
 	const style = getDesignStyle();
 	let {
 		class: className,

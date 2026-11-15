@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { Button } from '$lib/registry/ui/button';
-	import { Input } from '$lib/registry/ui/input';
-	import { Field, FieldLabel, FieldDescription, FieldError } from '$lib/registry/ui/field';
-	import { ListRow } from '$lib/registry/ui/list-row';
-	import { Top } from '$lib/registry/ui/top';
-	import { ActionFooter } from '$lib/registry/ui/action-footer';
-	import { Switch } from '$lib/registry/ui/switch';
-	import { Badge } from '$lib/registry/ui/badge';
+	import { Button } from '#lib/registry/ui/button/index.js';
+	import { Input } from '#lib/registry/ui/input/index.js';
+	import { Field, FieldLabel, FieldDescription, FieldError } from '#lib/registry/ui/field/index.js';
+	import { ListRow } from '#lib/registry/ui/list-row/index.js';
+	import { Top } from '#lib/registry/ui/top/index.js';
+	import { ActionFooter } from '#lib/registry/ui/action-footer/index.js';
+	import { Switch } from '#lib/registry/ui/switch/index.js';
+	import { Badge } from '#lib/registry/ui/badge/index.js';
 	import {
 		Dialog,
 		DialogTrigger,
@@ -16,7 +16,7 @@
 		DialogDescription,
 		DialogFooter,
 		DialogClose
-	} from '$lib/registry/ui/dialog';
+	} from '#lib/registry/ui/dialog/index.js';
 	let name = $state('');
 	let checked = $state(true);
 	let saving = $state(false);

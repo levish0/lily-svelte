@@ -6,7 +6,7 @@
 		BreadcrumbLink,
 		BreadcrumbSeparator,
 		BreadcrumbPage
-	} from '$lib/registry/ui/breadcrumb';
+	} from '#lib/registry/ui/breadcrumb/index.js';
 </script>
 
 <Breadcrumb>

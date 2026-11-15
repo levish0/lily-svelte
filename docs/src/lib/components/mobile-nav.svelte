@@ -1,12 +1,12 @@
 <script lang="ts">
 	import Button from './docs-button.svelte';
-	import { getDesignStyle } from '$lib/design-style';
+	import { getDesignStyle } from '#lib/design-style.js';
 	const style = getDesignStyle();
-	import { Sheet, SheetContent, SheetHeader, SheetTitle } from '$lib/registry/ui/sheet';
+	import { Sheet, SheetContent, SheetHeader, SheetTitle } from '#lib/registry/ui/sheet/index.js';
 	import Icon from '@iconify/svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { afterNavigate } from '$app/navigation';
-	import { docsNav } from '$lib/config/docs-nav.js';
+	import { docsNav } from '#lib/config/docs-nav.js';
 
 	const mainNav = [
 		{ title: 'Home', href: '/' },
@@ -26,10 +26,13 @@
 		};
 	});
 
-	afterNavigate(() => (open = false));
+	// Shallow navigations (e.g. the style query) only rewrite the URL; keep the sheet as it is.
+	afterNavigate((navigation) => {
+		if (!navigation.shallow) open = false;
+	});
 
 	function isActive(href: string) {
-		return $page.url.pathname === href;
+		return page.url.pathname === href;
 	}
 </script>
 

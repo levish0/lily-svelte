@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { ListRow } from '$lib/registry/ui/list-row';
-	import { Switch } from '$lib/registry/ui/switch';
-	import { Button } from '$lib/registry/ui/button';
+	import { ListRow } from '#lib/registry/ui/list-row/index.js';
+	import { Switch } from '#lib/registry/ui/switch/index.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
 	import Icon from '@iconify/svelte';
 	let reminder = $state(true);
 	let saved = $state(false);

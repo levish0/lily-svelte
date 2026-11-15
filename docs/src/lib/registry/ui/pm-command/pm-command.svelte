@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import { cn } from '$lib/utils.js';
+	import { cn } from '#lib/utils.js';
 	import type { Agent, Command } from 'package-manager-detector';
 
 	export type PMCommandVariant = 'default' | 'secondary';
@@ -26,9 +26,9 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { resolveCommand } from 'package-manager-detector/commands';
-	import { ChoiceGroup, ChoiceGroupItem } from '$lib/registry/ui/choice-group';
-	import * as Tooltip from '$lib/registry/ui/tooltip/index.js';
-	import { UseClipboard } from '$lib/registry/hooks/use-clipboard.svelte.js';
+	import { ChoiceGroup, ChoiceGroupItem } from '#lib/registry/ui/choice-group/index.js';
+	import * as Tooltip from '#lib/registry/ui/tooltip/index.js';
+	import { UseClipboard } from '#lib/registry/hooks/use-clipboard.svelte.js';
 
 	let {
 		class: className,

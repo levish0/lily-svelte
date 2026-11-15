@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { Component } from 'svelte';
-import { isStyle } from '$lib/design-style';
+import { isStyle } from '#lib/design-style.js';
 import type { PageLoad } from './$types';
 
 const examples = import.meta.glob<{ default: Component }>([

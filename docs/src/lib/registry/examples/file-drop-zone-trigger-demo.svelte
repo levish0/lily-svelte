@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Button } from '$lib/registry/ui/button';
-	import * as FileDropZone from '$lib/registry/ui/file-drop-zone';
+	import { Button } from '#lib/registry/ui/button/index.js';
+	import * as FileDropZone from '#lib/registry/ui/file-drop-zone/index.js';
 	let files = $state<string[]>([]);
 </script>
 

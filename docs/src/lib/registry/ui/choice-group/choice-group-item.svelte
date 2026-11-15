@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { RadioGroup as Primitive } from 'bits-ui';
-	import { cn } from '$lib/utils.js';
+	import { cn } from '#lib/utils.js';
 	import { getSegmentSize } from './context.js';
 	const presentation = getSegmentSize();
 	let { ref = $bindable(null), class: className, ...restProps }: Primitive.ItemProps = $props();

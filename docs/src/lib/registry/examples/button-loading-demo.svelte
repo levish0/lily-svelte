@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { Button } from '$lib/registry/ui/button';
+	import { Button } from '#lib/registry/ui/button/index.js';
 
 	let saving = $state(false);
 

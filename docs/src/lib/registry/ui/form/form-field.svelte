@@ -2,8 +2,8 @@
 	import * as FormPrimitive from 'formsnap';
 	import type { FormPath } from 'sveltekit-superforms';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import { Field } from '$lib/registry/ui/field/index.js';
-	import type { WithElementRef, WithoutChildren } from '$lib/utils.js';
+	import { Field } from '#lib/registry/ui/field/index.js';
+	import type { WithElementRef, WithoutChildren } from '#lib/utils.js';
 
 	let {
 		ref = $bindable(null),

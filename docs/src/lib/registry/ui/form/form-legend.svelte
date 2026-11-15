@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as FormPrimitive from 'formsnap';
-	import { FieldLegend } from '$lib/registry/ui/field/index.js';
-	import { cn, type WithElementRef, type WithoutChild } from '$lib/utils.js';
+	import { FieldLegend } from '#lib/registry/ui/field/index.js';
+	import { cn, type WithElementRef, type WithoutChild } from '#lib/utils.js';
 
 	let {
 		ref = $bindable(null),

@@ -2,7 +2,7 @@ import { error } from '@sveltejs/kit';
 import type { Component } from 'svelte';
 import type { EntryGenerator, PageLoad } from './$types.js';
 import { blocks } from '../../../../__registry__/blocks.js';
-import { blockMeta } from '$lib/registry/registry-block-meta.js';
+import { blockMeta } from '#lib/registry/registry-block-meta.js';
 
 export const prerender = true;
 

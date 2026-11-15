@@ -4,7 +4,7 @@
 		InputOTPGroup,
 		InputOTPSlot,
 		InputOTPSeparator
-	} from '$lib/registry/ui/input-otp';
+	} from '#lib/registry/ui/input-otp/index.js';
 </script>
 
 <InputOTP maxlength={6}>

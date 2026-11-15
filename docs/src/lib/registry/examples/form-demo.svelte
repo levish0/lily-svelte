@@ -10,8 +10,8 @@
 	import { defaults, superForm } from 'sveltekit-superforms';
 	import { zod4 } from 'sveltekit-superforms/adapters';
 	import { toast } from 'svelte-sonner';
-	import * as Form from '$lib/registry/ui/form';
-	import { Input } from '$lib/registry/ui/input';
+	import * as Form from '#lib/registry/ui/form/index.js';
+	import { Input } from '#lib/registry/ui/input/index.js';
 
 	const form = superForm(defaults(zod4(formSchema)), {
 		SPA: true,

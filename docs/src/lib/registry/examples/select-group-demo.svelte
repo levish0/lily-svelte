@@ -7,7 +7,7 @@
 		SelectGroupHeading,
 		SelectSeparator,
 		SelectItem
-	} from '$lib/registry/ui/select';
+	} from '#lib/registry/ui/select/index.js';
 
 	let value = $state('');
 </script>

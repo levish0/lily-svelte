@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as FormPrimitive from 'formsnap';
-	import { FieldDescription } from '$lib/registry/ui/field/index.js';
-	import type { WithoutChild } from '$lib/utils.js';
+	import { FieldDescription } from '#lib/registry/ui/field/index.js';
+	import type { WithoutChild } from '#lib/utils.js';
 
 	let {
 		ref = $bindable(null),

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { getDesignStyle } from '$lib/design-style';
+	import { getDesignStyle } from '#lib/design-style.js';
 	import { registryItemSchema } from 'lily-svelte/schema';
-	import { CodeBlock } from '$lib/registry/ui/code-block';
-	import { Skeleton } from '$lib/registry/ui/skeleton';
-	import { transformImportPaths } from '$lib/registry/registry-utils';
+	import { CodeBlock } from '#lib/registry/ui/code-block/index.js';
+	import { Skeleton } from '#lib/registry/ui/skeleton/index.js';
+	import { transformImportPaths } from '#lib/registry/registry-utils.js';
 	let { name }: { name: string } = $props();
 	const style = getDesignStyle();
 	let files = $state<Array<{ target: string; content: string }>>([]);

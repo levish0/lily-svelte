@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button } from '$lib/registry/ui/button';
+	import { Button } from '#lib/registry/ui/button/index.js';
 	import { toast } from 'svelte-sonner';
 </script>
 

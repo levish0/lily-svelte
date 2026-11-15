@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as Sidebar from '$lib/registry/ui/sidebar/index.js';
+	import * as Sidebar from '#lib/registry/ui/sidebar/index.js';
 	import NavMain from './nav-main.svelte';
 	import NavUser from './nav-user.svelte';
 	import TeamSwitcher from './team-switcher.svelte';

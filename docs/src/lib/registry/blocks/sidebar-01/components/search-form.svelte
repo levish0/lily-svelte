@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { Label } from '$lib/registry/ui/label/index.js';
-	import * as Sidebar from '$lib/registry/ui/sidebar/index.js';
+	import { Label } from '#lib/registry/ui/label/index.js';
+	import * as Sidebar from '#lib/registry/ui/sidebar/index.js';
 
 	const id = $props.id();
 </script>

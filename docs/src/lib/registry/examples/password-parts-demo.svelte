@@ -4,8 +4,8 @@
 		PasswordInput,
 		PasswordToggleVisibility,
 		PasswordStrength
-	} from '$lib/registry/ui/password';
-	import { FieldLabel } from '$lib/registry/ui/field';
+	} from '#lib/registry/ui/password/index.js';
+	import { FieldLabel } from '#lib/registry/ui/field/index.js';
 	import type { ZxcvbnResult } from '@zxcvbn-ts/core';
 
 	let value = $state('');

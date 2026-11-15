@@ -6,8 +6,8 @@
 		DropdownMenuItem,
 		DropdownMenuSeparator,
 		DropdownMenuLabel
-	} from '$lib/registry/ui/dropdown-menu';
-	import { Button } from '$lib/registry/ui/button';
+	} from '#lib/registry/ui/dropdown-menu/index.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
 </script>
 
 <DropdownMenu>

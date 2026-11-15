@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { Button } from '$lib/registry/ui/button';
+	import { Button } from '#lib/registry/ui/button/index.js';
 </script>
 
 <div class="flex flex-col items-center gap-4">

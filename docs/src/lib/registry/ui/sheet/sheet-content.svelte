@@ -8,7 +8,7 @@
 	import type { Snippet, ComponentProps } from 'svelte';
 	import SheetPortal from './sheet-portal.svelte';
 	import SheetOverlay from './sheet-overlay.svelte';
-	import { cn, type WithoutChildrenOrChild } from '$lib/utils.js';
+	import { cn, type WithoutChildrenOrChild } from '#lib/utils.js';
 
 	let {
 		ref = $bindable(null),

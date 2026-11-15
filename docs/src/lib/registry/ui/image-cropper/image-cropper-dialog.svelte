@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ComponentProps } from 'svelte';
-	import { Dialog, DialogContent } from '$lib/registry/ui/dialog/index.js';
-	import { cn } from '$lib/utils.js';
+	import { Dialog, DialogContent } from '#lib/registry/ui/dialog/index.js';
+	import { cn } from '#lib/utils.js';
 	import { useImageCropperRoot } from './image-cropper.svelte.js';
 
 	let {

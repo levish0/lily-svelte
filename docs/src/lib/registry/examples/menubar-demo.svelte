@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as Menubar from '$lib/registry/ui/menubar';
+	import * as Menubar from '#lib/registry/ui/menubar/index.js';
 </script>
 
 <Menubar.Root>

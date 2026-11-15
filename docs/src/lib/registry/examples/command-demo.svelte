@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as Command from '$lib/registry/ui/command';
-	import { Kbd } from '$lib/registry/ui/kbd';
+	import * as Command from '#lib/registry/ui/command/index.js';
+	import { Kbd } from '#lib/registry/ui/kbd/index.js';
 	let selected = $state('');
 </script>
 

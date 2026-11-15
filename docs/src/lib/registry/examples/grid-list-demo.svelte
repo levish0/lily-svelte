@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { GridList, GridListItem } from '$lib/registry/ui/grid-list';
+	import { GridList, GridListItem } from '#lib/registry/ui/grid-list/index.js';
 	import Icon from '@iconify/svelte';
 	let selected = $state('');
 	const services = [

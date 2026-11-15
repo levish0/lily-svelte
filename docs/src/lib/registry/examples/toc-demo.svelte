@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Toc } from '$lib/registry/ui/toc';
+	import { Toc } from '#lib/registry/ui/toc/index.js';
 
 	let scroller = $state<HTMLElement>();
 

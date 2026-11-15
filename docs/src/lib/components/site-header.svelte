@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Button from './docs-button.svelte';
 	import Icon from '@iconify/svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { toggleMode } from 'mode-watcher';
-	import StyleSelect from '$lib/components/style-select.svelte';
-	import MobileNav from '$lib/components/mobile-nav.svelte';
-	import SiteSearch from '$lib/components/site-search.svelte';
+	import StyleSelect from '#lib/components/style-select.svelte';
+	import MobileNav from '#lib/components/mobile-nav.svelte';
+	import SiteSearch from '#lib/components/site-search.svelte';
 
 	const nav = [
 		{ label: 'Home', href: '/' },
@@ -21,7 +21,7 @@
 	}
 
 	function isActive(href: string) {
-		const path = $page.url.pathname;
+		const path = page.url.pathname;
 		if (!matches(href, path)) return false;
 		return !nav.some((item) => item.href.length > href.length && matches(item.href, path));
 	}

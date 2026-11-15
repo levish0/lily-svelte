@@ -1,4 +1,4 @@
-import type { Handle } from '@sveltejs/kit';
+import type { Handle } from '@sveltejs/kit/hooks';
 import { STYLE_NAMES } from 'lily-svelte/styles';
 
 export const handle: Handle = ({ event, resolve }) => {

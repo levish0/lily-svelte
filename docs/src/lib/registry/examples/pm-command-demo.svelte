@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PMCommand } from '$lib/registry/ui/pm-command/index.js';
+	import { PMCommand } from '#lib/registry/ui/pm-command/index.js';
 </script>
 
 <div class="flex w-full max-w-md flex-col gap-4">

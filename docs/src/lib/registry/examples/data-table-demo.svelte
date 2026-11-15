@@ -1,13 +1,17 @@
 <script lang="ts">
-	import { Button } from '$lib/registry/ui/button';
+	import { Button } from '#lib/registry/ui/button/index.js';
 	import {
 		type ColumnDef,
 		type SortingState,
 		getCoreRowModel,
 		getSortedRowModel
 	} from '@tanstack/table-core';
-	import { createSvelteTable, FlexRender, renderSnippet } from '$lib/registry/ui/data-table';
-	import * as Table from '$lib/registry/ui/table';
+	import {
+		createSvelteTable,
+		FlexRender,
+		renderSnippet
+	} from '#lib/registry/ui/data-table/index.js';
+	import * as Table from '#lib/registry/ui/table/index.js';
 	import Icon from '@iconify/svelte';
 
 	type Invoice = { invoice: string; status: string; amount: number };

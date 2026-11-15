@@ -1,4 +1,4 @@
-import { components, gettingStarted } from '$content/index.js';
+import { components, gettingStarted } from '#content/index.js';
 import { error } from '@sveltejs/kit';
 import type { Component } from 'svelte';
 

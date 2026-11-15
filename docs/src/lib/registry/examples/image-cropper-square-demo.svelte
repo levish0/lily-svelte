@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as ImageCropper from '$lib/registry/ui/image-cropper';
+	import * as ImageCropper from '#lib/registry/ui/image-cropper/index.js';
 </script>
 
 <ImageCropper.Root>

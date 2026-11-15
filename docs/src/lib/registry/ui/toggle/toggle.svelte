@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import { cn } from '$lib/utils.js';
+	import { cn } from '#lib/utils.js';
 
 	export type ToggleVariant = 'default' | 'outline';
 	export type ToggleSize = 'default' | 'sm' | 'lg';
@@ -25,7 +25,7 @@
 
 <script lang="ts">
 	import { Toggle as TogglePrimitive } from 'bits-ui';
-	import { cn as cnInline } from '$lib/utils.js';
+	import { cn as cnInline } from '#lib/utils.js';
 
 	let {
 		ref = $bindable(null),

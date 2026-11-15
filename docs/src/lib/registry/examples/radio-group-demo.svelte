@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { RadioGroup, RadioGroupItem } from '$lib/registry/ui/radio-group';
-	import { Label } from '$lib/registry/ui/label';
+	import { RadioGroup, RadioGroupItem } from '#lib/registry/ui/radio-group/index.js';
+	import { Label } from '#lib/registry/ui/label/index.js';
 </script>
 
 <RadioGroup value="comfortable">

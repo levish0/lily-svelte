@@ -7,9 +7,9 @@
 		FieldLabel,
 		FieldDescription,
 		FieldSeparator
-	} from '$lib/registry/ui/field';
-	import { Input } from '$lib/registry/ui/input';
-	import { Checkbox } from '$lib/registry/ui/checkbox';
+	} from '#lib/registry/ui/field/index.js';
+	import { Input } from '#lib/registry/ui/input/index.js';
+	import { Checkbox } from '#lib/registry/ui/checkbox/index.js';
 </script>
 
 <FieldGroup class="w-full max-w-sm">

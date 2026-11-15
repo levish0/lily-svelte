@@ -2,10 +2,15 @@
 	import Icon from '@iconify/svelte';
 	import { goto } from '$app/navigation';
 	import Button from './docs-button.svelte';
-	import { Dialog, DialogContent, DialogTitle, DialogDescription } from '$lib/registry/ui/dialog';
-	import * as Command from '$lib/registry/ui/command';
-	import { Kbd } from '$lib/registry/ui/kbd';
-	import { docsNav } from '$lib/config/docs-nav.js';
+	import {
+		Dialog,
+		DialogContent,
+		DialogTitle,
+		DialogDescription
+	} from '#lib/registry/ui/dialog/index.js';
+	import * as Command from '#lib/registry/ui/command/index.js';
+	import { Kbd } from '#lib/registry/ui/kbd/index.js';
+	import { docsNav } from '#lib/config/docs-nav.js';
 	let open = $state(false);
 	function handleKeydown(event: KeyboardEvent) {
 		if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {

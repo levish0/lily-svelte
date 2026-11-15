@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Password } from '$lib/registry/ui/password';
+	import { Password } from '#lib/registry/ui/password/index.js';
 
 	let value = $state('');
 </script>

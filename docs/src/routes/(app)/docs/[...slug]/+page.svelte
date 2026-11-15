@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import Seo from '$lib/components/seo.svelte';
-	import DocsToc from '$lib/components/docs-toc.svelte';
-	import { Badge } from '$lib/registry/ui/badge';
-	import { Button } from '$lib/registry/ui/button';
-	import { findNeighbors } from '$lib/config/docs-nav.js';
+	import { page } from '$app/state';
+	import Seo from '#lib/components/seo.svelte';
+	import DocsToc from '#lib/components/docs-toc.svelte';
+	import { Badge } from '#lib/registry/ui/badge/index.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
+	import { findNeighbors } from '#lib/config/docs-nav.js';
 
 	let { data } = $props();
 
@@ -12,7 +12,7 @@
 	const doc = $derived(data.metadata);
 	const sourceLink = $derived(doc.links?.source);
 	const apiLink = $derived(doc.links?.api);
-	const neighbors = $derived(findNeighbors($page.url.pathname));
+	const neighbors = $derived(findNeighbors(page.url.pathname));
 </script>
 
 <Seo title={doc.title} description={doc.description} />

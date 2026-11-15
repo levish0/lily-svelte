@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import type { FileTree } from '$lib/registry/registry-utils.js';
+	import type { FileTree } from '#lib/registry/registry-utils.js';
 	import BlockViewerTree from './block-viewer-tree.svelte';
 	import { BlockViewerContext } from './block-viewer.svelte';
-	import * as Sidebar from '$lib/registry/ui/sidebar/index.js';
-	import * as Collapsible from '$lib/registry/ui/collapsible/index.js';
+	import * as Sidebar from '#lib/registry/ui/sidebar/index.js';
+	import * as Collapsible from '#lib/registry/ui/collapsible/index.js';
 
 	const ctx = BlockViewerContext.get();
 

@@ -13,7 +13,7 @@
 
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { cn } from '$lib/utils.js';
+	import { cn } from '#lib/utils.js';
 	import { getFileDropZoneContext } from './file-drop-zone-context.svelte.js';
 	import { displaySize } from './file-drop-zone-utils.js';
 

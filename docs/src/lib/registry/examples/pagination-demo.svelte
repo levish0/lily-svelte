@@ -7,7 +7,7 @@
 		PaginationPrevButton,
 		PaginationNextButton,
 		PaginationEllipsis
-	} from '$lib/registry/ui/pagination';
+	} from '#lib/registry/ui/pagination/index.js';
 </script>
 
 <Pagination count={100} perPage={10} page={1}>

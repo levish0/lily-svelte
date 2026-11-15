@@ -4,10 +4,10 @@ description: Set up lily in your SvelteKit project and add your first component.
 ---
 
 <script>
-	import Steps from "$lib/components/steps.svelte";
-	import Step from "$lib/components/step.svelte";
-	import PmCommand from "$lib/components/pm-command.svelte";
-	import Callout from "$lib/components/callout.svelte";
+	import Steps from "#lib/components/steps.svelte";
+	import Step from "#lib/components/step.svelte";
+	import PmCommand from "#lib/components/pm-command.svelte";
+	import Callout from "#lib/components/callout.svelte";
 </script>
 
 lily is a copy-and-own component library: the CLI scaffolds the design tokens and drops component source directly into your project, so you own and can edit every file.

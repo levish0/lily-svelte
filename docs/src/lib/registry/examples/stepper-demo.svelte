@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import * as Stepper from '$lib/registry/ui/stepper';
+	import * as Stepper from '#lib/registry/ui/stepper/index.js';
 
 	let step = $state(1);
 

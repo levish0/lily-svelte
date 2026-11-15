@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import { cn } from '$lib/utils.js';
+	import { cn } from '#lib/utils.js';
 
 	export type SidebarMenuButtonVariant = 'default' | 'outline';
 	export type SidebarMenuButtonSize = 'default' | 'sm' | 'lg';
@@ -31,8 +31,8 @@
 </script>
 
 <script lang="ts">
-	import * as Tooltip from '$lib/registry/ui/tooltip/index.js';
-	import { type WithElementRef, type WithoutChildrenOrChild } from '$lib/utils.js';
+	import * as Tooltip from '#lib/registry/ui/tooltip/index.js';
+	import { type WithElementRef, type WithoutChildrenOrChild } from '#lib/utils.js';
 	import { mergeProps } from 'bits-ui';
 	import type { ComponentProps, Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';

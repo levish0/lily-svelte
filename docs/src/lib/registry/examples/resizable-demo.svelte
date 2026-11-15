@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as Resizable from '$lib/registry/ui/resizable';
+	import * as Resizable from '#lib/registry/ui/resizable/index.js';
 </script>
 
 <Resizable.PaneGroup

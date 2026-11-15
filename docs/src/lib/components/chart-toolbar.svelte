@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Button from './docs-button.svelte';
 	import Icon from '@iconify/svelte';
-	import { cn } from '$lib/utils.js';
-	import { UseClipboard } from '$lib/hooks/use-clipboard.svelte.js';
-	import { Separator } from '$lib/registry/ui/separator/index.js';
+	import { cn } from '#lib/utils.js';
+	import { UseClipboard } from '#lib/hooks/use-clipboard.svelte.js';
+	import { Separator } from '#lib/registry/ui/separator/index.js';
 	import ChartCodeViewer from './chart-code-viewer.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { HighlightedBlock } from '../../routes/api/block/[block]/+server.js';

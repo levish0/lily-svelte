@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as Table from '$lib/registry/ui/table';
+	import * as Table from '#lib/registry/ui/table/index.js';
 
 	const invoices = [
 		{ invoice: 'INV001', status: 'Paid', method: 'Credit Card', amount: '$250.00' },

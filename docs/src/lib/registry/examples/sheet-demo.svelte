@@ -8,8 +8,8 @@
 		SheetDescription,
 		SheetFooter,
 		SheetClose
-	} from '$lib/registry/ui/sheet';
-	import { Button } from '$lib/registry/ui/button';
+	} from '#lib/registry/ui/sheet/index.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
 </script>
 
 <Sheet>

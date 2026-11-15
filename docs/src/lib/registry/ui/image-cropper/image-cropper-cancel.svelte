@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, type ButtonProps } from '$lib/registry/ui/button/index.js';
+	import { Button, type ButtonProps } from '#lib/registry/ui/button/index.js';
 	import { useImageCropperRoot } from './image-cropper.svelte.js';
 
 	let {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PhoneInput } from '$lib/registry/ui/phone-input';
+	import { PhoneInput } from '#lib/registry/ui/phone-input/index.js';
 
 	let value = $state('');
 	let valid = $state(true);

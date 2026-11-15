@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { NumberField } from '$lib/registry/ui/number-field';
+	import { NumberField } from '#lib/registry/ui/number-field/index.js';
 
 	let value = $state(1);
 </script>

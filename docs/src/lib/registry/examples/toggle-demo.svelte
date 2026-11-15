@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Toggle } from '$lib/registry/ui/toggle';
+	import { Toggle } from '#lib/registry/ui/toggle/index.js';
 </script>
 
 <Toggle aria-label="Toggle bold">

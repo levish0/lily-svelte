@@ -2,7 +2,7 @@
 	import { box, mergeProps } from 'svelte-toolbelt';
 	import { useStepperStepButton } from './stepper.svelte.js';
 	import type { StepperPreviousButtonProps } from './types';
-	import { Button } from '$lib/registry/ui/button/index.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
 
 	let {
 		disabled = false,

@@ -72,11 +72,11 @@ async function buildStyle(style: StyleName): Promise<void> {
 			name: 'lily',
 			homepage: 'https://lily-svelte.levish.workers.dev',
 			aliases: {
-				lib: `$lib/registry-styles/${style}/lib`,
-				ui: `$lib/registry-styles/${style}/ui`,
+				lib: `#lib/registry-styles/${style}/lib`,
+				ui: `#lib/registry-styles/${style}/ui`,
 				components: './components',
-				hooks: `$lib/registry-styles/${style}/hooks`,
-				utils: '$lib/utils'
+				hooks: `#lib/registry-styles/${style}/hooks`,
+				utils: '#lib/utils'
 			},
 			items
 		} as Registry,

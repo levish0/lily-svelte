@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ScrollArea } from '$lib/registry/ui/scroll-area';
+	import { ScrollArea } from '#lib/registry/ui/scroll-area/index.js';
 
 	const tags = Array.from({ length: 24 }, (_, i) => `Item ${i + 1}`);
 </script>

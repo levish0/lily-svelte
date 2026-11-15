@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { RangeCalendar } from '$lib/registry/ui/range-calendar';
+	import { RangeCalendar } from '#lib/registry/ui/range-calendar/index.js';
 	import { today, getLocalTimeZone } from '@internationalized/date';
 
 	const start = today(getLocalTimeZone());

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import * as Tooltip from '$lib/registry/ui/tooltip/index.js';
-	import { UseClipboard } from '$lib/hooks/use-clipboard.svelte.js';
-	import { cn } from '$lib/utils.js';
+	import * as Tooltip from '#lib/registry/ui/tooltip/index.js';
+	import { UseClipboard } from '#lib/hooks/use-clipboard.svelte.js';
+	import { cn } from '#lib/utils.js';
 
 	let { text, class: className }: { text: string; class?: string } = $props();
 

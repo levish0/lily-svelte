@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Label } from '$lib/registry/ui/label';
-	import { Input } from '$lib/registry/ui/input';
+	import { Label } from '#lib/registry/ui/label/index.js';
+	import { Input } from '#lib/registry/ui/input/index.js';
 </script>
 
 <div class="flex max-w-xs flex-col gap-2">

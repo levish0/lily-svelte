@@ -2,7 +2,7 @@ import { error } from '@sveltejs/kit';
 import type { EntryGenerator, PageLoad } from './$types.js';
 import type { HighlightedBlock } from '../../../api/block/[block]/+server.js';
 import { blocks } from '../../../../__registry__/blocks.js';
-import { registryCategories } from '$lib/registry/registry-categories.js';
+import { registryCategories } from '#lib/registry/registry-categories.js';
 
 export const prerender = true;
 

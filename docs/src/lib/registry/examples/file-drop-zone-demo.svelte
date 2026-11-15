@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as FileDropZone from '$lib/registry/ui/file-drop-zone';
+	import * as FileDropZone from '#lib/registry/ui/file-drop-zone/index.js';
 
 	let files = $state<string[]>([]);
 </script>

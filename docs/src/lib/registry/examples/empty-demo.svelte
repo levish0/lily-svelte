@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { Empty, EmptyMedia, EmptyTitle, EmptyDescription } from '$lib/registry/ui/empty';
-	import { Button } from '$lib/registry/ui/button';
+	import { Empty, EmptyMedia, EmptyTitle, EmptyDescription } from '#lib/registry/ui/empty/index.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
 </script>
 
 <Empty class="max-w-sm">

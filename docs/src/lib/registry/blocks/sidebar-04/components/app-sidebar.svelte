@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import * as Sidebar from '$lib/registry/ui/sidebar/index.js';
+	import * as Sidebar from '#lib/registry/ui/sidebar/index.js';
 	import type { ComponentProps } from 'svelte';
 
 	let { ref = $bindable(null), ...restProps }: ComponentProps<typeof Sidebar.Root> = $props();

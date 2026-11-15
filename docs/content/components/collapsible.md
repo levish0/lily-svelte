@@ -7,11 +7,11 @@ links:
 ---
 
 <script>
-	import ComponentPreview from "$lib/components/component-preview.svelte";
-	import InstallTabs from "$lib/components/install-tabs.svelte";
-	import PMAddComp from "$lib/components/pm-add-comp.svelte";
-	import Steps from "$lib/components/steps.svelte";
-	import Step from "$lib/components/step.svelte";
+	import ComponentPreview from "#lib/components/component-preview.svelte";
+	import InstallTabs from "#lib/components/install-tabs.svelte";
+	import PMAddComp from "#lib/components/pm-add-comp.svelte";
+	import Steps from "#lib/components/steps.svelte";
+	import Step from "#lib/components/step.svelte";
 </script>
 
 <ComponentPreview name="collapsible-demo">

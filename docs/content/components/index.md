@@ -4,7 +4,7 @@ description: Every lily component in one place — one calm, rounded style. Pick
 ---
 
 <script>
-	import ComponentsList from "$lib/components/components-list.svelte";
+	import ComponentsList from "#lib/components/components-list.svelte";
 </script>
 
 <ComponentsList />

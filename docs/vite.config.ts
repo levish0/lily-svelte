@@ -1,4 +1,5 @@
 import tailwindcss from '@tailwindcss/vite';
+import type { Plugin } from 'vite';
 import { defineConfig } from 'vitest/config';
 import { playwright } from '@vitest/browser-playwright';
 import adapter from '@sveltejs/adapter-cloudflare';
@@ -9,9 +10,9 @@ import { mdsxConfig } from './mdsx.config.js';
 
 /**
  * Detects the `name` of a previewing component in `.md` files, imports the demo
- * directly from `$lib/registry/examples/<name>.svelte`, and passes it to the
- * `<ComponentPreview>` as a `component` prop. The shiki-highlighted source is
- * looked up by name from `$lib/__registry__/highlighted` inside ComponentPreview.
+ * directly from `#lib/registry/examples/<name>.svelte`, and passes it to the
+ * `<ComponentPreview>` as a `component` prop. The Code tab fetches the built
+ * registry JSON by name inside RegistrySource.
  */
 function componentPreviews() {
 	const TARGET = '<ComponentPreview';
@@ -38,7 +39,7 @@ function componentPreviews() {
 				const identifier = camelize(name);
 				ms.appendLeft(
 					importIndex,
-					`import ${identifier} from "$lib/registry/examples/${name}.svelte";`
+					`import ${identifier} from "#lib/registry/examples/${name}.svelte";`
 				);
 			}
 
@@ -47,8 +48,28 @@ function componentPreviews() {
 	};
 }
 
+/**
+ * Vite's dependency scan regex-extracts import paths from TypeScript `<script>` text, so code
+ * samples held in strings (e.g. `import { Button } from '$lib/components/ui/button'`) reach
+ * resolution. SvelteKit 3 throws for every `$lib` specifier, which aborts the whole scan and
+ * leaves dependencies to be optimized mid-session. Samples describe consumer projects, so keep
+ * `$lib` out of the scan; a real `$lib` import still fails when its module is transformed.
+ */
+function skipLibSamplesInDependencyScan(): Plugin {
+	return {
+		name: 'skip-lib-samples-in-dependency-scan',
+		enforce: 'pre',
+		resolveId(source, _importer, options) {
+			// Vite sets `scan` for its dependency scanner; the public hook type omits it.
+			const { scan } = options as { scan?: boolean };
+			if (scan && /^\$lib(?:\/|$)/.test(source)) return { id: source, external: true };
+		}
+	};
+}
+
 export default defineConfig({
 	plugins: [
+		skipLibSamplesInDependencyScan(),
 		tailwindcss(),
 		sveltekit({
 			extensions: ['.svelte', '.md'],
@@ -64,9 +85,6 @@ export default defineConfig({
 				}
 			},
 			adapter: adapter(),
-			alias: {
-				'$content/*': '.velite/*'
-			},
 			prerender: {
 				handleMissingId: (details: { id: string; message: string }) => {
 					if (details.id === '#') return;

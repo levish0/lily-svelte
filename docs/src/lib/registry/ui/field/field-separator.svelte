@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { cn, type WithElementRef } from '$lib/utils.js';
+	import { cn, type WithElementRef } from '#lib/utils.js';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import { Separator } from '$lib/registry/ui/separator/index.js';
+	import { Separator } from '#lib/registry/ui/separator/index.js';
 
 	let {
 		ref = $bindable(null),

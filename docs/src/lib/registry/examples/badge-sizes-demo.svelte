@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Badge, type BadgeSize, type BadgeColor } from '$lib/registry/ui/badge';
+	import { Badge, type BadgeSize, type BadgeColor } from '#lib/registry/ui/badge/index.js';
 	const sizes: BadgeSize[] = ['xs', 'sm', 'md', 'lg'];
 	const colors: BadgeColor[] = ['blue', 'teal', 'green', 'red', 'yellow', 'elephant'];
 </script>

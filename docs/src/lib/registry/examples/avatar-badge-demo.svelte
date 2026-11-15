@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Avatar, AvatarBadge } from '$lib/registry/ui/avatar';
+	import { Avatar, AvatarBadge } from '#lib/registry/ui/avatar/index.js';
 </script>
 
 <div class="flex flex-wrap items-center gap-3">

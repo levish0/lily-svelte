@@ -2,8 +2,8 @@
 	import { AreaChart } from 'layerchart';
 	import { curveNatural } from 'd3-shape';
 	import { scaleUtc } from 'd3-scale';
-	import * as Chart from '$lib/registry/ui/chart/index.js';
-	import * as Card from '$lib/registry/ui/card/index.js';
+	import * as Chart from '#lib/registry/ui/chart/index.js';
+	import * as Card from '#lib/registry/ui/card/index.js';
 
 	const chartData = [
 		{ date: new Date('2026-01-01'), desktop: 186 },

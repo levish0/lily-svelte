@@ -4,7 +4,7 @@
 		AccordionItem,
 		AccordionTrigger,
 		AccordionContent
-	} from '$lib/registry/ui/accordion';
+	} from '#lib/registry/ui/accordion/index.js';
 </script>
 
 <Accordion type="single" class="w-full max-w-md">

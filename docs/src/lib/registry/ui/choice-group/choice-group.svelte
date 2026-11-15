@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { RadioGroup as Primitive } from 'bits-ui';
-	import { cn } from '$lib/utils.js';
+	import { cn } from '#lib/utils.js';
 	import { setSegmentSize } from './context.js';
 	let {
 		ref = $bindable(null),

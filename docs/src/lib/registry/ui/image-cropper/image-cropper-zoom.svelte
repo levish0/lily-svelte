@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { Slider } from '$lib/registry/ui/slider/index.js';
-	import { cn, type WithElementRef } from '$lib/utils.js';
+	import { Slider } from '#lib/registry/ui/slider/index.js';
+	import { cn, type WithElementRef } from '#lib/utils.js';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { useImageCropperRoot } from './image-cropper.svelte.js';
 

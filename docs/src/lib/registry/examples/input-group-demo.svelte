@@ -1,6 +1,10 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { InputGroup, InputGroupInput, InputGroupAddon } from '$lib/registry/ui/input-group';
+	import {
+		InputGroup,
+		InputGroupInput,
+		InputGroupAddon
+	} from '#lib/registry/ui/input-group/index.js';
 </script>
 
 <div class="flex w-full max-w-sm flex-col gap-3">

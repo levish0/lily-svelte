@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { Button } from '$lib/registry/ui/button/index.js';
-	import * as Card from '$lib/registry/ui/card/index.js';
+	import { Button } from '#lib/registry/ui/button/index.js';
+	import * as Card from '#lib/registry/ui/card/index.js';
 	import {
 		InputOTP,
 		InputOTPGroup,
 		InputOTPSlot,
 		InputOTPSeparator
-	} from '$lib/registry/ui/input-otp/index.js';
-	import { Field, FieldGroup, FieldDescription } from '$lib/registry/ui/field/index.js';
+	} from '#lib/registry/ui/input-otp/index.js';
+	import { Field, FieldGroup, FieldDescription } from '#lib/registry/ui/field/index.js';
 </script>
 
 <Card.Root>

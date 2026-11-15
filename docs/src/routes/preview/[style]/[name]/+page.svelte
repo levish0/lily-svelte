@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { TooltipProvider } from '$lib/registry/ui/tooltip';
+	import { TooltipProvider } from '#lib/registry/ui/tooltip/index.js';
 	import { setMode } from 'mode-watcher';
 	import { page } from '$app/state';
 	import type { PageData } from './$types';

@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { getDesignStyle } from '$lib/design-style';
+	import { getDesignStyle } from '#lib/design-style.js';
 	const style = getDesignStyle();
 	import { onMount } from 'svelte';
 	import Icon from '@iconify/svelte';
 	import type { Command } from 'package-manager-detector';
 	import type { HighlighterCore } from 'shiki/core';
-	import { PACKAGE_MANAGERS, getCommandText, type PackageManager } from '$lib/package-manager.js';
-	import { getHighlighter } from '$lib/highlighter.js';
-	import { Tabs, TabsList, TabsTrigger } from '$lib/registry/ui/tabs';
-	import CopyButton from '$lib/components/copy-button.svelte';
+	import { PACKAGE_MANAGERS, getCommandText, type PackageManager } from '#lib/package-manager.js';
+	import { getHighlighter } from '#lib/highlighter.js';
+	import { Tabs, TabsList, TabsTrigger } from '#lib/registry/ui/tabs/index.js';
+	import CopyButton from '#lib/components/copy-button.svelte';
 
 	let {
 		type = 'execute',

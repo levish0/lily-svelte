@@ -2,8 +2,8 @@
 	import { scaleBand } from 'd3-scale';
 	import { BarChart } from 'layerchart';
 	import { cubicInOut } from 'svelte/easing';
-	import * as Chart from '$lib/registry/ui/chart/index.js';
-	import * as Card from '$lib/registry/ui/card/index.js';
+	import * as Chart from '#lib/registry/ui/chart/index.js';
+	import * as Card from '#lib/registry/ui/card/index.js';
 
 	const chartData = [
 		{ date: '2026-07-15', running: 450, swimming: 300 },

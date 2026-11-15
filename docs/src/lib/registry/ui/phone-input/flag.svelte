@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { cn } from '$lib/utils.js';
+	import { cn } from '#lib/utils.js';
 	import type { Country } from 'svelte-tel-input/types';
 	import { getFlag } from './flags.js';
 

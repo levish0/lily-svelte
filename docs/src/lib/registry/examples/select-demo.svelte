@@ -1,5 +1,10 @@
 <script lang="ts">
-	import { Select, SelectTrigger, SelectContent, SelectItem } from '$lib/registry/ui/select';
+	import {
+		Select,
+		SelectTrigger,
+		SelectContent,
+		SelectItem
+	} from '#lib/registry/ui/select/index.js';
 
 	let value = $state('');
 </script>

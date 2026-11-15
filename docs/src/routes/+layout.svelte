@@ -1,9 +1,9 @@
 <script lang="ts">
 	import './layout.css';
 	import { onMount } from 'svelte';
-	import { siteStyle } from '$lib/site-style.svelte.js';
+	import { siteStyle } from '#lib/site-style.svelte.js';
 	import { page } from '$app/state';
-	import { setDesignStyle, isStyle, DEFAULT_STYLE, type StyleName } from '$lib/design-style';
+	import { setDesignStyle, isStyle, DEFAULT_STYLE, type StyleName } from '#lib/design-style.js';
 	const selectedStyle = $state<{ current: StyleName }>({ current: DEFAULT_STYLE });
 	setDesignStyle(selectedStyle);
 	onMount(() => {
@@ -26,10 +26,10 @@
 		siteStyle.current = selectedStyle.current;
 		document.documentElement.dataset.lilyStyle = selectedStyle.current;
 	});
-	import '$lib/icons';
-	import favicon from '$lib/assets/favicon.svg';
+	import '#lib/icons.js';
+	import favicon from '#lib/assets/favicon.svg';
 	import { ModeWatcher } from 'mode-watcher';
-	import { Toaster } from '$lib/registry/ui/sonner/index.js';
+	import { Toaster } from '#lib/registry/ui/sonner/index.js';
 
 	let { children } = $props();
 </script>
