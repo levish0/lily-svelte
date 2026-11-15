@@ -78,6 +78,10 @@ async function buildStyle(style: StyleName): Promise<void> {
 				hooks: `#lib/registry-styles/${style}/hooks`,
 				utils: '#lib/utils'
 			},
+			// The docs run on SvelteKit 3, but published items still target the Kit 2 projects the
+			// CLI sets up. runed 0.38 declares a Kit 3 peer that fails npm installs on Kit 2, and
+			// superforms 3 is a major upgrade for the consumer's own forms.
+			overrideDependencies: ['runed@^0.37.1', 'sveltekit-superforms@^2.30.2', 'formsnap@^2.0.1'],
 			items
 		} as Registry,
 		// maintains the schema-defined property order

@@ -108,6 +108,13 @@ async function runBuild(options: BuildOptions) {
 
 						deps.versions[name] = override;
 						deps.deps[override] = peers ?? [];
+
+						// packages that carry this dependency as a peer must publish the override too
+						for (const group of [projectDeps.dependencies, projectDeps.devDependencies]) {
+							for (const [dep, depPeers] of Object.entries(group.deps)) {
+								group.deps[dep] = depPeers.map((peer) => (peer === versioned ? override : peer));
+							}
+						}
 					}
 				};
 				for (const override of registry.overrideDependencies) {
