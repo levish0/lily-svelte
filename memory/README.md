@@ -19,3 +19,5 @@
 - [2026-09-13: Motion and Workshop layout](2026-09-13-motion-and-workshop.md)
 
 - [2026-09-13: Full component motion parity](2026-09-13-complete-motion-parity.md)
+
+- [2026-11-16: SvelteKit 3 migration](2026-11-16-sveltekit-3.md)
