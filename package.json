@@ -33,21 +33,21 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@changesets/changelog-github": "^1.0.1",
-		"@changesets/cli": "^3.0.2",
+		"@changesets/cli": "^3.0.3",
 		"@eslint/js": "^10.0.1",
-		"@types/node": "^26.6.3",
-		"concurrently": "^10.0.5",
-		"eslint": "^10.10.0",
+		"@types/node": "^26.6.6",
+		"concurrently": "^10.0.7",
+		"eslint": "^10.15.0",
 		"eslint-config-prettier": "^10.1.8",
-		"eslint-plugin-svelte": "^3.23.0",
-		"globals": "^17.12.0",
-		"prettier": "^3.9.9",
+		"eslint-plugin-svelte": "^3.24.1",
+		"globals": "^17.14.0",
+		"prettier": "^3.10.1",
 		"prettier-plugin-svelte": "^4.1.1",
 		"prettier-plugin-tailwindcss": "^0.8.1",
-		"svelte": "^5.57.0",
+		"svelte": "^5.57.3",
 		"typescript": "^6.0.3",
-		"typescript-eslint": "^8.69.0",
-		"wait-on": "^9.1.0",
-		"wrangler": "4.149.0"
+		"typescript-eslint": "^8.72.2",
+		"wait-on": "^9.5.1",
+		"wrangler": "4.107.1"
 	}
 }
