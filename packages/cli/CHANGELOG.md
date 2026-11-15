@@ -1,5 +1,11 @@
 # lily-svelte
 
+## 0.8.3
+
+### Patch Changes
+
+- [`44bf898`](https://github.com/levish0/lily-svelte/commit/44bf89802ee76402531697bdb5e18909a74913f4) Thanks [@levish0](https://github.com/levish0)! - Apply `overrideDependencies` to dependencies carried as peers in `lily-svelte registry build`, so a package pulled in through another package's peers publishes the overridden range instead of the project's installed version.
+
 ## 0.8.2
 
 ### Patch Changes
